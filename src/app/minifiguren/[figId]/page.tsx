@@ -27,7 +27,7 @@ export async function generateMetadata({
   // 1) Kuratierte Figur (redaktionelle Daten)
   const curated = MINIFIGS.find((f) => f.id === figId);
   if (curated) {
-    const title = `${curated.name.de} (${curated.id}) - Steckbrief, Preise & Wertentwicklung | Brickonaut`;
+    const title = `${curated.name.de} (${curated.id}) - Steckbrief, Preise & Wertentwicklung | BrickSpecs`;
     const description = truncateDescription(curated.description.de);
     return {
       title,
@@ -43,7 +43,7 @@ export async function generateMetadata({
   // 2) Katalog-Figur (Rebrickable)
   const entry = getCatalogFig(figId);
   if (entry) {
-    const title = `${entry.t} (${entry.n}) - Steckbrief, Preise & Wertentwicklung | Brickonaut`;
+    const title = `${entry.t} (${entry.n}) - Steckbrief, Preise & Wertentwicklung | BrickSpecs`;
     const facts = [
       entry.p > 0 ? `${entry.p} Teile` : "",
       entry.s.length > 0
@@ -53,7 +53,7 @@ export async function generateMetadata({
       .filter(Boolean)
       .join(", ");
     const description = truncateDescription(
-      `LEGO-Minifigur ${entry.t} (${entry.n})${facts ? ` - ${facts}` : ""}. Steckbrief mit Set-Zuordnung und Preisen in der Brickonaut-Datenbank.`
+      `LEGO-Minifigur ${entry.t} (${entry.n})${facts ? ` - ${facts}` : ""}. Steckbrief mit Set-Zuordnung und Preisen in der BrickSpecs-Datenbank.`
     );
     return {
       title,
@@ -68,9 +68,9 @@ export async function generateMetadata({
 
   // Unbekannte ID → neutrale Fallback-Metadata (die Page rendert notFound)
   return {
-    title: "Minifiguren-Datenbank | Brickonaut",
+    title: "Minifiguren-Datenbank | BrickSpecs",
     description:
-      "Minifiguren-Steckbriefe mit Sets, Erstjahr, Seltenheit, Preisen und Wertentwicklung in der Brickonaut-Datenbank.",
+      "Minifiguren-Steckbriefe mit Sets, Erstjahr, Seltenheit, Preisen und Wertentwicklung in der BrickSpecs-Datenbank.",
   };
 }
 

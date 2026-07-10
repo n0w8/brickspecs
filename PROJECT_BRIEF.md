@@ -1,6 +1,6 @@
-# Brickonaut — Projekt-Briefing
+# BrickSpecs — Projekt-Briefing
 
-> Markenname: **Brickonaut** (brickonaut.com war am 05.07.2026 frei — registrieren!).
+> Markenname: **BrickSpecs** (brickspecs.com war am 05.07.2026 frei — registrieren!).
 > Projektordner heißt historisch weiterhin `bricktopia`, interne Storage-Keys ebenso.
 
 Das LEGO-Portal für Sammler: Set-Lexikon, Minifiguren-Datenbank, Preisentwicklungen,
@@ -16,7 +16,7 @@ EOL-Radar, Leaks & Deals, Artikel und LEGO-City-Inspiration. Zweisprachig (DE/EN
   Preis-Layer pro Land & Quelle (`/api/prices/[setId]`, BrickLink-Live-Adapter wartet auf
   API-Keys, bis dahin Demo-Modell), täglicher Katalog-Sync-Agent (Scheduled Task 08:00,
   `npm run sync-catalog`, erkennt neue Sets automatisch).
-- **Phase 1.6 (fertig):** Rebranding auf Brickonaut; Minifiguren-Vollkatalog (17k+ Figuren,
+- **Phase 1.6 (fertig):** Rebranding auf BrickSpecs; Minifiguren-Vollkatalog (17k+ Figuren,
   `npm run sync-minifigs`, Suche + Steckbriefe + Set-Zuordnung); Rubrik "Legenden"
   (`/legenden`); Jahrgänge-Browser (`/jahrgaenge` → Lexikon-Jahresfilter); Kauf-Links pro
   Set (LEGO/Amazon/eBay/BrickLink/idealo, länderabhängig); Quell-/Angebots-Links im

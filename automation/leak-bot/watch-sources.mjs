@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Brickonaut Leak-Bot - Quellen-Watcher (Phase 3).
+ * BrickSpecs Leak-Bot - Quellen-Watcher (Phase 3).
  *
  * Zieht LEGO-News/Leaks/Deals aus echten RSS-Feeds, dedupliziert über
  * posted.json, klassifiziert per Titel-Keywords und übergibt neue Funde an

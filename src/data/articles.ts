@@ -330,10 +330,10 @@ export const ARTICLES: Article[] = [
     relatedSetIds: ["10497", "10278"],
   },
   {
-    slug: "die-legenden-von-brickonaut-16-sets-die-geschichte-schrieben",
+    slug: "die-legenden-von-brickspecs-16-sets-die-geschichte-schrieben",
     title: {
-      de: "Die Legenden von Brickonaut: 16 Sets, die Geschichte schrieben",
-      en: "The Legends of Brickonaut: 16 sets that made history",
+      de: "Die Legenden von BrickSpecs: 16 Sets, die Geschichte schrieben",
+      en: "The Legends of BrickSpecs: 16 sets that made history",
     },
     teaser: {
       de: "Gelbe Burg, Monorail, UCS Falke, Café Corner: Zur neuen Legenden-Rubrik erzählen wir die Geschichten hinter den Sets, die das Hobby für immer verändert haben.",
@@ -345,7 +345,7 @@ export const ARTICLES: Article[] = [
     hero: { emoji: "🏆", gradient: "linear-gradient(160deg,#0a0e1a,#232c47,#f6c700)" },
     body: {
       de: [
-        "Sechzehn Sets, ein gemeinsamer Nenner: Sie haben Geschichte geschrieben. Mit der neuen Rubrik „Legenden“ bekommt Brickonaut eine Ruhmeshalle für die Modelle, ohne die das Hobby heute anders aussähe - nicht zwingend die teuersten Sets, sondern die einflussreichsten. Der Marktwert ist dabei oft nur ein Symptom: Was eine Legende ausmacht, ist, dass sie etwas verändert hat - eine Bauweise, eine Zielgruppe oder gleich ein ganzes Thema. Dieser Artikel erzählt die Geschichten hinter sieben dieser Ikonen; alle 16 findest du in der Rubrik selbst.",
+        "Sechzehn Sets, ein gemeinsamer Nenner: Sie haben Geschichte geschrieben. Mit der neuen Rubrik „Legenden“ bekommt BrickSpecs eine Ruhmeshalle für die Modelle, ohne die das Hobby heute anders aussähe - nicht zwingend die teuersten Sets, sondern die einflussreichsten. Der Marktwert ist dabei oft nur ein Symptom: Was eine Legende ausmacht, ist, dass sie etwas verändert hat - eine Bauweise, eine Zielgruppe oder gleich ein ganzes Thema. Dieser Artikel erzählt die Geschichten hinter sieben dieser Ikonen; alle 16 findest du in der Rubrik selbst.",
         "## Die gelbe Burg (375): wo alles anfing",
         "1978 ist das Jahr null der modernen LEGO-Welt: Die Minifigur bekam Arme, Beine und ihr Lächeln - und mit Set 375 gleich ihre erste große Bühne. Die knallgelbe Burg mit ihren 14 Rittern, aufklappbaren Mauern und aus Steinen gebauten Pferden begründete das Castle-Thema und damit ein halbes Jahrhundert Burgengeschichte. Dass LEGO sich bis heute regelmäßig vor ihr verneigt, sagt eigentlich alles; die ganze Geschichte erzählen wir in unserem Vintage-Porträt der Burg.",
         "## Hightech auf Schienen: Monorail 6399 und Metroliner 4558",
@@ -361,7 +361,7 @@ export const ARTICLES: Article[] = [
         "Sieben Geschichten, ein Muster: Legenden entstehen dort, wo LEGO etwas riskiert hat - eine neue Zielgruppe, eine neue Technik, ein neuer Maßstab. In der Legenden-Rubrik findest du alle 16 Ikonen mit Daten, Preisentwicklung und ihrer Rolle in der Geschichte. Und falls dir eine Legende fehlt: Die Ruhmeshalle ist gebaut wie eine LEGO-Stadt - nie wirklich fertig.",
       ],
       en: [
-        "Sixteen sets, one common denominator: they made history. With our new Legends section, Brickonaut gets a hall of fame for the models without which this hobby would look different today - not necessarily the most expensive sets, but the most influential ones. Market value is often just a symptom: what makes a legend is that it changed something - a way of building, an audience, or an entire theme. This article tells the stories behind seven of these icons; you will find all 16 in the section itself.",
+        "Sixteen sets, one common denominator: they made history. With our new Legends section, BrickSpecs gets a hall of fame for the models without which this hobby would look different today - not necessarily the most expensive sets, but the most influential ones. Market value is often just a symptom: what makes a legend is that it changed something - a way of building, an audience, or an entire theme. This article tells the stories behind seven of these icons; you will find all 16 in the section itself.",
         "## The Yellow Castle (375): where it all began",
         "1978 is year zero of the modern LEGO world: the minifigure got its arms, legs and smile - and with set 375, its first big stage. The bright yellow castle with its 14 knights, fold-open walls and brick-built horses founded the Castle theme and with it half a century of castle history. The fact that LEGO still bows to it regularly says it all; we tell the full story in our vintage portrait of the castle.",
         "## High tech on rails: Monorail 6399 and Metroliner 4558",

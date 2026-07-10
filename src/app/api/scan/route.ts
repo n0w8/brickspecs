@@ -19,7 +19,7 @@ const BRICKOGNIZE_BASE = "https://api.brickognize.com";
 const MAX_BYTES = 10 * 1024 * 1024; // ~10 MB
 const TIMEOUT_MS = 20_000;
 const MAX_ITEMS = 8;
-const USER_AGENT = "Brickonaut/1.0 (LEGO-Portal Set-Scanner)";
+const USER_AGENT = "BrickSpecs/1.0 (LEGO-Portal Set-Scanner)";
 
 interface BrickognizeItem {
   id: string;

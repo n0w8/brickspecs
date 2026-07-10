@@ -235,7 +235,7 @@ export default function PricingPage() {
       {/* Hero */}
       <div className="text-center mb-10">
         <h1 className="text-3xl md:text-4xl font-extrabold mb-3">
-          {lang === "de" ? "Werde Teil der Brickonaut-Crew" : "Join the Brickonaut crew"}
+          {lang === "de" ? "Werde Teil der BrickSpecs-Crew" : "Join the BrickSpecs crew"}
         </h1>
         <p className="text-[var(--muted)]">
           {lang === "de"

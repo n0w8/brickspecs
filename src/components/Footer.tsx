@@ -12,7 +12,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 grid gap-8 sm:grid-cols-3 text-sm">
         <div>
           <p className="font-bold text-base mb-2">
-            Brick<span className="text-[var(--yellow)]">onaut</span>
+            Brick<span className="text-[var(--yellow)]">Specs</span>
           </p>
           <p className="text-[var(--muted)] leading-relaxed">
             {lang === "de"

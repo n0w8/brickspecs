@@ -1,4 +1,4 @@
-# Brickonaut Leak-Bot (Phase 3)
+# BrickSpecs Leak-Bot (Phase 3)
 
 Ziel: Ein Agent überwacht Leak-Quellen (StoneWars, Promobricks, Brick Fanatics,
 Instagram-Leaker) und Deal-Quellen (Amazon, Alternate, Smyths …) und postet neue
@@ -79,7 +79,7 @@ $action  = New-ScheduledTaskAction -Execute "node" `
   -WorkingDirectory "C:\Users\Mike\Desktop\Claude\bricktopia"
 $trigger = New-ScheduledTaskTrigger -Once -At (Get-Date) `
   -RepetitionInterval (New-TimeSpan -Minutes 10)
-Register-ScheduledTask -TaskName "Brickonaut Leak-Watcher" `
+Register-ScheduledTask -TaskName "BrickSpecs Leak-Watcher" `
   -Action $action -Trigger $trigger
 ```
 
@@ -136,7 +136,7 @@ Adapter fehl, endet das Skript mit Exit-Code 1.
    ```
 4. **Testen** (postet echt in den Kanal!):
    ```
-   node automation/leak-bot/post-leak.mjs --type news --title "Bot-Test" --body "Hallo aus dem Brickonaut Leak-Bot"
+   node automation/leak-bot/post-leak.mjs --type news --title "Bot-Test" --body "Hallo aus dem BrickSpecs Leak-Bot"
    ```
    Erwartete Ausgabe: `[leak-bot] Gepostet via telegram.` und die Nachricht
    erscheint im Kanal. Bei `400 Bad Request: chat not found` stimmt die

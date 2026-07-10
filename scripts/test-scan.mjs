@@ -11,7 +11,7 @@
  */
 
 const IMG_URL = "https://cdn.rebrickable.com/media/sets/10188-1.jpg";
-const UA = "Brickonaut/1.0 (LEGO portal scanner; contact: dev@brickonaut.example)";
+const UA = "BrickSpecs/1.0 (LEGO portal scanner; contact: dev@brickspecs.example)";
 
 async function loadImage() {
   const fileArg = process.argv.slice(2).find((a) => !a.startsWith("-"));

@@ -26,13 +26,13 @@ export async function generateMetadata({
   // Unbekannter Slug → neutrale Fallback-Metadata (die Page rendert notFound)
   if (!article) {
     return {
-      title: "Artikel | Brickonaut",
+      title: "Artikel | BrickSpecs",
       description:
-        "Info-Artikel rund um LEGO: Vintage, Retro, Neuheiten, Investment, City und Wissen - im Brickonaut-Magazin.",
+        "Info-Artikel rund um LEGO: Vintage, Retro, Neuheiten, Investment, City und Wissen - im BrickSpecs-Magazin.",
     };
   }
 
-  const title = `${article.title.de} | Brickonaut`;
+  const title = `${article.title.de} | BrickSpecs`;
   const description = truncateDescription(article.teaser.de);
   return {
     title,

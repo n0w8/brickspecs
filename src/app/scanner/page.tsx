@@ -9,8 +9,8 @@ import BrickImage from "@/components/BrickImage";
 const TXT = {
   title: { de: "📸 Set-Scanner", en: "📸 Set Scanner" },
   sub: {
-    de: "Fotografiere ein Set oder seinen Karton - Brickonaut erkennt es und öffnet den Steckbrief.",
-    en: "Take a photo of a set or its box - Brickonaut identifies it and opens its profile.",
+    de: "Fotografiere ein Set oder seinen Karton - BrickSpecs erkennt es und öffnet den Steckbrief.",
+    en: "Take a photo of a set or its box - BrickSpecs identifies it and opens its profile.",
   },
   dropTitle: { de: "Foto aufnehmen oder hochladen", en: "Take or upload a photo" },
   dropHint: {

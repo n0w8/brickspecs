@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * SubwayRide - First-Person-Fahrt in einer LEGO-U-Bahn unter Brickonaut.
+ * SubwayRide - First-Person-Fahrt in einer LEGO-U-Bahn unter BrickSpecs.
  * Canvas-2D, keine Dependencies. Pseudo-3D-Tunnel mit Parallax-Tiefe,
  * Stationen, Aufblick-Segmenten (Stadt bei Nacht) und Wagen-Interieur.
  */
@@ -32,7 +32,7 @@ const STATIC_CAM_Z = 3 * CYCLE - 14; // Standbild: kurz vor einer Station
 const STATIC_TIME = 4.2;
 
 const NAMES = [
-  "Brickonaut Mitte",
+  "BrickSpecs Mitte",
   "Studville",
   "Minifig Allee",
   "Klemmhafen",

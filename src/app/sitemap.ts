@@ -3,7 +3,7 @@ import { SETS } from "@/data/sets";
 import { MINIFIGS } from "@/data/minifigs";
 import { ARTICLES } from "@/data/articles";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://brickonaut.com";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://brickspecs.com";
 
 // Statische Hauptrouten mit grober Crawl-Priorisierung.
 const STATIC_ROUTES: {

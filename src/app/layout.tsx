@@ -16,11 +16,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Brickonaut - LEGO-Lexikon, Preise, Leaks & City-Ideen",
+  title: "BrickSpecs - LEGO-Lexikon, Preise, Leaks & City-Ideen",
   description:
     "Das Portal für LEGO-Sammler: Set-Lexikon mit Steckbriefen, Minifiguren-Datenbank, Preisentwicklungen, EOL-Radar, Leaks & Deals und LEGO-City-Inspiration.",
-  applicationName: "Brickonaut",
-  appleWebApp: { capable: true, title: "Brickonaut", statusBarStyle: "black-translucent" },
+  applicationName: "BrickSpecs",
+  appleWebApp: { capable: true, title: "BrickSpecs", statusBarStyle: "black-translucent" },
 };
 
 export const viewport: Viewport = {

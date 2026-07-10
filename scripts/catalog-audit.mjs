@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // catalog-audit.mjs
-// Reines Node-Skript zur Bestandsaufnahme des Brickonaut-Katalogs.
+// Reines Node-Skript zur Bestandsaufnahme des BrickSpecs-Katalogs.
 // Liest src/data/catalog/catalog.json (und themes.json) und gibt einen
 // lesbaren Report auf stdout aus. Aendert KEINE Daten.
 

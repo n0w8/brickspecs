@@ -27,7 +27,7 @@ function truncateDescription(text: string, max = 155): string {
 }
 
 function curatedSetMetadata(set: LegoSet): Metadata {
-  const title = `${set.name.de} (${set.id}) - Steckbrief, Preise & Wertentwicklung | Brickonaut`;
+  const title = `${set.name.de} (${set.id}) - Steckbrief, Preise & Wertentwicklung | BrickSpecs`;
   const description = truncateDescription(set.description.de);
   return {
     title,
@@ -57,7 +57,7 @@ export async function generateMetadata({
     if (curatedMatch) return curatedSetMetadata(curatedMatch);
 
     const setNumber = entry.n.replace(/-\d+$/, "");
-    const title = `${entry.t} (${setNumber}) - Steckbrief, Preise & Wertentwicklung | Brickonaut`;
+    const title = `${entry.t} (${setNumber}) - Steckbrief, Preise & Wertentwicklung | BrickSpecs`;
     const facts = [
       entry.y > 0 ? `aus dem Jahr ${entry.y}` : "",
       entry.p > 0 ? `mit ${entry.p.toLocaleString("de-DE")} Teilen` : "",
@@ -65,7 +65,7 @@ export async function generateMetadata({
       .filter(Boolean)
       .join(" ");
     const description = truncateDescription(
-      `LEGO ${entry.t} (${setNumber})${facts ? ` ${facts}` : ""} - Steckbrief, aktuelle Preise und Wertentwicklung im Brickonaut-Lexikon.`
+      `LEGO ${entry.t} (${setNumber})${facts ? ` ${facts}` : ""} - Steckbrief, aktuelle Preise und Wertentwicklung im BrickSpecs-Lexikon.`
     );
     return {
       title,
@@ -80,9 +80,9 @@ export async function generateMetadata({
 
   // Unbekannte ID → neutrale Fallback-Metadata (die Page rendert notFound)
   return {
-    title: "LEGO-Set-Lexikon | Brickonaut",
+    title: "LEGO-Set-Lexikon | BrickSpecs",
     description:
-      "Set-Steckbriefe mit Release, EOL, UVP, aktuellen Preisen und Wertentwicklung im Brickonaut-Lexikon.",
+      "Set-Steckbriefe mit Release, EOL, UVP, aktuellen Preisen und Wertentwicklung im BrickSpecs-Lexikon.",
   };
 }
 

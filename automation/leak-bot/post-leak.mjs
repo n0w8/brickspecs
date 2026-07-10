@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Brickonaut Leak-Bot - Poster-Skript (Phase 3).
+ * BrickSpecs Leak-Bot - Poster-Skript (Phase 3).
  *
  * Nimmt einen Fund entgegen und postet ihn über alle konfigurierten Adapter:
  *   - WhatsApp: WHATSAPP_API_URL + WHATSAPP_API_TOKEN + WHATSAPP_CHANNEL_ID
@@ -60,7 +60,7 @@ function formatPlain({ type, blocks, url, price, rrp }) {
     lines.push("", `➡️ *${price} €*${discount}`);
   }
   if (url) lines.push("", url);
-  lines.push("", "- Brickonaut Leak-Bot");
+  lines.push("", "- BrickSpecs Leak-Bot");
   return lines.join("\n");
 }
 
@@ -85,7 +85,7 @@ function formatTelegramHtml({ type, blocks, url, price, rrp }) {
     lines.push("", `➡️ <b>${price} €</b>${discount}`);
   }
   if (url) lines.push("", `<a href="${escapeHtml(url)}">${escapeHtml(url)}</a>`);
-  lines.push("", "- Brickonaut Leak-Bot");
+  lines.push("", "- BrickSpecs Leak-Bot");
   return lines.join("\n");
 }
 

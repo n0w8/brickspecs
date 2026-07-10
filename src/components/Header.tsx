@@ -31,17 +31,23 @@ export default function Header() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between gap-4 py-3">
           <Link href="/" className="flex items-center gap-2 shrink-0">
-            {/* Logo: Astronautenhelm mit Brick-Noppen = der Brickonaut */}
+            {/* Logo: Brick mit Brille = BrickSpecs (specs = Datenblatt UND Brille) */}
             <svg viewBox="0 0 64 64" className="h-8 w-8 shrink-0" aria-hidden>
               <rect x="2" y="2" width="60" height="60" rx="14" fill="#d01012" />
-              <rect x="19" y="11" width="11" height="9" rx="3" fill="#f6c700" />
-              <rect x="34" y="11" width="11" height="9" rx="3" fill="#f6c700" />
-              <circle cx="32" cy="39" r="19" fill="#f2f4fb" />
-              <rect x="19" y="31" width="26" height="15" rx="7.5" fill="#0a0e1a" />
-              <rect x="23" y="34.5" width="8" height="4" rx="2" fill="#2a6fd6" />
+              <rect x="18" y="13" width="11" height="9" rx="2.5" fill="#f6c700" />
+              <rect x="35" y="13" width="11" height="9" rx="2.5" fill="#f6c700" />
+              <rect x="13" y="21" width="38" height="28" rx="5" fill="#f6c700" />
+              <rect x="13" y="32.5" width="5" height="3" fill="#0a0e1a" />
+              <rect x="46" y="32.5" width="5" height="3" fill="#0a0e1a" />
+              <rect x="28" y="32.5" width="8" height="3" fill="#0a0e1a" />
+              <circle cx="24" cy="34" r="6.5" fill="#0a0e1a" />
+              <circle cx="40" cy="34" r="6.5" fill="#0a0e1a" />
+              <circle cx="22" cy="32" r="2" fill="#2a6fd6" />
+              <circle cx="38" cy="32" r="2" fill="#2a6fd6" />
+              <rect x="27" y="43" width="10" height="2.5" rx="1.25" fill="#c79f00" />
             </svg>
             <span className="text-lg font-800 font-bold tracking-tight">
-              Brick<span className="text-[var(--yellow)]">onaut</span>
+              Brick<span className="text-[var(--yellow)]">Specs</span>
             </span>
             <span className="badge badge-gray hidden sm:inline-flex">beta</span>
           </Link>

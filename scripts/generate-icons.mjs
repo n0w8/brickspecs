@@ -1,5 +1,5 @@
 /**
- * generate-icons.mjs — erzeugt alle App-Icons für Brickonaut (PWA).
+ * generate-icons.mjs — erzeugt alle App-Icons für BrickSpecs (PWA).
  *
  * Motiv: freundlicher roter 2×2-LEGO-Stein (leicht 3D, 4 helle Noppen)
  * auf dunklem, abgerundetem Quadrat (#0a0e1a) mit dezentem gelbem Akzent
@@ -22,7 +22,7 @@ import { fileURLToPath } from "node:url";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 // ---------------------------------------------------------------------------
-// Farbpalette (Brickonaut-Theme)
+// Farbpalette (BrickSpecs-Theme)
 // ---------------------------------------------------------------------------
 const C = {
   bg: "#0a0e1a", // dunkler Hintergrund

@@ -32,7 +32,7 @@ jobs:
 
       - name: Änderungen committen und pushen
         run: |
-          git config user.name "brickonaut-bot"
+          git config user.name "brickspecs-bot"
           git config user.email "actions@users.noreply.github.com"
           git add src/data/catalog
           if git diff --cached --quiet; then

@@ -1,4 +1,4 @@
-# Brickonaut Live-Deployment - Schritt für Schritt
+# BrickSpecs Live-Deployment - Schritt für Schritt
 
 Stand: 07.07.2026. Ziel: Seite läuft 24/7 auf Vercel, Katalog-Sync und
 Deal-Watcher laufen automatisch über GitHub Actions. Laufende Kosten: 0 EUR
@@ -14,36 +14,36 @@ Deal-Watcher laufen automatisch über GitHub Actions. Laufende Kosten: 0 EUR
 
 ## Schritt 1: Domain kaufen (deine Aufgabe, 10 Min)
 
-brickonaut.com und brickonaut.app sind inzwischen vergeben. Freie Optionen
-(Stand 07.07.2026): brickonauts.com, brickonaut.de, brickonaut.io,
-brickonaut.net, thebrickonaut.com. Kauf bei easyname (hast du schon) oder
+brickspecs.com und brickspecs.app sind inzwischen vergeben. Freie Optionen
+(Stand 07.07.2026): brickspecs.com, brickspecs.de, brickspecs.io,
+brickspecs.net, thebrickspecs.com. Kauf bei easyname (hast du schon) oder
 Namecheap - egal, die DNS-Einstellungen funktionieren überall gleich.
-Tipp: Haupt-Domain + brickonaut.de als Zweit-Domain (Weiterleitung) sichern.
+Tipp: Haupt-Domain + brickspecs.de als Zweit-Domain (Weiterleitung) sichern.
 
 ## Schritt 2: GitHub-Repo (2 Min)
 
 Dein bestehendes GitHub-Konto reicht völlig - Repos sind voneinander
 getrennt, der Viking-Blog stört nicht. Entweder legt Claude das private Repo
 per `gh` CLI an und pusht, oder manuell: github.com -> New repository ->
-Name "brickonaut" -> Private -> Create (OHNE README/gitignore-Haken), dann:
+Name "brickspecs" -> Private -> Create (OHNE README/gitignore-Haken), dann:
 
 ```
 cd C:\Users\Mike\Desktop\Claude\bricktopia
-git remote add origin https://github.com/DEIN-USER/brickonaut.git
+git remote add origin https://github.com/DEIN-USER/brickspecs.git
 git push -u origin main
 ```
 
 ## Schritt 3: Vercel-Konto + Import (10 Min)
 
 1. vercel.com -> "Sign Up" -> "Continue with GitHub" (nutzt dein GitHub-Login)
-2. Dashboard -> "Add New..." -> "Project" -> Repo "brickonaut" -> "Import"
+2. Dashboard -> "Add New..." -> "Project" -> Repo "brickspecs" -> "Import"
 3. Framework wird automatisch als Next.js erkannt - nichts ändern
 4. "Environment Variables" aufklappen und eintragen:
-   - `NEXT_PUBLIC_SITE_URL` = `https://DEINE-DOMAIN` (z. B. https://brickonauts.com)
+   - `NEXT_PUBLIC_SITE_URL` = `https://DEINE-DOMAIN` (z. B. https://brickspecs.com)
    - optional später: `BRICKLINK_CONSUMER_KEY/SECRET`, `BRICKLINK_TOKEN_VALUE/SECRET`
      (schaltet echte Marktpreise frei)
 5. "Deploy" klicken -> nach ~2 Min ist die Seite unter
-   `brickonaut-xxxx.vercel.app` live
+   `brickspecs-xxxx.vercel.app` live
 
 ## Schritt 4: Domain verbinden (5 Min + DNS-Wartezeit)
 
@@ -56,7 +56,7 @@ git push -u origin main
 
 ## Schritt 5: GitHub-Secrets für die Automatisierung (5 Min)
 
-GitHub -> Repo brickonaut -> Settings -> Secrets and variables -> Actions
+GitHub -> Repo brickspecs -> Settings -> Secrets and variables -> Actions
 -> "New repository secret":
 
 | Secret | Wert | Zweck |
