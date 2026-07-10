@@ -1,4 +1,4 @@
-# Manueller Bot-Test: schickt eine Testnachricht in die Kanäle.
+# Manueller Bot-Test: schickt eine strukturierte Beispiel-Nachricht in die Kanäle.
 # Nur von Hand startbar (Actions -> Bot-Test -> Run workflow).
 name: Bot-Test
 
@@ -19,12 +19,20 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_CHAT_ID_DE: ${{ secrets.TELEGRAM_CHAT_ID_DE }}
+          AMAZON_AFFILIATE_TAG: ${{ secrets.AMAZON_AFFILIATE_TAG }}
           WHATSAPP_API_URL: ${{ secrets.WHATSAPP_API_URL }}
           WHATSAPP_API_TOKEN: ${{ secrets.WHATSAPP_API_TOKEN }}
           WHATSAPP_CHANNEL_ID: ${{ secrets.WHATSAPP_CHANNEL_ID }}
         run: >
           node automation/leak-bot/post-leak.mjs
-          --type news
-          --title "BrickSpecs Bot ist online"
-          --body "Ab jetzt landen hier automatisch die besten LEGO-Deals und Leaks - alle 15 Minuten geprueft. Willkommen an Bord!"
-          --url "https://brickspecs.vercel.app"
+          --type deal
+          --title "TEST - Natural History Museum"
+          --set 10326
+          --theme "LEGO Icons"
+          --price 214.99
+          --rrp 269.99
+          --shop Amazon
+          --buy-url "https://www.amazon.de/s?k=LEGO+10326"
+          --url "https://brickspecs.com/lexikon/10326-1"
+          --body "Format test of the new structured deal posts. Real deals are found automatically every 15 minutes."
