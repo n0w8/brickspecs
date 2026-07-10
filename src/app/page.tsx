@@ -19,12 +19,17 @@ export default function Home() {
   const router = useRouter();
   const [query, setQuery] = useState("");
   const [catalogTotal, setCatalogTotal] = useState<number | null>(null);
+  const [figsTotal, setFigsTotal] = useState<number | null>(null);
 
   useEffect(() => {
     fetch("/api/catalog/search?meta=1")
       .then((r) => r.json())
       .then((m: { total: number }) => setCatalogTotal(m.total))
       .catch(() => setCatalogTotal(null));
+    fetch("/api/catalog/minifigs?meta=1")
+      .then((r) => r.json())
+      .then((m: { total: number }) => setFigsTotal(m.total))
+      .catch(() => setFigsTotal(null));
   }, []);
 
   const featured = [...SETS]
@@ -90,7 +95,10 @@ export default function Home() {
               {lang === "de" ? "Sets im Katalog" : "sets in catalog"}
             </span>
             <span className="badge badge-red">★ {SETS.length} {lang === "de" ? "Steckbriefe+" : "profiles+"}</span>
-            <span className="badge badge-blue">👤 {MINIFIGS.length} {t("common.minifigs")}</span>
+            <span className="badge badge-blue">
+              👤 {(figsTotal ?? MINIFIGS.length).toLocaleString(lang === "de" ? "de-DE" : "en-GB")}{" "}
+              {t("common.minifigs")}
+            </span>
             <span className="badge badge-green">📰 {ARTICLES.length} {t("nav.articles")}</span>
           </div>
         </div>
