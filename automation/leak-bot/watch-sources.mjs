@@ -3,10 +3,14 @@
  * BrickSpecs Leak-Bot - Quellen-Watcher (Phase 3).
  *
  * Zieht LEGO-News/Leaks/Deals aus echten RSS-Feeds, dedupliziert über
- * posted.json, klassifiziert per Titel-Keywords und übergibt neue Funde an
+ * posted.json, klassifiziert per Titel-Keywords, extrahiert Struktur-Felder
+ * (Setnummer, Preis/UVP, Shop, Kauf-Link, Thema) und übergibt neue Funde an
  * post-leak.mjs (postet ohne API-Keys nur in die Konsole - gewollt).
  * Zusätzlich landet jeder Fund in inbox.json - dem redaktionellen
  * Posteingang. inbox.json wird NICHT automatisch in die Website übernommen.
+ *
+ * Die Extraktions-Helfer sind exportiert und das Skript läuft beim Import
+ * NICHT los (Main-Guard) - so lassen sie sich ohne Netz/Secrets testen.
  *
  * Aufruf:
  *   node automation/leak-bot/watch-sources.mjs            # echter Lauf
@@ -164,6 +168,166 @@ function classify(title) {
 }
 
 // ---------------------------------------------------------------------------
+// Struktur-Extraktion (Setnummer, Preis/UVP, Shop, Kauf-Link, Thema)
+// ---------------------------------------------------------------------------
+
+/** LEGO-Themen für die Kopfzeile - längere/spezifischere Namen zuerst. */
+const THEMES = [
+  "Creator 3-in-1",
+  "Speed Champions",
+  "Harry Potter",
+  "Super Mario",
+  "Star Wars",
+  "Architecture",
+  "Botanicals",
+  "Minecraft",
+  "Minifiguren",
+  "DreamZzz",
+  "Seasonal",
+  "Avengers",
+  "Pokémon",
+  "Pokemon",
+  "Technic",
+  "Creator",
+  "Friends",
+  "Ninjago",
+  "Disney",
+  "Marvel",
+  "Icons",
+  "Ideas",
+  "Duplo",
+  "City",
+  "F1",
+  "Art",
+];
+
+/** "LEGO Technic 42151 …" -> "LEGO Technic"; null, wenn kein Thema erkennbar. */
+export function extractTheme(title) {
+  for (const theme of THEMES) {
+    const escaped = theme.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    if (new RegExp(`\\bLEGO\\s+${escaped}\\b`, "i").test(title)) return `LEGO ${theme}`;
+  }
+  return null;
+}
+
+/**
+ * Setnummer: erste 4-6-stellige Zahl im Titel, sofern der Titel LEGO-Kontext
+ * hat. Jahreszahlen (19xx/20xx) werden ausgeschlossen.
+ * "LEGO Technic 42151 …" -> "42151"; "LEGO Halloween-Sets im August 2026" -> null.
+ */
+export function extractSetNumber(title) {
+  if (!/lego/i.test(title)) return null;
+  for (const match of title.matchAll(/\b(\d{4,6})\b/g)) {
+    if (/^(19|20)\d{2}$/.test(match[1])) continue; // Jahreszahl, keine Setnummer
+    return match[1];
+  }
+  return null;
+}
+
+function parseAmount(raw) {
+  return Number(raw.replace(",", "."));
+}
+
+function round2(value) {
+  return Math.round(value * 100) / 100;
+}
+
+/** Euro-Beträge: "34,99 €", "für 34,99 Euro", "59.99 Euro". */
+const EUR_AMOUNT_RE = /(\d{1,4}(?:[.,]\d{2})?)\s*(?:€|euro\b)/gi;
+/** Dollar-Beträge: "for $29.99" - werden erkannt, aber NICHT als EUR gewertet. */
+const USD_AMOUNT_RE = /\$\s?(\d{1,4}(?:\.\d{2})?)/;
+/** Kontext direkt vor einem Betrag, der ihn als UVP statt Preis ausweist. */
+const RRP_CONTEXT_RE = /(uvp|rrp|statt|regul(ä|ae)r)/i;
+/** Rabatt: "25% Rabatt", "-20 %", "mindestens 50 Prozent". */
+const DISCOUNT_RE = /(?:^|[^\d,.])(\d{1,2})\s?(?:%|prozent\b)/i;
+
+/**
+ * Preis/UVP aus Titel+Beschreibung ziehen.
+ * - Beträge mit UVP/RRP/statt-Kontext werden als UVP gewertet, sonst als Preis.
+ * - Ist nur UVP + Rabatt-Prozent bekannt, wird der Preis daraus berechnet
+ *   (und umgekehrt die UVP aus Preis + Rabatt).
+ * - Dollar-Preise werden erkannt (priceUSD), aber bewusst nicht als EUR
+ *   übernommen - der Bot postet nur EUR-Preise.
+ */
+export function extractPricing(title, description) {
+  const text = `${title} ${description ?? ""}`;
+  let priceEUR = null;
+  let rrpEUR = null;
+
+  for (const match of text.matchAll(EUR_AMOUNT_RE)) {
+    const value = parseAmount(match[1]);
+    if (!Number.isFinite(value) || value <= 0) continue;
+    const context = text.slice(Math.max(0, match.index - 20), match.index);
+    if (RRP_CONTEXT_RE.test(context)) {
+      if (rrpEUR === null) rrpEUR = value;
+    } else if (priceEUR === null) {
+      priceEUR = value;
+    }
+  }
+
+  const discountMatch = text.match(DISCOUNT_RE);
+  const pct = discountMatch ? Number(discountMatch[1]) : null;
+  if (pct && pct >= 5 && pct <= 90) {
+    if (priceEUR === null && rrpEUR !== null) priceEUR = round2(rrpEUR * (1 - pct / 100));
+    else if (priceEUR !== null && rrpEUR === null) rrpEUR = round2(priceEUR / (1 - pct / 100));
+  }
+
+  // Sicherheitsnetz: Preis darf nie über der UVP liegen (Fehlklassifikation).
+  if (priceEUR !== null && rrpEUR !== null && priceEUR > rrpEUR) {
+    [priceEUR, rrpEUR] = [rrpEUR, priceEUR];
+  }
+
+  const usdMatch = text.match(USD_AMOUNT_RE);
+  const priceUSD = usdMatch ? parseAmount(usdMatch[1]) : null;
+
+  return { priceEUR, rrpEUR, priceUSD };
+}
+
+/** Shop-Keywords -> kanonischer Anzeigename (Titel hat Vorrang vor Body). */
+const SHOPS = [
+  { name: "Amazon", pattern: /\bamazon\b/i },
+  { name: "Alternate", pattern: /\balternate\b/i },
+  { name: "Smyths Toys", pattern: /\bsmyths\b/i },
+  { name: "MediaMarkt", pattern: /\bmedia\s?markt\b/i },
+  { name: "LEGO Shop", pattern: /lego[\s.-]?(online-?\s?)?shop|lego\.com/i },
+  { name: "eBay", pattern: /\bebay\b/i },
+];
+
+export function extractShop(title, description) {
+  for (const text of [title, description ?? ""]) {
+    let best = null;
+    for (const shop of SHOPS) {
+      const match = shop.pattern.exec(text);
+      if (match && (best === null || match.index < best.index)) {
+        best = { name: shop.name, index: match.index };
+      }
+    }
+    if (best) return best.name;
+  }
+  return null;
+}
+
+/**
+ * Kauf-Link: Amazon-Suche, wenn Setnummer bekannt ist ODER der Shop Amazon
+ * ist (dann Suche über Titel-Keywords). Der Affiliate-Tag kommt erst in
+ * post-leak.mjs dran. Sonst kein Kauf-Link.
+ */
+export function buildBuyUrl(setNumber, shop, title) {
+  if (setNumber) return `https://www.amazon.de/s?k=LEGO+${setNumber}`;
+  if (shop === "Amazon") {
+    const words = title
+      .replace(/lego/gi, " ")
+      .replace(/[^\p{L}\p{N}\s]/gu, " ")
+      .split(/\s+/)
+      .filter((word) => word.length > 2)
+      .slice(0, 4)
+      .map((word) => encodeURIComponent(word));
+    return `https://www.amazon.de/s?k=${["LEGO", ...words].join("+")}`;
+  }
+  return null;
+}
+
+// ---------------------------------------------------------------------------
 // Persistenz (posted.json = Dedupe, inbox.json = redaktioneller Posteingang)
 // ---------------------------------------------------------------------------
 
@@ -202,16 +366,22 @@ async function fetchFeed(source) {
 // ---------------------------------------------------------------------------
 
 async function postFind(find) {
-  // Quellname als Body-Prefix ("[StoneWars] …"), falls noch nicht vorhanden.
-  const prefix = `[${find.source}]`;
-  const body = find.body.startsWith(prefix) ? find.body : `${prefix} ${find.body}`;
+  // Quellname geht als --source mit (Source-Zeile im Post) - kein Body-Prefix
+  // mehr nötig.
   const args = [
     POST_SCRIPT,
     "--type", find.type,
     "--title", find.title,
-    "--body", body,
+    "--body", find.body,
+    "--source", find.source,
   ];
   if (find.url) args.push("--url", find.url);
+  if (find.theme) args.push("--theme", find.theme);
+  if (find.set) args.push("--set", find.set);
+  if (find.shop) args.push("--shop", find.shop);
+  if (find.priceEUR != null) args.push("--price", String(find.priceEUR));
+  if (find.rrpEUR != null) args.push("--rrp", String(find.rrpEUR));
+  if (find.buyUrl) args.push("--buy-url", find.buyUrl);
   const { stdout, stderr } = await execFileAsync(process.execPath, args, {
     cwd: SCRIPT_DIR,
     timeout: 30_000,
@@ -271,6 +441,9 @@ async function main() {
 
     for (const item of freshItems) {
       seen.add(item.link);
+      const set = extractSetNumber(item.title);
+      const shop = extractShop(item.title, item.description);
+      const { priceEUR, rrpEUR } = extractPricing(item.title, item.description);
       finds.push({
         id: randomUUID(),
         type: classify(item.title),
@@ -279,6 +452,12 @@ async function main() {
         url: item.link,
         source: source.name,
         pubDate: item.pubDate,
+        set,
+        shop,
+        priceEUR,
+        rrpEUR,
+        buyUrl: buildBuyUrl(set, shop, item.title),
+        theme: extractTheme(item.title),
       });
     }
 
@@ -303,6 +482,16 @@ async function main() {
     for (const find of finds) {
       const marker = postTypes.has(find.type) ? "POST" : "nur Inbox";
       console.log(`  [${find.type}] [${marker}] ${find.source}: ${find.title}`);
+      const extracted = [
+        find.theme ? `Thema: ${find.theme}` : null,
+        find.set ? `Set ${find.set}` : null,
+        find.priceEUR != null
+          ? `${find.priceEUR} EUR${find.rrpEUR != null ? ` (UVP ${find.rrpEUR} EUR)` : ""}`
+          : null,
+        find.shop ? `Shop: ${find.shop}` : null,
+        find.buyUrl ? `Buy: ${find.buyUrl}` : null,
+      ].filter(Boolean);
+      if (extracted.length > 0) console.log(`         ${extracted.join(" | ")}`);
       console.log(`         ${find.url}`);
     }
     console.log(
@@ -333,6 +522,11 @@ async function main() {
       body: find.body,
       url: find.url,
       source: find.source,
+      set: find.set ?? null,
+      shop: find.shop ?? null,
+      priceEUR: find.priceEUR ?? null,
+      rrpEUR: find.rrpEUR ?? null,
+      buyUrl: find.buyUrl ?? null,
       postedAt,
     });
   }
@@ -349,7 +543,15 @@ async function main() {
   );
 }
 
-main().catch((err) => {
-  console.error(`[watcher] Unerwarteter Fehler: ${err.message}`);
-  process.exit(1);
-});
+// Main-Guard: nur bei direktem Aufruf laufen lassen, nicht beim Import
+// (Tests importieren die Extraktions-Helfer, ohne Feeds abzurufen).
+const isDirectRun =
+  process.argv[1] &&
+  path.resolve(process.argv[1]).toLowerCase() === fileURLToPath(import.meta.url).toLowerCase();
+
+if (isDirectRun) {
+  main().catch((err) => {
+    console.error(`[watcher] Unerwarteter Fehler: ${err.message}`);
+    process.exit(1);
+  });
+}

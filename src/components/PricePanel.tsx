@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useLang, useT } from "@/lib/i18n";
 import { formatEUR } from "@/lib/format";
+import { withAmazonTag } from "@/lib/config";
 
 // Muss mit src/lib/prices.ts übereinstimmen (Client darf das Server-Modul nicht importieren).
 const COUNTRIES: { code: string; de: string; en: string }[] = [
@@ -55,7 +56,7 @@ function buyLinks(setId: string, country: string): { label: string; href: string
     },
     {
       label: "Amazon",
-      href: `https://www.amazon.${AMAZON_TLD[country] ?? "de"}/s?k=${q}`,
+      href: withAmazonTag(`https://www.amazon.${AMAZON_TLD[country] ?? "de"}/s?k=${q}`),
     },
     {
       label: "eBay",
