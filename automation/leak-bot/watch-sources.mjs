@@ -157,11 +157,23 @@ function parseRss(xml) {
 // Klassifizierung
 // ---------------------------------------------------------------------------
 
+const GWP_KEYWORDS = [
+  "gwp",
+  "gratis",
+  "zugabe",
+  "beigabe",
+  "gift with purchase",
+  "free gift",
+  "freebie",
+  "geschenkt",
+];
 const DEAL_KEYWORDS = ["angebot", "rabatt", "deal", "sale", "%"];
 const LEAK_KEYWORDS = ["leak", "gerücht", "geruecht", "rumor", "rumour", "erster blick"];
 
-function classify(title) {
+export function classify(title) {
   const t = title.toLowerCase();
+  // GWP zuerst: "Gratis-Zugabe ab 180 EUR" enthaelt oft auch Deal-Keywords
+  if (GWP_KEYWORDS.some((k) => t.includes(k))) return "gwp";
   if (DEAL_KEYWORDS.some((k) => t.includes(k))) return "deal";
   if (LEAK_KEYWORDS.some((k) => t.includes(k))) return "leak";
   return "news";

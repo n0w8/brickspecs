@@ -62,6 +62,7 @@ const TYPE_BADGES = {
   deal: { icon: "🔥", label: "DEAL" },
   leak: { icon: "🔍", label: "LEAK" },
   news: { icon: "📰", label: "NEWS" },
+  gwp: { icon: "🎁", label: "GWP" },
 };
 
 /** Label-Sets: Haupt-Kanal + WhatsApp englisch, TELEGRAM_CHAT_ID_DE deutsch. */
@@ -157,8 +158,9 @@ function formatMessage(content, labels, { html }) {
   });
 
   // Info-Block: Preis/Rabatt, Shop, Kauf-Link, Quelle.
+  // Preis 0 (z. B. GWP/Gratis-Artikel) wird nicht als Preiszeile gerendert.
   const info = [];
-  if (content.price != null) {
+  if (content.price != null && content.price > 0) {
     const rrpPart = content.rrp != null ? ` (${labels.rrp} ${labels.money(content.rrp)})` : "";
     info.push(`💶 ${labels.money(content.price)}${rrpPart}`);
     if (content.rrp != null && content.rrp > content.price) {

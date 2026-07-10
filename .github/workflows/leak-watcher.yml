@@ -33,8 +33,10 @@ jobs:
           WHATSAPP_API_URL: ${{ secrets.WHATSAPP_API_URL }}
           WHATSAPP_API_TOKEN: ${{ secrets.WHATSAPP_API_TOKEN }}
           WHATSAPP_CHANNEL_ID: ${{ secrets.WHATSAPP_CHANNEL_ID }}
+          TELEGRAM_CHAT_ID_DE: ${{ secrets.TELEGRAM_CHAT_ID_DE }}
+          AMAZON_AFFILIATE_TAG: ${{ secrets.AMAZON_AFFILIATE_TAG }}
           BOT_LANG: de
-        run: node automation/leak-bot/watch-sources.mjs --post-types deal,leak
+        run: node automation/leak-bot/watch-sources.mjs --post-types deal,leak,gwp
 
       - name: Dedupe-Stand sichern
         run: |
