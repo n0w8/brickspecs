@@ -95,11 +95,48 @@ interface ScanItem {
   score: number;
   img: string;
   type: string;
+  /** Nur bei Minifiguren: Sets, in denen die Figur vorkommt */
+  sets?: string[];
+  setCount?: number;
 }
 
 const MAX_BYTES = 10 * 1024 * 1024;
 const AUTO_REDIRECT_SCORE = 0.55;
 const COUNTDOWN_SECONDS = 3;
+
+/** Max. Kantenlänge fürs Hochladen - mehr braucht die Erkennung nicht. */
+const MAX_DIMENSION = 1600;
+/** Ab dieser Größe wird clientseitig verkleinert (Handy-Fotos sind oft 5-20 MB). */
+const DOWNSCALE_THRESHOLD = 1.5 * 1024 * 1024;
+
+/**
+ * Verkleinert das Foto direkt im Browser (Canvas -> JPEG), damit auch
+ * 20-MB-Handyfotos problemlos durchgehen. Bei nicht dekodierbaren Formaten
+ * wird das Original zurückgegeben (Server-Limit greift als Backstop).
+ */
+async function downscaleImage(file: File): Promise<File> {
+  if (file.size <= DOWNSCALE_THRESHOLD) return file;
+  try {
+    const bitmap = await createImageBitmap(file, { imageOrientation: "from-image" });
+    const scale = Math.min(1, MAX_DIMENSION / Math.max(bitmap.width, bitmap.height));
+    const w = Math.max(1, Math.round(bitmap.width * scale));
+    const h = Math.max(1, Math.round(bitmap.height * scale));
+    const canvas = document.createElement("canvas");
+    canvas.width = w;
+    canvas.height = h;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return file;
+    ctx.drawImage(bitmap, 0, 0, w, h);
+    bitmap.close();
+    const blob = await new Promise<Blob | null>((resolve) =>
+      canvas.toBlob(resolve, "image/jpeg", 0.85)
+    );
+    if (!blob || blob.size === 0) return file;
+    return new File([blob], "scan.jpg", { type: "image/jpeg" });
+  } catch {
+    return file;
+  }
+}
 
 type Status = "idle" | "scanning" | "done" | "error";
 
@@ -137,7 +174,9 @@ export default function ScannerPage() {
   const [countdown, setCountdown] = useState<number | null>(null);
   const [dragOver, setDragOver] = useState(false);
 
-  const bestSet = items.find((i) => i.type === "set") ?? null;
+  // Bester Treffer: Set ODER Minifigur (die Liste ist bereits Sets-zuerst sortiert;
+  // bei einem Figuren-Foto ohne Set-Treffer steht die Figur vorn).
+  const bestSet = items.find((i) => i.type === "set" || i.type === "fig") ?? null;
   const otherItems = items.filter((i) => i !== bestSet);
 
   // Objekt-URL der Vorschau beim Wechsel/Unmount freigeben
@@ -151,7 +190,8 @@ export default function ScannerPage() {
   useEffect(() => {
     if (countdown === null) return;
     if (countdown <= 0) {
-      if (bestSet) router.push(`/lexikon/${encodeURIComponent(bestSet.id)}`);
+      const href = bestSet ? hrefFor(bestSet) : null;
+      if (href) router.push(href);
       return;
     }
     const timer = setTimeout(() => setCountdown((c) => (c === null ? null : c - 1)), 1000);
@@ -181,11 +221,6 @@ export default function ScannerPage() {
         setErrorMsg(TXT.errNotImage[lang]);
         return;
       }
-      if (file.size > MAX_BYTES) {
-        setStatus("error");
-        setErrorMsg(TXT.errTooLarge[lang]);
-        return;
-      }
 
       setPreviewUrl((old) => {
         if (old) URL.revokeObjectURL(old);
@@ -193,9 +228,18 @@ export default function ScannerPage() {
       });
       setStatus("scanning");
 
+      // Grosse Handyfotos direkt im Browser verkleinern - schneller Upload,
+      // und das 10-MB-Server-Limit wird praktisch nie mehr erreicht.
+      const upload = await downscaleImage(file);
+      if (upload.size > MAX_BYTES) {
+        setStatus("error");
+        setErrorMsg(TXT.errTooLarge[lang]);
+        return;
+      }
+
       try {
         const form = new FormData();
-        form.append("image", file, file.name || "scan.jpg");
+        form.append("image", upload, upload.name || "scan.jpg");
         const res = await fetch("/api/scan", { method: "POST", body: form });
 
         if (!res.ok) {
@@ -212,7 +256,7 @@ export default function ScannerPage() {
         setItems(found);
         setStatus("done");
 
-        const top = found.find((i) => i.type === "set");
+        const top = found.find((i) => i.type === "set" || i.type === "fig");
         if (top && top.score >= AUTO_REDIRECT_SCORE) {
           setCountdown(COUNTDOWN_SECONDS);
         }
@@ -363,9 +407,35 @@ export default function ScannerPage() {
                   </div>
                 </div>
 
+                {/* Minifigur: Sets, in denen die Figur vorkommt */}
+                {bestSet.type === "fig" && bestSet.sets && bestSet.sets.length > 0 && (
+                  <div>
+                    <p className="mb-1.5 text-xs font-bold uppercase tracking-wider text-[var(--muted)]">
+                      📦 {lang === "de" ? "Kommt vor in" : "Appears in"} {bestSet.setCount}{" "}
+                      {lang === "de" ? "Sets" : "sets"}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {bestSet.sets.map((sid) => (
+                        <Link
+                          key={sid}
+                          href={`/lexikon/${encodeURIComponent(sid)}`}
+                          className="badge badge-blue font-mono hover:!border-[var(--yellow)]"
+                        >
+                          {sid}
+                        </Link>
+                      ))}
+                      {(bestSet.setCount ?? 0) > bestSet.sets.length && (
+                        <span className="badge badge-gray">
+                          +{(bestSet.setCount ?? 0) - bestSet.sets.length}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                )}
+
                 <div className="mt-auto flex flex-wrap items-center gap-3">
                   <Link
-                    href={`/lexikon/${encodeURIComponent(bestSet.id)}`}
+                    href={hrefFor(bestSet) ?? `/lexikon/${encodeURIComponent(bestSet.id)}`}
                     className="btn btn-primary"
                   >
                     {TXT.toProfile[lang]} →
@@ -431,6 +501,13 @@ export default function ScannerPage() {
                     </div>
                     <p className="mt-1 truncate text-sm font-bold">{item.name}</p>
                     <p className="truncate font-mono text-xs text-[var(--muted)]">{item.id}</p>
+                    {item.type === "fig" && (item.setCount ?? 0) > 0 && (
+                      <p className="mt-0.5 truncate text-xs text-[var(--muted)]">
+                        📦 {lang === "de" ? "in" : "in"} {item.setCount}{" "}
+                        {lang === "de" ? "Sets" : "sets"}: {item.sets?.slice(0, 3).join(", ")}
+                        {(item.setCount ?? 0) > 3 ? " ..." : ""}
+                      </p>
+                    )}
                   </div>
                 </div>
               );

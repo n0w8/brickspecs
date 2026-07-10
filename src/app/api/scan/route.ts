@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getCatalogFig } from "@/lib/minifig-catalog";
+import { MINIFIGS } from "@/data/minifigs";
 
 /**
  * POST /api/scan - Foto-Erkennung über die öffentliche Brickognize-API.
@@ -41,6 +43,10 @@ export interface ScanItem {
   score: number;
   img: string;
   type: string;
+  /** Nur bei Minifiguren: Sets, in denen die Figur vorkommt (max. 8) */
+  sets?: string[];
+  /** Nur bei Minifiguren: Gesamtzahl der Sets */
+  setCount?: number;
 }
 
 function jsonError(status: number, error: string, message: string) {
@@ -135,13 +141,32 @@ export async function POST(req: NextRequest) {
         return b.score - a.score;
       })
       .slice(0, MAX_ITEMS)
-      .map((item) => ({
-        id: item.id,
-        name: item.name,
-        score: item.score,
-        img: item.img_url,
-        type: item.type,
-      }));
+      .map((item) => {
+        const base: ScanItem = {
+          id: item.id,
+          name: item.name,
+          score: item.score,
+          img: item.img_url,
+          type: item.type,
+        };
+        // Minifiguren: Set-Zuordnung direkt mitliefern. Brickognize liefert
+        // BrickLink-IDs (z. B. "sw0107"); der Rebrickable-Katalog nutzt
+        // "fig-..."-IDs. Daher: Katalog zuerst, dann kuratierte Figuren.
+        if (item.type === "fig") {
+          const fig = getCatalogFig(item.id);
+          if (fig && fig.s.length > 0) {
+            base.sets = fig.s.slice(0, 8);
+            base.setCount = fig.s.length;
+          } else {
+            const curated = MINIFIGS.find((f) => f.id === item.id);
+            if (curated && curated.appearsInSetIds.length > 0) {
+              base.sets = curated.appearsInSetIds.slice(0, 8);
+              base.setCount = curated.appearsInSetIds.length;
+            }
+          }
+        }
+        return base;
+      });
 
     return NextResponse.json({ items });
   } catch (err) {
