@@ -11,6 +11,7 @@ import { pick, useLang, useT } from "@/lib/i18n";
 import { formatDate, formatEUR } from "@/lib/format";
 import SetCard from "@/components/SetCard";
 import HeroPortfolioChart from "@/components/HeroPortfolioChart";
+import GwpBanner from "@/components/GwpBanner";
 
 export default function Home() {
   const { lang } = useLang();
@@ -115,6 +116,9 @@ export default function Home() {
           </Link>
         ))}
       </section>
+
+      {/* Aktuelle Gratis-Beigaben */}
+      <GwpBanner />
 
       {/* Legendäre Sets */}
       <section>

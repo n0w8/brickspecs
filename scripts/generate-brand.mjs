@@ -41,6 +41,45 @@ async function render(svg, size, outPath) {
   console.log(`OK ${size}x${size}  ${outPath.replace(ROOT, "").replace(/^[\\/]/, "")}`);
 }
 
+/** Baut eine .ico mit PNG-Eintraegen (moderne Browser + Windows lesen das). */
+async function renderIco(svg, sizes, outPath) {
+  const pngs = [];
+  for (const size of sizes) {
+    const buf = await sharp(Buffer.from(svg), { density: 300 })
+      .resize(size, size)
+      .png()
+      .toBuffer();
+    pngs.push({ size, buf });
+  }
+  const header = Buffer.alloc(6);
+  header.writeUInt16LE(0, 0); // reserved
+  header.writeUInt16LE(1, 2); // Typ: Icon
+  header.writeUInt16LE(pngs.length, 4);
+  const entries = [];
+  let offset = 6 + pngs.length * 16;
+  for (const { size, buf } of pngs) {
+    const e = Buffer.alloc(16);
+    e.writeUInt8(size >= 256 ? 0 : size, 0); // Breite
+    e.writeUInt8(size >= 256 ? 0 : size, 1); // Hoehe
+    e.writeUInt8(0, 2); // Farbpalette
+    e.writeUInt8(0, 3); // reserviert
+    e.writeUInt16LE(1, 4); // Farbebenen
+    e.writeUInt16LE(32, 6); // Bits pro Pixel
+    e.writeUInt32LE(buf.length, 8);
+    e.writeUInt32LE(offset, 12);
+    entries.push(e);
+    offset += buf.length;
+  }
+  const ico = Buffer.concat([header, ...entries, ...pngs.map((p) => p.buf)]);
+  mkdirSync(dirname(outPath), { recursive: true });
+  const { writeFileSync } = await import("node:fs");
+  writeFileSync(outPath, ico);
+  console.log(`OK ico (${sizes.join(",")})  ${outPath.replace(ROOT, "").replace(/^[\\/]/, "")}`);
+}
+
+// Favicon (Browser-Tab): ersetzt die Standard-favicon.ico durch das Brillen-Logo
+await renderIco(BADGE_SVG, [16, 32, 48], join(ROOT, "src", "app", "favicon.ico"));
+
 // Kanal-Avatare (Telegram, WhatsApp, Socials): vollflaechig, wird rund zugeschnitten
 await render(FULL_SVG, 1024, join(ROOT, "branding", "logo-avatar-1024.png"));
 await render(FULL_SVG, 512, join(ROOT, "branding", "logo-avatar-512.png"));
