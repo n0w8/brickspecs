@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0a0e1a;
+  --surface: #121829;
+  --surface-2: #1a2138;
+  --border: #232c47;
+  --yellow: #f6c700;
+  --red: #d01012;
+  --blue: #2a6fd6;
+  --green: #23a45c;
+  --text: #f2f4fb;
+  --muted: #94a0bd;
+}
+
+@theme inline {
+  --color-panel: var(--surface);
+  --color-panel2: var(--surface-2);
+  --color-line: var(--border);
+  --color-brand: var(--yellow);
+  --color-brick: var(--red);
+  --color-stud: var(--blue);
+  --color-brickgreen: var(--green);
+  --color-ink: var(--text);
+  --color-faded: var(--muted);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* ---------- Bausteine ---------- */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+a.card:hover,
+.card-hover:hover {
+  transform: translateY(-3px);
+  border-color: var(--yellow);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.badge-green { background: rgba(35, 164, 92, 0.15); color: #4cd587; border-color: rgba(35, 164, 92, 0.4); }
+.badge-yellow { background: rgba(246, 199, 0, 0.12); color: var(--yellow); border-color: rgba(246, 199, 0, 0.4); }
+.badge-red { background: rgba(208, 16, 18, 0.15); color: #ff6b6c; border-color: rgba(208, 16, 18, 0.45); }
+.badge-blue { background: rgba(42, 111, 214, 0.15); color: #7fb0f5; border-color: rgba(42, 111, 214, 0.45); }
+.badge-gray { background: rgba(148, 160, 189, 0.12); color: var(--muted); border-color: rgba(148, 160, 189, 0.3); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  cursor: pointer;
+  transition: filter 0.15s ease, transform 0.1s ease;
+}
+
+.btn:hover { filter: brightness(1.15); }
+.btn:active { transform: scale(0.98); }
+
+.btn-primary {
+  background: var(--yellow);
+  color: #16130a;
+  border-color: var(--yellow);
+}
+
+.btn-green {
+  background: var(--green);
+  color: #ffffff;
+  border-color: var(--green);
+}
+
+.input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.input:focus { border-color: var(--yellow); }
+.input::placeholder { color: var(--muted); }
+
+.chip {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.chip:hover { color: var(--text); }
+
+.chip-active {
+  background: rgba(246, 199, 0, 0.14);
+  border-color: var(--yellow);
+  color: var(--yellow);
+}
+
+/* Deko: Noppenreihe wie auf einem Brick */
+.stud-row {
+  height: 12px;
+  background-image: radial-gradient(
+    circle at 8px 6px,
+    rgba(246, 199, 0, 0.35) 3.5px,
+    transparent 4.5px
+  );
+  background-size: 20px 12px;
+  background-repeat: repeat-x;
+}
+
+/* Artikel-Typografie */
+.prose-brick p {
+  color: #c7cede;
+  line-height: 1.75;
+  margin-bottom: 1.1rem;
+}
+
+.prose-brick h2 {
+  color: var(--text);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 2rem 0 0.9rem;
+  padding-left: 12px;
+  border-left: 4px solid var(--yellow);
+}
+
+/* Feine Scrollbar für horizontale Navis */
+.scroll-thin::-webkit-scrollbar { height: 6px; }
+.scroll-thin::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }

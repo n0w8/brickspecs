@@ -1,0 +1,43 @@
+# Täglicher Katalog-Sync: zieht neue Sets/Minifiguren von Rebrickable,
+# committet die Daten - der Push löst automatisch ein Vercel-Deployment aus.
+name: Katalog-Sync
+
+on:
+  schedule:
+    - cron: "0 5 * * *" # 05:00 UTC = 07:00 MESZ
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: catalog-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Set-Katalog synchronisieren
+        run: node scripts/sync-catalog.mjs
+
+      - name: Minifiguren-Katalog synchronisieren
+        run: node scripts/sync-minifigs.mjs
+
+      - name: Änderungen committen und pushen
+        run: |
+          git config user.name "brickonaut-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add src/data/catalog
+          if git diff --cached --quiet; then
+            echo "Keine neuen Sets - nichts zu committen."
+          else
+            git commit -m "Katalog-Sync: neue Sets/Figuren eingepflegt"
+            git push
+          fi

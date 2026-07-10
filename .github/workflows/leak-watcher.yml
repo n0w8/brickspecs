@@ -1,0 +1,50 @@
+# Leak-/Deal-Watcher: prüft alle 15 Minuten die RSS-Quellen und postet
+# neue Deals/Leaks in die Kanäle (Telegram sofort, WhatsApp via Anbieter-API).
+# Der Dedupe-Stand (posted.json) und der redaktionelle Posteingang (inbox.json)
+# werden committet; vercel.json ignoriert automation/-Commits fürs Deployment.
+name: Leak-Watcher
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: leak-watcher
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Quellen prüfen und posten
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          WHATSAPP_API_URL: ${{ secrets.WHATSAPP_API_URL }}
+          WHATSAPP_API_TOKEN: ${{ secrets.WHATSAPP_API_TOKEN }}
+          WHATSAPP_CHANNEL_ID: ${{ secrets.WHATSAPP_CHANNEL_ID }}
+          BOT_LANG: de
+        run: node automation/leak-bot/watch-sources.mjs --post-types deal,leak
+
+      - name: Dedupe-Stand sichern
+        run: |
+          git config user.name "brickonaut-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add automation/leak-bot/posted.json automation/leak-bot/inbox.json
+          if git diff --cached --quiet; then
+            echo "Keine neuen Funde."
+          else
+            git commit -m "Leak-Watcher: Stand aktualisiert [skip deploy]"
+            git pull --rebase origin main
+            git push
+          fi
