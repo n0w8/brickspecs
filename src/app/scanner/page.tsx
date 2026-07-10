@@ -68,8 +68,8 @@ const TXT = {
   },
   credit: { de: "Erkennung powered by Brickognize", en: "Recognition powered by Brickognize" },
   errTooLarge: {
-    de: "Das Bild ist zu groß (max. 10 MB). Bitte wähle ein kleineres Foto.",
-    en: "The image is too large (max. 10 MB). Please choose a smaller photo.",
+    de: "Dieses Foto konnte nicht verarbeitet werden. iPhone-Tipp: Einstellungen -> Kamera -> Formate -> 'Maximale Kompatibilität' waehlen, oder mach einen Screenshot vom Foto und scanne den.",
+    en: "This photo could not be processed. iPhone tip: Settings -> Camera -> Formats -> 'Most Compatible', or take a screenshot of the photo and scan that.",
   },
   errNotImage: {
     de: "Bitte wähle eine Bilddatei (JPG, PNG, WebP ...).",
@@ -100,7 +100,8 @@ interface ScanItem {
   setCount?: number;
 }
 
-const MAX_BYTES = 10 * 1024 * 1024;
+/** Echtes Upload-Limit: Vercel-Functions kappen Request-Bodys bei ~4,5 MB. */
+const MAX_BYTES = 4 * 1024 * 1024;
 const AUTO_REDIRECT_SCORE = 0.55;
 const COUNTDOWN_SECONDS = 3;
 
@@ -109,33 +110,73 @@ const MAX_DIMENSION = 1600;
 /** Ab dieser Größe wird clientseitig verkleinert (Handy-Fotos sind oft 5-20 MB). */
 const DOWNSCALE_THRESHOLD = 1.5 * 1024 * 1024;
 
+function drawToJpeg(
+  source: CanvasImageSource,
+  width: number,
+  height: number
+): Promise<File | null> {
+  const scale = Math.min(1, MAX_DIMENSION / Math.max(width, height));
+  const w = Math.max(1, Math.round(width * scale));
+  const h = Math.max(1, Math.round(height * scale));
+  const canvas = document.createElement("canvas");
+  canvas.width = w;
+  canvas.height = h;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return Promise.resolve(null);
+  ctx.drawImage(source, 0, 0, w, h);
+  return new Promise((resolve) =>
+    canvas.toBlob(
+      (blob) =>
+        resolve(
+          blob && blob.size > 0 ? new File([blob], "scan.jpg", { type: "image/jpeg" }) : null
+        ),
+      "image/jpeg",
+      0.85
+    )
+  );
+}
+
+/** Fallback-Dekodierung über ein <img>-Element (hilft z. B. bei HEIC in Safari). */
+function decodeViaImg(file: File): Promise<HTMLImageElement | null> {
+  return new Promise((resolve) => {
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = () => {
+      URL.revokeObjectURL(url);
+      resolve(null);
+    };
+    img.src = url;
+  });
+}
+
 /**
  * Verkleinert das Foto direkt im Browser (Canvas -> JPEG), damit auch
- * 20-MB-Handyfotos problemlos durchgehen. Bei nicht dekodierbaren Formaten
- * wird das Original zurückgegeben (Server-Limit greift als Backstop).
+ * 20-MB-Handyfotos problemlos durchgehen. Zwei Dekodier-Wege:
+ * createImageBitmap (schnell) und <img>-Element (Safari/HEIC-Fallback).
+ * Liefert null, wenn das Format gar nicht dekodierbar ist.
  */
-async function downscaleImage(file: File): Promise<File> {
+async function downscaleImage(file: File): Promise<File | null> {
   if (file.size <= DOWNSCALE_THRESHOLD) return file;
+
   try {
     const bitmap = await createImageBitmap(file, { imageOrientation: "from-image" });
-    const scale = Math.min(1, MAX_DIMENSION / Math.max(bitmap.width, bitmap.height));
-    const w = Math.max(1, Math.round(bitmap.width * scale));
-    const h = Math.max(1, Math.round(bitmap.height * scale));
-    const canvas = document.createElement("canvas");
-    canvas.width = w;
-    canvas.height = h;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return file;
-    ctx.drawImage(bitmap, 0, 0, w, h);
+    const result = await drawToJpeg(bitmap, bitmap.width, bitmap.height);
     bitmap.close();
-    const blob = await new Promise<Blob | null>((resolve) =>
-      canvas.toBlob(resolve, "image/jpeg", 0.85)
-    );
-    if (!blob || blob.size === 0) return file;
-    return new File([blob], "scan.jpg", { type: "image/jpeg" });
+    if (result) return result;
   } catch {
-    return file;
+    // weiter zum Fallback
   }
+
+  const img = await decodeViaImg(file);
+  if (img) {
+    const result = await drawToJpeg(img, img.naturalWidth, img.naturalHeight);
+    URL.revokeObjectURL(img.src);
+    if (result) return result;
+  }
+
+  // Nicht dekodierbar: kleine Dateien roh durchlassen, große klar ablehnen
+  return file.size <= MAX_BYTES ? file : null;
 }
 
 type Status = "idle" | "scanning" | "done" | "error";
@@ -229,9 +270,9 @@ export default function ScannerPage() {
       setStatus("scanning");
 
       // Grosse Handyfotos direkt im Browser verkleinern - schneller Upload,
-      // und das 10-MB-Server-Limit wird praktisch nie mehr erreicht.
+      // und das Upload-Limit wird praktisch nie mehr erreicht.
       const upload = await downscaleImage(file);
-      if (upload.size > MAX_BYTES) {
+      if (!upload || upload.size > MAX_BYTES) {
         setStatus("error");
         setErrorMsg(TXT.errTooLarge[lang]);
         return;
