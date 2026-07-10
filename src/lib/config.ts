@@ -11,7 +11,7 @@ export const WHATSAPP_CHANNEL_URL =
 
 /** Telegram-Kanal (öffentlich). */
 export const TELEGRAM_CHANNEL_URL =
-  process.env.NEXT_PUBLIC_TELEGRAM_CHANNEL_URL ?? "https://t.me/brickdex";
+  process.env.NEXT_PUBLIC_TELEGRAM_CHANNEL_URL ?? "https://t.me/brickspecs";
 
 /** Homepage bekannter Leak-/News-Quellen für Quell-Links im Feed. */
 export const SOURCE_URLS: Record<string, string> = {

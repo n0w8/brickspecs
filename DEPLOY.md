@@ -62,7 +62,7 @@ GitHub -> Repo brickspecs -> Settings -> Secrets and variables -> Actions
 | Secret | Wert | Zweck |
 |---|---|---|
 | `TELEGRAM_BOT_TOKEN` | Token vom @BotFather (`/newbot`) | Deal-Posts in den Telegram-Kanal |
-| `TELEGRAM_CHAT_ID` | `@brickdex` (bzw. neuer Kanalname) | Ziel-Kanal |
+| `TELEGRAM_CHAT_ID` | `@brickspecs` (bzw. neuer Kanalname) | Ziel-Kanal |
 | `WHATSAPP_API_URL/TOKEN/CHANNEL_ID` | vom Anbieter (z. B. Whapi.cloud) | WhatsApp-Posts (optional, später) |
 
 Wichtig: Den Telegram-Bot im Kanal als Administrator hinzufügen

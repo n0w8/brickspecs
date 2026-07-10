@@ -5,7 +5,7 @@
  * Nimmt einen Fund entgegen und postet ihn über alle konfigurierten Adapter:
  *   - WhatsApp: WHATSAPP_API_URL + WHATSAPP_API_TOKEN + WHATSAPP_CHANNEL_ID
  *     (Drittanbieter wie Whapi.cloud, da Meta keine offizielle Channel-API bietet)
- *   - Telegram: TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID (Default "@brickdex"),
+ *   - Telegram: TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID (Default "@brickspecs"),
  *     offizielle Bot-API, kostenlos
  *
  * Beide Adapter laufen unabhängig: Fehler des einen blockieren den anderen
@@ -118,7 +118,7 @@ async function postToWhatsApp(message, { apiUrl, token, channelId }) {
 function telegramConfig() {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   if (!token) return null;
-  return { token, chatId: process.env.TELEGRAM_CHAT_ID || "@brickdex" };
+  return { token, chatId: process.env.TELEGRAM_CHAT_ID || "@brickspecs" };
 }
 
 async function postToTelegram(message, { token, chatId }) {

@@ -7,7 +7,7 @@ Funde **in Sekunden** in die eigenen Kanäle.
 **Echte Kanäle des Betreibers:**
 
 - WhatsApp-Kanal: <https://whatsapp.com/channel/0029VbDHqsvGk1G1f1jn3D11>
-- Telegram-Kanal: <https://t.me/brickdex> (`@brickdex`)
+- Telegram-Kanal: <https://t.me/brickspecs> (`@brickspecs`)
 
 Telegram lässt sich über die offizielle Bot-API **kostenlos** automatisieren.
 WhatsApp-Channel-Posting hat keine offizielle API von Meta und braucht weiterhin
@@ -110,7 +110,7 @@ node automation/leak-bot/post-leak.mjs --type leak|deal|news --title "…" --bod
   `WHATSAPP_CHANNEL_ID` gesetzt sind. Nachricht im WhatsApp-Format (`*fett*`).
 - **Telegram:** aktiv, sobald `TELEGRAM_BOT_TOKEN` gesetzt ist. Postet per
   offizieller Bot-API (`sendMessage`) an `TELEGRAM_CHAT_ID` (Default
-  `@brickdex`) mit `parse_mode=HTML` (Titel fett, Link als `<a>`,
+  `@brickspecs`) mit `parse_mode=HTML` (Titel fett, Link als `<a>`,
   Link-Vorschau aktiv).
 - **Konsole:** wenn keiner der beiden konfiguriert ist, wird die Nachricht nur
   geloggt - gewollt, so lässt sich alles ohne Secrets testen.
@@ -124,14 +124,14 @@ Adapter fehl, endet das Skript mit Exit-Code 1.
 1. **Bot anlegen:** In Telegram [@BotFather](https://t.me/BotFather)
    anschreiben, `/newbot` senden, Namen und Username vergeben. BotFather
    antwortet mit dem **Bot-Token** (Format `123456:ABC-…`).
-2. **Bot in den Kanal holen:** Im Kanal `@brickdex` unter
+2. **Bot in den Kanal holen:** Im Kanal `@brickspecs` unter
    Kanal-Info -> Administratoren -> Administrator hinzufügen den neuen Bot
    suchen und als Admin hinzufügen (Recht "Nachrichten veröffentlichen"
    genügt). Ohne Admin-Rechte darf der Bot nicht in den Kanal posten.
 3. **`.env` füllen** (siehe `.env.example` im Projektroot):
    ```
    TELEGRAM_BOT_TOKEN=123456:ABC-…
-   TELEGRAM_CHAT_ID=@brickdex
+   TELEGRAM_CHAT_ID=@brickspecs
    BOT_LANG=de
    ```
 4. **Testen** (postet echt in den Kanal!):
