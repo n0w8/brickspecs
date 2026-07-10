@@ -52,10 +52,15 @@ export default function Footer() {
               ? "Alle Preise sind recherchierte Schätzwerte (Demo-Daten, Stand Juli 2026) - keine Anlageberatung."
               : "All prices are researched estimates (demo data as of July 2026) - not financial advice."}
           </p>
-          <p>
+          <p className="mb-2">
             {lang === "de"
               ? "LEGO® ist eine Marke der LEGO Gruppe. Diese Seite ist ein unabhängiges Fan-Projekt und steht in keiner Verbindung zur LEGO Gruppe."
               : "LEGO® is a trademark of the LEGO Group. This site is an independent fan project not affiliated with the LEGO Group."}
+          </p>
+          <p>
+            {lang === "de"
+              ? "Als Amazon-Partner verdienen wir an qualifizierten Verkäufen. Kauf-Links können Affiliate-Links sein."
+              : "As an Amazon Associate we earn from qualifying purchases. Buy links may be affiliate links."}
           </p>
         </div>
       </div>
