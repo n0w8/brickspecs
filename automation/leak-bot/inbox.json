@@ -1862,5 +1862,33 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-07-11T15:37:08.015Z"
+  },
+  {
+    "id": "c11d5f48-6838-4b2f-a87a-d8cdcbeedd03",
+    "type": "news",
+    "title": "LEGO One Piece 75642 Showdown with Captain Smoker review",
+    "body": "LEGO One Piece takes a trip to Loguetown for Season 2, but it isn't quite what we were hoping for.",
+    "url": "https://www.brickfanatics.com/lego-one-piece-showdown-with-captain-smoker-review",
+    "source": "Brick Fanatics",
+    "set": "75642",
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+75642",
+    "postedAt": "2026-07-11T16:30:22.210Z"
+  },
+  {
+    "id": "780a631b-9d3d-40bb-81b2-7f35c719cfeb",
+    "type": "news",
+    "title": "Lowest price ever on one LEGO City's most unique trains",
+    "body": "Our biggest problem with 60508 Police Train Heist has been amended",
+    "url": "https://www.brickfanatics.com/lowest-price-ever-on-lego-city-s-most-unique-train",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-07-11T16:30:22.210Z"
   }
 ]
