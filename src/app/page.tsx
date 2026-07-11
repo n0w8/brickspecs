@@ -20,6 +20,19 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [catalogTotal, setCatalogTotal] = useState<number | null>(null);
   const [figsTotal, setFigsTotal] = useState<number | null>(null);
+  const [newsletterConfirmed, setNewsletterConfirmed] = useState(false);
+
+  // Rueckkehr vom Double-Opt-in-Link (?newsletter=confirmed): Danke-Banner
+  // zeigen und den Parameter aus der URL entfernen.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("newsletter") === "confirmed") {
+      setNewsletterConfirmed(true);
+      params.delete("newsletter");
+      const rest = params.toString();
+      window.history.replaceState(null, "", rest ? `/?${rest}` : "/");
+    }
+  }, []);
 
   useEffect(() => {
     fetch("/api/catalog/search?meta=1")
@@ -53,6 +66,26 @@ export default function Home() {
 
   return (
     <div className="flex flex-col gap-14 pt-10">
+      {/* Danke-Banner nach Newsletter-Bestätigung */}
+      {newsletterConfirmed && (
+        <div className="card flex items-center justify-between gap-3 border-2 !border-[#23a45c] p-4">
+          <p className="text-sm font-semibold">
+            🎉{" "}
+            {lang === "de"
+              ? "Anmeldung bestätigt! Ab jetzt bekommst du die besten LEGO-Deals, Gratis-Beigaben und Leaks per E-Mail."
+              : "Subscription confirmed! You will now receive the best LEGO deals, gifts with purchase and leaks by e-mail."}
+          </p>
+          <button
+            type="button"
+            className="chip shrink-0"
+            onClick={() => setNewsletterConfirmed(false)}
+            aria-label={lang === "de" ? "Schließen" : "Close"}
+          >
+            ✕
+          </button>
+        </div>
+      )}
+
       {/* Hero: links Pitch + Suche, rechts Portfolio-Chart */}
       <section className="grid gap-8 lg:grid-cols-2 items-center">
         <div className="flex flex-col gap-5">
