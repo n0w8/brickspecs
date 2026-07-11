@@ -1,5 +1,46 @@
 {
-  "fetchedAt": "2026-07-05T19:49:13.989Z",
-  "totalFigs": 17048,
-  "newFigsLastRun": []
+  "fetchedAt": "2026-07-11T07:06:25.740Z",
+  "totalFigs": 17058,
+  "newFigsLastRun": [
+    {
+      "id": "fig-017956",
+      "name": "Dragon Knight, Red, Helmet, Beard, Silver Belt"
+    },
+    {
+      "id": "fig-017957",
+      "name": "Queen"
+    },
+    {
+      "id": "fig-017958",
+      "name": "Griffin Knight, Female, Dark Blue Arms"
+    },
+    {
+      "id": "fig-017959",
+      "name": "Griffin Knight, Male, Dark Blue Arms"
+    },
+    {
+      "id": "fig-017960",
+      "name": "Red Torso, Dark Blue Legs, Red Speech Bubble"
+    },
+    {
+      "id": "fig-017961",
+      "name": "Pilot, Bright Light Blue Shirt, Dark Blue Legs, Dark Blue Cap"
+    },
+    {
+      "id": "fig-017962",
+      "name": "Passenger, Reddish Brown Torso, Dark Blue Legs, Reddish Brown Cap"
+    },
+    {
+      "id": "fig-017963",
+      "name": "Autumn, White Torso, Bright Light Orange Pants, Red Scarf"
+    },
+    {
+      "id": "fig-017964",
+      "name": "Aliya, Coral Shirt, Dark Red Skirt"
+    },
+    {
+      "id": "fig-017966",
+      "name": "Zac, Bright Light Yellow Jacket, Red Pants"
+    }
+  ]
 }

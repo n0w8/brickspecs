@@ -1,6 +1,12 @@
 {
-  "fetchedAt": "2026-07-10T14:20:38.398Z",
-  "totalSets": 27318,
+  "fetchedAt": "2026-07-11T07:06:24.619Z",
+  "totalSets": 27319,
   "totalThemes": 494,
-  "newSetsLastRun": []
+  "newSetsLastRun": [
+    {
+      "id": "11382-1",
+      "name": "Hubble Space Telescope",
+      "year": 2026
+    }
+  ]
 }
