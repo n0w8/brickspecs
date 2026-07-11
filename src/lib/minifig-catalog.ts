@@ -24,6 +24,8 @@ interface Cache {
   byId: Map<string, CatalogMinifig>;
   /** Vorsortiert: setCount absteigend (bekannteste zuerst), dann Name */
   byPopularity: CatalogMinifig[];
+  /** Umkehr-Index: Setnummer (z. B. "10188-1") → Figuren im Set */
+  bySet: Map<string, CatalogMinifig[]>;
 }
 
 let cache: Cache | null = null;
@@ -43,12 +45,31 @@ function load(): Cache {
     (a, b) => b.s.length - a.s.length || a.t.localeCompare(b.t)
   );
 
-  cache = { fetchedAt: cat.fetchedAt, figs: cat.figs, byId, byPopularity };
+  const bySet = new Map<string, CatalogMinifig[]>();
+  for (const f of cat.figs) {
+    for (const setId of f.s) {
+      const list = bySet.get(setId);
+      if (list) list.push(f);
+      else bySet.set(setId, [f]);
+    }
+  }
+
+  cache = { fetchedAt: cat.fetchedAt, figs: cat.figs, byId, byPopularity, bySet };
   return cache;
 }
 
 export function getCatalogFig(id: string): CatalogMinifig | null {
   return load().byId.get(id) ?? null;
+}
+
+/**
+ * Alle Katalog-Figuren eines Sets, teilereichste zuerst. Akzeptiert die
+ * Setnummer mit oder ohne Varianten-Suffix ("10188-1" oder "10188").
+ */
+export function figsInSet(setId: string): CatalogMinifig[] {
+  const c = load();
+  const list = c.bySet.get(setId) ?? c.bySet.get(`${setId}-1`) ?? [];
+  return [...list].sort((a, b) => b.p - a.p || a.t.localeCompare(b.t));
 }
 
 export function figMeta() {

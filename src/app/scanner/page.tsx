@@ -100,6 +100,11 @@ interface ScanItem {
   setCount?: number;
   /** Nur bei Minifiguren: existiert eine Steckbrief-Seite bei uns? */
   known?: boolean;
+  /** Nur bei Minifiguren: Katalog-ID ("fig-..."), falls die Erkennung eine BrickLink-ID lieferte */
+  figId?: string;
+  /** Nur bei Sets: enthaltene Minifiguren */
+  figs?: Array<{ id: string; name: string; img: string }>;
+  figCount?: number;
 }
 
 /** Echtes Upload-Limit: Vercel-Functions kappen Request-Bodys bei ~4,5 MB. */
@@ -193,11 +198,12 @@ function typeLabel(type: string, lang: "de" | "en"): string {
 /**
  * Interner Link zum Steckbrief. Minifiguren nur, wenn die API bestaetigt hat,
  * dass die Seite bei uns existiert (known) - sonst gibt es einen 404.
+ * figId ist die vom Server aufgelöste Katalog-ID (BrickLink→Rebrickable).
  */
 function hrefFor(item: ScanItem): string | null {
   if (item.type === "set") return `/lexikon/${encodeURIComponent(item.id)}`;
   if ((item.type === "fig" || item.id.startsWith("fig-")) && item.known) {
-    return `/minifiguren/${encodeURIComponent(item.id)}`;
+    return `/minifiguren/${encodeURIComponent(item.figId ?? item.id)}`;
   }
   return null;
 }
@@ -452,6 +458,44 @@ export default function ScannerPage() {
                     />
                   </div>
                 </div>
+
+                {/* Set: enthaltene Minifiguren */}
+                {bestSet.type === "set" && bestSet.figs && bestSet.figs.length > 0 && (
+                  <div>
+                    <p className="mb-1.5 text-xs font-bold uppercase tracking-wider text-[var(--muted)]">
+                      👤 {bestSet.figCount}{" "}
+                      {lang === "de"
+                        ? `Minifigur${bestSet.figCount === 1 ? "" : "en"} im Set`
+                        : `minifig${bestSet.figCount === 1 ? "" : "s"} in this set`}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {bestSet.figs.map((fig) => (
+                        <Link
+                          key={fig.id}
+                          href={`/minifiguren/${encodeURIComponent(fig.id)}`}
+                          className="chip flex items-center gap-1.5 !py-1"
+                          title={fig.name}
+                        >
+                          {fig.img ? (
+                            // eslint-disable-next-line @next/next/no-img-element -- kleine CDN-Thumbnails
+                            <img
+                              src={fig.img}
+                              alt=""
+                              className="h-6 w-6 rounded object-contain bg-white/90"
+                              loading="lazy"
+                            />
+                          ) : null}
+                          <span className="max-w-36 truncate text-xs">{fig.name}</span>
+                        </Link>
+                      ))}
+                      {(bestSet.figCount ?? 0) > bestSet.figs.length && (
+                        <span className="badge badge-gray">
+                          +{(bestSet.figCount ?? 0) - bestSet.figs.length}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                )}
 
                 {/* Minifigur: Sets, in denen die Figur vorkommt */}
                 {bestSet.type === "fig" && bestSet.sets && bestSet.sets.length > 0 && (
