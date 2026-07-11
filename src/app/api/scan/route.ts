@@ -47,6 +47,8 @@ export interface ScanItem {
   sets?: string[];
   /** Nur bei Minifiguren: Gesamtzahl der Sets */
   setCount?: number;
+  /** Nur bei Minifiguren: existiert eine Steckbrief-Seite bei uns? */
+  known?: boolean;
 }
 
 function jsonError(status: number, error: string, message: string) {
@@ -154,15 +156,14 @@ export async function POST(req: NextRequest) {
         // "fig-..."-IDs. Daher: Katalog zuerst, dann kuratierte Figuren.
         if (item.type === "fig") {
           const fig = getCatalogFig(item.id);
+          const curated = fig ? null : (MINIFIGS.find((f) => f.id === item.id) ?? null);
+          base.known = Boolean(fig || curated);
           if (fig && fig.s.length > 0) {
             base.sets = fig.s.slice(0, 8);
             base.setCount = fig.s.length;
-          } else {
-            const curated = MINIFIGS.find((f) => f.id === item.id);
-            if (curated && curated.appearsInSetIds.length > 0) {
-              base.sets = curated.appearsInSetIds.slice(0, 8);
-              base.setCount = curated.appearsInSetIds.length;
-            }
+          } else if (curated && curated.appearsInSetIds.length > 0) {
+            base.sets = curated.appearsInSetIds.slice(0, 8);
+            base.setCount = curated.appearsInSetIds.length;
           }
         }
         return base;

@@ -1,9 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { GWPS, type GwpPromo } from "@/data/gwp";
 import { pick, useLang } from "@/lib/i18n";
 import { formatDate, formatEUR } from "@/lib/format";
 import BrickImage from "./BrickImage";
+import NewsletterSignup from "./NewsletterSignup";
 
 function daysLeft(endDate: string): number {
   return Math.max(0, Math.ceil((new Date(endDate).getTime() - Date.now()) / 86400000));
@@ -13,7 +15,10 @@ function GwpCard({ gwp, upcoming }: { gwp: GwpPromo; upcoming: boolean }) {
   const { lang } = useLang();
 
   return (
-    <div className="card grid sm:grid-cols-[150px_1fr] overflow-hidden">
+    <Link
+      href={`/gwp/${gwp.id}`}
+      className="card card-hover grid sm:grid-cols-[150px_1fr] overflow-hidden"
+    >
       <BrickImage
         src={gwp.imageUrl}
         alt={pick(gwp.name, lang)}
@@ -36,8 +41,8 @@ function GwpCard({ gwp, upcoming }: { gwp: GwpPromo; upcoming: boolean }) {
           ) : gwp.endDate ? (
             <span className={`badge ${daysLeft(gwp.endDate) <= 3 ? "badge-red" : "badge-green"}`}>
               {lang === "de"
-                ? `Noch ${daysLeft(gwp.endDate)} Tage`
-                : `${daysLeft(gwp.endDate)} days left`}
+                ? `Noch ${daysLeft(gwp.endDate)} ${daysLeft(gwp.endDate) === 1 ? "Tag" : "Tage"}`
+                : `${daysLeft(gwp.endDate)} ${daysLeft(gwp.endDate) === 1 ? "day" : "days"} left`}
             </span>
           ) : (
             <span className="badge badge-green">
@@ -61,7 +66,7 @@ function GwpCard({ gwp, upcoming }: { gwp: GwpPromo; upcoming: boolean }) {
           {lang === "de" ? "Quelle" : "Source"}: {gwp.source}
         </p>
       </div>
-    </div>
+    </Link>
   );
 }
 
@@ -99,6 +104,14 @@ export default function GwpBanner() {
         {upcoming.slice(0, Math.max(0, 4 - active.length)).map((g) => (
           <GwpCard key={g.id} gwp={g} upcoming={true} />
         ))}
+      </div>
+      <div className="mt-4 flex flex-wrap items-start gap-x-3 gap-y-1.5">
+        <p className="text-sm font-semibold pt-2.5 whitespace-nowrap">
+          🔔 {lang === "de" ? "Keine Beigabe mehr verpassen:" : "Never miss a gift:"}
+        </p>
+        <div className="flex-1 min-w-[260px]">
+          <NewsletterSignup variant="inline" />
+        </div>
       </div>
     </section>
   );

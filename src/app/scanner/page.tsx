@@ -98,6 +98,8 @@ interface ScanItem {
   /** Nur bei Minifiguren: Sets, in denen die Figur vorkommt */
   sets?: string[];
   setCount?: number;
+  /** Nur bei Minifiguren: existiert eine Steckbrief-Seite bei uns? */
+  known?: boolean;
 }
 
 /** Echtes Upload-Limit: Vercel-Functions kappen Request-Bodys bei ~4,5 MB. */
@@ -188,10 +190,13 @@ function typeLabel(type: string, lang: "de" | "en"): string {
   return TXT.typePart[lang];
 }
 
-/** Interner Link zum Steckbrief - nur Sets und Minifiguren haben eigene Seiten. */
+/**
+ * Interner Link zum Steckbrief. Minifiguren nur, wenn die API bestaetigt hat,
+ * dass die Seite bei uns existiert (known) - sonst gibt es einen 404.
+ */
 function hrefFor(item: ScanItem): string | null {
   if (item.type === "set") return `/lexikon/${encodeURIComponent(item.id)}`;
-  if (item.type === "fig" || item.id.startsWith("fig-")) {
+  if ((item.type === "fig" || item.id.startsWith("fig-")) && item.known) {
     return `/minifiguren/${encodeURIComponent(item.id)}`;
   }
   return null;
@@ -298,7 +303,7 @@ export default function ScannerPage() {
         setStatus("done");
 
         const top = found.find((i) => i.type === "set" || i.type === "fig");
-        if (top && top.score >= AUTO_REDIRECT_SCORE) {
+        if (top && top.score >= AUTO_REDIRECT_SCORE && hrefFor(top) !== null) {
           setCountdown(COUNTDOWN_SECONDS);
         }
       } catch {
@@ -475,12 +480,17 @@ export default function ScannerPage() {
                 )}
 
                 <div className="mt-auto flex flex-wrap items-center gap-3">
-                  <Link
-                    href={hrefFor(bestSet) ?? `/lexikon/${encodeURIComponent(bestSet.id)}`}
-                    className="btn btn-primary"
-                  >
-                    {TXT.toProfile[lang]} →
-                  </Link>
+                  {hrefFor(bestSet) ? (
+                    <Link href={hrefFor(bestSet)!} className="btn btn-primary">
+                      {TXT.toProfile[lang]} →
+                    </Link>
+                  ) : (
+                    <span className="text-xs text-[var(--muted)]">
+                      {lang === "de"
+                        ? "Erkannt, aber noch kein Steckbrief in unserer Datenbank."
+                        : "Recognized, but no profile in our database yet."}
+                    </span>
+                  )}
                   {countdown !== null && countdown > 0 && (
                     <span className="flex items-center gap-2 text-sm text-[var(--muted)]">
                       {TXT.redirecting[lang]} {countdown} s ...

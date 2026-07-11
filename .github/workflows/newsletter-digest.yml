@@ -1,0 +1,48 @@
+# Newsletter-Digest: verschickt einmal taeglich (06:45 UTC) alle neuen
+# Deals/GWPs/Leaks aus automation/leak-bot/inbox.json als Brevo-Kampagne an
+# die Newsletter-Liste. Der Versand-Stand (last-digest.json) wird committet;
+# vercel.json ignoriert automation/-Commits fuers Deployment.
+name: Newsletter-Digest
+
+on:
+  schedule:
+    - cron: "45 6 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: newsletter-digest
+  cancel-in-progress: false
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Digest bauen und versenden
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          BREVO_LIST_ID: ${{ secrets.BREVO_LIST_ID }}
+          BREVO_SENDER_EMAIL: ${{ secrets.BREVO_SENDER_EMAIL }}
+          AMAZON_AFFILIATE_TAG: ${{ secrets.AMAZON_AFFILIATE_TAG }}
+        run: node automation/newsletter/send-digest.mjs
+
+      - name: Versand-Stand sichern
+        run: |
+          git config user.name "brickspecs-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add automation/newsletter/last-digest.json
+          if git diff --cached --quiet; then
+            echo "Kein neuer Stand."
+          else
+            git commit -m "Newsletter-Digest: Stand aktualisiert [skip deploy]"
+            git pull --rebase origin main
+            git push
+          fi
