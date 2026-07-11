@@ -340,6 +340,14 @@ export default function ScannerPage() {
       <section className="text-center">
         <h1 className="text-3xl font-extrabold sm:text-4xl">{TXT.title[lang]}</h1>
         <p className="mx-auto mt-3 max-w-xl text-[var(--muted)]">{TXT.sub[lang]}</p>
+        <p className="mt-3 text-sm">
+          <Link href="/box-scanner" className="text-[var(--yellow)] hover:underline">
+            🎁{" "}
+            {lang === "de"
+              ? "Minifiguren-Blind-Box? Box-Code scannen und Figur erkennen →"
+              : "Minifigure blind box? Scan the box code to reveal the figure →"}
+          </Link>
+        </p>
       </section>
 
       {/* Upload-/Kamera-Bereich */}

@@ -72,6 +72,11 @@ const SOURCES = [
     feedUrl: "https://zusammengebaut.com/feed/",
     homepage: "https://zusammengebaut.com",
   },
+  {
+    name: "Brickset",
+    feedUrl: "https://brickset.com/feed",
+    homepage: "https://brickset.com",
+  },
 ];
 
 // ---------------------------------------------------------------------------

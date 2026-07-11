@@ -19,6 +19,8 @@ const STATIC_ROUTES: {
   { path: "/eol-radar", changeFrequency: "daily", priority: 0.8 },
   { path: "/leaks", changeFrequency: "daily", priority: 0.8 },
   { path: "/artikel", changeFrequency: "weekly", priority: 0.7 },
+  { path: "/scanner", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/box-scanner", changeFrequency: "monthly", priority: 0.7 },
   { path: "/city-hub", changeFrequency: "monthly", priority: 0.5 },
 ];
 

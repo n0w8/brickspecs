@@ -1,4 +1,4 @@
-# Leak-/Deal-Watcher: prüft alle 15 Minuten die RSS-Quellen und postet
+# Leak-/Deal-Watcher: prüft alle 5 Minuten die RSS-Quellen und postet
 # neue Deals/Leaks in die Kanäle (Telegram sofort, WhatsApp via Anbieter-API).
 # Der Dedupe-Stand (posted.json) und der redaktionelle Posteingang (inbox.json)
 # werden committet; vercel.json ignoriert automation/-Commits fürs Deployment.
@@ -6,7 +6,7 @@ name: Leak-Watcher
 
 on:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "*/5 * * * *"
   workflow_dispatch: {}
 
 permissions:
