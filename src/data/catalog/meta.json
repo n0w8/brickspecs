@@ -1,12 +1,27 @@
 {
-  "fetchedAt": "2026-07-11T07:06:24.619Z",
-  "totalSets": 27319,
+  "fetchedAt": "2026-07-12T07:24:23.219Z",
+  "totalSets": 27323,
   "totalThemes": 494,
   "newSetsLastRun": [
     {
-      "id": "11382-1",
-      "name": "Hubble Space Telescope",
-      "year": 2026
+      "id": "8787957019-1",
+      "name": "LEGOLAND Denmark Park Guide with Map",
+      "year": 1986
+    },
+    {
+      "id": "FACTSFIGS-1",
+      "name": "Facts & Figures",
+      "year": 1986
+    },
+    {
+      "id": "LEAFLET-1",
+      "name": "Imagination and System (Informational Leaflet)",
+      "year": 1986
+    },
+    {
+      "id": "WORLDSHOW-1",
+      "name": "The World of LEGO Exhibition",
+      "year": 1981
     }
   ]
 }
