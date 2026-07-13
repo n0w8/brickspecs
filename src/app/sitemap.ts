@@ -21,6 +21,7 @@ const STATIC_ROUTES: {
   { path: "/artikel", changeFrequency: "weekly", priority: 0.7 },
   { path: "/scanner", changeFrequency: "monthly", priority: 0.7 },
   { path: "/box-scanner", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/funktionen", changeFrequency: "monthly", priority: 0.6 },
   { path: "/city-hub", changeFrequency: "monthly", priority: 0.5 },
 ];
 

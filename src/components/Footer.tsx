@@ -42,6 +42,9 @@ export default function Footer() {
           <Link href="/preisalarm" className="text-[var(--muted)] hover:text-[var(--yellow)]">
             {lang === "de" ? "Preisalarm" : "Price alerts"}
           </Link>
+          <Link href="/funktionen" className="text-[var(--muted)] hover:text-[var(--yellow)]">
+            {lang === "de" ? "Alle Funktionen" : "All features"}
+          </Link>
           <Link href="/admin" className="text-[var(--muted)] hover:text-[var(--yellow)]">
             Admin
           </Link>
@@ -57,10 +60,18 @@ export default function Footer() {
               ? "LEGO® ist eine Marke der LEGO Gruppe. Diese Seite ist ein unabhängiges Fan-Projekt und steht in keiner Verbindung zur LEGO Gruppe."
               : "LEGO® is a trademark of the LEGO Group. This site is an independent fan project not affiliated with the LEGO Group."}
           </p>
-          <p>
+          <p className="mb-2">
             {lang === "de"
               ? "Als Amazon-Partner verdienen wir an qualifizierten Verkäufen. Kauf-Links können Affiliate-Links sein."
               : "As an Amazon Associate we earn from qualifying purchases. Buy links may be affiliate links."}
+          </p>
+          <p className="flex flex-wrap gap-x-4 gap-y-1">
+            <Link href="/impressum" className="hover:text-[var(--yellow)]">
+              {lang === "de" ? "Impressum" : "Legal notice"}
+            </Link>
+            <Link href="/datenschutz" className="hover:text-[var(--yellow)]">
+              {lang === "de" ? "Datenschutz" : "Privacy"}
+            </Link>
           </p>
         </div>
       </div>
