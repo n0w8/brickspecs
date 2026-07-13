@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useLang, useT } from "@/lib/i18n";
 import BrickImage from "./BrickImage";
-import PricePanel from "./PricePanel";
+import PricePanel, { type PanelMinifig } from "./PricePanel";
 import AddToPortfolio from "./AddToPortfolio";
 import PriceAlertButton from "./PriceAlertButton";
 import SimilarSetsRow, { type SimilarSetItem } from "./SimilarSetsRow";
@@ -52,9 +52,13 @@ export function ExternalLinkChips({ catalogId }: { catalogId: string }) {
 export default function CatalogSetDetail({
   entry,
   similar = [],
+  figs,
+  figsTotal,
 }: {
   entry: CatalogEntryProps;
   similar?: SimilarSetItem[];
+  figs?: PanelMinifig[];
+  figsTotal?: number;
 }) {
   const { lang } = useLang();
   const t = useT();
@@ -153,7 +157,7 @@ export default function CatalogSetDetail({
         </div>
       </div>
 
-      <PricePanel setId={entry.id} />
+      <PricePanel setId={entry.id} figs={figs} figsTotal={figsTotal} />
 
       <AddToPortfolio setId={entry.id} name={entry.name} img={entry.img} />
 

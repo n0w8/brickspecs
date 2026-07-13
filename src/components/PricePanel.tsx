@@ -1,9 +1,17 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useLang, useT } from "@/lib/i18n";
 import { formatEUR } from "@/lib/format";
 import { withAmazonTag } from "@/lib/config";
+
+/** Kompakte Minifiguren-Chips im Preis-Panel (zwischen Preisen und Kauf-Links). */
+export interface PanelMinifig {
+  id: string;
+  name: string;
+  img: string;
+}
 
 // Muss mit src/lib/prices.ts übereinstimmen (Client darf das Server-Modul nicht importieren).
 const COUNTRIES: { code: string; de: string; en: string }[] = [
@@ -76,7 +84,15 @@ function buyLinks(setId: string, country: string): { label: string; href: string
   return links;
 }
 
-export default function PricePanel({ setId }: { setId: string }) {
+export default function PricePanel({
+  setId,
+  figs,
+  figsTotal,
+}: {
+  setId: string;
+  figs?: PanelMinifig[];
+  figsTotal?: number;
+}) {
   const { lang } = useLang();
   const t = useT();
 
@@ -178,6 +194,42 @@ export default function PricePanel({ setId }: { setId: string }) {
             <p className="text-xs text-[var(--muted)] mt-1">
               {data.samplesUsed} {t("price.samples")}
             </p>
+          </div>
+        </div>
+      )}
+
+      {/* Minifiguren im Set */}
+      {figs && figs.length > 0 && (
+        <div className="mt-5 pt-4 border-t border-[var(--border)]">
+          <p className="text-sm font-semibold mb-2">
+            👤{" "}
+            {lang === "de"
+              ? `Minifiguren im Set (${figsTotal ?? figs.length})`
+              : `Minifigs in this set (${figsTotal ?? figs.length})`}
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {figs.map((f) => (
+              <Link
+                key={f.id}
+                href={`/minifiguren/${encodeURIComponent(f.id)}`}
+                className="chip flex items-center gap-1.5 !py-1 hover:!border-[var(--yellow)]"
+                title={f.name}
+              >
+                {f.img ? (
+                  // eslint-disable-next-line @next/next/no-img-element -- kleine CDN-Thumbnails
+                  <img
+                    src={f.img}
+                    alt=""
+                    className="h-7 w-7 rounded object-contain bg-white/90"
+                    loading="lazy"
+                  />
+                ) : null}
+                <span className="max-w-40 truncate text-xs">{f.name}</span>
+              </Link>
+            ))}
+            {(figsTotal ?? 0) > figs.length && (
+              <span className="badge badge-gray">+{(figsTotal ?? 0) - figs.length}</span>
+            )}
           </div>
         </div>
       )}

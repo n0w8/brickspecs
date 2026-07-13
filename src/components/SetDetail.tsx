@@ -7,7 +7,7 @@ import { pick, useLang, useT } from "@/lib/i18n";
 import { formatEUR, growthPercent, investmentScore } from "@/lib/format";
 import BrickImage from "./BrickImage";
 import PriceChart from "./PriceChart";
-import PricePanel from "./PricePanel";
+import PricePanel, { type PanelMinifig } from "./PricePanel";
 import AddToPortfolio from "./AddToPortfolio";
 import PriceAlertButton from "./PriceAlertButton";
 import MinifigCard from "./MinifigCard";
@@ -18,9 +18,14 @@ import { ExternalLinkChips } from "./CatalogSetDetail";
 export default function SetDetail({
   setId,
   similar = [],
+  catalogFigs,
+  catalogFigsTotal,
 }: {
   setId: string;
   similar?: SimilarSetItem[];
+  /** Vollständige Minifiguren-Liste aus dem Katalog (für das Preis-Panel) */
+  catalogFigs?: PanelMinifig[];
+  catalogFigsTotal?: number;
 }) {
   const { lang } = useLang();
   const t = useT();
@@ -141,7 +146,7 @@ export default function SetDetail({
       </section>
 
       {/* Durchschnittspreise nach Land & Quelle */}
-      <PricePanel setId={set.id} />
+      <PricePanel setId={set.id} figs={catalogFigs} figsTotal={catalogFigsTotal} />
 
       {/* Portfolio */}
       <AddToPortfolio

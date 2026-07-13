@@ -14,7 +14,7 @@ import type { LegoSet } from "@/data/types";
 import SetDetail from "@/components/SetDetail";
 import CatalogSetDetail from "@/components/CatalogSetDetail";
 import type { SimilarSetItem } from "@/components/SimilarSetsRow";
-import SetMinifigsRow, { type SetMinifigItem } from "@/components/SetMinifigsRow";
+import type { PanelMinifig } from "@/components/PricePanel";
 
 export function generateStaticParams() {
   return SETS.map((set) => ({ setId: set.id }));
@@ -146,11 +146,11 @@ function similarSetsFor(catalogId: string): SimilarSetItem[] {
   return picked;
 }
 
-/** Minifiguren des Sets als Props für die Karten-Reihe (max. 12). */
-function minifigsFor(catalogId: string): { figs: SetMinifigItem[]; total: number } {
+/** Minifiguren des Sets fürs Preis-Panel (max. 12 Chips). */
+function minifigsFor(catalogId: string): { figs: PanelMinifig[]; total: number } {
   const all = figsInSet(catalogId);
   return {
-    figs: all.slice(0, 12).map((f) => ({ id: f.n, name: f.t, parts: f.p, img: f.i })),
+    figs: all.slice(0, 12).map((f) => ({ id: f.n, name: f.t, img: f.i })),
     total: all.length,
   };
 }
@@ -167,21 +167,13 @@ export default async function SetDetailPage({
   if (curated) {
     const catalogId = catalogIdForCurated(curated.id);
     const minifigs = minifigsFor(catalogId ?? curated.id);
-    // Volle Katalogliste nur, wenn sie mehr zeigt als die redaktionelle
-    // "Enthaltene Minifiguren"-Auswahl im SetDetail selbst.
-    const showAll = minifigs.total > curated.minifigIds.length;
     return (
-      <>
-        <SetDetail
-          setId={curated.id}
-          similar={catalogId ? similarSetsFor(catalogId) : []}
-        />
-        {showAll && (
-          <div className="mt-10">
-            <SetMinifigsRow figs={minifigs.figs} total={minifigs.total} />
-          </div>
-        )}
-      </>
+      <SetDetail
+        setId={curated.id}
+        similar={catalogId ? similarSetsFor(catalogId) : []}
+        catalogFigs={minifigs.figs}
+        catalogFigsTotal={minifigs.total}
+      />
     );
   }
 
@@ -194,35 +186,29 @@ export default async function SetDetailPage({
   // Falls der Katalog-Eintrag redaktionelle Daten hat → voller Steckbrief
   const curatedMatch = curatedForCatalogId(entry.n);
   if (curatedMatch) {
-    const showAll = minifigs.total > curatedMatch.minifigIds.length;
     return (
-      <>
-        <SetDetail setId={curatedMatch.id} similar={similarSetsFor(entry.n)} />
-        {showAll && (
-          <div className="mt-10">
-            <SetMinifigsRow figs={minifigs.figs} total={minifigs.total} />
-          </div>
-        )}
-      </>
+      <SetDetail
+        setId={curatedMatch.id}
+        similar={similarSetsFor(entry.n)}
+        catalogFigs={minifigs.figs}
+        catalogFigsTotal={minifigs.total}
+      />
     );
   }
 
   return (
-    <>
-      <CatalogSetDetail
-        entry={{
-          id: entry.n,
-          name: entry.t,
-          year: entry.y,
-          themeName: themeNameOf(entry.th),
-          parts: entry.p,
-          img: entry.i,
-        }}
-        similar={similarSetsFor(entry.n)}
-      />
-      <div className="mt-10">
-        <SetMinifigsRow figs={minifigs.figs} total={minifigs.total} />
-      </div>
-    </>
+    <CatalogSetDetail
+      entry={{
+        id: entry.n,
+        name: entry.t,
+        year: entry.y,
+        themeName: themeNameOf(entry.th),
+        parts: entry.p,
+        img: entry.i,
+      }}
+      similar={similarSetsFor(entry.n)}
+      figs={minifigs.figs}
+      figsTotal={minifigs.total}
+    />
   );
 }
