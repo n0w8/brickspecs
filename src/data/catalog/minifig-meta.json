@@ -1,18 +1,5 @@
 {
-  "fetchedAt": "2026-07-12T07:24:23.655Z",
+  "fetchedAt": "2026-07-13T08:09:57.369Z",
   "totalFigs": 17061,
-  "newFigsLastRun": [
-    {
-      "id": "fig-017967",
-      "name": "South Coast Plaza, Costa Mesa, CA, Blue Torso, Dark Bluish Grey Legs"
-    },
-    {
-      "id": "fig-017968",
-      "name": "South Coast Plaza, Costa Mesa, CA, Black Torso, Orange Legs"
-    },
-    {
-      "id": "fig-017969",
-      "name": "South Coast Plaza, Costa Mesa, CA, White Torso, Red Legs"
-    }
-  ]
+  "newFigsLastRun": []
 }
