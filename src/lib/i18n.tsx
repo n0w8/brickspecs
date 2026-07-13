@@ -144,6 +144,24 @@ export const UI = {
     de: "Demo-Modus: Konten werden nur lokal im Browser gespeichert. Echte Accounts folgen in Phase 2.",
     en: "Demo mode: accounts are stored locally in your browser. Real accounts arrive in phase 2.",
   },
+  "auth.cloudNote": {
+    de: "Dein Konto wird sicher gespeichert (Supabase, EU-Server in Frankfurt).",
+    en: "Your account is stored securely (Supabase, EU servers in Frankfurt).",
+  },
+  "auth.confirmTitle": { de: "Fast geschafft!", en: "Almost there!" },
+  "auth.confirmSent": {
+    de: "Wir haben dir einen Bestätigungslink geschickt an",
+    en: "We sent a confirmation link to",
+  },
+  "auth.confirmHint": {
+    de: "Klicke auf den Link in der E-Mail, um dein Konto zu aktivieren. Schau auch im Spam-Ordner nach.",
+    en: "Click the link in the email to activate your account. Also check your spam folder.",
+  },
+  "auth.working": { de: "Bitte warten ...", en: "Please wait ..." },
+  "auth.callbackError": {
+    de: "Der Bestätigungslink war ungültig oder abgelaufen - bitte melde dich an oder registriere dich erneut.",
+    en: "The confirmation link was invalid or expired - please log in or sign up again.",
+  },
   "profile.bricklink": { de: "BrickLink-Store verknüpfen", en: "Link BrickLink store" },
   "profile.bricklinkSub": {
     de: "Hinterlege deinen Store-Namen - die API-Anbindung folgt in Phase 2.",

@@ -4,17 +4,25 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useLang, useT } from "@/lib/i18n";
-import { getUser, isLoggedIn, logout, updateUser, type DemoUser } from "@/lib/auth";
+import {
+  getAuthUser,
+  getProfile,
+  setBricklinkStore,
+  signOutUser,
+  type AuthUser,
+  type Profile,
+} from "@/lib/auth";
 import { getPortfolio } from "@/lib/portfolio";
 import { getAlerts } from "@/lib/alerts";
-import { PLAN_META, formatFounderNumber, getPlanRecord, type PlanRecord } from "@/lib/plan";
+import { PLAN_META, formatFounderNumber, getPlanRecord, type Plan, type PlanRecord } from "@/lib/plan";
 import { formatEUR } from "@/lib/format";
 
 export default function ProfilePage() {
   const { lang } = useLang();
   const t = useT();
   const router = useRouter();
-  const [user, setUser] = useState<DemoUser | null>(null);
+  const [user, setUser] = useState<AuthUser | null>(null);
+  const [profile, setProfile] = useState<Profile | null>(null);
   const [checked, setChecked] = useState(false);
   const [store, setStore] = useState("");
   const [saved, setSaved] = useState(false);
@@ -27,20 +35,36 @@ export default function ProfilePage() {
   const [planRec, setPlanRec] = useState<PlanRecord | null>(null);
 
   useEffect(() => {
-    const u = isLoggedIn() ? getUser() : null;
-    setUser(u);
-    setStore(u?.bricklinkStore ?? "");
-    if (u) {
-      const pf = getPortfolio();
-      setPfStats({
-        items: pf.length,
-        units: pf.reduce((s, i) => s + i.quantity, 0),
-        invested: pf.reduce((s, i) => s + (i.purchasePriceEUR ?? 0) * i.quantity, 0),
-      });
-      setAlertCount(getAlerts().length);
-      setPlanRec(getPlanRecord());
-    }
-    setChecked(true);
+    let cancelled = false;
+    void (async () => {
+      const u = await getAuthUser();
+      if (cancelled) return;
+      setUser(u);
+      setStore(u?.bricklinkStore ?? "");
+      if (u) {
+        const [pf, alerts, prof] = await Promise.all([
+          getPortfolio(),
+          getAlerts(),
+          u.source === "supabase" ? getProfile() : Promise.resolve(null),
+        ]);
+        if (cancelled) return;
+        setPfStats({
+          items: pf.length,
+          units: pf.reduce((s, i) => s + i.quantity, 0),
+          invested: pf.reduce((s, i) => s + (i.purchasePriceEUR ?? 0) * i.quantity, 0),
+        });
+        setAlertCount(alerts.length);
+        if (u.source === "supabase") {
+          setProfile(prof);
+        } else {
+          setPlanRec(getPlanRecord());
+        }
+      }
+      setChecked(true);
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   if (!checked) return null;
@@ -66,6 +90,14 @@ export default function ProfilePage() {
     );
   }
 
+  const isCloud = user.source === "supabase";
+  const plan: Plan = isCloud ? (profile?.plan ?? "free") : (planRec?.plan ?? "free");
+  const founderNumber = isCloud
+    ? (profile?.founderNumber ?? undefined)
+    : planRec?.plan === "founder"
+      ? planRec.founderNumber
+      : undefined;
+
   return (
     <div className="max-w-2xl mx-auto pt-14 flex flex-col gap-6">
       <div className="card p-8">
@@ -80,14 +112,15 @@ export default function ProfilePage() {
           <button
             className="btn ml-auto"
             onClick={() => {
-              logout();
-              router.push("/");
+              void signOutUser().then(() => router.push("/"));
             }}
           >
             {t("profile.logout")}
           </button>
         </div>
-        <p className="text-xs text-[var(--muted)]">{t("auth.demoNote")}</p>
+        <p className="text-xs text-[var(--muted)]">
+          {isCloud ? t("auth.cloudNote") : t("auth.demoNote")}
+        </p>
       </div>
 
       {/* Portfolio-Übersicht */}
@@ -153,7 +186,6 @@ export default function ProfilePage() {
         </div>
         <div className="flex flex-wrap items-center gap-2">
           {(() => {
-            const plan = planRec?.plan ?? "free";
             const meta = PLAN_META[plan];
             return (
               <span
@@ -168,21 +200,37 @@ export default function ProfilePage() {
               </span>
             );
           })()}
-          {planRec?.plan === "founder" && planRec.founderNumber !== undefined && (
+          {plan === "founder" && founderNumber !== undefined && founderNumber !== null && (
             <span className="badge badge-yellow">
-              Founder {formatFounderNumber(planRec.founderNumber)}
+              Founder {formatFounderNumber(founderNumber)}
             </span>
           )}
         </div>
         <p className="text-xs text-[var(--muted)] mt-3">
-          {(planRec?.plan ?? "free") === "free"
+          {plan === "free"
             ? lang === "de"
               ? "Free-Plan: 5 Portfolio-Sets und 3 Preisalarme inklusive."
               : "Free plan: 5 portfolio sets and 3 price alerts included."
-            : lang === "de"
-              ? "Demo-Modus: Dein Plan ist lokal vorgemerkt, die echte Zahlung folgt in Phase 2."
-              : "Demo mode: your plan is noted locally, real payment arrives in phase 2."}
+            : isCloud
+              ? lang === "de"
+                ? "Dein Plan ist mit deinem Konto verknüpft."
+                : "Your plan is linked to your account."
+              : lang === "de"
+                ? "Demo-Modus: Dein Plan ist lokal vorgemerkt, die echte Zahlung folgt in Phase 2."
+                : "Demo mode: your plan is noted locally, real payment arrives in phase 2."}
         </p>
+        {isCloud && profile?.referralCode && (
+          <div className="mt-4">
+            <p className="text-xs text-[var(--muted)] mb-1">
+              {lang === "de"
+                ? "Dein Referral-Code (Freunde werben folgt bald)"
+                : "Your referral code (refer a friend coming soon)"}
+            </p>
+            <span className="badge badge-blue font-mono uppercase">
+              {profile.referralCode}
+            </span>
+          </div>
+        )}
       </div>
 
       <div className="card p-8">
@@ -192,7 +240,7 @@ export default function ProfilePage() {
           className="flex gap-3"
           onSubmit={(e) => {
             e.preventDefault();
-            const next = updateUser({ bricklinkStore: store });
+            const next = setBricklinkStore(user, store);
             setUser(next);
             setSaved(true);
             setTimeout(() => setSaved(false), 2500);

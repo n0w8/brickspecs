@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useLang, useT } from "@/lib/i18n";
 import { formatEUR } from "@/lib/format";
-import { isLoggedIn } from "@/lib/auth";
+import { isAuthenticated } from "@/lib/auth";
 import { getPortfolio, removeItem, updateItem, type PortfolioItem } from "@/lib/portfolio";
 import BrickImage from "@/components/BrickImage";
 import PortfolioAllocation from "@/components/PortfolioAllocation";
@@ -40,14 +40,25 @@ export default function PortfolioPage() {
   const [pricesLoading, setPricesLoading] = useState(false);
 
   useEffect(() => {
-    const li = isLoggedIn();
-    setLoggedIn(li);
-    if (li) setItems(getPortfolio());
+    let cancelled = false;
     const c = window.localStorage.getItem("bricktopia.country");
     if (c && COUNTRIES.some((x) => x.code === c)) setCountry(c);
     const s = window.localStorage.getItem("bricktopia.priceSource");
     if (s === "ebay-sold") setSource(s);
-    setReady(true);
+    void (async () => {
+      const li = await isAuthenticated();
+      if (cancelled) return;
+      setLoggedIn(li);
+      if (li) {
+        const pf = await getPortfolio();
+        if (cancelled) return;
+        setItems(pf);
+      }
+      setReady(true);
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   // Preise für alle Positionen laden
@@ -271,13 +282,11 @@ export default function PortfolioPage() {
                         type="number"
                         min={1}
                         value={item.quantity}
-                        onChange={(e) =>
-                          setItems(
-                            updateItem(item.lineId, {
-                              quantity: Math.max(1, Number(e.target.value)),
-                            })
-                          )
-                        }
+                        onChange={(e) => {
+                          void updateItem(item.lineId, {
+                            quantity: Math.max(1, Number(e.target.value)),
+                          }).then(setItems);
+                        }}
                         className="input !w-20 !py-1 !px-2 text-sm"
                       />
                     </div>
@@ -294,7 +303,9 @@ export default function PortfolioPage() {
                     )}
                     <button
                       className="text-xs text-[var(--muted)] hover:text-[#ff6b6c] mt-1"
-                      onClick={() => setItems(removeItem(item.lineId))}
+                      onClick={() => {
+                        void removeItem(item.lineId).then(setItems);
+                      }}
                     >
                       🗑 {t("pf.remove")}
                     </button>

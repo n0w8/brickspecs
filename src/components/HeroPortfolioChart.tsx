@@ -6,7 +6,7 @@ import { SETS } from "@/data/sets";
 import type { PricePoint } from "@/data/types";
 import { useLang } from "@/lib/i18n";
 import { formatEUR } from "@/lib/format";
-import { isLoggedIn } from "@/lib/auth";
+import { isAuthenticated } from "@/lib/auth";
 import { getPortfolio, type PortfolioItem } from "@/lib/portfolio";
 import PriceChart from "./PriceChart";
 
@@ -68,33 +68,36 @@ export default function HeroPortfolioChart() {
   const [unitPrices, setUnitPrices] = useState<Record<string, number | null> | null>(null);
 
   useEffect(() => {
-    const pf = isLoggedIn() ? getPortfolio() : [];
-    setItems(pf);
-    if (pf.length === 0) {
-      setUnitPrices({});
-      return;
-    }
-    const country = window.localStorage.getItem("bricktopia.country") ?? "DE";
-    const source = window.localStorage.getItem("bricktopia.priceSource") ?? "bricklink";
-    const conditionOf = new Map(pf.map((i) => [i.setId, i.condition]));
-    const ids = Array.from(new Set(pf.map((i) => i.setId)));
     let cancelled = false;
-    Promise.all(
-      ids.map((id) =>
-        fetch(`/api/prices/${encodeURIComponent(id)}?source=${source}&country=${country}`)
-          .then((r) => r.json())
-          .then((j: { avgNewEUR: number | null; avgUsedEUR: number | null }) => {
-            const primary =
-              conditionOf.get(id) === "used"
-                ? (j.avgUsedEUR ?? j.avgNewEUR)
-                : (j.avgNewEUR ?? j.avgUsedEUR);
-            return [id, primary] as const;
-          })
-          .catch(() => [id, null] as const)
-      )
-    ).then((entries) => {
+    void (async () => {
+      const li = await isAuthenticated();
+      const pf = li ? await getPortfolio() : [];
+      if (cancelled) return;
+      setItems(pf);
+      if (pf.length === 0) {
+        setUnitPrices({});
+        return;
+      }
+      const country = window.localStorage.getItem("bricktopia.country") ?? "DE";
+      const source = window.localStorage.getItem("bricktopia.priceSource") ?? "bricklink";
+      const conditionOf = new Map(pf.map((i) => [i.setId, i.condition]));
+      const ids = Array.from(new Set(pf.map((i) => i.setId)));
+      const entries = await Promise.all(
+        ids.map((id) =>
+          fetch(`/api/prices/${encodeURIComponent(id)}?source=${source}&country=${country}`)
+            .then((r) => r.json())
+            .then((j: { avgNewEUR: number | null; avgUsedEUR: number | null }) => {
+              const primary =
+                conditionOf.get(id) === "used"
+                  ? (j.avgUsedEUR ?? j.avgNewEUR)
+                  : (j.avgNewEUR ?? j.avgUsedEUR);
+              return [id, primary] as const;
+            })
+            .catch(() => [id, null] as const)
+        )
+      );
       if (!cancelled) setUnitPrices(Object.fromEntries(entries));
-    });
+    })();
     return () => {
       cancelled = true;
     };

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useLang, useT } from "@/lib/i18n";
 import { formatEUR } from "@/lib/format";
-import { isLoggedIn } from "@/lib/auth";
+import { isAuthenticated } from "@/lib/auth";
 import {
   addAlert,
   getAlerts,
@@ -35,9 +35,17 @@ export default function PriceAlertButton({
   const [toast, setToast] = useState(false);
 
   useEffect(() => {
-    setLoggedIn(isLoggedIn());
-    setAlert(getAlerts().find((a) => a.setId === setId) ?? null);
-    setReady(true);
+    let cancelled = false;
+    void (async () => {
+      const [li, alerts] = await Promise.all([isAuthenticated(), getAlerts()]);
+      if (cancelled) return;
+      setLoggedIn(li);
+      setAlert(alerts.find((a) => a.setId === setId) ?? null);
+      setReady(true);
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, [setId]);
 
   if (!ready) return null;
@@ -79,7 +87,7 @@ export default function PriceAlertButton({
             <button
               className="text-xs text-[var(--muted)] hover:text-[#ff6b6c]"
               onClick={() => {
-                removeAlert(alert.alertId);
+                void removeAlert(alert.alertId);
                 setAlert(null);
               }}
             >
@@ -100,11 +108,14 @@ export default function PriceAlertButton({
             e.preventDefault();
             const value = Number(target.replace(",", "."));
             if (!Number.isFinite(value) || value <= 0) return;
-            const next = addAlert({ setId, name, img, targetEUR: value, condition });
-            setAlert(next.find((a) => a.setId === setId) ?? null);
-            setOpen(false);
-            setToast(true);
-            setTimeout(() => setToast(false), 2500);
+            void addAlert({ setId, name, img, targetEUR: value, condition }).then(
+              (next) => {
+                setAlert(next.find((a) => a.setId === setId) ?? null);
+                setOpen(false);
+                setToast(true);
+                setTimeout(() => setToast(false), 2500);
+              }
+            );
           }}
         >
           <label className="flex flex-col gap-1.5 text-sm font-semibold">

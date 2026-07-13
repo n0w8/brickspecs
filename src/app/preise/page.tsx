@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useLang } from "@/lib/i18n";
 import type { Lang } from "@/data/types";
-import { isLoggedIn } from "@/lib/auth";
+import { isAuthenticated } from "@/lib/auth";
 import {
   FOUNDER_REMAINING,
   FOUNDER_TOTAL,
@@ -174,9 +174,15 @@ export default function PricingPage() {
   const [founderNo, setFounderNo] = useState<number | null>(null);
 
   useEffect(() => {
-    const li = isLoggedIn();
-    setLoggedIn(li);
-    if (li) setCurrentPlan(getPlan());
+    let cancelled = false;
+    void isAuthenticated().then((li) => {
+      if (cancelled) return;
+      setLoggedIn(li);
+      if (li) setCurrentPlan(getPlan());
+    });
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   function priceLine(card: CardDef): { main: string; period: string; sub?: string } {
@@ -212,7 +218,7 @@ export default function PricingPage() {
   }
 
   function onBuy(plan: Plan) {
-    if (!isLoggedIn()) {
+    if (!loggedIn) {
       router.push("/registrieren");
       return;
     }

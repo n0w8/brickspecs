@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { useLang, useT, type UIKey } from "@/lib/i18n";
+import { onAuthChange } from "@/lib/auth";
 
 const NAV: { href: string; key: UIKey }[] = [
   { href: "/lexikon", key: "nav.lexicon" },
@@ -24,6 +26,10 @@ export default function Header() {
   const { lang, setLang } = useLang();
   const t = useT();
   const pathname = usePathname();
+  // null = noch nicht geprueft (SSR/erster Render): neutraler Profil-Link
+  const [loggedIn, setLoggedIn] = useState<boolean | null>(null);
+
+  useEffect(() => onAuthChange((user) => setLoggedIn(user !== null)), []);
 
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[rgba(10,14,26,0.92)] backdrop-blur">
@@ -68,8 +74,14 @@ export default function Header() {
                 </button>
               ))}
             </div>
-            <Link href="/profil" className="btn !py-1.5 !px-3 text-sm">
-              👤 <span className="hidden md:inline">{t("nav.profile")}</span>
+            <Link
+              href={loggedIn === false ? "/login" : "/profil"}
+              className="btn !py-1.5 !px-3 text-sm"
+            >
+              👤{" "}
+              <span className="hidden md:inline">
+                {loggedIn === false ? t("nav.login") : t("nav.profile")}
+              </span>
             </Link>
           </div>
         </div>

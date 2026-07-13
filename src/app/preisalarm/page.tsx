@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { useLang, useT } from "@/lib/i18n";
 import { formatEUR } from "@/lib/format";
-import { isLoggedIn } from "@/lib/auth";
+import { isAuthenticated } from "@/lib/auth";
 import { getAlerts, removeAlert, updateAlert, type AlertItem } from "@/lib/alerts";
 import BrickImage from "@/components/BrickImage";
 
@@ -56,10 +56,21 @@ export default function PriceAlertsPage() {
   const [drafts, setDrafts] = useState<Record<string, string>>({});
 
   useEffect(() => {
-    const li = isLoggedIn();
-    setLoggedIn(li);
-    if (li) setAlerts(getAlerts());
-    setReady(true);
+    let cancelled = false;
+    void (async () => {
+      const li = await isAuthenticated();
+      if (cancelled) return;
+      setLoggedIn(li);
+      if (li) {
+        const items = await getAlerts();
+        if (cancelled) return;
+        setAlerts(items);
+      }
+      setReady(true);
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   // Aktuelle Preise laden - Quelle & Land wie im PricePanel aus dem localStorage
@@ -116,7 +127,7 @@ export default function PriceAlertsPage() {
     if (raw === undefined) return;
     const value = Number(raw.replace(",", "."));
     if (Number.isFinite(value) && value > 0 && value !== a.targetEUR) {
-      setAlerts(updateAlert(a.alertId, { targetEUR: value }));
+      void updateAlert(a.alertId, { targetEUR: value }).then(setAlerts);
     }
     setDrafts((d) => {
       const next = { ...d };
@@ -191,7 +202,9 @@ export default function PriceAlertsPage() {
           )}
           <button
             className="text-xs text-[var(--muted)] hover:text-[#ff6b6c] mt-1"
-            onClick={() => setAlerts(removeAlert(a.alertId))}
+            onClick={() => {
+              void removeAlert(a.alertId).then(setAlerts);
+            }}
           >
             🗑 {TXT.remove[lang]}
           </button>

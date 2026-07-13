@@ -45,6 +45,13 @@ create table if not exists public.price_alerts (
 );
 create index if not exists price_alerts_user_idx on public.price_alerts (user_id);
 
+-- Nachtraege Phase 2a: Anzeige-Felder aus der Phase-1-App (Bild-URL, Notiz,
+-- Zustand des Alarms). Idempotent, laeuft auf bestehenden Tabellen sauber durch.
+alter table public.portfolio_items add column if not exists img text;
+alter table public.portfolio_items add column if not exists note text;
+alter table public.price_alerts add column if not exists img text;
+alter table public.price_alerts add column if not exists condition text not null default 'new';
+
 -- ---------------------------------------------------------------------------
 -- Row Level Security: jeder Nutzer sieht und bearbeitet NUR seine Daten
 -- ---------------------------------------------------------------------------

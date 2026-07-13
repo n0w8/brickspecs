@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useLang, useT } from "@/lib/i18n";
-import { isLoggedIn } from "@/lib/auth";
+import { isAuthenticated } from "@/lib/auth";
 import { addItem, isInPortfolio, type Condition } from "@/lib/portfolio";
 
 export default function AddToPortfolio({
@@ -30,9 +30,17 @@ export default function AddToPortfolio({
   const [toast, setToast] = useState(false);
 
   useEffect(() => {
-    setLoggedIn(isLoggedIn());
-    setAlready(isInPortfolio(setId));
-    setReady(true);
+    let cancelled = false;
+    void (async () => {
+      const [li, inPf] = await Promise.all([isAuthenticated(), isInPortfolio(setId)]);
+      if (cancelled) return;
+      setLoggedIn(li);
+      setAlready(inPf);
+      setReady(true);
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, [setId]);
 
   if (!ready) return null;
@@ -77,7 +85,7 @@ export default function AddToPortfolio({
           className="grid gap-3 sm:grid-cols-4 mt-4"
           onSubmit={(e) => {
             e.preventDefault();
-            addItem({
+            void addItem({
               setId,
               name,
               img,
@@ -85,11 +93,12 @@ export default function AddToPortfolio({
               condition,
               purchasePriceEUR: price.trim() ? Number(price.replace(",", ".")) : null,
               note: note.trim() || undefined,
+            }).then(() => {
+              setAlready(true);
+              setOpen(false);
+              setToast(true);
+              setTimeout(() => setToast(false), 2500);
             });
-            setAlready(true);
-            setOpen(false);
-            setToast(true);
-            setTimeout(() => setToast(false), 2500);
           }}
         >
           <label className="flex flex-col gap-1.5 text-sm font-semibold">
