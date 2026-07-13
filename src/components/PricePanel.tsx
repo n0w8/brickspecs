@@ -219,12 +219,12 @@ export default function PricePanel({
                   // eslint-disable-next-line @next/next/no-img-element -- kleine CDN-Thumbnails
                   <img
                     src={f.img}
-                    alt=""
-                    className="h-7 w-7 rounded object-contain bg-white/90"
+                    alt={f.name}
+                    className="h-14 w-14 rounded-lg object-contain bg-white/90"
                     loading="lazy"
                   />
                 ) : null}
-                <span className="max-w-40 truncate text-xs">{f.name}</span>
+                <span className="font-mono text-xs">{f.id}</span>
               </Link>
             ))}
             {(figsTotal ?? 0) > figs.length && (
