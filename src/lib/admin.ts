@@ -5,6 +5,7 @@
 export const ADMIN_EMAILS = [
   "domsgard1337@gmail.com",
   "michiges@gmx.at",
+  "business.domsgard@gmail.com",
 ] as const;
 
 /** true, wenn die E-Mail zu einem Admin-Konto gehoert (case-insensitive). */
