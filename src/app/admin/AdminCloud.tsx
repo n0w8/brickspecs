@@ -1,0 +1,194 @@
+"use client";
+
+// Admin-Panel (Phase 2): zeigt echte Kennzahlen aus Supabase + Brevo.
+// Die Daten kommen fertig geladen als Props aus der Server-Komponente
+// (src/app/admin/page.tsx) - hier passiert nur noch Darstellung + Sprache.
+
+import { useLang } from "@/lib/i18n";
+
+export interface AdminRecentUser {
+  email: string;
+  createdAt: string;
+  plan: string;
+  founderNumber: number | null;
+}
+
+export interface AdminCloudStats {
+  totalUsers: number | null;
+  confirmedUsers: number | null;
+  planCounts: Record<string, number> | null;
+  founderSold: number | null;
+  founderTotal: number;
+  portfolioItems: number | null;
+  activeAlerts: number | null;
+  /** null = Brevo nicht erreichbar / kein Key -> "n/a" */
+  newsletterSubscribers: number | null;
+  recentUsers: AdminRecentUser[];
+  serviceRoleMissing: boolean;
+}
+
+const PLAN_ORDER = ["free", "sammler", "investor", "founder"] as const;
+
+const PLAN_LABEL: Record<string, { de: string; en: string; badge: string }> = {
+  free: { de: "Free", en: "Free", badge: "badge-gray" },
+  sammler: { de: "Sammler", en: "Collector", badge: "badge-blue" },
+  investor: { de: "Investor", en: "Investor", badge: "badge-green" },
+  founder: { de: "Founder", en: "Founder", badge: "badge-yellow" },
+};
+
+function fmt(value: number | null, locale: string): string {
+  return value === null ? "n/a" : value.toLocaleString(locale);
+}
+
+export default function AdminCloud({ stats }: { stats: AdminCloudStats }) {
+  const { lang } = useLang();
+  const locale = lang === "de" ? "de-DE" : "en-GB";
+
+  const tiles = [
+    {
+      label: lang === "de" ? "Nutzer gesamt" : "Total users",
+      value: fmt(stats.totalUsers, locale),
+      sub:
+        stats.confirmedUsers !== null
+          ? lang === "de"
+            ? `davon ${stats.confirmedUsers.toLocaleString(locale)} bestätigt`
+            : `${stats.confirmedUsers.toLocaleString(locale)} confirmed`
+          : undefined,
+    },
+    {
+      label: lang === "de" ? "Founder verkauft" : "Founders sold",
+      value:
+        stats.founderSold === null
+          ? "n/a"
+          : `${stats.founderSold.toLocaleString(locale)} / ${stats.founderTotal.toLocaleString(locale)}`,
+    },
+    {
+      label: lang === "de" ? "Portfolio-Einträge" : "Portfolio entries",
+      value: fmt(stats.portfolioItems, locale),
+    },
+    {
+      label: lang === "de" ? "Aktive Preisalarme" : "Active price alerts",
+      value: fmt(stats.activeAlerts, locale),
+    },
+    {
+      label: lang === "de" ? "Newsletter-Abonnenten" : "Newsletter subscribers",
+      value: fmt(stats.newsletterSubscribers, locale),
+    },
+  ];
+
+  return (
+    <div className="flex flex-col gap-6 pt-8">
+      <div>
+        <h1 className="text-3xl font-extrabold mb-1">🛡️ Admin</h1>
+        <p className="text-[var(--muted)] max-w-2xl">
+          {lang === "de"
+            ? "Live-Kennzahlen aus der Datenbank: Nutzer, Pläne, Portfolios und Newsletter."
+            : "Live metrics from the database: users, plans, portfolios and newsletter."}
+        </p>
+      </div>
+
+      {stats.serviceRoleMissing && (
+        <div className="card p-4 border-l-4 !border-l-[var(--red,#e5484d)] text-sm text-[var(--muted)]">
+          {lang === "de"
+            ? "SUPABASE_SERVICE_ROLE_KEY fehlt auf dem Server - Kennzahlen können nicht geladen werden."
+            : "SUPABASE_SERVICE_ROLE_KEY is missing on the server - metrics cannot be loaded."}
+        </div>
+      )}
+
+      {/* Kennzahlen */}
+      <section>
+        <h2 className="font-bold text-lg mb-4">
+          📊 {lang === "de" ? "Kennzahlen" : "Key metrics"}
+        </h2>
+        <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
+          {tiles.map((t) => (
+            <div key={t.label} className="card p-4">
+              <p className="text-xs text-[var(--muted)] mb-1">{t.label}</p>
+              <p className="font-bold text-lg">{t.value}</p>
+              {t.sub && <p className="text-xs text-[var(--muted)] mt-1">{t.sub}</p>}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Plan-Verteilung */}
+      <section className="card p-5">
+        <h2 className="font-bold text-lg mb-4">
+          🧱 {lang === "de" ? "Plan-Verteilung" : "Plan distribution"}
+        </h2>
+        {stats.planCounts === null ? (
+          <p className="text-sm text-[var(--muted)]">n/a</p>
+        ) : (
+          <div className="flex flex-wrap gap-3">
+            {PLAN_ORDER.map((plan) => {
+              const meta = PLAN_LABEL[plan];
+              const count = stats.planCounts?.[plan] ?? 0;
+              return (
+                <div
+                  key={plan}
+                  className="flex items-center gap-2 rounded-xl border border-[var(--border)] px-4 py-2"
+                >
+                  <span className={`badge ${meta.badge}`}>
+                    {lang === "de" ? meta.de : meta.en}
+                  </span>
+                  <span className="font-bold">{count.toLocaleString(locale)}</span>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </section>
+
+      {/* Letzte Registrierungen */}
+      <section className="card p-5">
+        <h2 className="font-bold text-lg mb-4">
+          👥 {lang === "de" ? "Letzte Registrierungen" : "Latest sign-ups"}
+        </h2>
+        {stats.recentUsers.length === 0 ? (
+          <p className="text-sm text-[var(--muted)]">
+            {lang === "de" ? "Noch keine Registrierungen." : "No sign-ups yet."}
+          </p>
+        ) : (
+          <div className="overflow-x-auto scroll-thin">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="text-left text-xs text-[var(--muted)] border-b border-[var(--border)]">
+                  <th className="py-2 pr-4">E-Mail</th>
+                  <th className="py-2 pr-4">{lang === "de" ? "Registriert" : "Registered"}</th>
+                  <th className="py-2 pr-4">Plan</th>
+                  <th className="py-2">{lang === "de" ? "Founder-Nr." : "Founder no."}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {stats.recentUsers.map((u) => {
+                  const meta = PLAN_LABEL[u.plan] ?? PLAN_LABEL.free;
+                  return (
+                    <tr
+                      key={u.email + u.createdAt}
+                      className="border-b border-[var(--border)] last:border-0"
+                    >
+                      <td className="py-3 pr-4 font-semibold">{u.email}</td>
+                      <td className="py-3 pr-4 text-[var(--muted)]">
+                        {new Date(u.createdAt).toLocaleString(locale)}
+                      </td>
+                      <td className="py-3 pr-4">
+                        <span className={`badge ${meta.badge}`}>
+                          {lang === "de" ? meta.de : meta.en}
+                        </span>
+                      </td>
+                      <td className="py-3">
+                        {u.founderNumber !== null
+                          ? `#${String(u.founderNumber).padStart(3, "0")}`
+                          : "-"}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </section>
+    </div>
+  );
+}

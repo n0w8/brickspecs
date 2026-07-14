@@ -2,8 +2,17 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import {
+  Area,
+  AreaChart,
+  CartesianGrid,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 import { SETS } from "@/data/sets";
-import type { PricePoint } from "@/data/types";
+import type { Lang, PricePoint } from "@/data/types";
 import { useLang } from "@/lib/i18n";
 import { formatEUR } from "@/lib/format";
 import { isAuthenticated } from "@/lib/auth";
@@ -60,6 +69,83 @@ function unitValueAtYear(
     return item.purchasePriceEUR + t * (unitNow - item.purchasePriceEUR);
   }
   return unitNow;
+}
+
+/**
+ * Frische Portfolios haben noch keine Jahres-Historie - statt eines
+ * Platzhalters zeigen wir eine einfache 2-Punkte-Linie von "Investiert"
+ * (Summe Kaufpreise) zu "Wert heute". Optik wie PriceChart.
+ */
+function TwoPointChart({
+  investedEUR,
+  todayEUR,
+  lang,
+}: {
+  investedEUR: number;
+  todayEUR: number;
+  lang: Lang;
+}) {
+  // Ohne hinterlegte Kaufpreise (investiert = 0) waere die Linie irrefuehrend
+  // steil - dann flach beim heutigen Wert starten.
+  const start = investedEUR > 0 ? investedEUR : todayEUR;
+  const data = [
+    { label: lang === "de" ? "Investiert" : "Invested", valueEUR: Math.round(start) },
+    { label: lang === "de" ? "Heute" : "Today", valueEUR: Math.round(todayEUR) },
+  ];
+  return (
+    <div className="h-64 w-full">
+      <ResponsiveContainer width="100%" height="100%">
+        <AreaChart data={data} margin={{ top: 10, right: 10, bottom: 0, left: 0 }}>
+          <defs>
+            <linearGradient id="heroTwoPointFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#f6c700" stopOpacity={0.35} />
+              <stop offset="100%" stopColor="#f6c700" stopOpacity={0.02} />
+            </linearGradient>
+          </defs>
+          <CartesianGrid stroke="#232c47" strokeDasharray="3 3" vertical={false} />
+          <XAxis
+            dataKey="label"
+            stroke="#94a0bd"
+            fontSize={12}
+            tickLine={false}
+            axisLine={{ stroke: "#232c47" }}
+            padding={{ left: 24, right: 24 }}
+          />
+          <YAxis
+            stroke="#94a0bd"
+            fontSize={12}
+            tickLine={false}
+            axisLine={false}
+            width={70}
+            domain={["auto", "auto"]}
+            tickFormatter={(v: number) => formatEUR(v, lang)}
+          />
+          <Tooltip
+            contentStyle={{
+              background: "#1a2138",
+              border: "1px solid #232c47",
+              borderRadius: 10,
+              color: "#f2f4fb",
+            }}
+            labelStyle={{ color: "#94a0bd" }}
+            formatter={(value) => [
+              formatEUR(value as number, lang),
+              lang === "de" ? "Wert" : "Value",
+            ]}
+          />
+          <Area
+            type="monotone"
+            dataKey="valueEUR"
+            stroke="#f6c700"
+            strokeWidth={2.5}
+            fill="url(#heroTwoPointFill)"
+            dot={{ fill: "#f6c700", r: 4 }}
+            activeDot={{ r: 5.5 }}
+          />
+        </AreaChart>
+      </ResponsiveContainer>
+    </div>
+  );
 }
 
 export default function HeroPortfolioChart() {
@@ -202,16 +288,11 @@ export default function HeroPortfolioChart() {
       {real.history.length >= 2 ? (
         <PriceChart data={real.history} />
       ) : (
-        <div className="h-64 flex flex-col items-center justify-center gap-2 bg-[var(--surface-2)] rounded-xl">
-          <p className="text-3xl" aria-hidden>
-            📁
-          </p>
-          <p className="text-sm text-[var(--muted)] text-center px-6">
-            {lang === "de"
-              ? "Dein Verlaufs-Chart wächst mit der Zeit - aktuell zählt der heutige Wert."
-              : "Your history chart grows over time - for now, today's value counts."}
-          </p>
-        </div>
+        <TwoPointChart
+          investedEUR={real.invested}
+          todayEUR={real.totalNow}
+          lang={lang}
+        />
       )}
       <div className="flex items-center justify-between mt-3">
         <div>

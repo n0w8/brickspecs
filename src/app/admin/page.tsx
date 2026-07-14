@@ -1,243 +1,145 @@
-"use client";
+// Admin-Panel: Server-Component-Gate + Datenladung.
+//
+// - Supabase-Modus: nur eingeloggte Admins (src/lib/admin.ts) sehen die Seite,
+//   fuer alle anderen liefert sie 404 (notFound) - sie "existiert" nicht.
+// - localStorage-Fallback (Supabase nicht konfiguriert): bisheriges
+//   Phase-1-Panel unveraendert (AdminLocal).
 
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import { SETS } from "@/data/sets";
-import { MINIFIGS } from "@/data/minifigs";
-import { ARTICLES } from "@/data/articles";
-import { LEAKS } from "@/data/leaks";
-import { useLang } from "@/lib/i18n";
-import { formatEUR } from "@/lib/format";
-import { getUser, isLoggedIn } from "@/lib/auth";
+import { notFound } from "next/navigation";
+import type { User } from "@supabase/supabase-js";
+import { getSupabaseAdmin, getSupabaseServer } from "@/lib/supabase/server";
+import { isAdminUser } from "@/lib/admin";
+import AdminCloud, { type AdminCloudStats } from "./AdminCloud";
+import AdminLocal from "./AdminLocal";
 
-interface UserRow {
-  username: string;
-  email?: string;
-  createdAt?: string;
-  bricklinkStore?: string;
-  isCurrent: boolean;
-  portfolioItems: number;
-  portfolioUnits: number;
-  portfolioInvested: number;
-  alertCount: number;
-}
+// Kennzahlen immer frisch laden, nie cachen.
+export const dynamic = "force-dynamic";
 
-interface CatalogStats {
-  sets: number | null;
-  setsFetchedAt: string | null;
-  figs: number | null;
-}
+/** Founder-Gesamtauflage (muss zur SQL-Funktion claim_founder_number passen). */
+const FOUNDER_TOTAL = 500;
 
-function readJson<T>(key: string): T | null {
+/** Newsletter-Abonnenten der Brevo-Liste 5 - null bei Fehler ("n/a"). */
+async function fetchNewsletterSubscribers(): Promise<number | null> {
+  const key = process.env.BREVO_API_KEY;
+  if (!key) return null;
   try {
-    const raw = window.localStorage.getItem(key);
-    return raw ? (JSON.parse(raw) as T) : null;
+    const res = await fetch("https://api.brevo.com/v3/contacts/lists/5", {
+      headers: { "api-key": key, accept: "application/json" },
+      cache: "no-store",
+    });
+    if (!res.ok) return null;
+    const json = (await res.json()) as { uniqueSubscribers?: number };
+    return typeof json.uniqueSubscribers === "number"
+      ? json.uniqueSubscribers
+      : null;
   } catch {
     return null;
   }
 }
 
-export default function AdminPage() {
-  const { lang } = useLang();
-  const locale = lang === "de" ? "de-DE" : "en-GB";
+async function loadStats(): Promise<AdminCloudStats> {
+  const admin = getSupabaseAdmin();
+  const empty: AdminCloudStats = {
+    totalUsers: null,
+    confirmedUsers: null,
+    planCounts: null,
+    founderSold: null,
+    founderTotal: FOUNDER_TOTAL,
+    portfolioItems: null,
+    activeAlerts: null,
+    newsletterSubscribers: null,
+    recentUsers: [],
+    serviceRoleMissing: admin === null,
+  };
+  if (!admin) {
+    empty.newsletterSubscribers = await fetchNewsletterSubscribers();
+    return empty;
+  }
 
-  const [ready, setReady] = useState(false);
-  const [allowed, setAllowed] = useState(false);
-  const [users, setUsers] = useState<UserRow[]>([]);
-  const [catalog, setCatalog] = useState<CatalogStats>({
-    sets: null,
-    setsFetchedAt: null,
-    figs: null,
-  });
+  const [usersRes, profilesRes, portfolioRes, alertsRes, newsletter] =
+    await Promise.all([
+      admin.auth.admin.listUsers({ page: 1, perPage: 1000 }),
+      admin.from("profiles").select("id, plan, founder_number"),
+      admin.from("portfolio_items").select("id", { count: "exact", head: true }),
+      admin
+        .from("price_alerts")
+        .select("id", { count: "exact", head: true })
+        .eq("active", true),
+      fetchNewsletterSubscribers(),
+    ]);
 
-  useEffect(() => {
-    const ok = isLoggedIn();
-    setAllowed(ok);
-    setReady(true);
-    if (!ok) return;
-
-    // Alle Benutzer dieses Browsers aus den localStorage-Keys ableiten
-    const current = getUser();
-    const names = new Set<string>();
-    if (current) names.add(current.username);
-    for (let i = 0; i < window.localStorage.length; i++) {
-      const key = window.localStorage.key(i) ?? "";
-      const m = key.match(/^bricktopia\.(?:portfolio|alerts)\.(.+)$/);
-      if (m) names.add(m[1]);
-    }
-
-    const rows: UserRow[] = Array.from(names).map((username) => {
-      const pf =
-        readJson<{ quantity: number; purchasePriceEUR: number | null }[]>(
-          `bricktopia.portfolio.${username}`
-        ) ?? [];
-      const alerts = readJson<unknown[]>(`bricktopia.alerts.${username}`) ?? [];
-      const isCurrent = current?.username === username;
-      return {
-        username,
-        email: isCurrent ? current?.email : undefined,
-        createdAt: isCurrent ? current?.createdAt : undefined,
-        bricklinkStore: isCurrent ? current?.bricklinkStore : undefined,
-        isCurrent,
-        portfolioItems: pf.length,
-        portfolioUnits: pf.reduce((s, i) => s + i.quantity, 0),
-        portfolioInvested: pf.reduce(
-          (s, i) => s + (i.purchasePriceEUR ?? 0) * i.quantity,
-          0
-        ),
-        alertCount: alerts.length,
-      };
-    });
-    rows.sort((a, b) => Number(b.isCurrent) - Number(a.isCurrent));
-    setUsers(rows);
-
-    // Katalog-Statistiken
-    fetch("/api/catalog/search?meta=1")
-      .then((r) => r.json())
-      .then((m: { total: number; fetchedAt: string }) =>
-        setCatalog((c) => ({ ...c, sets: m.total, setsFetchedAt: m.fetchedAt }))
-      )
-      .catch(() => {});
-    fetch("/api/catalog/minifigs?meta=1")
-      .then((r) => r.json())
-      .then((m: { total: number }) => setCatalog((c) => ({ ...c, figs: m.total })))
-      .catch(() => {});
-  }, []);
-
-  if (!ready) return null;
-
-  if (!allowed) {
-    return (
-      <div className="max-w-md mx-auto pt-14 text-center card p-10">
-        <p className="text-4xl mb-3">🛡️</p>
-        <p className="mb-5 text-[var(--muted)]">
-          {lang === "de"
-            ? "Das Admin-Panel ist nur für angemeldete Benutzer sichtbar."
-            : "The admin panel is only visible to logged-in users."}
-        </p>
-        <Link href="/login" className="btn btn-primary">
-          {lang === "de" ? "Anmelden" : "Log in"}
-        </Link>
-      </div>
+  // Nutzerzahlen + letzte Registrierungen aus auth.users
+  let totalUsers: number | null = null;
+  let confirmedUsers: number | null = null;
+  let sortedUsers: User[] = [];
+  if (!usersRes.error) {
+    const users = usersRes.data.users;
+    totalUsers = users.length;
+    confirmedUsers = users.filter((u) => Boolean(u.email_confirmed_at)).length;
+    sortedUsers = [...users].sort(
+      (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
     );
   }
 
-  const siteStats = [
-    { label: lang === "de" ? "Sets im Katalog" : "Sets in catalog", value: catalog.sets },
-    { label: lang === "de" ? "Minifiguren im Katalog" : "Minifigs in catalog", value: catalog.figs },
-    { label: lang === "de" ? "Kuratierte Sets" : "Curated sets", value: SETS.length },
-    { label: lang === "de" ? "Kuratierte Figuren" : "Curated figures", value: MINIFIGS.length },
-    { label: lang === "de" ? "Artikel" : "Articles", value: ARTICLES.length },
-    { label: lang === "de" ? "Leak-Feed-Einträge" : "Leak feed entries", value: LEAKS.length },
-  ];
+  // Plan-Verteilung + Founder-Zaehler aus public.profiles
+  let planCounts: Record<string, number> | null = null;
+  let founderSold: number | null = null;
+  const profileById = new Map<
+    string,
+    { plan: string; founder_number: number | null }
+  >();
+  if (!profilesRes.error && profilesRes.data) {
+    planCounts = { free: 0, sammler: 0, investor: 0, founder: 0 };
+    founderSold = 0;
+    for (const row of profilesRes.data as {
+      id: string;
+      plan: string | null;
+      founder_number: number | null;
+    }[]) {
+      const plan = row.plan && row.plan in planCounts ? row.plan : "free";
+      planCounts[plan] += 1;
+      if (row.founder_number !== null) founderSold += 1;
+      profileById.set(row.id, {
+        plan,
+        founder_number: row.founder_number ?? null,
+      });
+    }
+  }
 
-  return (
-    <div className="flex flex-col gap-6 pt-8">
-      <div>
-        <h1 className="text-3xl font-extrabold mb-1">🛡️ Admin</h1>
-        <p className="text-[var(--muted)] max-w-2xl">
-          {lang === "de"
-            ? "Benutzer, Aktivität und Systemstatus im Überblick."
-            : "Users, activity and system status at a glance."}
-        </p>
-      </div>
+  const recentUsers = sortedUsers.slice(0, 10).map((u) => {
+    const profile = profileById.get(u.id);
+    return {
+      email: u.email ?? "-",
+      createdAt: u.created_at,
+      plan: profile?.plan ?? "free",
+      founderNumber: profile?.founder_number ?? null,
+    };
+  });
 
-      <div className="card p-4 border-l-4 !border-l-[var(--yellow)] text-sm text-[var(--muted)]">
-        {lang === "de"
-          ? "Demo-Modus: Konten liegen in Phase 1 nur im localStorage des jeweiligen Browsers. Dieses Panel zeigt daher die Benutzer DIESES Browsers. Mit der echten Datenbank in Phase 2 erscheinen hier alle registrierten Benutzer der Website."
-          : "Demo mode: in phase 1, accounts live only in each browser's localStorage. This panel therefore shows the users of THIS browser. With the real database in phase 2, all registered users of the site will appear here."}
-      </div>
+  return {
+    totalUsers,
+    confirmedUsers,
+    planCounts,
+    founderSold,
+    founderTotal: FOUNDER_TOTAL,
+    portfolioItems: portfolioRes.error ? null : (portfolioRes.count ?? 0),
+    activeAlerts: alertsRes.error ? null : (alertsRes.count ?? 0),
+    newsletterSubscribers: newsletter,
+    recentUsers,
+    serviceRoleMissing: false,
+  };
+}
 
-      {/* Benutzer */}
-      <section className="card p-5">
-        <h2 className="font-bold text-lg mb-4">
-          👥 {lang === "de" ? "Benutzer" : "Users"} ({users.length})
-        </h2>
-        {users.length === 0 ? (
-          <p className="text-sm text-[var(--muted)]">
-            {lang === "de" ? "Keine Benutzerdaten gefunden." : "No user data found."}
-          </p>
-        ) : (
-          <div className="overflow-x-auto scroll-thin">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="text-left text-xs text-[var(--muted)] border-b border-[var(--border)]">
-                  <th className="py-2 pr-4">{lang === "de" ? "Benutzer" : "User"}</th>
-                  <th className="py-2 pr-4">E-Mail</th>
-                  <th className="py-2 pr-4">{lang === "de" ? "Registriert" : "Registered"}</th>
-                  <th className="py-2 pr-4">BrickLink</th>
-                  <th className="py-2 pr-4">Portfolio</th>
-                  <th className="py-2 pr-4">{lang === "de" ? "Investiert" : "Invested"}</th>
-                  <th className="py-2">{lang === "de" ? "Alarme" : "Alerts"}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {users.map((u) => (
-                  <tr key={u.username} className="border-b border-[var(--border)] last:border-0">
-                    <td className="py-3 pr-4 font-semibold">
-                      {u.username}{" "}
-                      {u.isCurrent && (
-                        <span className="badge badge-yellow ml-1">
-                          {lang === "de" ? "Du" : "You"}
-                        </span>
-                      )}
-                    </td>
-                    <td className="py-3 pr-4 text-[var(--muted)]">{u.email ?? "-"}</td>
-                    <td className="py-3 pr-4 text-[var(--muted)]">
-                      {u.createdAt
-                        ? new Date(u.createdAt).toLocaleDateString(locale)
-                        : "-"}
-                    </td>
-                    <td className="py-3 pr-4">
-                      {u.bricklinkStore ? (
-                        <span className="badge badge-blue">{u.bricklinkStore}</span>
-                      ) : (
-                        "-"
-                      )}
-                    </td>
-                    <td className="py-3 pr-4">
-                      {u.portfolioItems} Sets · {u.portfolioUnits}{" "}
-                      {lang === "de" ? "Stk." : "units"}
-                    </td>
-                    <td className="py-3 pr-4 font-bold text-[var(--yellow)]">
-                      {u.portfolioInvested > 0
-                        ? formatEUR(u.portfolioInvested, lang)
-                        : "-"}
-                    </td>
-                    <td className="py-3">🔔 {u.alertCount}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </section>
+export default async function AdminPage() {
+  const supabase = await getSupabaseServer();
 
-      {/* System */}
-      <section>
-        <h2 className="font-bold text-lg mb-4">
-          ⚙️ {lang === "de" ? "Systemstatus" : "System status"}
-        </h2>
-        <div className="grid gap-3 grid-cols-2 sm:grid-cols-3">
-          {siteStats.map((s) => (
-            <div key={s.label} className="card p-4">
-              <p className="text-xs text-[var(--muted)] mb-1">{s.label}</p>
-              <p className="font-bold text-lg">
-                {s.value !== null ? s.value.toLocaleString(locale) : "…"}
-              </p>
-            </div>
-          ))}
-        </div>
-        {catalog.setsFetchedAt && (
-          <p className="text-xs text-[var(--muted)] mt-3">
-            {lang === "de" ? "Letzter Katalog-Sync: " : "Last catalog sync: "}
-            {new Date(catalog.setsFetchedAt).toLocaleString(locale)} ·{" "}
-            {lang === "de"
-              ? "täglicher Auto-Sync um 08:00 aktiv"
-              : "daily auto sync at 08:00 active"}
-          </p>
-        )}
-      </section>
-    </div>
-  );
+  // Phase-1-Fallback: ohne Supabase bleibt alles wie bisher (Client-Panel).
+  if (!supabase) return <AdminLocal />;
+
+  const { data } = await supabase.auth.getUser();
+  const email = data.user?.email;
+  if (!email || !isAdminUser(email)) notFound();
+
+  const stats = await loadStats();
+  return <AdminCloud stats={stats} />;
 }
