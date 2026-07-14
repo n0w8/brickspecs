@@ -3,6 +3,12 @@ import type { Minifig } from "./types";
 // Recherchierte Minifiguren-Daten (Stand Juli 2026). Preise sind Schätzwerte in EUR,
 // orientiert an BrickLink-/BrickEconomy-Preisniveaus. Einige Legacy-IDs sind
 // BrickLink-artige Näherungen (im UI existiert ein Bild-Fallback).
+//
+// imageUrl zeigt IMMER auf das Rebrickable-CDN-Bild der zugeordneten
+// Katalog-Figur (fig-XXXXXX) - NICHT auf BrickLink raten! Die alten
+// img.bricklink.com-URLs zeigten in 19 von 29 Fällen falsche Figuren
+// (z. B. cas212 = grüner Ninja statt Schwarzer Falke). Konsistenz prüfbar
+// mit: node scripts/check-curated-figs.mjs
 export const MINIFIGS: Minifig[] = [
   // ── Star Wars ────────────────────────────────────────────────────────────
   {
@@ -24,7 +30,7 @@ export const MINIFIGS: Minifig[] = [
       de: "Eine der begehrtesten Star-Wars-Minifiguren überhaupt: der erste Boba Fett mit Arm- und Beinbedruckung, exklusiv im Cloud-City-Set 10123 von 2003 enthalten. Der geringe Produktionsumfang des Sets macht die Figur zum Grail für Sammler.",
       en: "One of the most sought-after Star Wars minifigures ever: the first Boba Fett with printed arms and legs, exclusive to the 2003 Cloud City set 10123. The set's small production run makes this figure a true grail for collectors.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/sw0107.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-003908.jpg",
   },
   {
     id: "sw0218",
@@ -45,7 +51,7 @@ export const MINIFIGS: Minifig[] = [
       de: "Streng limitierte Promo-Figur zum 10. Jubiläum von LEGO Star Wars (2009), nur in versiegelten Polybags verteilt. Verchromte Vader-Figuren in ungeöffneter Tüte zählen heute zu den teuersten Minifiguren am Markt.",
       en: "Strictly limited promo figure for the 10th anniversary of LEGO Star Wars (2009), distributed only in sealed polybags. Chrome Vaders in unopened bags rank among the most expensive minifigures on the market today.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/sw0218.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-000581.jpg",
   },
   {
     id: "sw0004",
@@ -65,7 +71,7 @@ export const MINIFIGS: Minifig[] = [
       de: "Der allererste LEGO-Darth-Vader aus dem Startjahr der Lizenz 1999 - mit dem klassischen glatten Helm und ohne Gesichtsbedruckung unter der Maske. Ein erschwingliches Stück LEGO-Star-Wars-Geschichte.",
       en: "The very first LEGO Darth Vader from the license's launch year 1999 - with the classic smooth helmet and no face print under the mask. An affordable piece of LEGO Star Wars history.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/sw0004.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-003517.jpg",
   },
   {
     id: "sw0105",
@@ -85,7 +91,7 @@ export const MINIFIGS: Minifig[] = [
       de: "Der erste Lando Calrissian überhaupt, exklusiv im Cloud-City-Set 10123. Steht im Schatten des Cloud-City-Boba-Fett, ist aber selbst eine vierstellige Rarität im ungeöffneten Set und lose ein gesuchtes Sammlerstück.",
       en: "The first-ever Lando Calrissian, exclusive to Cloud City set 10123. Overshadowed by the Cloud City Boba Fett, but a sought-after collectible in its own right.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/sw0105.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-003910.jpg",
   },
   {
     id: "sw0028",
@@ -105,7 +111,7 @@ export const MINIFIGS: Minifig[] = [
       de: "Der treue Astromech in seiner klassischen Druckvariante - seit 1999 in unzähligen Sets erschienen und trotzdem in keiner Sammlung verzichtbar. Spätere Sets nutzen leicht abgewandelte Druckvarianten.",
       en: "The loyal astromech in his classic print variant - featured in countless sets since 1999, yet indispensable in any collection. Later sets use slightly revised prints.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/sw0028.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-003508.jpg",
   },
   {
     id: "sw0275",
@@ -126,7 +132,7 @@ export const MINIFIGS: Minifig[] = [
       de: "Weißer Prototyp-Boba-Fett als Promo zum 30. Jubiläum des Kopfgeldjägers (2010), nur als limitierte Beigabe verteilt. Im versiegelten Polybag ein Klassiker jeder Minifiguren-Wertanlage-Liste.",
       en: "White prototype Boba Fett released as a promo for the bounty hunter's 30th anniversary (2010), distributed only as a limited giveaway. Sealed in its polybag, a staple of every minifigure investment list.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/sw0275.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-000316.jpg",
   },
   {
     id: "sw1350",
@@ -145,7 +151,7 @@ export const MINIFIGS: Minifig[] = [
       de: "Die Kultfigur der Community: Nach über 20 Jahren als Running Gag bekam Jedi Bob 2024 mit Set 75388 ein eigenes Set. Da das Set laut EOL-Listen im Sommer 2026 ausläuft, gilt die Figur als Kandidat für künftige Wertsteigerung.",
       en: "The community's cult hero: after 20+ years as a running gag, Jedi Bob finally got his own set (75388) in 2024. With the set retiring in summer 2026 according to EOL lists, the figure is seen as a candidate for future appreciation.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/sw1350.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-015324.jpg",
   },
 
   // ── Classic Space & Space ────────────────────────────────────────────────
@@ -167,7 +173,7 @@ export const MINIFIGS: Minifig[] = [
       de: "Der rote Classic-Space-Astronaut mit Logo-Torso ist seit 1978 das Gesicht der klassischen Weltraum-Ära. Exemplare ohne gebrochene Helmklammer und mit kräftigem Torso-Druck erzielen deutliche Aufschläge.",
       en: "The red Classic Space astronaut with the logo torso has been the face of the classic space era since 1978. Examples without cracked helmets and with crisp torso prints command clear premiums.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/sp004.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-000020.jpg",
   },
   {
     id: "sp006",
@@ -187,7 +193,7 @@ export const MINIFIGS: Minifig[] = [
       de: "Der gelbe Klassik-Astronaut, spätestens seit Benny aus dem LEGO Movie weltberühmt. Gehört zur Crew des Galaxy Explorer und ist etwas schwerer zu finden als die rote Variante.",
       en: "The yellow classic astronaut, world-famous at the latest since Benny from The LEGO Movie. Part of the Galaxy Explorer crew and somewhat harder to find than the red variant.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/sp006.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-006908.jpg",
   },
   {
     id: "sp033",
@@ -207,7 +213,7 @@ export const MINIFIGS: Minifig[] = [
       de: "Die rot-schwarze Crew der Magnet-Fraktion M:Tron (ab 1990) gehört zu den beliebtesten Space-Figuren der frühen 90er. Der Torso mit M-Logo ist erstaunlich kratzempfindlich - gute Exemplare werden knapper.",
       en: "The red-and-black crew of the magnet faction M:Tron (from 1990) is among the most popular Space figures of the early 90s. The M-logo torso scratches easily, making clean examples increasingly scarce.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/sp033.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-000065.jpg",
   },
   {
     id: "tlm026",
@@ -227,7 +233,7 @@ export const MINIFIGS: Minifig[] = [
       de: "\"SPACESHIP!\" - Benny, der 1980er-Astronaut mit gebrochener Helmklammer, ist die liebevollste Hommage an die Classic-Space-Ära. Sein Raumschiff-Set 70816 gilt als moderner Klassiker.",
       en: "\"SPACESHIP!\" - Benny, the 1980-something space guy with the cracked helmet, is the most affectionate homage to the Classic Space era. His Spaceship set 70816 is considered a modern classic.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/tlm026.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-007014.jpg",
   },
 
   // ── Pirates & Castle ─────────────────────────────────────────────────────
@@ -249,7 +255,7 @@ export const MINIFIGS: Minifig[] = [
       de: "Der legendäre Piratenkapitän mit Holzbein, Hakenhand und Epauletten führte 1989 das Piraten-Thema ein - die erste LEGO-Figur mit individuellem Gesicht. Kapitän der Black Seas Barracuda.",
       en: "The legendary pirate captain with peg leg, hook hand and epaulettes launched the Pirates theme in 1989 - the first LEGO figure with an individual face. Captain of the Black Seas Barracuda.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/pi001.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-005262.jpg",
   },
   {
     id: "cas085",
@@ -269,7 +275,7 @@ export const MINIFIGS: Minifig[] = [
       de: "Die Ritter der Gelben Burg von 1978 gehören zur allerersten Minifiguren-Generation - mit einfarbigen Torsos, aufsteckbaren Kunststoff-Visieren und Pferden aus Steinen. Ein Stück LEGO-Urgeschichte.",
       en: "The knights of the 1978 Yellow Castle belong to the very first minifigure generation - with plain torsos, clip-on plastic visors and brick-built horses. A piece of LEGO prehistory.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/cas085.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-004433.jpg",
   },
   {
     id: "cas124",
@@ -289,7 +295,7 @@ export const MINIFIGS: Minifig[] = [
       de: "Der klassische Löwenwappen-Ritter der 80er verteidigte die King's Castle 6080 und prägte eine ganze Generation von Burgen-Fans. Saubere Wappendrucke sind der wertbestimmende Faktor.",
       en: "The classic lion-crest knight of the 80s defended King's Castle 6080 and shaped a whole generation of castle fans. Crisp crest printing is the key value factor.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/cas124.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-004570.jpg",
   },
   {
     id: "cas212",
@@ -309,7 +315,7 @@ export const MINIFIGS: Minifig[] = [
       de: "Die Schwarzen Falken sind die wohl kultigste Castle-Fraktion - so beliebt, dass LEGO sie 2022 in der Lion Knights' Castle (10305) offiziell zurückbrachte. Originale aus den 80ern bleiben trotzdem gefragt.",
       en: "The Black Falcons are arguably the most iconic Castle faction - so popular that LEGO officially brought them back in the 2022 Lion Knights' Castle (10305). Original 80s figures remain in demand regardless.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/cas212.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-000642.jpg",
   },
   {
     id: "cas572",
@@ -328,7 +334,7 @@ export const MINIFIGS: Minifig[] = [
       de: "Die Königin aus der 90-Jahre-Jubiläumsburg 10305 - eine moderne Hommage an die Crusader der 80er. Seit dem Auslaufen der Burg Ende 2025 zieht der Kurs der exklusiven Figuren spürbar an.",
       en: "The queen from the 90th-anniversary castle 10305 - a modern homage to the 80s Crusaders. Since the castle retired at the end of 2025, prices for its exclusive figures have been climbing noticeably.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/cas572.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-012995.jpg",
   },
 
   // ── Trains & Town/Modular ────────────────────────────────────────────────
@@ -350,7 +356,7 @@ export const MINIFIGS: Minifig[] = [
       de: "Der Lokführer der grauen 12-Volt-Ära mit blauer Uniform und Mütze gehört zu den Figuren, die Eisenbahn-Nostalgie pur verkörpern. Häufig bespielt - neuwertige Exemplare sind rar.",
       en: "The driver of the grey 12-volt era with blue uniform and cap embodies pure railway nostalgia. Usually well-played - mint examples are scarce.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/trn001.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-001010.jpg",
   },
   {
     id: "trn241",
@@ -370,7 +376,7 @@ export const MINIFIGS: Minifig[] = [
       de: "Der elegante Schaffner der Emerald Night (10194) mit dunkelgrüner Uniform - exklusiv in einem der beliebtesten LEGO-Züge aller Zeiten. Wird oft für MOC-Bahnhöfe gesucht.",
       en: "The elegant conductor of the Emerald Night (10194) in dark green uniform - exclusive to one of the most beloved LEGO trains of all time. Frequently hunted for MOC stations.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/trn241.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-009171.jpg",
   },
   {
     id: "twn123",
@@ -390,7 +396,7 @@ export const MINIFIGS: Minifig[] = [
       de: "Eine der drei schlichten Figuren aus dem allerersten Modular Building Café Corner (10182). Ihr Wert speist sich fast ausschließlich aus der Herkunft - komplette Figurensätze des Sets sind gesucht.",
       en: "One of the three plain figures from the very first modular building, Café Corner (10182). Its value stems almost entirely from provenance - complete figure sets are in demand.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/twn123.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-008381.jpg",
   },
   {
     id: "twn133",
@@ -410,7 +416,7 @@ export const MINIFIGS: Minifig[] = [
       de: "Feuerwehrmann aus der Fire Brigade (10197), dem Retro-Feuerwehrhaus der Modular-Reihe im Stil der 1930er. Mit Dalmatiner-Kollege einer der charmantesten Figurensätze der Serie.",
       en: "Firefighter from the Fire Brigade (10197), the modular line's 1930s-style retro fire house. Together with the Dalmatian colleague, one of the series' most charming figure sets.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/twn133.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-008364.jpg",
   },
 
   // ── Collectible Minifigures ──────────────────────────────────────────────
@@ -433,7 +439,7 @@ export const MINIFIGS: Minifig[] = [
       de: "Nur 5.000 Stück weltweit: Mr. Gold wurde 2013 zufällig in Tüten der Minifiguren-Serie 10 versteckt und ist heute die berühmteste Chase-Figur der LEGO-Geschichte. Exemplare mit Zertifikatsnummer und Originaltüte erzielen Höchstpreise.",
       en: "Only 5,000 pieces worldwide: Mr. Gold was randomly hidden in Series 10 blind bags in 2013 and is now the most famous chase figure in LEGO history. Examples with certificate number and original bag command top prices.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/col071.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-000825.jpg",
   },
   {
     id: "col005",
@@ -453,7 +459,7 @@ export const MINIFIGS: Minifig[] = [
       de: "Der Zombie aus der allerersten Sammelfiguren-Serie von 2010 - mit Hühnerkeule und leerem Blick ein Fanliebling. Serie-1-Figuren in ungeöffneter Tüte werden von Jahr zu Jahr teurer.",
       en: "The Zombie from the very first collectible minifigure series of 2010 - a fan favourite with turkey leg and vacant stare. Series 1 figures in unopened bags get pricier every year.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/col005.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-001182.jpg",
   },
   {
     id: "col089",
@@ -473,7 +479,7 @@ export const MINIFIGS: Minifig[] = [
       de: "Die Freiheitsstatue aus Serie 6 ist komplett in Sand-Grün gehalten und dadurch eine beliebte Teilequelle für MOC-Bauer - was den Preis zusätzlich treibt. Eine der teuersten regulären CMF-Figuren.",
       en: "Series 6 Lady Liberty is moulded entirely in sand green, making her a popular parts source for MOC builders - which drives the price further. One of the most expensive regular CMF figures.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/col089.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-008416.jpg",
   },
 
   // ── Harry Potter ─────────────────────────────────────────────────────────
@@ -495,7 +501,7 @@ export const MINIFIGS: Minifig[] = [
       de: "Der erste LEGO-Harry aus der gelben Ära von 2001, erschienen zum Kinostart des ersten Films. Für viele Sammler der nostalgischste Harry - die gelbe Hautfarbe wurde 2004 durch Fleischtöne abgelöst.",
       en: "The first LEGO Harry from the yellow era of 2001, released alongside the first film. The most nostalgic Harry for many collectors - yellow skin was replaced by flesh tones in 2004.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/hp001.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-006060.jpg",
   },
   {
     id: "hp101",
@@ -515,7 +521,7 @@ export const MINIFIGS: Minifig[] = [
       de: "Hagrid mit seinem großen Spezial-Körperelement aus der 2010er-Welle, u. a. im Hogwarts-Schloss 4842 enthalten. Großfiguren wie diese sind bei Komplettierern besonders gefragt.",
       en: "Hagrid with his big special body element from the 2010 wave, included in Hogwarts Castle 4842 among others. Oversized figures like this are especially popular with completionists.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/hp101.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-006075.jpg",
   },
   {
     id: "hp790",
@@ -534,7 +540,7 @@ export const MINIFIGS: Minifig[] = [
       de: "Molly Weasley aus der Collectors' Edition des Fuchsbaus (76437) mit exklusivem Strickjacken-Druck. Das Set steht auf den EOL-Listen für Ende 2026 - Figuren-Preise dürften danach anziehen.",
       en: "Molly Weasley from the Burrow Collectors' Edition (76437) with an exclusive cardigan print. The set is slated for retirement at the end of 2026 - figure prices are likely to rise afterwards.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/hp790.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-015477.jpg",
   },
 
   // ── Disney & City ────────────────────────────────────────────────────────
@@ -556,7 +562,7 @@ export const MINIFIGS: Minifig[] = [
       de: "Micky in seiner klassischen Minifiguren-Form, u. a. als Lokführer im Disney-Zug mit Bahnhof (71044). Der spezielle Kopfform-Guss macht ihn zu einem der markantesten Lizenz-Designs.",
       en: "Mickey in his classic minifigure form, appearing as the engineer of the Disney Train and Station (71044) among others. The special head mould makes him one of the most distinctive licensed designs.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/dis001.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-005752.jpg",
   },
   {
     id: "cty1500",
@@ -575,7 +581,7 @@ export const MINIFIGS: Minifig[] = [
       de: "Die Lokführerin des Hochgeschwindigkeitszugs 60337 in moderner City-Bahn-Uniform. Noch eine Alltagsfigur - mit dem EOL des letzten großen Personenzugs Ende 2026 könnte sich das ändern.",
       en: "The driver of high-speed train 60337 in a modern City rail uniform. Still an everyday figure - that may change once the last big passenger train retires at the end of 2026.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/cty1500.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-012808.jpg",
   },
   {
     id: "cty1789",
@@ -594,6 +600,6 @@ export const MINIFIGS: Minifig[] = [
       de: "Der freundliche Fahrer der Innenstadt-Straßenbahn 60423 - perfekt für jede LEGO-Stadt mit Nahverkehr. Das Set läuft laut EOL-Listen Ende 2026 aus.",
       en: "The friendly driver of downtown streetcar 60423 - perfect for any LEGO city with public transport. The set retires at the end of 2026 according to EOL lists.",
     },
-    imageUrl: "https://img.bricklink.com/ItemImage/MN/0/cty1789.png",
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-015350.jpg",
   },
 ];

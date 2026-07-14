@@ -3,14 +3,16 @@
 import Link from "next/link";
 import { SETS } from "@/data/sets";
 import { MINIFIGS } from "@/data/minifigs";
+import type { Minifig } from "@/data/types";
 import { pick, useLang, useT } from "@/lib/i18n";
 import { formatEUR, growthPercent, investmentScore } from "@/lib/format";
+import { matchCuratedToCatalog } from "@/lib/fig-match";
 import BrickImage from "./BrickImage";
 import PriceChart from "./PriceChart";
 import PricePanel, { type PanelMinifig } from "./PricePanel";
 import AddToPortfolio from "./AddToPortfolio";
 import PriceAlertButton from "./PriceAlertButton";
-import MinifigCard from "./MinifigCard";
+import { RarityBadge } from "./MinifigCard";
 import { AvailabilityBadge } from "./SetCard";
 import SimilarSetsRow, { type SimilarSetItem } from "./SimilarSetsRow";
 import { ExternalLinkChips } from "./CatalogSetDetail";
@@ -35,7 +37,29 @@ export default function SetDetail({
 
   const growth = growthPercent(set);
   const score = investmentScore(set);
-  const figs = MINIFIGS.filter((f) => set.minifigIds.includes(f.id));
+
+  // Enthaltene Minifiguren: Quelle ist IMMER das Katalog-Inventar
+  // (Rebrickable, korrekte Bilder und Zuordnung). Kuratierte Zusatzinfos
+  // (Preis, Seltenheit) werden nur angereichert, wo eine kuratierte Figur
+  // EINDEUTIG einer Katalog-Figur zuordenbar ist.
+  const catalogFigList = catalogFigs ?? [];
+  const curatedByCatalogFigId = new Map<string, Minifig>();
+  {
+    const claims = new Map<string, Minifig[]>();
+    for (const cur of MINIFIGS) {
+      if (!cur.appearsInSetIds.includes(set.id)) continue;
+      const match = matchCuratedToCatalog(cur.name.en, catalogFigList);
+      if (!match) continue;
+      const list = claims.get(match.id) ?? [];
+      list.push(cur);
+      claims.set(match.id, list);
+    }
+    // Nur eindeutige (1:1) Zuordnungen übernehmen
+    for (const [figId, curs] of claims) {
+      if (curs.length === 1) curatedByCatalogFigId.set(figId, curs[0]);
+    }
+  }
+  const moreFigs = Math.max(0, (catalogFigsTotal ?? catalogFigList.length) - catalogFigList.length);
 
   const facts: { label: string; value: string; highlight?: boolean }[] = [
     { label: t("common.release"), value: String(set.year) },
@@ -162,15 +186,51 @@ export default function SetDetail({
         img={set.imageUrl}
       />
 
-      {/* Minifiguren im Set */}
-      {figs.length > 0 && (
+      {/* Minifiguren im Set (Katalog-Inventar, ggf. kuratiert angereichert) */}
+      {catalogFigList.length > 0 && (
         <section>
           <h2 className="font-bold text-lg mb-4">👤 {t("common.relatedSets")}</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {figs.map((fig) => (
-              <MinifigCard key={fig.id} fig={fig} />
-            ))}
+            {catalogFigList.map((fig) => {
+              const curated = curatedByCatalogFigId.get(fig.id);
+              return (
+                <Link
+                  key={fig.id}
+                  href={`/minifiguren/${fig.id}`}
+                  className="card flex flex-col"
+                >
+                  <BrickImage
+                    src={fig.img}
+                    alt={fig.name}
+                    label={fig.id}
+                    className="h-36 w-full"
+                    imgClassName="object-contain p-3"
+                  />
+                  <div className="p-4 flex flex-col gap-2 flex-1">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="font-mono text-xs text-[var(--muted)]">{fig.id}</span>
+                      {curated && <RarityBadge rarity={curated.rarity} />}
+                    </div>
+                    <p className="font-semibold leading-snug">{fig.name}</p>
+                    {curated && (
+                      <div className="mt-auto pt-2 border-t border-[var(--border)]">
+                        <span className="font-bold text-[var(--yellow)]">
+                          {formatEUR(curated.valueNewEUR, lang)}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                </Link>
+              );
+            })}
           </div>
+          {moreFigs > 0 && (
+            <p className="text-sm text-[var(--muted)] mt-3">
+              {lang === "de"
+                ? `+ ${moreFigs} weitere Figuren in diesem Set`
+                : `+ ${moreFigs} more figures in this set`}
+            </p>
+          )}
         </section>
       )}
 

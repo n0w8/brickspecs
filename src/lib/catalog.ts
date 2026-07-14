@@ -5,6 +5,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { SETS } from "@/data/sets";
 import type { LegoSet } from "@/data/types";
+import { expandSearchQuery } from "@/lib/search-synonyms";
 
 export interface CatalogSet {
   /** Setnummer inkl. Variante, z. B. "10188-1" */
@@ -41,6 +42,11 @@ interface Cache {
 
 let cache: Cache | null = null;
 
+// Root-Themes ohne Bau-Sets: Merchandise (Schlüsselanhänger, Uhren,
+// Rucksäcke), Bücher, Ersatzteil-/Service-Packs und lose Steine-Beutel
+// gehören nicht ins Set-Lexikon. Duplo bleibt drin (ist LEGO).
+const NON_BUILDING_ROOT_THEMES = new Set(["Gear", "Books", "Service Packs", "Bulk Bricks"]);
+
 function rootTheme(themes: Record<string, ThemeEntry>, id: string): string {
   let cur = themes[id];
   let guard = 0;
@@ -57,21 +63,39 @@ function load(): Cache {
     fetchedAt: string;
     sets: CatalogSet[];
   };
-  // Rebrickable-Platzhalter ausblenden (keine echten Produkte, z. B.
-  // "DATABASE-...", "... Database Set", "Unused Parts Database").
+  const themes = JSON.parse(readFileSync(join(dir, "themes.json"), "utf8")) as Record<
+    string,
+    ThemeEntry
+  >;
+
+  // Root-Theme pro Theme-ID einmal auflösen (für den Non-Building-Filter).
+  const rootByThemeId = new Map<string, string>();
+  const rootOf = (id: string): string => {
+    let r = rootByThemeId.get(id);
+    if (r === undefined) {
+      r = rootTheme(themes, id);
+      rootByThemeId.set(id, r);
+    }
+    return r;
+  };
+
+  // Zwei Filterstufen:
+  // 1. Rebrickable-Platzhalter ausblenden (keine echten Produkte, z. B.
+  //    "DATABASE-...", "... Database Set", "Unused Parts Database").
+  // 2. Nicht-Bau-Themes ausblenden (Gear, Books, Service Packs, Bulk
+  //    Bricks inkl. aller Unter-Themes) - das Lexikon zeigt nur Bau-Sets.
+  //    Wichtig: Der Filter betrifft NUR die Set-Liste; Minifiguren-
+  //    Inventare (minifig-catalog.ts) bleiben unangetastet.
   const cat = {
     fetchedAt: raw.fetchedAt,
     sets: raw.sets.filter(
       (s) =>
         !s.n.startsWith("DATABASE-") &&
         !/unused parts/i.test(s.t) &&
-        !/database set/i.test(s.t)
+        !/database set/i.test(s.t) &&
+        !NON_BUILDING_ROOT_THEMES.has(rootOf(s.th))
     ),
   };
-  const themes = JSON.parse(readFileSync(join(dir, "themes.json"), "utf8")) as Record<
-    string,
-    ThemeEntry
-  >;
 
   const byId = new Map<string, CatalogSet>();
   const byBase = new Map<string, CatalogSet[]>();
@@ -185,27 +209,51 @@ export function searchCatalog(params: CatalogSearchParams) {
   const pageSize = Math.min(60, Math.max(1, params.pageSize ?? 24));
   const page = Math.max(1, params.page ?? 1);
 
-  let filtered = c.sets.filter((s) => {
+  const base = c.sets.filter((s) => {
     if (params.theme && rootTheme(c.themes, s.th) !== params.theme) return false;
     if (params.yearFrom && s.y < params.yearFrom) return false;
     if (params.yearTo && s.y > params.yearTo) return false;
-    if (!q) return true;
-    return s.n.toLowerCase().startsWith(q) || s.t.toLowerCase().includes(q);
+    return true;
   });
 
+  const matches = (s: CatalogSet, term: string) =>
+    s.n.toLowerCase().startsWith(term) || s.t.toLowerCase().includes(term);
+
+  // Query-Abgleich: Original-Query zuerst; deutsche Begriffe werden
+  // zusätzlich über die DE->EN-Synonym-Map gesucht (z. B. "Polizeistation"
+  // -> "police station") und die Ergebnisse angehängt.
+  let primary: CatalogSet[];
+  const secondary: CatalogSet[] = [];
+  if (q) {
+    const expansions = expandSearchQuery(q).map((e) => e.toLowerCase());
+    primary = [];
+    for (const s of base) {
+      if (matches(s, q)) primary.push(s);
+      else if (expansions.length > 0 && expansions.some((e) => matches(s, e))) {
+        secondary.push(s);
+      }
+    }
+  } else {
+    primary = base;
+  }
+
+  let cmp: (a: CatalogSet, b: CatalogSet) => number;
   switch (params.sort) {
     case "year-asc":
-      filtered = filtered.sort((a, b) => a.y - b.y || a.n.localeCompare(b.n));
+      cmp = (a, b) => a.y - b.y || a.n.localeCompare(b.n);
       break;
     case "parts-desc":
-      filtered = filtered.sort((a, b) => b.p - a.p);
+      cmp = (a, b) => b.p - a.p;
       break;
     case "name":
-      filtered = filtered.sort((a, b) => a.t.localeCompare(b.t));
+      cmp = (a, b) => a.t.localeCompare(b.t);
       break;
     default:
-      filtered = filtered.sort((a, b) => b.y - a.y || a.n.localeCompare(b.n));
+      cmp = (a, b) => b.y - a.y || a.n.localeCompare(b.n);
   }
+  primary.sort(cmp);
+  if (secondary.length > 0) secondary.sort(cmp);
+  const filtered = secondary.length > 0 ? primary.concat(secondary) : primary;
 
   const total = filtered.length;
   const start = (page - 1) * pageSize;
