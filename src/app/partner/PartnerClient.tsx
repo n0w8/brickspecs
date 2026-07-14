@@ -24,7 +24,7 @@ export default function PartnerClient() {
         {
           emoji: "🔗",
           title: "Eigener Empfehlungslink",
-          desc: "Dein persönlicher Link mit Umsatzbeteiligung: bis zu 30% wiederkehrend an jedem Abo, das über dich zustande kommt - Programm startet in Kürze.",
+          desc: "25% Provision auf jede Zahlung deiner geworbenen Nutzer - dauerhaft, automatisch gutgeschrieben. Dein persönlicher Link wartet in deinem Profil.",
         },
         {
           emoji: "⭐",
@@ -41,7 +41,7 @@ export default function PartnerClient() {
         {
           emoji: "🔗",
           title: "Your own referral link",
-          desc: "Your personal link with revenue share: up to 30% recurring on every subscription you bring in - program launching soon.",
+          desc: "25% commission on every payment from users you refer - permanent, credited automatically. Your personal link is waiting in your profile.",
         },
         {
           emoji: "⭐",

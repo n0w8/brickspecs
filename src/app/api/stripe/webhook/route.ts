@@ -9,13 +9,63 @@ import { getStripe, planFromLookupKey } from "@/lib/stripe/server";
  * POST /api/stripe/webhook - Stripe-Ereignisse (Signatur-geprüft, raw body!).
  *
  * Verarbeitete Events:
- * - checkout.session.completed  (mode=payment -> Founder-Nummer vergeben)
+ * - checkout.session.completed  (mode=payment -> Founder-Nummer vergeben
+ *   + 25% Referral-Gutschrift, falls der Käufer geworben wurde)
  * - customer.subscription.created|updated (Plan sammler/investor + Abrechnung setzen)
  * - customer.subscription.deleted (zurück auf free - Founder wird NIE downgegradet)
+ * - invoice.paid (25% Referral-Gutschrift auf jede Abo-Rechnung eines Geworbenen)
  *
  * Profil-Zuordnung: primär über profiles.stripe_customer_id, als Fallback
  * über client_reference_id bzw. subscription_data.metadata (User-Id aus dem Checkout).
+ *
+ * Referral-Idempotenz: referral_earnings.stripe_event_id ist unique - die
+ * erneute Zustellung desselben Events erzeugt keine zweite Gutschrift.
  */
+
+/** Provisionssatz des Empfehlungsprogramms: 25% jeder tatsächlichen Zahlung. */
+const REFERRAL_COMMISSION_RATE = 0.25;
+
+/**
+ * Schreibt dem Werber 25% des gezahlten Betrags gut, wenn der Zahler ein
+ * Profil mit referred_by hat. Unique-Konflikte (erneut zugestelltes Event)
+ * werden still ignoriert.
+ */
+async function creditReferralEarning(
+  admin: SupabaseClient,
+  payerProfileId: string,
+  amountEur: number,
+  source: "subscription_payment" | "founder_purchase",
+  stripeEventId: string
+): Promise<void> {
+  if (!Number.isFinite(amountEur) || amountEur <= 0) return;
+  const { data: payer } = await admin
+    .from("profiles")
+    .select("referred_by")
+    .eq("id", payerProfileId)
+    .maybeSingle();
+  const referrerId = (payer?.referred_by as string | null) ?? null;
+  if (!referrerId || referrerId === payerProfileId) return;
+
+  const commission = Math.round(amountEur * REFERRAL_COMMISSION_RATE * 100) / 100;
+  if (commission <= 0) return;
+
+  const { error } = await admin.from("referral_earnings").insert({
+    referrer_id: referrerId,
+    referred_user_id: payerProfileId,
+    amount_eur: commission,
+    source,
+    stripe_event_id: stripeEventId,
+  });
+  if (error) {
+    // 23505 = unique_violation auf stripe_event_id -> Idempotenz, kein Fehler.
+    if (error.code === "23505") return;
+    console.error(`[stripe/webhook] Referral-Gutschrift fehlgeschlagen: ${error.message}`);
+  } else {
+    console.log(
+      `[stripe/webhook] Referral: ${commission.toFixed(2)} EUR für ${referrerId} (${source}).`
+    );
+  }
+}
 
 /** Profil-Id über die Stripe-Customer-Id finden, Fallback: mitgelieferte User-Id. */
 async function resolveProfileId(
@@ -97,6 +147,15 @@ export async function POST(request: Request) {
           );
           break;
         }
+        // Referral-Gutschrift VOR dem Founder-Frühausstieg (Idempotenz läuft
+        // ohnehin über stripe_event_id) - 25% des Einmalkaufs für den Werber.
+        await creditReferralEarning(
+          admin,
+          profileId,
+          (session.amount_total ?? 0) / 100,
+          "founder_purchase",
+          event.id
+        );
         const { data: existing } = await admin
           .from("profiles")
           .select("founder_number")
@@ -167,6 +226,31 @@ export async function POST(request: Request) {
           .from("profiles")
           .update({ plan: "free", plan_billing: null })
           .eq("id", profileId);
+        break;
+      }
+
+      case "invoice.paid": {
+        // Jede tatsächlich bezahlte Abo-Rechnung eines Geworbenen bringt dem
+        // Werber 25% - dauerhaft, auch bei Verlängerungen.
+        const invoice = event.data.object as Stripe.Invoice;
+        if (invoice.status !== "paid" || !invoice.amount_paid) break;
+        const metaUserId =
+          (invoice.parent?.subscription_details?.metadata?.supabase_user_id as
+            | string
+            | undefined) ?? null;
+        const profileId = await resolveProfileId(
+          admin,
+          customerIdOf(invoice.customer ?? null),
+          metaUserId
+        );
+        if (!profileId) break; // fremder Customer - nichts zu tun
+        await creditReferralEarning(
+          admin,
+          profileId,
+          invoice.amount_paid / 100,
+          "subscription_payment",
+          event.id
+        );
         break;
       }
 

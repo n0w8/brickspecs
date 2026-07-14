@@ -18,6 +18,27 @@ import { openBillingPortal } from "@/lib/paywall";
 import { PLAN_META, formatFounderNumber, getPlanRecord, type Plan, type PlanRecord } from "@/lib/plan";
 import { formatEUR } from "@/lib/format";
 
+/** Antwort von GET /api/referral/me (siehe Route fuer Details). */
+interface ReferralStats {
+  referredTotal: number;
+  referredPaying: number;
+  pendingEur: number;
+  paidEur: number;
+  recent: {
+    amountEur: number;
+    source: string;
+    status: "pending" | "paid";
+    createdAt: string;
+  }[];
+}
+
+/** Quelle einer Gutschrift lesbar machen. */
+function referralSourceLabel(source: string, de: boolean): string {
+  if (source === "founder_purchase") return de ? "Founder-Kauf" : "Founder purchase";
+  if (source === "subscription_payment") return de ? "Abo-Zahlung" : "Subscription payment";
+  return source;
+}
+
 export default function ProfilePage() {
   const { lang } = useLang();
   const t = useT();
@@ -44,6 +65,8 @@ export default function ProfilePage() {
   );
   const [portalBusy, setPortalBusy] = useState(false);
   const [portalError, setPortalError] = useState(false);
+  const [referral, setReferral] = useState<ReferralStats | null>(null);
+  const [refCopied, setRefCopied] = useState(false);
 
   // Der Plan wird per Stripe-Webhook gesetzt - solange er nach dem Checkout
   // noch auf "free" steht, das Profil alle 5 Sekunden neu laden (max. 1 Minute).
@@ -89,6 +112,14 @@ export default function ProfilePage() {
         setAlertCount(alerts.length);
         if (u.source === "supabase") {
           setProfile(prof);
+          // Referral-Kennzahlen laden - Fehler still ignorieren (Sektion
+          // zeigt dann nur den Link, keine Zahlen).
+          void fetch("/api/referral/me")
+            .then((r) => (r.ok ? (r.json() as Promise<ReferralStats>) : null))
+            .then((stats) => {
+              if (!cancelled && stats) setReferral(stats);
+            })
+            .catch(() => {});
         } else {
           setPlanRec(getPlanRecord());
         }
@@ -314,19 +345,146 @@ export default function ProfilePage() {
                 ? "Demo-Modus: Dein Plan ist lokal vorgemerkt, die echte Zahlung folgt in Phase 2."
                 : "Demo mode: your plan is noted locally, real payment arrives in phase 2."}
         </p>
-        {isCloud && profile?.referralCode && (
-          <div className="mt-4">
-            <p className="text-xs text-[var(--muted)] mb-1">
-              {lang === "de"
-                ? "Dein Referral-Code (Freunde werben folgt bald)"
-                : "Your referral code (refer a friend coming soon)"}
-            </p>
-            <span className="badge badge-blue font-mono uppercase">
-              {profile.referralCode}
-            </span>
-          </div>
-        )}
       </div>
+
+      {/* Freunde werben - 25% verdienen */}
+      {isCloud && profile?.referralCode && (
+        <div className="card p-8">
+          <h2 className="font-bold text-lg mb-1">
+            🤝 {lang === "de" ? "Freunde werben - 25% verdienen" : "Refer friends - earn 25%"}
+          </h2>
+          <p className="text-sm text-[var(--muted)] mb-4">
+            {lang === "de"
+              ? "Teile deinen Link: Du bekommst 25% Provision auf jede Zahlung deiner geworbenen Nutzer - dauerhaft."
+              : "Share your link: you earn 25% commission on every payment from users you refer - permanently."}
+          </p>
+
+          {/* Ref-Link mit Kopier-Button */}
+          <div className="flex flex-wrap gap-3 mb-5">
+            <input
+              className="input flex-1 min-w-[220px] font-mono text-sm"
+              readOnly
+              value={`https://brickspecs.com/?ref=${profile.referralCode}`}
+              onFocus={(e) => e.currentTarget.select()}
+            />
+            <button
+              type="button"
+              className="btn btn-primary shrink-0"
+              onClick={() => {
+                void navigator.clipboard
+                  .writeText(`https://brickspecs.com/?ref=${profile.referralCode}`)
+                  .then(() => {
+                    setRefCopied(true);
+                    setTimeout(() => setRefCopied(false), 2500);
+                  })
+                  .catch(() => {});
+              }}
+            >
+              {refCopied
+                ? `✓ ${lang === "de" ? "Kopiert" : "Copied"}`
+                : lang === "de"
+                  ? "Link kopieren"
+                  : "Copy link"}
+            </button>
+          </div>
+
+          {/* Kennzahlen */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
+            <div className="card !bg-[var(--surface-2)] p-3">
+              <p className="text-xs text-[var(--muted)] mb-1">
+                {lang === "de" ? "Geworben" : "Referred"}
+              </p>
+              <p className="font-bold">{referral ? referral.referredTotal : "-"}</p>
+            </div>
+            <div className="card !bg-[var(--surface-2)] p-3">
+              <p className="text-xs text-[var(--muted)] mb-1">
+                {lang === "de" ? "Zahlend" : "Paying"}
+              </p>
+              <p className="font-bold">{referral ? referral.referredPaying : "-"}</p>
+            </div>
+            <div className="card !bg-[var(--surface-2)] p-3">
+              <p className="text-xs text-[var(--muted)] mb-1">
+                {lang === "de" ? "Offenes Guthaben" : "Pending balance"}
+              </p>
+              <p className="font-bold text-[var(--yellow)]">
+                {referral ? formatEUR(referral.pendingEur, lang) : "-"}
+              </p>
+            </div>
+            <div className="card !bg-[var(--surface-2)] p-3">
+              <p className="text-xs text-[var(--muted)] mb-1">
+                {lang === "de" ? "Ausgezahlt" : "Paid out"}
+              </p>
+              <p className="font-bold text-[#4cd587]">
+                {referral ? formatEUR(referral.paidEur, lang) : "-"}
+              </p>
+            </div>
+          </div>
+
+          {/* Gutschriften-Liste */}
+          {referral && referral.recent.length > 0 ? (
+            <div className="mb-4">
+              <p className="text-xs text-[var(--muted)] mb-2">
+                {lang === "de" ? "Letzte Gutschriften" : "Recent credits"}
+              </p>
+              <div className="flex flex-col gap-2">
+                {referral.recent.map((entry, i) => (
+                  <div
+                    key={entry.createdAt + i}
+                    className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm border-b border-[var(--border)] last:border-0 pb-2 last:pb-0"
+                  >
+                    <span className="text-[var(--muted)] text-xs w-24 shrink-0">
+                      {new Date(entry.createdAt).toLocaleDateString(
+                        lang === "de" ? "de-DE" : "en-GB"
+                      )}
+                    </span>
+                    <span className="font-bold">{formatEUR(entry.amountEur, lang)}</span>
+                    <span className="text-[var(--muted)]">
+                      {referralSourceLabel(entry.source, lang === "de")}
+                    </span>
+                    <span
+                      className={`badge ml-auto ${entry.status === "paid" ? "badge-green" : "badge-yellow"}`}
+                    >
+                      {entry.status === "paid"
+                        ? lang === "de"
+                          ? "Ausgezahlt"
+                          : "Paid"
+                        : lang === "de"
+                          ? "Offen"
+                          : "Pending"}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <p className="text-sm text-[var(--muted)] mb-4">
+              {lang === "de"
+                ? "Noch keine Gutschriften - teile deinen Link und verdiene mit."
+                : "No credits yet - share your link and start earning."}
+            </p>
+          )}
+
+          <p className="text-xs text-[var(--muted)]">
+            {lang === "de" ? (
+              <>
+                Auszahlung ab 25 Euro per PayPal - schreib uns über{" "}
+                <Link href="/feedback" className="text-[var(--yellow)] hover:underline">
+                  /feedback
+                </Link>
+                . Guthaben-Verrechnung mit dem eigenen Abo kommt in Kürze.
+              </>
+            ) : (
+              <>
+                Payout from 25 euros via PayPal - contact us via{" "}
+                <Link href="/feedback" className="text-[var(--yellow)] hover:underline">
+                  /feedback
+                </Link>
+                . Balance credit towards your own subscription is coming soon.
+              </>
+            )}
+          </p>
+        </div>
+      )}
 
       <div className="card p-8">
         <h2 className="font-bold text-lg mb-1">🧩 {t("profile.bricklink")}</h2>

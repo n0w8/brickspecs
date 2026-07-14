@@ -2,9 +2,9 @@
 
 // Datenschutzerklärung, angepasst auf das, was BrickSpecs technisch wirklich
 // macht: Vercel-Hosting + cookielose Web-Analyse, localStorage, Supabase-
-// Nutzerkonten, Stripe-Bezahlung, Brevo-Newsletter mit Double-Opt-in,
-// Feedback-Formular, Brickognize-Scanner, externe Bild-CDNs, Amazon-Affiliate.
-// Bei neuen Datenverarbeitungen ergänzen!
+// Nutzerkonten, Stripe-Bezahlung, Empfehlungsprogramm, Brevo-Newsletter mit
+// Double-Opt-in, Feedback-Formular, Brickognize-Scanner, externe Bild-CDNs,
+// Amazon-Affiliate. Bei neuen Datenverarbeitungen ergänzen!
 
 import Link from "next/link";
 import { useLang } from "@/lib/i18n";
@@ -82,56 +82,63 @@ export default function DatenschutzClient() {
           : "Paid plans are processed by Stripe Payments Europe Ltd. (1 Grand Canal Street Lower, Dublin, Ireland). You enter your payment details (e.g. card data) directly with Stripe - we never receive or store card data, only a customer and subscription reference to link your subscription to your account. The legal basis is the performance of the contract (Art. 6(1)(b) GDPR). Stripe's own privacy policy additionally applies to payment processing."}
       </p>
 
-      <H2>{de ? "8. Newsletter (Brevo)" : "8. Newsletter (Brevo)"}</H2>
+      <H2>{de ? "8. Empfehlungsprogramm" : "8. Referral program"}</H2>
       <p>
         {de
-          ? "Für den 'BrickSpecs Alarm'-Newsletter (Deals, Gratis-Beigaben, Leaks) verarbeiten wir deine E-Mail-Adresse sowie Zeitpunkt von Anmeldung und Bestätigung. Die Anmeldung erfolgt im Double-Opt-in-Verfahren: Du erhältst erst dann Mails, wenn du den Bestätigungslink angeklickt hast. Rechtsgrundlage ist deine Einwilligung (Art. 6 Abs. 1 lit. a DSGVO); du kannst sie jederzeit über den Abmeldelink in jeder Mail widerrufen. Versanddienstleister ist die Sendinblue GmbH ('Brevo', Köhlstraße 8, 50827 Köln, Deutschland), mit der ein Auftragsverarbeitungsvertrag besteht. Newsletter-Mails können gekennzeichnete Amazon-Partnerlinks enthalten (siehe Punkt 12)."
-          : "For the 'BrickSpecs Alarm' newsletter (deals, gifts with purchase, leaks) we process your e-mail address and the time of sign-up and confirmation. Sign-up uses double opt-in: you only receive mails after clicking the confirmation link. The legal basis is your consent (Art. 6(1)(a) GDPR); you can withdraw it at any time via the unsubscribe link in every mail. Our mailing provider is Sendinblue GmbH ('Brevo', Köhlstraße 8, 50827 Cologne, Germany), with whom a data processing agreement is in place. Newsletter mails may contain labelled Amazon affiliate links (see section 12)."}
+          ? "Angemeldete Nutzer erhalten einen persönlichen Empfehlungslink. Nimmst du am Empfehlungsprogramm teil, verarbeiten wir zur Abwicklung die Zuordnung, wer wen geworben hat (eine Konto-Referenz des Werbers im Profil des Geworbenen), sowie Höhe, Zeitpunkt, Quelle und Status der daraus entstehenden Gutschriften. Diese Daten sind erforderlich, um Provisionen korrekt zu berechnen und auszuzahlen. Rechtsgrundlage ist die Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO). Geworbene sehen zu keinem Zeitpunkt Daten des Werbers und umgekehrt - der Werber sieht nur anonyme Zähler und Beträge."
+          : "Registered users receive a personal referral link. If you take part in the referral program, we process the mapping of who referred whom (an account reference of the referrer in the profile of the referred user) as well as the amount, time, source and status of the resulting credits. This data is required to calculate and pay out commissions correctly. The legal basis is the performance of the contract (Art. 6(1)(b) GDPR). Referred users never see any data of the referrer and vice versa - the referrer only sees anonymous counters and amounts."}
       </p>
 
-      <H2>{de ? "9. Feedback-Formular" : "9. Feedback form"}</H2>
+      <H2>{de ? "9. Newsletter (Brevo)" : "9. Newsletter (Brevo)"}</H2>
       <p>
         {de
-          ? "Nutzt du unser Feedback-Formular, verarbeiten wir die von dir gemachten Angaben (Kategorie, Nachricht, optional deine E-Mail-Adresse für Rückfragen sowie die Seite, von der du kamst) ausschließlich zur Bearbeitung deines Anliegens. Der Versand an uns erfolgt über unseren Auftragsverarbeiter Brevo (siehe Punkt 8). Rechtsgrundlage ist unser berechtigtes Interesse an der Bearbeitung von Anfragen und der Verbesserung des Angebots (Art. 6 Abs. 1 lit. f DSGVO). Die Angabe einer E-Mail-Adresse ist freiwillig."
-          : "If you use our feedback form, we process the details you provide (category, message, optionally your e-mail address for follow-ups and the page you came from) solely to handle your request. Delivery to us is handled by our processor Brevo (see section 8). The legal basis is our legitimate interest in handling enquiries and improving the site (Art. 6(1)(f) GDPR). Providing an e-mail address is voluntary."}
+          ? "Für den 'BrickSpecs Alarm'-Newsletter (Deals, Gratis-Beigaben, Leaks) verarbeiten wir deine E-Mail-Adresse sowie Zeitpunkt von Anmeldung und Bestätigung. Die Anmeldung erfolgt im Double-Opt-in-Verfahren: Du erhältst erst dann Mails, wenn du den Bestätigungslink angeklickt hast. Rechtsgrundlage ist deine Einwilligung (Art. 6 Abs. 1 lit. a DSGVO); du kannst sie jederzeit über den Abmeldelink in jeder Mail widerrufen. Versanddienstleister ist die Sendinblue GmbH ('Brevo', Köhlstraße 8, 50827 Köln, Deutschland), mit der ein Auftragsverarbeitungsvertrag besteht. Newsletter-Mails können gekennzeichnete Amazon-Partnerlinks enthalten (siehe Punkt 13)."
+          : "For the 'BrickSpecs Alarm' newsletter (deals, gifts with purchase, leaks) we process your e-mail address and the time of sign-up and confirmation. Sign-up uses double opt-in: you only receive mails after clicking the confirmation link. The legal basis is your consent (Art. 6(1)(a) GDPR); you can withdraw it at any time via the unsubscribe link in every mail. Our mailing provider is Sendinblue GmbH ('Brevo', Köhlstraße 8, 50827 Cologne, Germany), with whom a data processing agreement is in place. Newsletter mails may contain labelled Amazon affiliate links (see section 13)."}
       </p>
 
-      <H2>{de ? "10. Foto-Scanner (Brickognize)" : "10. Photo scanner (Brickognize)"}</H2>
+      <H2>{de ? "10. Feedback-Formular" : "10. Feedback form"}</H2>
+      <p>
+        {de
+          ? "Nutzt du unser Feedback-Formular, verarbeiten wir die von dir gemachten Angaben (Kategorie, Nachricht, optional deine E-Mail-Adresse für Rückfragen sowie die Seite, von der du kamst) ausschließlich zur Bearbeitung deines Anliegens. Der Versand an uns erfolgt über unseren Auftragsverarbeiter Brevo (siehe Punkt 9). Rechtsgrundlage ist unser berechtigtes Interesse an der Bearbeitung von Anfragen und der Verbesserung des Angebots (Art. 6 Abs. 1 lit. f DSGVO). Die Angabe einer E-Mail-Adresse ist freiwillig."
+          : "If you use our feedback form, we process the details you provide (category, message, optionally your e-mail address for follow-ups and the page you came from) solely to handle your request. Delivery to us is handled by our processor Brevo (see section 9). The legal basis is our legitimate interest in handling enquiries and improving the site (Art. 6(1)(f) GDPR). Providing an e-mail address is voluntary."}
+      </p>
+
+      <H2>{de ? "11. Foto-Scanner (Brickognize)" : "11. Photo scanner (Brickognize)"}</H2>
       <p>
         {de
           ? "Wenn du den Foto-Scanner nutzt, wird dein Foto zur Erkennung an den Dienst Brickognize (api.brickognize.com) übertragen und dort ausschließlich für die Erkennung verarbeitet. Wir speichern deine Fotos zu keinem Zeitpunkt. Die Nutzung des Scanners ist freiwillig; Rechtsgrundlage ist die Erfüllung der von dir angeforderten Funktion (Art. 6 Abs. 1 lit. b DSGVO). Der Box-Code-Scanner läuft dagegen vollständig lokal in deinem Browser - dabei wird nichts übertragen."
           : "When you use the photo scanner, your photo is transmitted to the Brickognize service (api.brickognize.com) and processed there solely for recognition. We never store your photos. Using the scanner is voluntary; the legal basis is the provision of the feature you requested (Art. 6(1)(b) GDPR). The box code scanner, by contrast, runs entirely locally in your browser - nothing is transmitted."}
       </p>
 
-      <H2>{de ? "11. Externe Bild-Quellen" : "11. External image sources"}</H2>
+      <H2>{de ? "12. Externe Bild-Quellen" : "12. External image sources"}</H2>
       <p>
         {de
           ? "Set- und Minifiguren-Bilder werden direkt von den Servern von Rebrickable (cdn.rebrickable.com) und teilweise BrickLink geladen. Dabei erhält der jeweilige Anbieter technisch bedingt deine IP-Adresse. Rechtsgrundlage ist unser berechtigtes Interesse an der Darstellung der Katalogbilder ohne eigene Bildspeicherung (Art. 6 Abs. 1 lit. f DSGVO)."
           : "Set and minifigure images are loaded directly from the servers of Rebrickable (cdn.rebrickable.com) and partly BrickLink. For technical reasons, the respective provider receives your IP address. The legal basis is our legitimate interest in displaying catalog images without hosting them ourselves (Art. 6(1)(f) GDPR)."}
       </p>
 
-      <H2>{de ? "12. Affiliate-Links (Amazon PartnerNet)" : "12. Affiliate links (Amazon Associates)"}</H2>
+      <H2>{de ? "13. Affiliate-Links (Amazon PartnerNet)" : "13. Affiliate links (Amazon Associates)"}</H2>
       <p>
         {de
           ? "BrickSpecs ist Teilnehmer des Amazon PartnerNet-Programms. Kauf-Links zu Amazon enthalten eine Partner-Kennung; als Amazon-Partner verdienen wir an qualifizierten Verkäufen, ohne dass sich der Preis für dich ändert. Erst mit dem Klick auf einen solchen Link gelten die Datenschutzbestimmungen von Amazon. Wir erhalten von Amazon keine personenbezogenen Daten über dich."
           : "BrickSpecs participates in the Amazon Associates programme. Buy links to Amazon contain an affiliate tag; as an Amazon Associate we earn from qualifying purchases at no extra cost to you. Amazon's privacy policy applies only once you click such a link. We receive no personal data about you from Amazon."}
       </p>
 
-      <H2>{de ? "13. Externe Kanäle (Telegram, WhatsApp, GitHub)" : "13. External channels (Telegram, WhatsApp, GitHub)"}</H2>
+      <H2>{de ? "14. Externe Kanäle (Telegram, WhatsApp, GitHub)" : "14. External channels (Telegram, WhatsApp, GitHub)"}</H2>
       <p>
         {de
           ? "Unsere Alarm-Kanäle auf Telegram und WhatsApp sowie das öffentliche Code-Repository auf GitHub sind eigenständige Angebote der jeweiligen Plattformen. Wenn du ihnen folgst, gelten deren Datenschutzbestimmungen; eine Anmeldung dort ist für die Nutzung von brickspecs.com nicht erforderlich."
           : "Our alert channels on Telegram and WhatsApp and the public code repository on GitHub are independent offerings of the respective platforms. If you follow them, their privacy policies apply; joining them is not required to use brickspecs.com."}
       </p>
 
-      <H2>{de ? "14. Deine Rechte" : "14. Your rights"}</H2>
+      <H2>{de ? "15. Deine Rechte" : "15. Your rights"}</H2>
       <p>
         {de
           ? "Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch sowie das Recht, eine erteilte Einwilligung jederzeit zu widerrufen. Wende dich dazu formlos an office@fuchsmedia.at. Außerdem kannst du dich bei der österreichischen Datenschutzbehörde beschweren (Barichgasse 40-42, 1030 Wien, www.dsb.gv.at)."
           : "You have the right to access, rectification, erasure, restriction of processing, data portability and objection, and the right to withdraw any consent at any time. Simply contact office@fuchsmedia.at. You may also lodge a complaint with the Austrian Data Protection Authority (Barichgasse 40-42, 1030 Vienna, www.dsb.gv.at)."}
       </p>
 
-      <H2>{de ? "15. Änderungen" : "15. Changes"}</H2>
+      <H2>{de ? "16. Änderungen" : "16. Changes"}</H2>
       <p>
         {de
           ? "Kommen neue Funktionen oder Datenverarbeitungen hinzu, wird diese Erklärung entsprechend aktualisiert. Es gilt die jeweils hier veröffentlichte Fassung."

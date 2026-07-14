@@ -109,6 +109,30 @@ create trigger on_auth_user_created
   for each row execute function public.handle_new_user();
 
 -- ---------------------------------------------------------------------------
+-- Referral-Gutschriften: 25% jeder Zahlung eines Geworbenen fuer den Werber.
+-- Schreibzugriff NUR ueber service_role (Stripe-Webhook); Nutzer duerfen nur
+-- ihre eigenen Gutschriften lesen.
+-- ---------------------------------------------------------------------------
+create table if not exists public.referral_earnings (
+  id uuid primary key default gen_random_uuid(),
+  referrer_id uuid not null references public.profiles (id) on delete cascade,
+  referred_user_id uuid references public.profiles (id) on delete set null,
+  amount_eur numeric not null check (amount_eur >= 0),
+  source text not null,
+  stripe_event_id text unique,
+  status text not null default 'pending' check (status in ('pending', 'paid')),
+  created_at timestamptz not null default now()
+);
+create index if not exists referral_earnings_referrer_idx on public.referral_earnings (referrer_id);
+
+alter table public.referral_earnings enable row level security;
+
+drop policy if exists "earnings_select_own" on public.referral_earnings;
+create policy "earnings_select_own" on public.referral_earnings
+  for select using (auth.uid() = referrer_id);
+-- bewusst KEINE insert/update-Policies: schreiben kann nur service_role
+
+-- ---------------------------------------------------------------------------
 -- Founder Brick: naechste freie Nummer vergeben, hart limitiert auf 500
 -- (wird NUR vom Server nach erfolgreicher Stripe-Zahlung aufgerufen)
 -- ---------------------------------------------------------------------------

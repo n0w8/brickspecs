@@ -49,6 +49,9 @@ async function loadStats(): Promise<AdminCloudStats> {
     activeAlerts: null,
     newsletterSubscribers: null,
     recentUsers: [],
+    referralPendingTotal: null,
+    referralPaidTotal: null,
+    referralRows: [],
     serviceRoleMissing: admin === null,
   };
   if (!admin) {
@@ -56,7 +59,7 @@ async function loadStats(): Promise<AdminCloudStats> {
     return empty;
   }
 
-  const [usersRes, profilesRes, portfolioRes, alertsRes, newsletter] =
+  const [usersRes, profilesRes, portfolioRes, alertsRes, newsletter, earningsRes] =
     await Promise.all([
       admin.auth.admin.listUsers({ page: 1, perPage: 1000 }),
       admin.from("profiles").select("id, plan, founder_number"),
@@ -66,6 +69,7 @@ async function loadStats(): Promise<AdminCloudStats> {
         .select("id", { count: "exact", head: true })
         .eq("active", true),
       fetchNewsletterSubscribers(),
+      admin.from("referral_earnings").select("referrer_id, amount_eur, status"),
     ]);
 
   // Nutzerzahlen + letzte Registrierungen aus auth.users
@@ -106,6 +110,46 @@ async function loadStats(): Promise<AdminCloudStats> {
     }
   }
 
+  // Referral-Guthaben: offene/ausgezahlte Summen gesamt + offen je Werber.
+  let referralPendingTotal: number | null = null;
+  let referralPaidTotal: number | null = null;
+  const referralRows: { email: string; pendingEur: number }[] = [];
+  if (!earningsRes.error && earningsRes.data) {
+    referralPendingTotal = 0;
+    referralPaidTotal = 0;
+    const emailById = new Map<string, string>();
+    for (const u of sortedUsers) emailById.set(u.id, u.email ?? "-");
+    const pendingByReferrer = new Map<string, number>();
+    for (const row of earningsRes.data as {
+      referrer_id: string;
+      amount_eur: number | string;
+      status: string;
+    }[]) {
+      const amount = Number(row.amount_eur) || 0;
+      if (row.status === "paid") {
+        referralPaidTotal += amount;
+      } else {
+        referralPendingTotal += amount;
+        pendingByReferrer.set(
+          row.referrer_id,
+          (pendingByReferrer.get(row.referrer_id) ?? 0) + amount
+        );
+      }
+    }
+    referralPendingTotal = Math.round(referralPendingTotal * 100) / 100;
+    referralPaidTotal = Math.round(referralPaidTotal * 100) / 100;
+    for (const [referrerId, sum] of pendingByReferrer) {
+      const rounded = Math.round(sum * 100) / 100;
+      if (rounded > 0) {
+        referralRows.push({
+          email: emailById.get(referrerId) ?? referrerId,
+          pendingEur: rounded,
+        });
+      }
+    }
+    referralRows.sort((a, b) => b.pendingEur - a.pendingEur);
+  }
+
   const recentUsers = sortedUsers.slice(0, 10).map((u) => {
     const profile = profileById.get(u.id);
     return {
@@ -126,6 +170,9 @@ async function loadStats(): Promise<AdminCloudStats> {
     activeAlerts: alertsRes.error ? null : (alertsRes.count ?? 0),
     newsletterSubscribers: newsletter,
     recentUsers,
+    referralPendingTotal,
+    referralPaidTotal,
+    referralRows,
     serviceRoleMissing: false,
   };
 }

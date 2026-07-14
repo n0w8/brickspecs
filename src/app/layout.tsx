@@ -5,6 +5,7 @@ import "./globals.css";
 import { LanguageProvider } from "@/lib/i18n";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ReferralCapture from "@/components/ReferralCapture";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,6 +41,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <LanguageProvider>
+          <ReferralCapture />
           <Header />
           <main className="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 pb-20">
             {children}

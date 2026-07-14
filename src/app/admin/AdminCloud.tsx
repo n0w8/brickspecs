@@ -24,6 +24,10 @@ export interface AdminCloudStats {
   /** null = Brevo nicht erreichbar / kein Key -> "n/a" */
   newsletterSubscribers: number | null;
   recentUsers: AdminRecentUser[];
+  /** Referral-Programm: offene/ausgezahlte Summen + offene Guthaben je Werber. */
+  referralPendingTotal: number | null;
+  referralPaidTotal: number | null;
+  referralRows: { email: string; pendingEur: number }[];
   serviceRoleMissing: boolean;
 }
 
@@ -38,6 +42,14 @@ const PLAN_LABEL: Record<string, { de: string; en: string; badge: string }> = {
 
 function fmt(value: number | null, locale: string): string {
   return value === null ? "n/a" : value.toLocaleString(locale);
+}
+
+function fmtEur(value: number | null, locale: string): string {
+  if (value === null) return "n/a";
+  return new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency: "EUR",
+  }).format(value);
 }
 
 export default function AdminCloud({ stats }: { stats: AdminCloudStats }) {
@@ -135,6 +147,62 @@ export default function AdminCloud({ stats }: { stats: AdminCloudStats }) {
                 </div>
               );
             })}
+          </div>
+        )}
+      </section>
+
+      {/* Referral-Guthaben */}
+      <section className="card p-5">
+        <h2 className="font-bold text-lg mb-4">
+          🤝 {lang === "de" ? "Referral-Guthaben" : "Referral balances"}
+        </h2>
+        <div className="flex flex-wrap gap-3 mb-4">
+          <div className="flex items-center gap-2 rounded-xl border border-[var(--border)] px-4 py-2">
+            <span className="badge badge-yellow">
+              {lang === "de" ? "Gesamt offen" : "Total pending"}
+            </span>
+            <span className="font-bold">
+              {fmtEur(stats.referralPendingTotal, locale)}
+            </span>
+          </div>
+          <div className="flex items-center gap-2 rounded-xl border border-[var(--border)] px-4 py-2">
+            <span className="badge badge-green">
+              {lang === "de" ? "Gesamt ausgezahlt" : "Total paid out"}
+            </span>
+            <span className="font-bold">{fmtEur(stats.referralPaidTotal, locale)}</span>
+          </div>
+        </div>
+        {stats.referralRows.length === 0 ? (
+          <p className="text-sm text-[var(--muted)]">
+            {lang === "de"
+              ? "Kein offenes Guthaben - noch keine unbezahlten Gutschriften."
+              : "No pending balances - no unpaid credits yet."}
+          </p>
+        ) : (
+          <div className="overflow-x-auto scroll-thin">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="text-left text-xs text-[var(--muted)] border-b border-[var(--border)]">
+                  <th className="py-2 pr-4">{lang === "de" ? "Nutzer" : "User"}</th>
+                  <th className="py-2">
+                    {lang === "de" ? "Offenes Guthaben" : "Pending balance"}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {stats.referralRows.map((row) => (
+                  <tr
+                    key={row.email}
+                    className="border-b border-[var(--border)] last:border-0"
+                  >
+                    <td className="py-3 pr-4 font-semibold">{row.email}</td>
+                    <td className="py-3 font-bold text-[var(--yellow)]">
+                      {fmtEur(row.pendingEur, locale)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         )}
       </section>

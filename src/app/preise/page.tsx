@@ -116,9 +116,19 @@ const CARDS: CardDef[] = [
       en: "Pay once, stay forever - limited to 500 bricks.",
     },
     features: [
-      { de: "Lebenslang alle Investor-Features", en: "All Investor features for life" },
-      { de: "Nummeriertes Founder-Badge im Profil (#042-Stil)", en: "Numbered founder badge on your profile (#042 style)" },
-      { de: "Dein Name auf der Supporter-Wall (kommt später)", en: "Your name on the supporter wall (coming later)" },
+      { de: "Alle Investor-Features - lebenslang", en: "All Investor features - for life" },
+      {
+        de: "Exklusives Founder-Emblem mit deiner Nummer (#042 von 500) - wird technisch nie wieder vergeben",
+        en: "Exclusive founder emblem with your number (#042 of 500) - technically never issued again",
+      },
+      {
+        de: "Dein Name auf der Supporter-Wall (kommt mit Phase 3)",
+        en: "Your name on the supporter wall (coming with phase 3)",
+      },
+      {
+        de: "Zugang zu allen zukünftigen Premium-Features ohne Aufpreis",
+        en: "Access to all future premium features at no extra cost",
+      },
     ],
     cta: { de: "Founder werden", en: "Become a founder" },
   },
@@ -152,8 +162,8 @@ const FAQ: {
   {
     q: { de: "Was genau ist der Founder Brick?", en: "What exactly is the Founder Brick?" },
     a: {
-      de: "Eine einmalige Lifetime-Mitgliedschaft, limitiert auf 500 Stück: alle Investor-Features für immer, ein nummeriertes Founder-Badge im Profil und dein Name auf der Supporter-Wall (kommt später). Ist die Auflage weg, ist sie weg.",
-      en: "A one-time lifetime membership, limited to 500 bricks: all Investor features forever, a numbered founder badge on your profile and your name on the supporter wall (coming later). Once the run is gone, it is gone.",
+      de: "Eine einmalige Lifetime-Mitgliedschaft, limitiert auf 500 Stück: alle Investor-Features für immer, ein exklusives Founder-Emblem mit deiner Nummer (#042 von 500), das technisch nie wieder vergeben wird, dein Name auf der Supporter-Wall (kommt mit Phase 3) und Zugang zu allen zukünftigen Premium-Features ohne Aufpreis. Ist die Auflage weg, ist sie weg.",
+      en: "A one-time lifetime membership, limited to 500 bricks: all Investor features forever, an exclusive founder emblem with your number (#042 of 500) that is technically never issued again, your name on the supporter wall (coming with phase 3) and access to all future premium features at no extra cost. Once the run is gone, it is gone.",
     },
   },
   {
