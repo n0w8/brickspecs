@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useLang, useT } from "@/lib/i18n";
 import { formatEUR } from "@/lib/format";
-import { isAuthenticated } from "@/lib/auth";
+import { getProfile, isAuthenticated } from "@/lib/auth";
+import { portfolioLimit } from "@/lib/plan";
 import { getPortfolio, removeItem, updateItem, type PortfolioItem } from "@/lib/portfolio";
 import BrickImage from "@/components/BrickImage";
 import PortfolioAllocation from "@/components/PortfolioAllocation";
@@ -38,6 +39,7 @@ export default function PortfolioPage() {
   const [country, setCountry] = useState("DE");
   const [source, setSource] = useState<"bricklink" | "ebay-sold">("bricklink");
   const [pricesLoading, setPricesLoading] = useState(false);
+  const [freePlan, setFreePlan] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -50,9 +52,11 @@ export default function PortfolioPage() {
       if (cancelled) return;
       setLoggedIn(li);
       if (li) {
-        const pf = await getPortfolio();
+        const [pf, profile] = await Promise.all([getPortfolio(), getProfile()]);
         if (cancelled) return;
         setItems(pf);
+        // Nur im Supabase-Modus gibt es ein Profil - dort greifen die Limits.
+        setFreePlan(profile?.plan === "free");
       }
       setReady(true);
     })();
@@ -162,6 +166,20 @@ export default function PortfolioPage() {
         </div>
       ) : (
         <>
+          {/* Upsell, wenn das Gratis-Limit erreicht ist */}
+          {freePlan && items.length >= portfolioLimit("free") && (
+            <div className="card !border-[var(--yellow)] p-4 flex flex-wrap items-center justify-between gap-3">
+              <p className="text-sm">
+                {lang === "de"
+                  ? "Gratis-Limit erreicht (5 Sets) - upgrade auf Sammler für ein unbegrenztes Portfolio."
+                  : "Free limit reached (5 sets) - upgrade to Collector for an unlimited portfolio."}
+              </p>
+              <Link href="/preise" className="btn btn-primary !py-1.5 !px-4 text-sm shrink-0">
+                {lang === "de" ? "Jetzt upgraden" : "Upgrade now"} →
+              </Link>
+            </div>
+          )}
+
           {/* Steuerung Land & Quelle */}
           <div className="card p-4 grid gap-3 sm:grid-cols-2">
             <label className="flex flex-col gap-1.5 text-sm font-semibold">

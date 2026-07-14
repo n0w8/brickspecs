@@ -14,6 +14,7 @@ import {
 } from "@/lib/auth";
 import { getPortfolio } from "@/lib/portfolio";
 import { getAlerts } from "@/lib/alerts";
+import { openBillingPortal } from "@/lib/paywall";
 import { PLAN_META, formatFounderNumber, getPlanRecord, type Plan, type PlanRecord } from "@/lib/plan";
 import { formatEUR } from "@/lib/format";
 
@@ -33,6 +34,38 @@ export default function ProfilePage() {
   });
   const [alertCount, setAlertCount] = useState(0);
   const [planRec, setPlanRec] = useState<PlanRecord | null>(null);
+  // Nach der Rückkehr vom Stripe-Checkout (?checkout=success) Banner zeigen.
+  // Lazy-Initializer: bis "checked" true ist, rendert die Seite ohnehin null,
+  // daher kein Hydration-Konflikt mit dem Server-HTML.
+  const [checkoutSuccess] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      new URLSearchParams(window.location.search).get("checkout") === "success"
+  );
+  const [portalBusy, setPortalBusy] = useState(false);
+  const [portalError, setPortalError] = useState(false);
+
+  // Der Plan wird per Stripe-Webhook gesetzt - solange er nach dem Checkout
+  // noch auf "free" steht, das Profil alle 5 Sekunden neu laden (max. 1 Minute).
+  useEffect(() => {
+    if (!checkoutSuccess || !user || user.source !== "supabase") return;
+    if (profile && profile.plan !== "free") return;
+    let attempts = 0;
+    const timer = window.setInterval(() => {
+      attempts += 1;
+      if (attempts > 12) {
+        window.clearInterval(timer);
+        return;
+      }
+      void getProfile().then((p) => {
+        if (p && p.plan !== "free") {
+          setProfile(p);
+          window.clearInterval(timer);
+        }
+      });
+    }, 5000);
+    return () => window.clearInterval(timer);
+  }, [checkoutSuccess, user, profile]);
 
   useEffect(() => {
     let cancelled = false;
@@ -100,6 +133,33 @@ export default function ProfilePage() {
 
   return (
     <div className="max-w-2xl mx-auto pt-14 flex flex-col gap-6">
+      {/* Erfolgs-Banner nach dem Stripe-Checkout */}
+      {checkoutSuccess && (
+        <div className="card !border-[#4cd587] p-5">
+          {plan !== "free" ? (
+            <p className="text-sm">
+              <span className="font-bold text-[#4cd587]">
+                🎉 {lang === "de"
+                  ? `Willkommen im ${PLAN_META[plan].name.de}-Plan!`
+                  : `Welcome to the ${PLAN_META[plan].name.en} plan!`}
+              </span>{" "}
+              {lang === "de"
+                ? "Deine Zahlung ist eingegangen - viel Spaß mit allen Features."
+                : "Your payment was received - enjoy all the features."}
+            </p>
+          ) : (
+            <p className="text-sm">
+              <span className="font-bold text-[#4cd587]">
+                ✓ {lang === "de" ? "Zahlung erfolgreich!" : "Payment successful!"}
+              </span>{" "}
+              {lang === "de"
+                ? "Dein Plan wird gerade freigeschaltet - das kann bis zu einer Minute dauern. Die Seite aktualisiert sich automatisch."
+                : "Your plan is being activated - this can take up to a minute. The page refreshes automatically."}
+            </p>
+          )}
+        </div>
+      )}
+
       <div className="card p-8">
         <div className="flex items-center gap-4 mb-4">
           <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--yellow)] text-2xl">
@@ -206,6 +266,41 @@ export default function ProfilePage() {
             </span>
           )}
         </div>
+        {/* Abo verwalten (Stripe-Billing-Portal) - nur für laufende Abos */}
+        {isCloud && (plan === "sammler" || plan === "investor") && (
+          <div className="mt-4">
+            <button
+              type="button"
+              className="btn"
+              disabled={portalBusy}
+              onClick={() => {
+                setPortalError(false);
+                setPortalBusy(true);
+                void openBillingPortal().then((err) => {
+                  if (err) {
+                    setPortalBusy(false);
+                    setPortalError(true);
+                  }
+                });
+              }}
+            >
+              {portalBusy
+                ? lang === "de"
+                  ? "Einen Moment ..."
+                  : "One moment ..."
+                : lang === "de"
+                  ? "Abo verwalten"
+                  : "Manage subscription"}
+            </button>
+            {portalError && (
+              <p className="text-xs text-[#ff6b6c] mt-2">
+                {lang === "de"
+                  ? "Das Abo-Portal ist gerade nicht erreichbar - bitte versuch es später noch einmal."
+                  : "The billing portal is not available right now - please try again later."}
+              </p>
+            )}
+          </div>
+        )}
         <p className="text-xs text-[var(--muted)] mt-3">
           {plan === "free"
             ? lang === "de"

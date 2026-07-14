@@ -12,8 +12,18 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import { getUser } from "./auth";
 import { getSupabaseBrowser, supabaseConfigured } from "./supabase/client";
 import { ensureLocalDataMigrated } from "./migrate";
+import { alertLimit, fetchDbPlan } from "./plan";
 
 export type AlertCondition = "new" | "used";
+
+/** Rückgabe von addAlert, wenn das Gratis-Limit (3 Alarme) erreicht ist. */
+export interface LimitReached {
+  limitReached: true;
+}
+
+export function isLimitReached(value: unknown): value is LimitReached {
+  return Boolean(value && typeof value === "object" && "limitReached" in value);
+}
 
 export interface AlertItem {
   /** eindeutige Alarm-ID (DB: uuid, lokal: setId + Zeitstempel) */
@@ -136,11 +146,24 @@ export async function addAlert(input: {
   img?: string;
   targetEUR: number;
   condition: AlertCondition;
-}): Promise<AlertItem[]> {
+}): Promise<AlertItem[] | LimitReached> {
   const ctx = await dbContext();
   if (ctx) {
     const target = Number.isFinite(input.targetEUR) ? input.targetEUR : 0;
     if (target <= 0) return fetchDb(ctx);
+    // Plan-Limit nur im DB-Modus: Free = max 3 aktive Alarme, bezahlte Pläne
+    // unbegrenzt. Ein Lesefehler blockiert nie (fail-open).
+    const plan = await fetchDbPlan(ctx.supabase, ctx.userId);
+    if (plan === "free") {
+      const { count, error } = await ctx.supabase
+        .from("price_alerts")
+        .select("id", { count: "exact", head: true })
+        .eq("user_id", ctx.userId)
+        .eq("active", true);
+      if (!error && (count ?? 0) >= alertLimit("free")) {
+        return { limitReached: true };
+      }
+    }
     const base = {
       user_id: ctx.userId,
       set_id: input.setId,

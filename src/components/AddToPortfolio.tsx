@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useLang, useT } from "@/lib/i18n";
 import { isAuthenticated } from "@/lib/auth";
-import { addItem, isInPortfolio, type Condition } from "@/lib/portfolio";
+import { addItem, isInPortfolio, isLimitReached, type Condition } from "@/lib/portfolio";
 
 export default function AddToPortfolio({
   setId,
@@ -28,6 +28,7 @@ export default function AddToPortfolio({
   const [price, setPrice] = useState("");
   const [note, setNote] = useState("");
   const [toast, setToast] = useState(false);
+  const [limitHit, setLimitHit] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -93,7 +94,12 @@ export default function AddToPortfolio({
               condition,
               purchasePriceEUR: price.trim() ? Number(price.replace(",", ".")) : null,
               note: note.trim() || undefined,
-            }).then(() => {
+            }).then((result) => {
+              if (isLimitReached(result)) {
+                setLimitHit(true);
+                setOpen(false);
+                return;
+              }
               setAlready(true);
               setOpen(false);
               setToast(true);
@@ -143,6 +149,19 @@ export default function AddToPortfolio({
 
       {toast && (
         <p className="text-sm text-[#4cd587] mt-3">✓ {t("pf.addedToast")}</p>
+      )}
+
+      {limitHit && (
+        <div className="flex flex-wrap items-center justify-between gap-3 border border-[var(--yellow)] rounded-lg p-3 mt-3">
+          <p className="text-sm">
+            {lang === "de"
+              ? "Gratis-Limit erreicht (5 Sets) - upgrade auf Sammler für ein unbegrenztes Portfolio."
+              : "Free limit reached (5 sets) - upgrade to Collector for an unlimited portfolio."}
+          </p>
+          <Link href="/preise" className="btn btn-primary !py-1.5 !px-4 text-sm shrink-0">
+            {lang === "de" ? "Jetzt upgraden" : "Upgrade now"} →
+          </Link>
+        </div>
       )}
     </section>
   );

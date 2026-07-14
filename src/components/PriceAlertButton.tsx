@@ -8,6 +8,7 @@ import { isAuthenticated } from "@/lib/auth";
 import {
   addAlert,
   getAlerts,
+  isLimitReached,
   removeAlert,
   type AlertCondition,
   type AlertItem,
@@ -33,6 +34,7 @@ export default function PriceAlertButton({
   const [target, setTarget] = useState("");
   const [condition, setCondition] = useState<AlertCondition>("new");
   const [toast, setToast] = useState(false);
+  const [limitHit, setLimitHit] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -110,6 +112,11 @@ export default function PriceAlertButton({
             if (!Number.isFinite(value) || value <= 0) return;
             void addAlert({ setId, name, img, targetEUR: value, condition }).then(
               (next) => {
+                if (isLimitReached(next)) {
+                  setLimitHit(true);
+                  setOpen(false);
+                  return;
+                }
                 setAlert(next.find((a) => a.setId === setId) ?? null);
                 setOpen(false);
                 setToast(true);
@@ -156,6 +163,19 @@ export default function PriceAlertButton({
             ? "Preisalarm gespeichert - Übersicht unter „Preisalarm“."
             : "Price alert saved - see the price alert overview."}
         </p>
+      )}
+
+      {limitHit && (
+        <div className="flex flex-wrap items-center justify-between gap-3 border border-[var(--yellow)] rounded-lg p-3 mt-3">
+          <p className="text-sm">
+            {lang === "de"
+              ? "Gratis-Limit erreicht (3 Alarme) - upgrade auf Sammler für unbegrenzte Preisalarme."
+              : "Free limit reached (3 alerts) - upgrade to Collector for unlimited price alerts."}
+          </p>
+          <Link href="/preise" className="btn btn-primary !py-1.5 !px-4 text-sm shrink-0">
+            {lang === "de" ? "Jetzt upgraden" : "Upgrade now"} →
+          </Link>
+        </div>
       )}
     </section>
   );

@@ -12,8 +12,18 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import { getUser } from "./auth";
 import { getSupabaseBrowser, supabaseConfigured } from "./supabase/client";
 import { ensureLocalDataMigrated } from "./migrate";
+import { fetchDbPlan, portfolioLimit } from "./plan";
 
 export type Condition = "new" | "used";
+
+/** Rückgabe von addItem, wenn das Gratis-Limit (5 Sets) erreicht ist. */
+export interface LimitReached {
+  limitReached: true;
+}
+
+export function isLimitReached(value: unknown): value is LimitReached {
+  return Boolean(value && typeof value === "object" && "limitReached" in value);
+}
 
 export interface PortfolioItem {
   /** eindeutige Zeilen-ID (DB: uuid, lokal: setId + Zeitstempel) */
@@ -148,9 +158,21 @@ export async function addItem(input: {
   condition: Condition;
   purchasePriceEUR: number | null;
   note?: string;
-}): Promise<PortfolioItem[]> {
+}): Promise<PortfolioItem[] | LimitReached> {
   const ctx = await dbContext();
   if (ctx) {
+    // Plan-Limit nur im DB-Modus: Free = max 5 Portfolio-Sets, bezahlte Pläne
+    // unbegrenzt. Ein Lesefehler blockiert nie (fail-open).
+    const plan = await fetchDbPlan(ctx.supabase, ctx.userId);
+    if (plan === "free") {
+      const { count, error } = await ctx.supabase
+        .from("portfolio_items")
+        .select("id", { count: "exact", head: true })
+        .eq("user_id", ctx.userId);
+      if (!error && (count ?? 0) >= portfolioLimit("free")) {
+        return { limitReached: true };
+      }
+    }
     const base = {
       user_id: ctx.userId,
       set_id: input.setId,

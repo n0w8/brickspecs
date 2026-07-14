@@ -5,6 +5,7 @@
  * In Phase 2 wandert das in die Datenbank + echte Zahlung (Stripe).
  */
 
+import type { SupabaseClient } from "@supabase/supabase-js";
 import { getUser } from "./auth";
 
 export type Plan = "free" | "sammler" | "investor" | "founder";
@@ -91,4 +92,24 @@ export function portfolioLimit(plan: Plan): number {
 /** Maximale Anzahl Preisalarme: Free 3, sonst unbegrenzt. */
 export function alertLimit(plan: Plan): number {
   return plan === "free" ? 3 : Infinity;
+}
+
+/**
+ * Plan des Nutzers aus public.profiles (Supabase-Modus).
+ * Liefert null bei Fehlern - Aufrufer behandeln das als "kein Limit",
+ * damit ein DB-Schluckauf nie das Hinzufügen blockiert.
+ */
+export async function fetchDbPlan(
+  supabase: SupabaseClient,
+  userId: string
+): Promise<Plan | null> {
+  const { data, error } = await supabase
+    .from("profiles")
+    .select("plan")
+    .eq("id", userId)
+    .maybeSingle();
+  if (error || !data) return null;
+  return (["free", "sammler", "investor", "founder"] as const).includes(data.plan as Plan)
+    ? (data.plan as Plan)
+    : null;
 }

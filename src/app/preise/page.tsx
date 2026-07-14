@@ -5,7 +5,8 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useLang } from "@/lib/i18n";
 import type { Lang } from "@/data/types";
-import { isAuthenticated } from "@/lib/auth";
+import { getProfile, isAuthenticated } from "@/lib/auth";
+import { startCheckout, stripePaywallEnabled, stripeTestMode } from "@/lib/paywall";
 import {
   FOUNDER_REMAINING,
   FOUNDER_TOTAL,
@@ -125,7 +126,12 @@ const CARDS: CardDef[] = [
 
 /* ---------- FAQ ---------- */
 
-const FAQ: { q: { de: string; en: string }; a: { de: string; en: string } }[] = [
+const FAQ: {
+  q: { de: string; en: string };
+  a: { de: string; en: string };
+  /** Alternative Antwort, sobald die echte Stripe-Zahlung aktiv ist. */
+  aLive?: { de: string; en: string };
+}[] = [
   {
     q: { de: "Kann ich jederzeit kündigen?", en: "Can I cancel anytime?" },
     a: {
@@ -156,6 +162,10 @@ const FAQ: { q: { de: string; en: string }; a: { de: string; en: string } }[] = 
       de: "Noch gar nicht - das hier ist eine ehrliche Demo. Die echte Zahlung (Stripe) wird in Phase 2 angeschlossen. Bis dahin wird dein gewählter Plan lokal in deinem Browser vorgemerkt, es wird nichts abgebucht.",
       en: "It does not yet - this is an honest demo. Real payment (Stripe) will be connected in phase 2. Until then your chosen plan is noted locally in your browser and nothing is charged.",
     },
+    aLive: {
+      de: "Sicher über Stripe: Du wirst zum Stripe-Checkout weitergeleitet und zahlst per Karte. Kündigen und Zahlungsdaten ändern kannst du jederzeit über \"Abo verwalten\" in deinem Profil.",
+      en: "Securely via Stripe: you are redirected to Stripe Checkout and pay by card. You can cancel or change payment details anytime via \"Manage subscription\" in your profile.",
+    },
   },
 ];
 
@@ -173,13 +183,35 @@ export default function PricingPage() {
   const [activated, setActivated] = useState(false);
   const [founderNo, setFounderNo] = useState<number | null>(null);
 
+  // Echte Stripe-Paywall aktiv? (Supabase + Publishable Key konfiguriert)
+  // Build-time-Konstanten - koennen direkt im Render berechnet werden.
+  const stripeMode = stripePaywallEnabled();
+  const testMode = stripeMode && stripeTestMode();
+  const [founderLeft, setFounderLeft] = useState<number>(FOUNDER_REMAINING);
+  const [busyPlan, setBusyPlan] = useState<Plan | null>(null);
+  const [checkoutError, setCheckoutError] = useState<string | null>(null);
+
   useEffect(() => {
     let cancelled = false;
-    void isAuthenticated().then((li) => {
+    void isAuthenticated().then(async (li) => {
       if (cancelled) return;
       setLoggedIn(li);
-      if (li) setCurrentPlan(getPlan());
+      if (li) {
+        if (stripePaywallEnabled()) {
+          const profile = await getProfile();
+          if (!cancelled) setCurrentPlan(profile?.plan ?? "free");
+        } else {
+          setCurrentPlan(getPlan());
+        }
+      }
     });
+    // Echte Founder-Restanzahl (60s serverseitig gecacht), Fallback: Demo-Wert.
+    void fetch("/api/founder-remaining")
+      .then((r) => r.json())
+      .then((j: { remaining?: number }) => {
+        if (!cancelled && typeof j.remaining === "number") setFounderLeft(j.remaining);
+      })
+      .catch(() => {});
     return () => {
       cancelled = true;
     };
@@ -220,6 +252,37 @@ export default function PricingPage() {
   function onBuy(plan: Plan) {
     if (!loggedIn) {
       router.push("/registrieren");
+      return;
+    }
+    if (stripeMode) {
+      // Echter Stripe-Checkout. Der Free-Plan hat keinen Checkout - wer
+      // downgraden will, macht das über "Abo verwalten" im Profil.
+      if (plan === "free") {
+        router.push("/profil");
+        return;
+      }
+      setCheckoutError(null);
+      setBusyPlan(plan);
+      void startCheckout(plan, billing).then((err) => {
+        if (!err) return; // Redirect zu Stripe läuft
+        setBusyPlan(null);
+        if (err.status === 409) {
+          setFounderLeft(0);
+          setCheckoutError(
+            lang === "de"
+              ? "Der Founder Brick ist ausverkauft - alle 500 Stück sind vergeben."
+              : "The Founder Brick is sold out - all 500 bricks are taken."
+          );
+        } else if (err.status === 401) {
+          router.push("/registrieren");
+        } else {
+          setCheckoutError(
+            lang === "de"
+              ? "Der Checkout konnte nicht gestartet werden - bitte versuch es gleich noch einmal."
+              : "Checkout could not be started - please try again in a moment."
+          );
+        }
+      });
       return;
     }
     setActivated(false);
@@ -288,6 +351,13 @@ export default function PricingPage() {
         </div>
       </div>
 
+      {/* Checkout-Fehler */}
+      {checkoutError && (
+        <div className="card !border-[#ff6b6c] p-4 mb-6 text-sm text-center">
+          {checkoutError}
+        </div>
+      )}
+
       {/* Karten */}
       <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4 items-stretch">
         {CARDS.map((card) => {
@@ -327,9 +397,13 @@ export default function PricingPage() {
               {founder && (
                 <p className="mb-3">
                   <span className="badge badge-yellow">
-                    {lang === "de"
-                      ? `Noch ${FOUNDER_REMAINING} von ${FOUNDER_TOTAL}`
-                      : `${FOUNDER_REMAINING} of ${FOUNDER_TOTAL} left`}
+                    {founderLeft <= 0
+                      ? lang === "de"
+                        ? "Ausverkauft"
+                        : "Sold out"
+                      : lang === "de"
+                        ? `Noch ${founderLeft} von ${FOUNDER_TOTAL}`
+                        : `${founderLeft} of ${FOUNDER_TOTAL} left`}
                   </span>
                 </p>
               )}
@@ -348,13 +422,22 @@ export default function PricingPage() {
                   <button type="button" className="btn w-full opacity-60 cursor-default" disabled>
                     ✓ {lang === "de" ? "Aktueller Plan" : "Current plan"}
                   </button>
+                ) : founder && stripeMode && founderLeft <= 0 ? (
+                  <button type="button" className="btn w-full opacity-60 cursor-default" disabled>
+                    {lang === "de" ? "Ausverkauft" : "Sold out"}
+                  </button>
                 ) : (
                   <button
                     type="button"
                     className={`w-full ${highlight || founder ? "btn btn-primary" : "btn"}`}
+                    disabled={busyPlan !== null}
                     onClick={() => onBuy(card.id)}
                   >
-                    {card.cta[lang]}
+                    {busyPlan === card.id
+                      ? lang === "de"
+                        ? "Einen Moment ..."
+                        : "One moment ..."
+                      : card.cta[lang]}
                   </button>
                 )}
               </div>
@@ -399,7 +482,9 @@ export default function PricingPage() {
                   ›
                 </span>
               </summary>
-              <p className="px-4 pb-4 text-sm text-[var(--muted)]">{item.a[lang]}</p>
+              <p className="px-4 pb-4 text-sm text-[var(--muted)]">
+                {stripeMode && item.aLive ? item.aLive[lang] : item.a[lang]}
+              </p>
             </details>
           ))}
         </div>
@@ -407,13 +492,17 @@ export default function PricingPage() {
 
       {/* Fußnote */}
       <p className="text-center text-xs text-[var(--muted)] mt-10">
-        {lang === "de"
-          ? "Alle Preise inkl. MwSt. Demo-Modus: Es findet keine echte Zahlung statt - Pläne werden lokal in deinem Browser vorgemerkt."
-          : "All prices incl. VAT. Demo mode: no real payment takes place - plans are noted locally in your browser."}
+        {stripeMode
+          ? lang === "de"
+            ? `Alle Preise inkl. MwSt. Sichere Zahlung über Stripe.${testMode ? " Test-Modus: Es wird keine echte Karte belastet." : ""}`
+            : `All prices incl. VAT. Secure payment via Stripe.${testMode ? " Test mode: no real card is charged." : ""}`
+          : lang === "de"
+            ? "Alle Preise inkl. MwSt. Demo-Modus: Es findet keine echte Zahlung statt - Pläne werden lokal in deinem Browser vorgemerkt."
+            : "All prices incl. VAT. Demo mode: no real payment takes place - plans are noted locally in your browser."}
       </p>
 
-      {/* Demo-Checkout-Modal */}
-      {checkout && checkoutCard && (
+      {/* Demo-Checkout-Modal (nur im unkonfigurierten Fallback-Modus) */}
+      {!stripeMode && checkout && checkoutCard && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
           onClick={() => setCheckout(null)}
