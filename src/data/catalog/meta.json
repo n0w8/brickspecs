@@ -1,17 +1,72 @@
 {
-  "fetchedAt": "2026-07-13T08:09:56.955Z",
-  "totalSets": 27325,
+  "fetchedAt": "2026-07-14T07:04:01.346Z",
+  "totalSets": 27336,
   "totalThemes": 494,
   "newSetsLastRun": [
     {
-      "id": "11381-1",
-      "name": "Jaguar E-type",
+      "id": "203012602-1",
+      "name": "Ninjago Kai Easy Backpack",
       "year": 2026
     },
     {
-      "id": "11383-1",
-      "name": "Mayor Manor",
+      "id": "6663671-1",
+      "name": "Cristiano Ronaldo Poster",
       "year": 2026
+    },
+    {
+      "id": "6663672-1",
+      "name": "Vinicius Junior Poster",
+      "year": 2026
+    },
+    {
+      "id": "202542406-1",
+      "name": "Iconic Sparkle School Bag Set",
+      "year": 2024
+    },
+    {
+      "id": "202132204-1",
+      "name": "Ninjago Golden Team Optimo Plus Backpack with Gym Bag",
+      "year": 2022
+    },
+    {
+      "id": "202292301-1",
+      "name": "Ninjago Lloyd Backpack with Gym Bag and Pencil Case",
+      "year": 2022
+    },
+    {
+      "id": "202292302-1",
+      "name": "Ninjago Kai Backpack with Gym Bag and Pencil Case",
+      "year": 2022
+    },
+    {
+      "id": "5711013141783-1",
+      "name": "Ninjago Kai School Bag Set of 6",
+      "year": 2022
+    },
+    {
+      "id": "SLIZER-4",
+      "name": "Slizer Sticker Sheet",
+      "year": 1999
+    },
+    {
+      "id": "APRODUCTANIDEA-1",
+      "name": "A product — an idea",
+      "year": 1986
+    },
+    {
+      "id": "DEVELOPINGAPRODUCT-1",
+      "name": "Developing a product",
+      "year": 1986
+    },
+    {
+      "id": "LEGOPRIZE-1",
+      "name": "The LEGO Prize",
+      "year": 1986
+    },
+    {
+      "id": "PRODUCTSAFETY-1",
+      "name": "Product Safety",
+      "year": 1986
     }
   ]
 }
