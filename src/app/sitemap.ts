@@ -23,6 +23,8 @@ const STATIC_ROUTES: {
   { path: "/box-scanner", changeFrequency: "monthly", priority: 0.7 },
   { path: "/funktionen", changeFrequency: "monthly", priority: 0.6 },
   { path: "/city-hub", changeFrequency: "monthly", priority: 0.5 },
+  { path: "/partner", changeFrequency: "monthly", priority: 0.5 },
+  { path: "/feedback", changeFrequency: "monthly", priority: 0.4 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

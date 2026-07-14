@@ -45,6 +45,12 @@ export default function Footer() {
           <Link href="/funktionen" className="text-[var(--muted)] hover:text-[var(--yellow)]">
             {lang === "de" ? "Alle Funktionen" : "All features"}
           </Link>
+          <Link href="/feedback" className="text-[var(--muted)] hover:text-[var(--yellow)]">
+            Feedback
+          </Link>
+          <Link href="/partner" className="text-[var(--muted)] hover:text-[var(--yellow)]">
+            {lang === "de" ? "Creator-Programm" : "Creator program"}
+          </Link>
           <Link href="/admin" className="text-[var(--muted)] hover:text-[var(--yellow)]">
             Admin
           </Link>

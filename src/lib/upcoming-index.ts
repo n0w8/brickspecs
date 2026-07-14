@@ -1,8 +1,9 @@
-// Aggregiert die angekündigten/geleakten Sets aus UPCOMING nach Erscheinungsjahr,
-// damit die Jahrgaenge-Ansicht auch Zukunftsjahre (z. B. 2027) sinnvoll fuellen kann.
+// Aggregiert die angekündigten/geleakten Sets aus UPCOMING nach Erscheinungsjahr.
+// Die Jahrgaenge-Seite nutzt das nur noch als "+N angekündigt"-Hinweis auf den
+// Jahres-Kacheln - die eigentlichen Karten leben im Neuheiten-Radar (/neuheiten).
 // Client-safe: importiert nur die statischen Daten, keine Server-APIs.
 
-import { UPCOMING, type UpcomingSet } from "@/data/upcoming";
+import { UPCOMING } from "@/data/upcoming";
 
 /**
  * Parst robust das Jahr aus einem Release-Fenster-String.
@@ -14,23 +15,13 @@ export function upcomingYear(window: string): number | null {
   return match ? Number(match[0]) : null;
 }
 
-/** Gruppiert alle UPCOMING-Sets nach ihrem Erscheinungsjahr. */
-export function upcomingByYear(): Record<number, UpcomingSet[]> {
-  const byYear: Record<number, UpcomingSet[]> = {};
-  for (const set of UPCOMING) {
-    const year = upcomingYear(set.window);
-    if (year === null) continue;
-    (byYear[year] ??= []).push(set);
-  }
-  return byYear;
-}
-
 /** Anzahl angekuendigter Sets je Jahr. */
 export function upcomingCountByYear(): Record<number, number> {
   const counts: Record<number, number> = {};
-  const byYear = upcomingByYear();
-  for (const [year, sets] of Object.entries(byYear)) {
-    counts[Number(year)] = sets.length;
+  for (const set of UPCOMING) {
+    const year = upcomingYear(set.window);
+    if (year === null) continue;
+    counts[year] = (counts[year] ?? 0) + 1;
   }
   return counts;
 }

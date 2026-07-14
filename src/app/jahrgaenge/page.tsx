@@ -2,51 +2,31 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { pick, useLang, useT } from "@/lib/i18n";
-import { formatEUR } from "@/lib/format";
-import { upcomingByYear, upcomingCountByYear } from "@/lib/upcoming-index";
-import type { UpcomingSet } from "@/data/upcoming";
+import { useLang, useT } from "@/lib/i18n";
+import { upcomingCountByYear } from "@/lib/upcoming-index";
 
 interface YearEntry {
   year: number;
   count: number;
 }
 
-/** Ab diesem Jahr blenden wir den hervorgehobenen "Angekündigt"-Abschnitt mit Karten ein. */
-const HIGHLIGHT_FROM_YEAR = new Date().getFullYear();
-
 export default function YearsPage() {
   const { lang } = useLang();
   const t = useT();
   const locale = lang === "de" ? "de-DE" : "en-GB";
 
-  const [catalogYears, setCatalogYears] = useState<YearEntry[] | null>(null);
+  const [years, setYears] = useState<YearEntry[] | null>(null);
 
   useEffect(() => {
     fetch("/api/catalog/search?meta=1")
       .then((r) => r.json())
-      .then((m: { years?: YearEntry[] }) => setCatalogYears(m.years ?? []))
-      .catch(() => setCatalogYears([]));
+      .then((m: { years?: YearEntry[] }) => setYears(m.years ?? []))
+      .catch(() => setYears([]));
   }, []);
 
-  // Angekündigte Sets nach Jahr (aus UPCOMING, unabhängig vom Katalog).
-  const upcomingByYearMap = useMemo(() => upcomingByYear(), []);
+  // Anzahl angekündigter Sets je Jahr (nur als Hinweis auf den Jahres-Kacheln,
+  // die eigentlichen Karten leben im Neuheiten-Radar).
   const upcomingCounts = useMemo(() => upcomingCountByYear(), []);
-
-  // Jahresliste aus Katalog-Jahren UND UPCOMING-Jahren zusammenführen.
-  const years = useMemo<YearEntry[] | null>(() => {
-    if (!catalogYears) return null;
-    const catalogCounts = new Map<number, number>();
-    for (const y of catalogYears) catalogCounts.set(y.year, y.count);
-
-    const allYears = new Set<number>(catalogCounts.keys());
-    for (const y of Object.keys(upcomingCounts)) allYears.add(Number(y));
-
-    return Array.from(allYears).map((year) => ({
-      year,
-      count: catalogCounts.get(year) ?? 0,
-    }));
-  }, [catalogYears, upcomingCounts]);
 
   const decades = useMemo(() => {
     if (!years) return [];
@@ -117,21 +97,6 @@ export default function YearsPage() {
               </span>
             </div>
 
-            {/* Hervorgehobene Abschnitte für aktuelles Jahr + Zukunft mit angekündigten Sets */}
-            {entries
-              .filter(
-                (e) => e.year >= HIGHLIGHT_FROM_YEAR && (upcomingByYearMap[e.year]?.length ?? 0) > 0
-              )
-              .map(({ year }) => (
-                <AnnouncedSection
-                  key={`announced-${year}`}
-                  year={year}
-                  sets={upcomingByYearMap[year] ?? []}
-                  lang={lang}
-                  locale={locale}
-                />
-              ))}
-
             <div className="grid gap-2 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
               {entries.map(({ year, count }) => {
                 const upcomingCount = upcomingCounts[year] ?? 0;
@@ -170,66 +135,6 @@ export default function YearsPage() {
           </section>
         ))
       )}
-    </div>
-  );
-}
-
-/** Hervorgehobener Abschnitt mit kompakten Karten der angekündigten Sets eines Jahres. */
-function AnnouncedSection({
-  year,
-  sets,
-  lang,
-  locale,
-}: {
-  year: number;
-  sets: UpcomingSet[];
-  lang: "de" | "en";
-  locale: string;
-}) {
-  return (
-    <div className="card p-4 mb-3 border-l-4 !border-l-[var(--yellow)]">
-      <div className="flex flex-wrap items-center gap-2 mb-3">
-        <h3 className="font-bold">
-          🚀 {lang === "de" ? `Angekündigt für ${year}` : `Announced for ${year}`}
-        </h3>
-        <span className="text-sm text-[var(--muted)]">
-          {sets.length.toLocaleString(locale)} {lang === "de" ? "Sets" : "sets"}
-        </span>
-        <Link href="/neuheiten" className="btn !py-1 !px-3 text-sm ml-auto">
-          {lang === "de" ? "Zum Neuheiten-Radar" : "Open radar"} →
-        </Link>
-      </div>
-      <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-        {sets.map((set) => (
-          <Link
-            key={set.id}
-            href="/neuheiten"
-            className="card card-hover p-3 flex flex-col gap-1.5"
-          >
-            <div className="flex flex-wrap items-center gap-1.5 text-xs">
-              <span
-                className={`badge ${set.status === "confirmed" ? "badge-green" : "badge-gray"}`}
-              >
-                {set.status === "confirmed"
-                  ? lang === "de" ? "Bestätigt" : "Confirmed"
-                  : lang === "de" ? "Gerücht" : "Rumor"}
-              </span>
-              <span className="badge badge-blue">{set.theme}</span>
-            </div>
-            <p className="font-semibold text-sm leading-snug">{pick(set.name, lang)}</p>
-            <div className="mt-auto flex flex-wrap items-baseline justify-between gap-x-2 text-xs text-[var(--muted)]">
-              {set.expectedPriceEUR !== null && (
-                <span>
-                  {lang === "de" ? "Erw." : "Exp."} {formatEUR(set.expectedPriceEUR, lang)}
-                </span>
-              )}
-              <span className="ml-auto">
-                {lang === "de" ? "Quelle" : "Source"}: {set.source}
-              </span>
-            </div>
-          </Link>
-        ))}
-      </div>
     </div>
   );
 }

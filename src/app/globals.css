@@ -44,13 +44,14 @@ body {
   border: 1px solid var(--border);
   border-radius: 14px;
   overflow: hidden;
-  transition: transform 0.15s ease, border-color 0.15s ease;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.2s ease;
 }
 
 a.card:hover,
 .card-hover:hover {
   transform: translateY(-3px);
   border-color: var(--yellow);
+  box-shadow: 0 10px 28px -12px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(246, 199, 0, 0.12);
 }
 
 .badge {
@@ -170,3 +171,66 @@ a.card:hover,
 /* Feine Scrollbar für horizontale Navis */
 .scroll-thin::-webkit-scrollbar { height: 6px; }
 .scroll-thin::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+/* ---------- Feinschliff ---------- */
+
+/* Sichtbarer Fokus-Ring für Tastatur-Navigation (nur :focus-visible,
+   Maus-Klicks bleiben ohne Ring) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.input:focus-visible {
+  outline-offset: 0;
+  border-radius: 10px;
+}
+
+/* Sanftes Einblenden der Seiteninhalte beim Laden (nur CSS, kein JS) */
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main {
+  animation: page-fade-in 0.35s ease-out both;
+}
+
+/* Dezenter Gelb-Verlauf für Hero-Hervorhebungen (z. B. "LEGO-Sammler") */
+.hero-gradient {
+  background: linear-gradient(92deg, var(--yellow) 0%, #ffdf6b 55%, #f6a300 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Reduzierte Bewegung respektieren: keine Animationen/Hover-Verschiebungen */
+@media (prefers-reduced-motion: reduce) {
+  main {
+    animation: none;
+  }
+  .card,
+  .btn,
+  .chip {
+    transition: none;
+  }
+  a.card:hover,
+  .card-hover:hover {
+    transform: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

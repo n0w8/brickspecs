@@ -218,6 +218,24 @@ const GROUPS: { heading: { de: string; en: string }; features: Feature[] }[] = [
           en: "Inspiration and ideas for building your own LEGO city.",
         },
       },
+      {
+        emoji: "💬",
+        href: "/feedback",
+        title: { de: "Feedback & Vorschläge", en: "Feedback & suggestions" },
+        desc: {
+          de: "Fehler gefunden oder eine Idee für BrickSpecs? Über das Feedback-Formular erreicht uns deine Nachricht direkt.",
+          en: "Found a bug or have an idea for BrickSpecs? The feedback form sends your message straight to us.",
+        },
+      },
+      {
+        emoji: "🎬",
+        href: "/partner",
+        title: { de: "Creator-Programm", en: "Creator program" },
+        desc: {
+          de: "Für LEGO-YouTuber und -Creator: kostenloser Investor-Zugang, Empfehlungslink mit Umsatzbeteiligung und Vorstellung auf der Partner-Seite.",
+          en: "For LEGO YouTubers and creators: free Investor access, referral link with revenue share and a feature on the partner page.",
+        },
+      },
     ],
   },
 ];

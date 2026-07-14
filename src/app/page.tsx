@@ -90,7 +90,15 @@ export default function Home() {
       <section className="grid gap-8 lg:grid-cols-2 items-center">
         <div className="flex flex-col gap-5">
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight">
-            {t("home.heroTitle")}
+            {lang === "de" ? (
+              <>
+                Das Portal für <span className="hero-gradient">LEGO-Sammler</span>
+              </>
+            ) : (
+              <>
+                The portal for <span className="hero-gradient">LEGO collectors</span>
+              </>
+            )}
           </h1>
           <p className="text-[var(--muted)] text-lg">{t("home.heroSub")}</p>
           <form
