@@ -13,6 +13,8 @@ import PriceChart from "./PriceChart";
 import PricePanel, { type PanelMinifig } from "./PricePanel";
 import AddToPortfolio from "./AddToPortfolio";
 import PriceAlertButton from "./PriceAlertButton";
+import SetStats from "./SetStats";
+import PartsList from "./PartsList";
 import { RarityBadge } from "./MinifigCard";
 import { AvailabilityBadge } from "./SetCard";
 import SimilarSetsRow, { type SimilarSetItem } from "./SimilarSetsRow";
@@ -20,11 +22,14 @@ import { ExternalLinkChips } from "./CatalogSetDetail";
 
 export default function SetDetail({
   setId,
+  catalogId,
   similar = [],
   catalogFigs,
   catalogFigsTotal,
 }: {
   setId: string;
+  /** Katalog-Setnummer im "-1"-Format (serverseitig aufgelöst, für die Teileliste) */
+  catalogId?: string;
   similar?: SimilarSetItem[];
   /** Vollständige Minifiguren-Liste aus dem Katalog (für das Preis-Panel) */
   catalogFigs?: PanelMinifig[];
@@ -138,6 +143,9 @@ export default function SetDetail({
       {/* Kaufen bei ... (prominent, Land wie im Preis-Panel) */}
       <BuyLinksBar setId={set.id} />
 
+      {/* Öffentliche Statistik (Aufrufe & Sammler) */}
+      <SetStats setId={set.id} />
+
       {/* Steckbrief */}
       <div className="grid gap-3 grid-cols-2 sm:grid-cols-4">
         {facts.map((f) => (
@@ -175,6 +183,9 @@ export default function SetDetail({
 
       {/* Durchschnittspreise nach Land & Quelle */}
       <PricePanel setId={set.id} figs={catalogFigs} figsTotal={catalogFigsTotal} />
+
+      {/* Teileliste + Teile kaufen (Rebrickable-Setnummer im "-1"-Format) */}
+      <PartsList catalogId={catalogId ?? `${set.id}-1`} setNumber={set.id} />
 
       {/* Portfolio */}
       <AddToPortfolio

@@ -165,3 +165,69 @@ begin
   return next_no;
 end;
 $$;
+
+-- ---------------------------------------------------------------------------
+-- Set-Aufrufe: oeffentlicher Zaehler pro Set-Detailseite. Lesen darf jeder,
+-- schreiben (hochzaehlen) nur der Server (service_role) via increment_set_view.
+-- ---------------------------------------------------------------------------
+create table if not exists public.set_views (
+  set_id text primary key,
+  views bigint not null default 0,
+  updated_at timestamptz default now()
+);
+
+alter table public.set_views enable row level security;
+
+drop policy if exists "set_views_select_all" on public.set_views;
+create policy "set_views_select_all" on public.set_views
+  for select to anon, authenticated using (true);
+
+drop policy if exists "set_views_write_service" on public.set_views;
+create policy "set_views_write_service" on public.set_views
+  for all to service_role using (true) with check (true);
+
+-- Zaehlt einen Aufruf hoch und gibt den neuen Stand zurueck. SECURITY DEFINER,
+-- damit der serverseitige Aufruf (service_role) den Upsert ohne RLS-Reibung macht.
+create or replace function public.increment_set_view(p_set_id text)
+returns bigint
+language plpgsql
+security definer set search_path = public
+as $$
+declare
+  new_views bigint;
+begin
+  insert into public.set_views (set_id, views, updated_at)
+  values (p_set_id, 1, now())
+  on conflict (set_id) do update
+    set views = public.set_views.views + 1,
+        updated_at = now()
+  returning views into new_views;
+
+  return new_views;
+end;
+$$;
+
+-- Wird serverseitig via service_role aufgerufen; ein GRANT an anon/authenticated
+-- ist nicht noetig, schadet aber nicht. Bewusst NICHT breit gegrantet.
+grant execute on function public.increment_set_view(text) to service_role;
+
+-- Anzahl unterschiedlicher Sammler, die ein Set im Portfolio haben. Liefert nur
+-- ein Aggregat (count distinct), keine Personendaten - datenschutzkonform, daher
+-- oeffentlich ausfuehrbar (anon + authenticated).
+create or replace function public.set_holder_count(p_set_id text)
+returns integer
+language plpgsql
+security definer set search_path = public
+as $$
+declare
+  holders integer;
+begin
+  select count(distinct user_id)::integer into holders
+  from public.portfolio_items
+  where set_id = p_set_id;
+
+  return coalesce(holders, 0);
+end;
+$$;
+
+grant execute on function public.set_holder_count(text) to anon, authenticated, service_role;

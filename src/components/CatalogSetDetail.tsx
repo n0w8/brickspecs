@@ -7,6 +7,8 @@ import BuyLinksBar from "./BuyLinksBar";
 import PricePanel, { type PanelMinifig } from "./PricePanel";
 import AddToPortfolio from "./AddToPortfolio";
 import PriceAlertButton from "./PriceAlertButton";
+import SetStats from "./SetStats";
+import PartsList from "./PartsList";
 import SimilarSetsRow, { type SimilarSetItem } from "./SimilarSetsRow";
 
 export interface CatalogEntryProps {
@@ -130,6 +132,9 @@ export default function CatalogSetDetail({
       {/* Kaufen bei ... (prominent, Land wie im Preis-Panel) */}
       <BuyLinksBar setId={entry.id} />
 
+      {/* Öffentliche Statistik (Aufrufe & Sammler) */}
+      <SetStats setId={entry.id} />
+
       <div className="grid gap-3 grid-cols-2 sm:grid-cols-4">
         <div className="card p-4">
           <p className="text-xs text-[var(--muted)] mb-1">
@@ -167,6 +172,9 @@ export default function CatalogSetDetail({
       </div>
 
       <PricePanel setId={entry.id} figs={figs} figsTotal={figsTotal} />
+
+      {/* Teileliste + Teile kaufen (Katalog-ID ist bereits im "-1"-Format) */}
+      <PartsList catalogId={entry.id} setNumber={entry.id.replace(/-\d+$/, "")} />
 
       <AddToPortfolio setId={entry.id} name={displayName} img={entry.img} />
 

@@ -173,6 +173,7 @@ export default async function SetDetailPage({
     return (
       <SetDetail
         setId={curated.id}
+        {...(catalogId ? { catalogId } : {})}
         similar={catalogId ? similarSetsFor(catalogId) : []}
         catalogFigs={minifigs.figs}
         catalogFigsTotal={minifigs.total}
@@ -192,6 +193,7 @@ export default async function SetDetailPage({
     return (
       <SetDetail
         setId={curatedMatch.id}
+        catalogId={entry.n}
         similar={similarSetsFor(entry.n)}
         catalogFigs={minifigs.figs}
         catalogFigsTotal={minifigs.total}
