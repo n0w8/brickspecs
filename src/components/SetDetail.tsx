@@ -109,6 +109,8 @@ export default function SetDetail({
                 {growth >= 0 ? "▲" : "▼"} {Math.abs(growth)}%
               </span>
             )}
+            {/* Aufrufe & Sammler: auf Desktop rechts oben, auf Handy in neuer Zeile */}
+            <SetStats setId={set.id} className="w-full sm:w-auto sm:ml-auto" />
           </div>
           <h1 className="text-3xl font-extrabold leading-tight">{pick(set.name, lang)}</h1>
           <p className="text-[var(--muted)]">
@@ -138,9 +140,6 @@ export default function SetDetail({
 
       {/* Kaufen bei ... (prominent, Land wie im Preis-Panel) */}
       <BuyLinksBar setId={set.id} />
-
-      {/* Öffentliche Statistik (Aufrufe & Sammler) */}
-      <SetStats setId={set.id} />
 
       {/* Steckbrief */}
       <div className="grid gap-3 grid-cols-2 sm:grid-cols-4">

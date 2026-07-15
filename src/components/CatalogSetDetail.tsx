@@ -89,6 +89,8 @@ export default function CatalogSetDetail({
             <span className="font-mono text-sm text-[var(--muted)]">{entry.id}</span>
             <span className="badge badge-blue">{entry.themeName}</span>
             {entry.year > 0 && <span className="badge badge-gray">{entry.year}</span>}
+            {/* Aufrufe & Sammler: auf Desktop rechts oben, auf Handy in neuer Zeile */}
+            <SetStats setId={entry.id} className="w-full sm:w-auto sm:ml-auto" />
           </div>
           <h1 className="text-3xl font-extrabold leading-tight">{displayName}</h1>
           <p className="text-sm text-[var(--muted)] leading-relaxed">{t("catalog.noEditorial")}</p>
@@ -97,9 +99,6 @@ export default function CatalogSetDetail({
 
       {/* Kaufen bei ... (prominent, Land wie im Preis-Panel) */}
       <BuyLinksBar setId={entry.id} />
-
-      {/* Öffentliche Statistik (Aufrufe & Sammler) */}
-      <SetStats setId={entry.id} />
 
       <div className="grid gap-3 grid-cols-2 sm:grid-cols-4">
         <div className="card p-4">

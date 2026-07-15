@@ -1,9 +1,38 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MINIFIGS } from "@/data/minifigs";
+import { SETS } from "@/data/sets";
 import { getCatalogFig } from "@/lib/minifig-catalog";
+import { getCatalogSet } from "@/lib/catalog";
 import MinifigDetail from "@/components/MinifigDetail";
 import CatalogMinifigDetail from "@/components/CatalogMinifigDetail";
+import type { SetThumb } from "@/components/SetThumbGrid";
+
+/** Höchstens so viele Set-Kacheln rendern (Seiten-Gewicht); Rest als "+N". */
+const MAX_SET_THUMBS = 48;
+
+/**
+ * Löst Setnummern ("10188-1") zu Kacheln mit Bild und Name auf. Neueste
+ * zuerst. Liefert die begrenzte Liste plus die Gesamtzahl.
+ */
+function resolveSetThumbs(setIds: string[]): { thumbs: SetThumb[]; total: number } {
+  const resolved = setIds
+    .map((id) => {
+      const s = getCatalogSet(id);
+      if (!s) return null;
+      return {
+        id: s.n,
+        name: s.t,
+        ...(s.d !== undefined ? { nameDe: s.d } : {}),
+        img: s.i,
+        year: s.y,
+      } satisfies SetThumb;
+    })
+    .filter((x): x is SetThumb => x !== null)
+    .sort((a, b) => b.year - a.year || a.id.localeCompare(b.id));
+
+  return { thumbs: resolved.slice(0, MAX_SET_THUMBS), total: resolved.length };
+}
 
 export function generateStaticParams() {
   return MINIFIGS.map((fig) => ({ figId: fig.id }));
@@ -82,12 +111,22 @@ export default async function MinifigDetailPage({
   const { figId } = await params;
 
   // 1) Kuratierte Figur (redaktionelle Daten, z. B. "sw0107")
-  const curated = MINIFIGS.some((f) => f.id === figId);
-  if (curated) return <MinifigDetail figId={figId} />;
+  const curatedFig = MINIFIGS.find((f) => f.id === figId);
+  if (curatedFig) {
+    // Sets, die NICHT als redaktioneller Steckbrief existieren, aus dem
+    // Katalog mit Bild auflösen (die kuratierten zeigt MinifigDetail selbst).
+    const unknownIds = curatedFig.appearsInSetIds.filter(
+      (id) => !SETS.some((s) => s.id === id)
+    );
+    const { thumbs } = resolveSetThumbs(unknownIds);
+    return <MinifigDetail figId={figId} catalogThumbs={thumbs} />;
+  }
 
   // 2) Katalog-Eintrag (Rebrickable, z. B. "fig-000123")
   const entry = getCatalogFig(figId);
   if (!entry) notFound();
+
+  const { thumbs, total } = resolveSetThumbs(entry.s);
 
   return (
     <CatalogMinifigDetail
@@ -96,7 +135,8 @@ export default async function MinifigDetailPage({
         name: entry.t,
         parts: entry.p,
         img: entry.i,
-        sets: entry.s,
+        sets: thumbs,
+        totalSets: total,
       }}
     />
   );

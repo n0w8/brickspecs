@@ -3,25 +3,23 @@
 import Link from "next/link";
 import { useLang, useT } from "@/lib/i18n";
 import BrickImage from "./BrickImage";
+import SetThumbGrid, { type SetThumb } from "./SetThumbGrid";
 
 export interface CatalogFigProps {
   id: string;
   name: string;
   parts: number;
   img: string;
-  /** Setnummern (inkl. Variante, z. B. "10188-1") */
-  sets: string[];
+  /** Sets mit Bild und Name, in denen die Figur vorkommt (serverseitig aufgelöst) */
+  sets: SetThumb[];
+  /** Gesamtzahl der Sets (falls mehr als angezeigt) */
+  totalSets: number;
 }
-
-const MAX_SET_CHIPS = 30;
 
 /** Steckbrief für Katalog-Minifiguren ohne redaktionelle Daten (alle ~17k Figuren). */
 export default function CatalogMinifigDetail({ fig }: { fig: CatalogFigProps }) {
   const { lang } = useLang();
   const t = useT();
-
-  const shownSets = fig.sets.slice(0, MAX_SET_CHIPS);
-  const hiddenCount = fig.sets.length - shownSets.length;
 
   return (
     <div className="flex flex-col gap-8 pt-8">
@@ -52,26 +50,14 @@ export default function CatalogMinifigDetail({ fig }: { fig: CatalogFigProps }) 
       </div>
 
       <section className="card p-5">
-        <h2 className="font-bold text-lg mb-4">📦 {t("common.appearsIn")}</h2>
+        <h2 className="font-bold text-lg mb-4">
+          📦 {t("common.appearsIn")}
+          {fig.totalSets > 0 ? ` (${fig.totalSets})` : ""}
+        </h2>
         {fig.sets.length === 0 ? (
           <p className="text-sm text-[var(--muted)]">-</p>
         ) : (
-          <div className="flex flex-wrap gap-2">
-            {shownSets.map((setNum) => (
-              <Link
-                key={setNum}
-                href={`/lexikon/${setNum}`}
-                className="badge badge-blue font-mono hover:opacity-80"
-              >
-                {setNum}
-              </Link>
-            ))}
-            {hiddenCount > 0 && (
-              <span className="badge badge-gray">
-                {lang === "de" ? `+${hiddenCount} weitere` : `+${hiddenCount} more`}
-              </span>
-            )}
-          </div>
+          <SetThumbGrid sets={fig.sets} total={fig.totalSets} />
         )}
       </section>
     </div>

@@ -8,9 +8,17 @@ import { formatEUR } from "@/lib/format";
 import BrickImage from "./BrickImage";
 import PriceChart from "./PriceChart";
 import SetCard from "./SetCard";
+import SetThumbGrid, { type SetThumb } from "./SetThumbGrid";
 import { RarityBadge } from "./MinifigCard";
 
-export default function MinifigDetail({ figId }: { figId: string }) {
+export default function MinifigDetail({
+  figId,
+  catalogThumbs = [],
+}: {
+  figId: string;
+  /** Weitere Sets (Katalog) mit Bild, die kein redaktioneller Steckbrief sind */
+  catalogThumbs?: SetThumb[];
+}) {
   const { lang } = useLang();
   const t = useT();
 
@@ -79,7 +87,18 @@ export default function MinifigDetail({ figId }: { figId: string }) {
             ))}
           </div>
         )}
-        {unknownSetIds.length > 0 && (
+        {catalogThumbs.length > 0 && (
+          <>
+            {knownSets.length > 0 && (
+              <p className="text-sm font-semibold mb-3">
+                {lang === "de" ? "Außerdem enthalten in:" : "Also included in:"}
+              </p>
+            )}
+            <SetThumbGrid sets={catalogThumbs} />
+          </>
+        )}
+        {/* Katalog-Sets ohne Bild (selten): nur als Nummer */}
+        {catalogThumbs.length === 0 && unknownSetIds.length > 0 && (
           <p className="text-sm text-[var(--muted)]">
             {lang === "de" ? "Außerdem in den Sets: " : "Also appears in sets: "}
             {unknownSetIds.map((id) => (
@@ -89,7 +108,7 @@ export default function MinifigDetail({ figId }: { figId: string }) {
             ))}
           </p>
         )}
-        {knownSets.length === 0 && unknownSetIds.length === 0 && (
+        {knownSets.length === 0 && catalogThumbs.length === 0 && unknownSetIds.length === 0 && (
           <p className="text-sm text-[var(--muted)]">-</p>
         )}
       </section>

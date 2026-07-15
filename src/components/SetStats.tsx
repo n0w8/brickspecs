@@ -18,7 +18,13 @@ interface Stats {
  * oder Supabase nicht konfiguriert), wird der jeweilige Badge ausgeblendet;
  * sind beide null, rendert die Komponente nichts.
  */
-export default function SetStats({ setId }: { setId: string }) {
+export default function SetStats({
+  setId,
+  className = "",
+}: {
+  setId: string;
+  className?: string;
+}) {
   const { lang } = useLang();
   const [stats, setStats] = useState<Stats | null>(null);
   const firedFor = useRef<string | null>(null);
@@ -46,7 +52,7 @@ export default function SetStats({ setId }: { setId: string }) {
   const nf = lang === "de" ? "de-DE" : "en-GB";
 
   return (
-    <div className="flex flex-wrap items-center gap-2 text-xs text-[var(--muted)]">
+    <div className={`flex flex-wrap items-center gap-2 text-xs text-[var(--muted)] ${className}`}>
       {stats.views !== null && (
         <span className="badge badge-gray">
           👁 {stats.views.toLocaleString(nf)} {lang === "de" ? "Aufrufe" : "views"}
