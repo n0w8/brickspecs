@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { SETS } from "@/data/sets";
+import { MINIFIGS } from "@/data/minifigs";
 import { pick, useLang, useT } from "@/lib/i18n";
 import { formatEUR, growthPercent } from "@/lib/format";
 import BrickImage from "@/components/BrickImage";
+import MinifigCard from "@/components/MinifigCard";
 
 /** Handverlesene Ikonen der LEGO-Geschichte (IDs aus den kuratierten Sets). */
 const LEGENDARY_IDS = [
@@ -30,8 +32,16 @@ export default function LegendsPage() {
   const { lang } = useLang();
   const t = useT();
 
+  // Legenden-Kriterium für Sets: kuratiert UND eingestellt (retired).
   const legends = LEGENDARY_IDS.map((id) => SETS.find((s) => s.id === id))
-    .filter((s): s is NonNullable<typeof s> => Boolean(s));
+    .filter((s): s is NonNullable<typeof s> => Boolean(s))
+    .filter((s) => s.availability === "retired");
+
+  // Legenden-Kriterium für Figuren: nur die höchste Seltenheitsstufe,
+  // sortiert nach Marktwert (neu/versiegelt) absteigend.
+  const grailFigs = MINIFIGS.filter((f) => f.rarity === "ultra-rare").sort(
+    (a, b) => (b.valueNewEUR ?? 0) - (a.valueNewEUR ?? 0)
+  );
 
   return (
     <div className="flex flex-col gap-8 pt-8">
@@ -46,9 +56,35 @@ export default function LegendsPage() {
         <p className="text-3xl mb-2">🏆</p>
         <h1 className="text-3xl sm:text-4xl font-extrabold mb-2">{t("legends.title")}</h1>
         <p className="text-[var(--muted)] max-w-2xl">{t("legends.sub")}</p>
+        <p className="text-sm text-[var(--muted)] mt-3 font-mono">
+          {legends.length} Sets · {grailFigs.length}{" "}
+          {lang === "de" ? "Minifiguren" : "minifigures"}
+        </p>
       </div>
 
-      <div className="flex flex-col gap-4">
+      {/* ── Legendäre Minifiguren ─────────────────────────────────────── */}
+      <section>
+        <h2 className="text-2xl font-extrabold mb-1">
+          <span className="text-[var(--yellow)]">★</span> {t("legends.figsTitle")}{" "}
+          <span className="text-sm text-[var(--muted)] font-normal">({grailFigs.length})</span>
+        </h2>
+        <p className="text-sm text-[var(--muted)] mb-4 max-w-2xl">{t("legends.figsSub")}</p>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {grailFigs.map((fig) => (
+            <MinifigCard key={fig.id} fig={fig} />
+          ))}
+        </div>
+      </section>
+
+      {/* ── Legendäre Sets ────────────────────────────────────────────── */}
+      <section className="flex flex-col gap-4">
+        <div>
+          <h2 className="text-2xl font-extrabold mb-1">
+            📦 {t("legends.setsTitle")}{" "}
+            <span className="text-sm text-[var(--muted)] font-normal">({legends.length})</span>
+          </h2>
+          <p className="text-sm text-[var(--muted)] max-w-2xl">{t("legends.setsSub")}</p>
+        </div>
         {legends.map((set, i) => {
           const growth = growthPercent(set);
           return (
@@ -97,7 +133,7 @@ export default function LegendsPage() {
             </Link>
           );
         })}
-      </div>
+      </section>
 
       <p className="text-xs text-[var(--muted)]">{t("common.estimates")}</p>
     </div>

@@ -244,10 +244,20 @@ export const UI = {
     en: "Market value is computed per set by country & source below.",
   },
 
-  "legends.title": { de: "Legendäre Sets", en: "Legendary sets" },
+  "legends.title": { de: "Legendäre Sets & Minifiguren", en: "Legendary sets & minifigures" },
   "legends.sub": {
-    de: "Die Sets, die Geschichte geschrieben haben - von der gelben Burg bis zum UCS-Falken. Kuratiert, mit Marktwert und Wertentwicklung.",
-    en: "The sets that made history - from the Yellow Castle to the UCS Falcon. Curated, with market value and growth.",
+    de: "Sets und Figuren, die Geschichte geschrieben haben - von der gelben Burg bis zum SDCC-Spider-Man. Kuratiert, mit Marktwert und Wertentwicklung.",
+    en: "Sets and figures that made history - from the Yellow Castle to the SDCC Spider-Man. Curated, with market value and growth.",
+  },
+  "legends.setsTitle": { de: "Legendäre Sets", en: "Legendary sets" },
+  "legends.setsSub": {
+    de: "Nur eingestellte Sets mit außergewöhnlicher Wertentwicklung - die Ruhmeshalle der Baukästen.",
+    en: "Retired sets with exceptional value growth only - the hall of fame of sets.",
+  },
+  "legends.figsTitle": { de: "Legendäre Minifiguren", en: "Legendary minifigures" },
+  "legends.figsSub": {
+    de: "Ausschließlich Figuren der höchsten Seltenheitsstufe: Comic-Con- und Toy-Fair-Exclusives, Chrom-Promos und Grails aus Kleinstauflagen - sortiert nach Marktwert.",
+    en: "Only figures of the highest rarity tier: Comic-Con and Toy Fair exclusives, chrome promos and small-run grails - sorted by market value.",
   },
   "years.title": { de: "Jahrgänge", en: "Years" },
   "years.sub": {
@@ -267,7 +277,7 @@ export const UI = {
     en: "Channel link pending - set NEXT_PUBLIC_WHATSAPP_CHANNEL_URL in .env.",
   },
   "figs.catalogCount": { de: "Minifiguren im Komplett-Katalog", en: "minifigures in the full catalog" },
-  "figs.curatedTitle": { de: "Legendäre Figuren", en: "Legendary figures" },
+  "figs.curatedTitle": { de: "Kuratierte Figuren", en: "Curated figures" },
   "figs.noEditorial": {
     de: "Für diese Figur liegen noch keine redaktionellen Daten (Seltenheit, Preishistorie, Beschreibung) vor - Basisdaten und Foto pflegt der Katalog-Agent automatisch.",
     en: "No editorial data (rarity, price history, description) for this figure yet - base data and photo are maintained automatically by the catalog agent.",

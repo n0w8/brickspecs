@@ -1,14 +1,21 @@
 import type { Minifig } from "./types";
 
 // Recherchierte Minifiguren-Daten (Stand Juli 2026). Preise sind Schätzwerte in EUR,
-// orientiert an BrickLink-/BrickEconomy-Preisniveaus. Einige Legacy-IDs sind
-// BrickLink-artige Näherungen (im UI existiert ein Bild-Fallback).
+// orientiert an BrickLink-/BrickEconomy-/Brick-Ranker-Preisniveaus (neu/versiegelt
+// bzw. gebraucht/lose). Einige Legacy-IDs sind BrickLink-artige Näherungen; bei
+// Promo-Exklusiven dient die Promo-Setnummer (z. B. "comcon028") als ID.
 //
 // imageUrl zeigt IMMER auf das Rebrickable-CDN-Bild der zugeordneten
 // Katalog-Figur (fig-XXXXXX) - NICHT auf BrickLink raten! Die alten
 // img.bricklink.com-URLs zeigten in 19 von 29 Fällen falsche Figuren
-// (z. B. cas212 = grüner Ninja statt Schwarzer Falke). Konsistenz prüfbar
+// (z. B. cas212 = grüner Ninja statt Schwarzer Falke). Jede Figur ist über
+// appearsInSetIds im Katalog-Inventar verankert. Konsistenz prüfbar
 // mit: node scripts/check-curated-figs.mjs
+//
+// rarity "ultra-rare" ist der Legenden-Status: nur diese Figuren erscheinen
+// auf /legenden. Quellen für Marktwerte der Legenden: BrickEconomy,
+// minifigpriceguide.com (Top 100), brickranker.com (SDCC-Ranking),
+// brickfanatics.com (SDCC-Grails) - recherchiert Juli 2026.
 export const MINIFIGS: Minifig[] = [
   // ── Star Wars ────────────────────────────────────────────────────────────
   {
@@ -180,7 +187,7 @@ export const MINIFIGS: Minifig[] = [
     name: { de: "Classic Spaceman (gelb)", en: "Classic Spaceman (yellow)" },
     theme: "Space",
     firstYear: 1979,
-    appearsInSetIds: ["928", "924"],
+    appearsInSetIds: ["0015", "6980"],
     rarity: "uncommon",
     valueNewEUR: 30,
     valueUsedEUR: 12,
@@ -190,8 +197,8 @@ export const MINIFIGS: Minifig[] = [
       { year: 2026, priceEUR: 30 },
     ],
     description: {
-      de: "Der gelbe Klassik-Astronaut, spätestens seit Benny aus dem LEGO Movie weltberühmt. Gehört zur Crew des Galaxy Explorer und ist etwas schwerer zu finden als die rote Variante.",
-      en: "The yellow classic astronaut, world-famous at the latest since Benny from The LEGO Movie. Part of the Galaxy Explorer crew and somewhat harder to find than the red variant.",
+      de: "Der gelbe Klassik-Astronaut, spätestens seit Benny aus dem LEGO Movie weltberühmt. Er erschien ab 1979 in Minifiguren-Packs und flog später in Sets wie dem Galaxy Commander (6980) mit - etwas schwerer zu finden als die rote Variante.",
+      en: "The yellow classic astronaut, world-famous at the latest since Benny from The LEGO Movie. Released from 1979 in minifigure packs, he later crewed sets like the Galaxy Commander (6980) - somewhat harder to find than the red variant.",
     },
     imageUrl: "https://cdn.rebrickable.com/media/sets/fig-006908.jpg",
   },
@@ -601,5 +608,874 @@ export const MINIFIGS: Minifig[] = [
       en: "The friendly driver of downtown streetcar 60423 - perfect for any LEGO city with public transport. The set retires at the end of 2026 according to EOL lists.",
     },
     imageUrl: "https://cdn.rebrickable.com/media/sets/fig-015350.jpg",
+  },
+
+  // ═════════════════════════════════════════════════════════════════════════
+  // LEGENDEN-AUSBAU (Juli 2026): echte Grail-Figuren mit 100+ EUR Marktwert.
+  // Preisniveaus: brickranker.com "All LEGO SDCC Minifigures Ranked By Value",
+  // brickfanatics.com "The 10 most valuable LEGO SDCC minifigures",
+  // minifigpriceguide.com Top 100, BrickEconomy (jeweils Juli 2026 gesichtet).
+  // valueNewEUR = neu/versiegelt bzw. original verpackt, valueUsedEUR = lose.
+  //
+  // Bild-Hinweis: Für viele Promo-Exklusive hat Rebrickable KEIN Figurenfoto
+  // (fig-XXXXXX.jpg liefert 404). Dort wird das Rebrickable-SET-Foto des
+  // Ein-Figuren-Promo-Sets verwendet (z. B. comcon028-1.jpg) - ebenfalls vom
+  // Rebrickable-CDN und über appearsInSetIds verankert. Alle Bilder wurden
+  // am 15.07.2026 visuell gegen die Beschreibung geprüft.
+  // ═════════════════════════════════════════════════════════════════════════
+
+  // ── Star Wars Grails (Promos & Chrom) ────────────────────────────────────
+  // Quelle: minifigpriceguide Top 100, BrickEconomy; 10.000 Stück 2007 zufällig
+  // in Star-Wars-Sets versteckt (30 Jahre Star Wars).
+  {
+    id: "sw0158",
+    name: { de: "C-3PO (Chrom-Gold)", en: "C-3PO (Chrome Gold)" },
+    theme: "Star Wars",
+    firstYear: 2007,
+    appearsInSetIds: ["4521221"],
+    rarity: "ultra-rare",
+    valueNewEUR: 1100,
+    valueUsedEUR: 480,
+    priceHistory: [
+      { year: 2014, priceEUR: 300 },
+      { year: 2019, priceEUR: 550 },
+      { year: 2023, priceEUR: 850 },
+      { year: 2026, priceEUR: 1100 },
+    ],
+    description: {
+      de: "Zum 30. Star-Wars-Jubiläum 2007 versteckte LEGO 10.000 verchromte Gold-C-3POs zufällig in Sets - dazu kamen fünf Exemplare aus massivem 14-Karat-Gold. Der Chrom-Droide im versiegelten Beutel ist ein fester Bestandteil jeder Grail-Liste.",
+      en: "For the 30th anniversary of Star Wars in 2007, LEGO randomly hid 10,000 chrome gold C-3POs in sets - plus five made of solid 14-karat gold. The chrome droid in its sealed bag is a fixture on every grail list.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-000571.jpg",
+  },
+  // Quelle: BrickEconomy/minifigpriceguide; Promo-Polybag zum 10. Jubiläum
+  // von LEGO Star Wars (2009), zusätzlich als Magnet-Version verteilt.
+  {
+    id: "sw0097",
+    name: { de: "Stormtrooper (Chrom-Silber)", en: "Stormtrooper (Chrome Silver)" },
+    theme: "Star Wars",
+    firstYear: 2009,
+    appearsInSetIds: ["2853590", "852737"],
+    rarity: "ultra-rare",
+    valueNewEUR: 380,
+    valueUsedEUR: 90,
+    priceHistory: [
+      { year: 2014, priceEUR: 90 },
+      { year: 2019, priceEUR: 180 },
+      { year: 2023, priceEUR: 290 },
+      { year: 2026, priceEUR: 380 },
+    ],
+    description: {
+      de: "Der verchromte Stormtrooper wurde 2009 zum 10. Geburtstag von LEGO Star Wars als Promo-Polybag verteilt - das silberne Gegenstück zum Chrom-Vader. Versiegelte Beutel haben ihren Wert seit 2014 mehr als vervierfacht.",
+      en: "The chrome-plated Stormtrooper was given away in 2009 as a promo polybag for the 10th birthday of LEGO Star Wars - the silver counterpart to the chrome Vader. Sealed bags have more than quadrupled in value since 2014.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-000312.jpg",
+  },
+  // Quelle: BrickEconomy; May-the-4th-Promo-Polybag 2012, einzige TC-14-Figur.
+  {
+    id: "sw0385",
+    name: { de: "TC-14", en: "TC-14" },
+    theme: "Star Wars",
+    firstYear: 2012,
+    appearsInSetIds: ["5000063"],
+    rarity: "ultra-rare",
+    valueNewEUR: 210,
+    valueUsedEUR: 65,
+    priceHistory: [
+      { year: 2016, priceEUR: 60 },
+      { year: 2020, priceEUR: 110 },
+      { year: 2023, priceEUR: 160 },
+      { year: 2026, priceEUR: 210 },
+    ],
+    description: {
+      de: "Der verchromte Protokolldroide der Handelsföderation gab es 2012 nur als May-the-4th-Promo-Polybag ab einem Mindesteinkauf im LEGO Shop. Bis heute die einzige TC-14-Minifigur - versiegelt ein gesuchtes Sammlerstück.",
+      en: "The chrome protocol droid of the Trade Federation was only available in 2012 as a May-the-4th promo polybag with a minimum purchase at LEGO Shop. Still the only TC-14 minifigure ever made - sealed bags are highly sought after.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-000610.jpg",
+  },
+  // Quelle: BrickEconomy/minifigpriceguide; exklusiver Promo-Polybag 2011.
+  {
+    id: "sw0379",
+    name: { de: "Shadow ARF Trooper", en: "Shadow ARF Trooper" },
+    theme: "Star Wars",
+    firstYear: 2011,
+    appearsInSetIds: ["2856197"],
+    rarity: "ultra-rare",
+    valueNewEUR: 190,
+    valueUsedEUR: 70,
+    priceHistory: [
+      { year: 2015, priceEUR: 60 },
+      { year: 2019, priceEUR: 100 },
+      { year: 2023, priceEUR: 150 },
+      { year: 2026, priceEUR: 190 },
+    ],
+    description: {
+      de: "Der komplett schwarze Klonkrieger existiert in keinem regulären Set: 2011 gab es ihn nur als Promo-Polybag bei Aktionen im LEGO Shop. Eine der beliebtesten Trooper-Varianten überhaupt und versiegelt dreistellig gehandelt.",
+      en: "The all-black clone trooper never appeared in a regular set: in 2011 it was only available as a promo polybag during LEGO Shop campaigns. One of the most popular trooper variants ever, trading in three figures when sealed.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-000305.jpg",
+  },
+  // Quelle: BrickEconomy; May-the-4th-Promo 2014, Fanwahl-Charakter aus KOTOR.
+  {
+    id: "sw0547",
+    name: { de: "Darth Revan", en: "Darth Revan" },
+    theme: "Star Wars",
+    firstYear: 2014,
+    appearsInSetIds: ["5002123"],
+    rarity: "ultra-rare",
+    valueNewEUR: 140,
+    valueUsedEUR: 55,
+    priceHistory: [
+      { year: 2016, priceEUR: 35 },
+      { year: 2020, priceEUR: 70 },
+      { year: 2023, priceEUR: 110 },
+      { year: 2026, priceEUR: 140 },
+    ],
+    description: {
+      de: "Der Sith-Lord aus Knights of the Old Republic wurde von den Fans in einer Abstimmung zur Minifigur gewählt und 2014 nur als May-the-4th-Polybag verteilt. Bis heute sein einziger LEGO-Auftritt.",
+      en: "The Sith Lord from Knights of the Old Republic was voted into minifigure form by fans and distributed only as a May-the-4th polybag in 2014. To this day his only LEGO appearance.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-001162.jpg",
+  },
+  // Quelle: minifigpriceguide/BrickEconomy; exklusiv in Cloud City 10123 wie
+  // der Boba Fett (sw0107) und Lando (sw0105) aus demselben Set.
+  {
+    id: "sw0103",
+    name: { de: "Luke Skywalker (Cloud City)", en: "Luke Skywalker (Cloud City)" },
+    theme: "Star Wars",
+    firstYear: 2003,
+    appearsInSetIds: ["10123"],
+    rarity: "ultra-rare",
+    valueNewEUR: 280,
+    valueUsedEUR: 120,
+    priceHistory: [
+      { year: 2014, priceEUR: 70 },
+      { year: 2019, priceEUR: 140 },
+      { year: 2022, priceEUR: 210 },
+      { year: 2026, priceEUR: 280 },
+    ],
+    description: {
+      de: "Bespin-Luke mit Blaster-Ziehhand und Tan-Hemd, exklusiv im kleinauflagigen Cloud-City-Set 10123 von 2003. Wie alle Figuren des Sets von dessen Legendenstatus getragen - nur der Boba Fett daneben ist noch teurer.",
+      en: "Bespin Luke with tan shirt, exclusive to the small-run 2003 Cloud City set 10123. Like all figures from that set he rides its legendary status - only the Boba Fett next to him is pricier.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-003911.jpg",
+  },
+  // Quelle: BrickEconomy; erste Jango-Fett-Figur, lange exklusiv in 7153.
+  {
+    id: "sw0053",
+    name: { de: "Jango Fett", en: "Jango Fett" },
+    theme: "Star Wars",
+    firstYear: 2002,
+    appearsInSetIds: ["7153"],
+    rarity: "ultra-rare",
+    valueNewEUR: 220,
+    valueUsedEUR: 90,
+    priceHistory: [
+      { year: 2014, priceEUR: 60 },
+      { year: 2019, priceEUR: 110 },
+      { year: 2022, priceEUR: 170 },
+      { year: 2026, priceEUR: 220 },
+    ],
+    description: {
+      de: "Der erste Jango Fett erschien 2002 ausschließlich in Jango Fett's Slave I (7153) und blieb über ein Jahrzehnt die einzige Figur des Kopfgeldjägers. Das teure Set wurde selten gekauft - entsprechend knapp ist die Figur heute.",
+      en: "The first Jango Fett appeared in 2002 exclusively in Jango Fett's Slave I (7153) and remained the bounty hunter's only figure for over a decade. The expensive set sold in small numbers - making the figure scarce today.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-003646.jpg",
+  },
+  // Quelle: BrickEconomy; Light-Up-Vader aus 7263, als gravierte Toy-Fair-
+  // Edition (Nuernberg 2005) eines der teuersten Vader-Sammlerstücke.
+  {
+    id: "toyfair2005",
+    name: { de: "Darth Vader (Light-Up-Lichtschwert)", en: "Darth Vader (Light-Up Lightsaber)" },
+    theme: "Star Wars",
+    firstYear: 2005,
+    appearsInSetIds: ["7263", "TOYFAIR2005"],
+    rarity: "ultra-rare",
+    valueNewEUR: 300,
+    valueUsedEUR: 120,
+    priceHistory: [
+      { year: 2014, priceEUR: 90 },
+      { year: 2019, priceEUR: 150 },
+      { year: 2022, priceEUR: 220 },
+      { year: 2026, priceEUR: 300 },
+    ],
+    description: {
+      de: "Vader mit eingebauter LED: Drückt man den Kopf, leuchtet das Lichtschwert - ein Gimmick, das LEGO nur 2005 wagte. Funktionierende Exemplare werden knapp; die gravierte Sonderedition der Nürnberger Spielwarenmesse 2005 erzielt vierstellige Preise.",
+      en: "Vader with a built-in LED: press the head and the lightsaber lights up - a gimmick LEGO only dared in 2005. Working examples are getting scarce; the engraved special edition from the 2005 Nuremberg Toy Fair fetches four-figure prices.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-003660.jpg",
+  },
+  // Quelle: brickranker/BrickEconomy; SDCC 2012, ca. 1.000 Stück.
+  {
+    id: "comcon024",
+    name: { de: "Luke Skywalker (SDCC Landspeeder)", en: "Luke Skywalker (SDCC Landspeeder)" },
+    theme: "Star Wars",
+    firstYear: 2012,
+    appearsInSetIds: ["COMCON024"],
+    rarity: "ultra-rare",
+    valueNewEUR: 520,
+    valueUsedEUR: 260,
+    priceHistory: [
+      { year: 2015, priceEUR: 180 },
+      { year: 2019, priceEUR: 300 },
+      { year: 2023, priceEUR: 420 },
+      { year: 2026, priceEUR: 520 },
+    ],
+    description: {
+      de: "Tatooine-Luke im weißen Gewand, verteilt auf der San Diego Comic-Con 2012 zusammen mit einem Mini-Landspeeder. Die Figur erschien nie in einem regulären Set und gehört zu den seltensten Luke-Varianten überhaupt.",
+      en: "Tatooine Luke in white robes, handed out at San Diego Comic-Con 2012 together with a mini landspeeder. The figure never appeared in a regular set and is one of the rarest Luke variants of all.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-001384.jpg",
+  },
+  // Quelle: BrickEconomy; Star Wars Celebration VI (2012), exklusiver Boba
+  // mit Sturmhauben-Kopf im Mini-Slave-I-Beutel.
+  {
+    id: "celebvi",
+    name: { de: "Boba Fett (Celebration VI)", en: "Boba Fett (Celebration VI)" },
+    theme: "Star Wars",
+    firstYear: 2012,
+    appearsInSetIds: ["CELEBVI"],
+    rarity: "ultra-rare",
+    valueNewEUR: 360,
+    valueUsedEUR: 180,
+    priceHistory: [
+      { year: 2015, priceEUR: 120 },
+      { year: 2019, priceEUR: 200 },
+      { year: 2023, priceEUR: 290 },
+      { year: 2026, priceEUR: 360 },
+    ],
+    description: {
+      de: "Auf der Star Wars Celebration VI 2012 gab es diesen Boba Fett mit exklusivem Sturmhauben-Kopf nur zusammen mit einer Mini-Slave-I. Kleine Auflage, nie regulär erhältlich - ein Pflichtstück für Fett-Komplettisten.",
+      en: "At Star Wars Celebration VI in 2012 this Boba Fett with an exclusive balaclava head came only with a mini Slave I. Tiny print run, never sold at retail - a must-have for Fett completionists.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-001228.jpg",
+  },
+
+  // ── Comic-Con- & Toy-Fair-Exclusives (Marvel/DC/mehr) ────────────────────
+  // Quelle: brickfanatics ("mind. 11.000 USD auf BrickLink"), brickranker
+  // (5.000 USD): teuerste SDCC-Figur überhaupt, Design aus Amazing Spider-Man 2.
+  {
+    id: "comcon028",
+    name: { de: "Spider-Man (SDCC 2013)", en: "Spider-Man (SDCC 2013)" },
+    theme: "Marvel Super Heroes",
+    firstYear: 2013,
+    appearsInSetIds: ["COMCON028"],
+    rarity: "ultra-rare",
+    valueNewEUR: 6500,
+    valueUsedEUR: 3500,
+    priceHistory: [
+      { year: 2015, priceEUR: 900 },
+      { year: 2019, priceEUR: 2400 },
+      { year: 2023, priceEUR: 4800 },
+      { year: 2026, priceEUR: 6500 },
+    ],
+    description: {
+      de: "Die teuerste Comic-Con-Figur aller Zeiten: Der Spider-Man im Amazing-Spider-Man-2-Design wurde 2013 in San Diego nur per Verlosung vergeben. Auf BrickLink starten Angebote im hohen vierstelligen Bereich - Karten-versiegelte Exemplare sind praktisch unbezahlbar.",
+      en: "The most expensive Comic-Con figure of all time: the Spider-Man in Amazing Spider-Man 2 design was raffled off at San Diego in 2013. BrickLink listings start in the high four figures - carded sealed examples are practically priceless.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/comcon028-1.jpg",
+  },
+  // Quelle: brickfanatics (ab ca. 5.900 GBP), brickranker; nur 350 Stück,
+  // bis heute die einzige Spider-Woman-Minifigur.
+  {
+    id: "comcon027",
+    name: { de: "Spider-Woman (SDCC 2013)", en: "Spider-Woman (SDCC 2013)" },
+    theme: "Marvel Super Heroes",
+    firstYear: 2013,
+    appearsInSetIds: ["COMCON027"],
+    rarity: "ultra-rare",
+    valueNewEUR: 3800,
+    valueUsedEUR: 2200,
+    priceHistory: [
+      { year: 2015, priceEUR: 700 },
+      { year: 2019, priceEUR: 1800 },
+      { year: 2023, priceEUR: 2900 },
+      { year: 2026, priceEUR: 3800 },
+    ],
+    description: {
+      de: "Nur 350 Exemplare wurden 2013 auf der San Diego Comic-Con verlost - und es blieb bis heute die einzige Spider-Woman-Minifigur überhaupt. Diese Kombination aus Mini-Auflage und Charakter-Exklusivität macht sie zur zweitteuersten SDCC-Figur.",
+      en: "Only 350 examples were raffled at San Diego Comic-Con 2013 - and it remains the only Spider-Woman minifigure ever made. That combination of tiny print run and character exclusivity makes her the second most expensive SDCC figure.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/comcon027-1.jpg",
+  },
+  // Quelle: brickranker (4.375 USD); nur 200 Stück, SDCC 2013.
+  {
+    id: "comcon030",
+    name: { de: "Green Arrow (SDCC 2013)", en: "Green Arrow (SDCC 2013)" },
+    theme: "DC Super Heroes",
+    firstYear: 2013,
+    appearsInSetIds: ["COMCON030"],
+    rarity: "ultra-rare",
+    valueNewEUR: 3400,
+    valueUsedEUR: 1900,
+    priceHistory: [
+      { year: 2015, priceEUR: 500 },
+      { year: 2019, priceEUR: 1500 },
+      { year: 2023, priceEUR: 2600 },
+      { year: 2026, priceEUR: 3400 },
+    ],
+    description: {
+      de: "Der Bogenschütze mit dunkelgrüner Kapuze wurde 2013 in San Diego in einer Auflage von nur 200 Stück verlost. Zwar erschien 2014 eine reguläre Green-Arrow-Variante im Batman-Set 76028 - die SDCC-Version mit Kapuze blieb einzigartig.",
+      en: "The archer with the dark green hood was raffled at San Diego 2013 in a run of just 200 pieces. A regular Green Arrow variant followed in 2014, but the hooded SDCC version remained unique.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/comcon030-1.jpg",
+  },
+  // Quelle: brickranker (2.375 USD), Brick Fanatics (bis 3.500 USD);
+  // 200 Stück, SDCC 2013.
+  {
+    id: "comcon029",
+    name: { de: "Superman (Schwarzer Anzug, SDCC 2013)", en: "Superman (Black Suit, SDCC 2013)" },
+    theme: "DC Super Heroes",
+    firstYear: 2013,
+    appearsInSetIds: ["COMCON029"],
+    rarity: "ultra-rare",
+    valueNewEUR: 2400,
+    valueUsedEUR: 1300,
+    priceHistory: [
+      { year: 2015, priceEUR: 450 },
+      { year: 2019, priceEUR: 1100 },
+      { year: 2023, priceEUR: 1900 },
+      { year: 2026, priceEUR: 2400 },
+    ],
+    description: {
+      de: "Superman im schwarzen Regenerationsanzug aus der \"Death of Superman\"-Ära - 2013 in San Diego auf 200 Stück limitiert. Auf BrickLink wurden bereits 3.500 US-Dollar für ein Exemplar erzielt.",
+      en: "Superman in the black regeneration suit from the \"Death of Superman\" era - limited to 200 pieces at San Diego 2013. Single examples have already fetched 3,500 US dollars on BrickLink.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-005618.jpg",
+  },
+  // Quelle: brickfanatics (guenstigstes Angebot ca. 1.350 EUR), brickranker.
+  {
+    id: "comcon023",
+    name: { de: "Spider-Man (Symbiont-Anzug, SDCC 2012)", en: "Spider-Man (Black Symbiote Suit, SDCC 2012)" },
+    theme: "Marvel Super Heroes",
+    firstYear: 2012,
+    appearsInSetIds: ["COMCON023"],
+    rarity: "ultra-rare",
+    valueNewEUR: 1200,
+    valueUsedEUR: 600,
+    priceHistory: [
+      { year: 2015, priceEUR: 300 },
+      { year: 2019, priceEUR: 600 },
+      { year: 2023, priceEUR: 950 },
+      { year: 2026, priceEUR: 1200 },
+    ],
+    description: {
+      de: "Spider-Man im schwarzen Venom-Symbiontenanzug, verteilt auf der San Diego Comic-Con 2012. Der schwarze Anzug erschien nie in einem regulären Set dieser Ära - nur eine Handvoll Exemplare steht überhaupt zum Verkauf.",
+      en: "Spider-Man in the black Venom symbiote suit, handed out at San Diego Comic-Con 2012. The black suit never appeared in a regular set of that era - only a handful of examples are ever for sale.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/comcon023-1.jpg",
+  },
+  // Quelle: brickfanatics (einzige Jean-Grey-Figur, komplett exklusiv),
+  // brickranker (456 USD lose).
+  {
+    id: "comcon021",
+    name: { de: "Phoenix (Jean Grey, SDCC 2012)", en: "Phoenix (Jean Grey, SDCC 2012)" },
+    theme: "Marvel Super Heroes",
+    firstYear: 2012,
+    appearsInSetIds: ["COMCON021"],
+    rarity: "ultra-rare",
+    valueNewEUR: 900,
+    valueUsedEUR: 450,
+    priceHistory: [
+      { year: 2015, priceEUR: 300 },
+      { year: 2019, priceEUR: 550 },
+      { year: 2023, priceEUR: 750 },
+      { year: 2026, priceEUR: 900 },
+    ],
+    description: {
+      de: "Jean Grey im Phoenix-Kostüm ist bis heute die einzige LEGO-Figur der X-Men-Ikone - Torso, Beine und Doppelgesicht sind komplett SDCC-exklusiv. Verteilt 2012 in San Diego, seither ein Dauergast auf Grail-Listen.",
+      en: "Jean Grey in her Phoenix costume is still the only LEGO figure of the X-Men icon - torso, legs and double-sided head are fully SDCC-exclusive. Handed out at San Diego 2012, a permanent fixture on grail lists ever since.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/comcon021-1.jpg",
+  },
+  // Quelle: brickranker (394 USD lose, versiegelt deutlich hoeher); SDCC 2012.
+  {
+    id: "comcon020",
+    name: { de: "Shazam (SDCC 2012)", en: "Shazam (SDCC 2012)" },
+    theme: "DC Super Heroes",
+    firstYear: 2012,
+    appearsInSetIds: ["COMCON020"],
+    rarity: "ultra-rare",
+    valueNewEUR: 550,
+    valueUsedEUR: 300,
+    priceHistory: [
+      { year: 2015, priceEUR: 180 },
+      { year: 2019, priceEUR: 320 },
+      { year: 2023, priceEUR: 450 },
+      { year: 2026, priceEUR: 550 },
+    ],
+    description: {
+      de: "Der erste LEGO-Shazam erschien 2012 exklusiv auf der San Diego Comic-Con - erst 2019 folgte mit den Film-Sets eine reguläre Version. Die Comic-Version mit klassischem Blitz-Torso blieb den Messebesuchern vorbehalten.",
+      en: "The first LEGO Shazam appeared exclusively at San Diego Comic-Con 2012 - a regular version only followed with the 2019 movie sets. The comic version with the classic lightning torso remained convention-only.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-005621.jpg",
+  },
+  // Quelle: brickranker (331 USD lose); SDCC 2012, Spiegel-Logo "Nr. 1".
+  {
+    id: "comcon022",
+    name: { de: "Bizarro (SDCC 2012)", en: "Bizarro (SDCC 2012)" },
+    theme: "DC Super Heroes",
+    firstYear: 2012,
+    appearsInSetIds: ["COMCON022"],
+    rarity: "ultra-rare",
+    valueNewEUR: 450,
+    valueUsedEUR: 240,
+    priceHistory: [
+      { year: 2015, priceEUR: 150 },
+      { year: 2019, priceEUR: 260 },
+      { year: 2023, priceEUR: 370 },
+      { year: 2026, priceEUR: 450 },
+    ],
+    description: {
+      de: "Supermans fehlerhafter Doppelgänger mit kalkweißem Gesicht und spiegelverkehrtem Logo wurde 2012 in San Diego verteilt und nie regulär aufgelegt. Als schräger Comic-Deep-Cut ein Liebling der Sammler.",
+      en: "Superman's flawed doppelganger with chalk-white face and mirrored logo was handed out at San Diego 2012 and never released at retail. A quirky comic deep cut beloved by collectors.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/comcon022-1.jpg",
+  },
+  // Quelle: minifigpriceguide (617 USD), brickranker; erste Comic-Con-
+  // Minifigur-Exclusives ueberhaupt (SDCC + NYCC 2011).
+  {
+    id: "comcon014",
+    name: { de: "Batman (Schwarzer Anzug, SDCC 2011)", en: "Batman (Black Suit, SDCC 2011)" },
+    theme: "DC Super Heroes",
+    firstYear: 2011,
+    appearsInSetIds: ["COMCON014", "COMCON018"],
+    rarity: "ultra-rare",
+    valueNewEUR: 680,
+    valueUsedEUR: 380,
+    priceHistory: [
+      { year: 2015, priceEUR: 250 },
+      { year: 2019, priceEUR: 400 },
+      { year: 2023, priceEUR: 560 },
+      { year: 2026, priceEUR: 680 },
+    ],
+    description: {
+      de: "Mit diesem schwarzen Batman (und dem Green Lantern) startete LEGO 2011 die Tradition der Comic-Con-Exclusives - noch vor dem Verkaufsstart der Super-Heroes-Reihe. Auf Blisterkarte einer der historisch wichtigsten Promos.",
+      en: "With this black-suit Batman (and the Green Lantern) LEGO started the Comic-Con exclusives tradition in 2011 - before the Super Heroes line even hit shelves. On its blister card one of the most historically important promos.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-005622.jpg",
+  },
+  // Quelle: minifigpriceguide (333 USD), brickranker (388 USD); SDCC/NYCC 2011.
+  {
+    id: "comcon013",
+    name: { de: "Green Lantern (SDCC 2011)", en: "Green Lantern (SDCC 2011)" },
+    theme: "DC Super Heroes",
+    firstYear: 2011,
+    appearsInSetIds: ["COMCON013", "COMCON016"],
+    rarity: "ultra-rare",
+    valueNewEUR: 600,
+    valueUsedEUR: 320,
+    priceHistory: [
+      { year: 2015, priceEUR: 220 },
+      { year: 2019, priceEUR: 350 },
+      { year: 2023, priceEUR: 490 },
+      { year: 2026, priceEUR: 600 },
+    ],
+    description: {
+      de: "Hal Jordan als Green Lantern war 2011 neben Batman die allererste Comic-Con-Minifigur von LEGO, verteilt in San Diego und New York. Die spätere Kaufhaus-Version von 2012 unterscheidet sich im Druck - das Original bleibt das Sammlerstück.",
+      en: "Hal Jordan as Green Lantern was, alongside Batman, LEGO's very first Comic-Con minifigure in 2011, handed out in San Diego and New York. The later 2012 retail version differs in printing - the original remains the collectible.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-000975.jpg",
+  },
+  // Quelle: brickranker (500 USD); SDCC 2014, Guardians-of-the-Galaxy-Promo.
+  {
+    id: "comcon035",
+    name: { de: "The Collector (SDCC 2014)", en: "The Collector (SDCC 2014)" },
+    theme: "Marvel Super Heroes",
+    firstYear: 2014,
+    appearsInSetIds: ["COMCON035"],
+    rarity: "ultra-rare",
+    valueNewEUR: 550,
+    valueUsedEUR: 300,
+    priceHistory: [
+      { year: 2016, priceEUR: 200 },
+      { year: 2020, priceEUR: 330 },
+      { year: 2023, priceEUR: 460 },
+      { year: 2026, priceEUR: 550 },
+    ],
+    description: {
+      de: "Taneleer Tivan, der Sammler aus Guardians of the Galaxy, erschien passenderweise nur als streng limitierte Messe-Figur auf der SDCC 2014. Eine Figur über das Sammeln, die man kaum bekommen kann - Meta-Grail.",
+      en: "Taneleer Tivan, the Collector from Guardians of the Galaxy, fittingly appeared only as a strictly limited convention figure at SDCC 2014. A figure about collecting that is nearly impossible to collect - a meta grail.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/comcon035-1.jpg",
+  },
+  // Quelle: brickranker (656 USD); SDCC 2014, Grant-Morrison-Batman.
+  {
+    id: "comcon036",
+    name: { de: "Batman of Zur-En-Arrh (SDCC 2014)", en: "Batman of Zur-En-Arrh (SDCC 2014)" },
+    theme: "DC Super Heroes",
+    firstYear: 2014,
+    appearsInSetIds: ["COMCON036"],
+    rarity: "ultra-rare",
+    valueNewEUR: 700,
+    valueUsedEUR: 380,
+    priceHistory: [
+      { year: 2016, priceEUR: 260 },
+      { year: 2020, priceEUR: 420 },
+      { year: 2023, priceEUR: 580 },
+      { year: 2026, priceEUR: 700 },
+    ],
+    description: {
+      de: "Die knallbunte Notfall-Persönlichkeit Batmans aus Grant Morrisons \"Batman R.I.P.\" wurde 2014 in San Diego verlost. Lila, Rot und Gelb statt Grau - eine der auffälligsten Batman-Varianten und nie regulär erschienen.",
+      en: "Batman's garish backup personality from Grant Morrison's \"Batman R.I.P.\" was raffled at San Diego 2014. Purple, red and yellow instead of grey - one of the most striking Batman variants, never released at retail.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/comcon036-1.jpg",
+  },
+  // Quelle: brickranker (344 USD, oft um 500 USD gehandelt); SDCC 2017.
+  {
+    id: "comcon053",
+    name: { de: "Deadpool Duck (SDCC 2017)", en: "Deadpool Duck (SDCC 2017)" },
+    theme: "Marvel Super Heroes",
+    firstYear: 2017,
+    appearsInSetIds: ["COMCON053"],
+    rarity: "ultra-rare",
+    valueNewEUR: 480,
+    valueUsedEUR: 260,
+    priceHistory: [
+      { year: 2018, priceEUR: 220 },
+      { year: 2021, priceEUR: 320 },
+      { year: 2024, priceEUR: 420 },
+      { year: 2026, priceEUR: 480 },
+    ],
+    description: {
+      de: "Das absurde Comic-Mashup aus Deadpool und Howard the Duck gab es 2017 nur per SDCC-Verlosung. Da LEGO seit Jahren keine neuen Deadpool-Figuren mehr auflegt, steigen alle Varianten des Söldners kontinuierlich im Wert.",
+      en: "The absurd comic mashup of Deadpool and Howard the Duck was raffle-only at SDCC 2017. Since LEGO has not released new Deadpool figures in years, every variant of the merc keeps climbing in value.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/comcon053-1.jpg",
+  },
+  // Quelle: brickranker (1.000 USD); SDCC 2018, letzte Deadpool-Figur.
+  {
+    id: "sdcc2018-1",
+    name: { de: "Sheriff Deadpool (SDCC 2018)", en: "Sheriff Deadpool (SDCC 2018)" },
+    theme: "Marvel Super Heroes",
+    firstYear: 2018,
+    appearsInSetIds: ["SDCC2018-1"],
+    rarity: "ultra-rare",
+    valueNewEUR: 950,
+    valueUsedEUR: 520,
+    priceHistory: [
+      { year: 2019, priceEUR: 350 },
+      { year: 2022, priceEUR: 600 },
+      { year: 2024, priceEUR: 800 },
+      { year: 2026, priceEUR: 950 },
+    ],
+    description: {
+      de: "Deadpool mit Cowboyhut und Sheriffstern, verlost auf der SDCC 2018 - bis heute die letzte Deadpool-Minifigur, die LEGO produziert hat. Der ungewollte Serien-Abschluss macht sie zur teuersten Figur der SDCC-Jahrgänge 2015 bis 2019.",
+      en: "Deadpool with cowboy hat and sheriff star, raffled at SDCC 2018 - to this day the last Deadpool minifigure LEGO has produced. That involuntary series finale makes it the most expensive figure of the 2015-2019 SDCC years.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/sdcc2018-1.jpg",
+  },
+  // Quelle: brickranker (525 USD, Tendenz steigend); SDCC 2019,
+  // Design aus Detective Comics #275 (1960).
+  {
+    id: "sdcc2019-2",
+    name: { de: "Zebra Batman (SDCC 2019)", en: "Zebra Batman (SDCC 2019)" },
+    theme: "DC Super Heroes",
+    firstYear: 2019,
+    appearsInSetIds: ["SDCC2019-2"],
+    rarity: "ultra-rare",
+    valueNewEUR: 780,
+    valueUsedEUR: 420,
+    priceHistory: [
+      { year: 2020, priceEUR: 300 },
+      { year: 2022, priceEUR: 480 },
+      { year: 2024, priceEUR: 640 },
+      { year: 2026, priceEUR: 780 },
+    ],
+    description: {
+      de: "Zum 80. Batman-Geburtstag griff LEGO 2019 den bizarren \"Zebra Batman\" aus Detective Comics #275 von 1960 auf - komplett in Schwarz-Weiß-Streifen. Als letzte klassische SDCC-Verlosungsfigur vor der Pandemie ein gesuchtes Stück.",
+      en: "For Batman's 80th birthday LEGO revived the bizarre \"Zebra Batman\" from 1960's Detective Comics #275 - entirely in black-and-white stripes. As the last classic SDCC raffle figure before the pandemic, a sought-after piece.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/sdcc2019-2.jpg",
+  },
+  // Quelle: brickranker (594 USD); SDCC 2019, Design aus dem PS4-Spiel.
+  {
+    id: "sdcc2019-1",
+    name: { de: "Spider-Man (PS4, SDCC 2019)", en: "Spider-Man (PS4, SDCC 2019)" },
+    theme: "Marvel Super Heroes",
+    firstYear: 2019,
+    appearsInSetIds: ["SDCC2019-1"],
+    rarity: "ultra-rare",
+    valueNewEUR: 620,
+    valueUsedEUR: 340,
+    priceHistory: [
+      { year: 2020, priceEUR: 250 },
+      { year: 2022, priceEUR: 400 },
+      { year: 2024, priceEUR: 520 },
+      { year: 2026, priceEUR: 620 },
+    ],
+    description: {
+      de: "Spider-Man im Advanced Suit aus dem PlayStation-Spiel von Insomniac, verlost auf der SDCC 2019. Das weiße Spinnenlogo unterscheidet ihn von allen regulären Varianten - ein Crossover aus Gaming- und LEGO-Sammlerwelt.",
+      en: "Spider-Man in the Advanced Suit from Insomniac's PlayStation game, raffled at SDCC 2019. The white spider logo sets him apart from every retail variant - a crossover of gaming and LEGO collecting.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/sdcc2019-1.jpg",
+  },
+  // Quelle: brickranker (238 USD); SDCC 2019, Stranger-Things-Promo.
+  {
+    id: "sdcc2019-3",
+    name: { de: "Barb (Stranger Things, SDCC 2019)", en: "Barb (Stranger Things, SDCC 2019)" },
+    theme: "Stranger Things",
+    firstYear: 2019,
+    appearsInSetIds: ["SDCC2019-3"],
+    rarity: "ultra-rare",
+    valueNewEUR: 280,
+    valueUsedEUR: 150,
+    priceHistory: [
+      { year: 2020, priceEUR: 120 },
+      { year: 2022, priceEUR: 180 },
+      { year: 2024, priceEUR: 230 },
+      { year: 2026, priceEUR: 280 },
+    ],
+    description: {
+      de: "Die Kultfigur Barb aus Stranger Things bekam nie einen Platz im großen Upside-Down-Set 75810 - dafür 2019 ihre eigene SDCC-Exclusive. \"Justice for Barb\" gilt bei LEGO-Sammlern eben doch.",
+      en: "Cult favourite Barb from Stranger Things never made it into the big Upside Down set 75810 - instead she got her own SDCC exclusive in 2019. \"Justice for Barb\" does exist in LEGO collecting after all.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/sdcc2019-3.jpg",
+  },
+  // Quelle: brickranker (406 USD); SDCC 2016, 75 Jahre Captain America.
+  {
+    id: "sdcc2016-1",
+    name: { de: "Steve Rogers Captain America (SDCC 2016)", en: "Steve Rogers Captain America (SDCC 2016)" },
+    theme: "Marvel Super Heroes",
+    firstYear: 2016,
+    appearsInSetIds: ["SDCC2016-1"],
+    rarity: "ultra-rare",
+    valueNewEUR: 450,
+    valueUsedEUR: 240,
+    priceHistory: [
+      { year: 2018, priceEUR: 180 },
+      { year: 2021, priceEUR: 280 },
+      { year: 2024, priceEUR: 380 },
+      { year: 2026, priceEUR: 450 },
+    ],
+    description: {
+      de: "Zum 75. Jubiläum des Captains erschien 2016 diese Comic-Version von Steve Rogers exklusiv in San Diego. Der Torso-Druck im klassischen Design blieb SDCC-Besuchern vorbehalten.",
+      en: "For the Captain's 75th anniversary this comic version of Steve Rogers appeared exclusively at San Diego in 2016. The classic-design torso print remained convention-only.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/sdcc2016-1.jpg",
+  },
+  // Quelle: brickranker (375 USD); SDCC 2015, All-New Captain America.
+  {
+    id: "sdcc2015-4",
+    name: { de: "Captain America (Sam Wilson, SDCC 2015)", en: "Captain America (Sam Wilson, SDCC 2015)" },
+    theme: "Marvel Super Heroes",
+    firstYear: 2015,
+    appearsInSetIds: ["SDCC2015-4"],
+    rarity: "ultra-rare",
+    valueNewEUR: 420,
+    valueUsedEUR: 220,
+    priceHistory: [
+      { year: 2017, priceEUR: 160 },
+      { year: 2020, priceEUR: 260 },
+      { year: 2023, priceEUR: 350 },
+      { year: 2026, priceEUR: 420 },
+    ],
+    description: {
+      de: "Sam Wilson als neuer Captain America aus der All-New-Comic-Reihe, verlost auf der SDCC 2015. Die einzige LEGO-Umsetzung von Wilsons Cap-Kostüm mit Falcon-Flügeln.",
+      en: "Sam Wilson as the new Captain America from the All-New comic run, raffled at SDCC 2015. The only LEGO rendition of Wilson's Cap costume with Falcon wings.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/sdcc2015-4.jpg",
+  },
+  // Quelle: brickranker (269 USD); SDCC 2015, Arrow-TV-Serie.
+  {
+    id: "sdcc2015-5",
+    name: { de: "Arsenal (SDCC 2015)", en: "Arsenal (SDCC 2015)" },
+    theme: "DC Super Heroes",
+    firstYear: 2015,
+    appearsInSetIds: ["SDCC2015-5"],
+    rarity: "ultra-rare",
+    valueNewEUR: 300,
+    valueUsedEUR: 160,
+    priceHistory: [
+      { year: 2017, priceEUR: 120 },
+      { year: 2020, priceEUR: 190 },
+      { year: 2023, priceEUR: 250 },
+      { year: 2026, priceEUR: 300 },
+    ],
+    description: {
+      de: "Roy Harper als Arsenal aus der TV-Serie Arrow - eine von LEGOs seltenen Figuren zu DC-Serienhelden, exklusiv auf der SDCC 2015 verteilt. Nie in einem Set erschienen.",
+      en: "Roy Harper as Arsenal from the Arrow TV show - one of LEGO's rare figures based on DC television heroes, handed out exclusively at SDCC 2015. Never appeared in a set.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/sdcc2015-5.jpg",
+  },
+  // Quelle: brickranker (250 USD); SDCC 2016, Legends of Tomorrow.
+  {
+    id: "sdcc2016-2",
+    name: { de: "ATOM (SDCC 2016)", en: "ATOM (SDCC 2016)" },
+    theme: "DC Super Heroes",
+    firstYear: 2016,
+    appearsInSetIds: ["SDCC2016-2"],
+    rarity: "ultra-rare",
+    valueNewEUR: 280,
+    valueUsedEUR: 150,
+    priceHistory: [
+      { year: 2018, priceEUR: 110 },
+      { year: 2021, priceEUR: 180 },
+      { year: 2024, priceEUR: 240 },
+      { year: 2026, priceEUR: 280 },
+    ],
+    description: {
+      de: "Ray Palmer im ATOM-Anzug aus DC's Legends of Tomorrow, exklusiv auf der SDCC 2016. Wie Arsenal ein TV-Held, den es nie in ein reguläres Set schaffte.",
+      en: "Ray Palmer in his ATOM suit from DC's Legends of Tomorrow, exclusive to SDCC 2016. Like Arsenal a TV hero who never made it into a regular set.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/sdcc2016-2.jpg",
+  },
+  // Quelle: brickranker (206 USD); SDCC 2018, CW-Serie Black Lightning.
+  {
+    id: "sdcc2018-2",
+    name: { de: "Black Lightning (SDCC 2018)", en: "Black Lightning (SDCC 2018)" },
+    theme: "DC Super Heroes",
+    firstYear: 2018,
+    appearsInSetIds: ["SDCC2018-2"],
+    rarity: "ultra-rare",
+    valueNewEUR: 240,
+    valueUsedEUR: 130,
+    priceHistory: [
+      { year: 2019, priceEUR: 100 },
+      { year: 2022, priceEUR: 160 },
+      { year: 2024, priceEUR: 210 },
+      { year: 2026, priceEUR: 240 },
+    ],
+    description: {
+      de: "Jefferson Pierce alias Black Lightning erschien 2018 als SDCC-Exclusive zur gleichnamigen CW-Serie. Die einzige LEGO-Figur des Helden - mit aufwendigem Blitz-Druck über Torso und Beine.",
+      en: "Jefferson Pierce aka Black Lightning appeared in 2018 as an SDCC exclusive for the CW show of the same name. The hero's only LEGO figure - with an elaborate lightning print across torso and legs.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/sdcc2018-2.jpg",
+  },
+  // Quelle: brickranker (200 USD); SDCC 2017, CW-Seed-Animationsserie.
+  {
+    id: "comcon054",
+    name: { de: "Vixen (SDCC 2017)", en: "Vixen (SDCC 2017)" },
+    theme: "DC Super Heroes",
+    firstYear: 2017,
+    appearsInSetIds: ["COMCON054"],
+    rarity: "ultra-rare",
+    valueNewEUR: 260,
+    valueUsedEUR: 140,
+    priceHistory: [
+      { year: 2018, priceEUR: 110 },
+      { year: 2021, priceEUR: 170 },
+      { year: 2024, priceEUR: 220 },
+      { year: 2026, priceEUR: 260 },
+    ],
+    description: {
+      de: "Mari McCabe alias Vixen aus der Animationsserie des Arrowverse, verteilt auf der SDCC 2017. Die einzige Vixen-Minifigur - und damit automatisch ein Grail für DC-Komplettisten.",
+      en: "Mari McCabe aka Vixen from the Arrowverse animated series, handed out at SDCC 2017. The only Vixen minifigure ever - which automatically makes her a grail for DC completionists.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-002017.jpg",
+  },
+  // Quelle: brickranker (1.947 USD, Cap), BrickEconomy; New York Toy Fair
+  // 2012, nur an Event-Gaeste verteilt, Auflage ca. 125 Stueck je Figur.
+  {
+    id: "toyfair2012-cap",
+    name: { de: "Captain America (Toy Fair 2012)", en: "Captain America (Toy Fair 2012)" },
+    theme: "Marvel Super Heroes",
+    firstYear: 2012,
+    appearsInSetIds: ["TOYFAIR2012"],
+    rarity: "ultra-rare",
+    valueNewEUR: 2000,
+    valueUsedEUR: 1100,
+    priceHistory: [
+      { year: 2015, priceEUR: 500 },
+      { year: 2019, priceEUR: 1000 },
+      { year: 2023, priceEUR: 1600 },
+      { year: 2026, priceEUR: 2000 },
+    ],
+    description: {
+      de: "Zum Start der Super-Heroes-Reihe verschenkte LEGO auf der New Yorker Toy Fair 2012 ein Zwei-Figuren-Etui mit Captain America und Iron Man - Auflage nur gut hundert Stück. Eines der seltensten Marvel-Sammlerstücke überhaupt.",
+      en: "To launch the Super Heroes line LEGO gave away a two-figure case with Captain America and Iron Man at the 2012 New York Toy Fair - a run of only about a hundred. One of the rarest Marvel collectibles in existence.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/toyfair2012-1.jpg",
+  },
+  // Quelle: brickranker/BrickEconomy; Gegenstueck zum Toy-Fair-Cap 2012.
+  {
+    id: "toyfair2012-im",
+    name: { de: "Iron Man (Toy Fair 2012)", en: "Iron Man (Toy Fair 2012)" },
+    theme: "Marvel Super Heroes",
+    firstYear: 2012,
+    appearsInSetIds: ["TOYFAIR2012"],
+    rarity: "ultra-rare",
+    valueNewEUR: 2000,
+    valueUsedEUR: 1100,
+    priceHistory: [
+      { year: 2015, priceEUR: 500 },
+      { year: 2019, priceEUR: 1000 },
+      { year: 2023, priceEUR: 1600 },
+      { year: 2026, priceEUR: 2000 },
+    ],
+    description: {
+      de: "Der Toy-Fair-Iron-Man von 2012 teilt sich das Sammel-Etui mit dem Captain America - beide zusammen bildeten das Event-Geschenk zum Start der Super-Heroes-Reihe. Mit Mini-Auflage und Marvel-Strahlkraft ein absolutes Spitzenstück.",
+      en: "The 2012 Toy Fair Iron Man shares its collector case with the Captain America - together they formed the event gift launching the Super Heroes line. Tiny print run plus Marvel star power make it an absolute top piece.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/toyfair2012-1.jpg",
+  },
+
+  // ── Weitere Convention- & Store-Exclusives ───────────────────────────────
+  // Quelle: BrickEconomy; NYCC 2012, Start der TMNT-Lizenz.
+  {
+    id: "comcon025",
+    name: { de: "Shadow Leonardo (NYCC 2012)", en: "Shadow Leonardo (NYCC 2012)" },
+    theme: "Teenage Mutant Ninja Turtles",
+    firstYear: 2012,
+    appearsInSetIds: ["COMCON025"],
+    rarity: "ultra-rare",
+    valueNewEUR: 380,
+    valueUsedEUR: 200,
+    priceHistory: [
+      { year: 2015, priceEUR: 140 },
+      { year: 2019, priceEUR: 220 },
+      { year: 2023, priceEUR: 320 },
+      { year: 2026, priceEUR: 380 },
+    ],
+    description: {
+      de: "Der komplett schwarze \"Shadow\" Leonardo wurde zur Ankündigung der Turtles-Lizenz auf der New York Comic-Con 2012 verteilt. Da die TMNT-Reihe schon 2014 wieder endete, blieb die Figur ein kurioses, extrem seltenes Kapitel LEGO-Geschichte.",
+      en: "The all-black \"Shadow\" Leonardo was handed out at New York Comic-Con 2012 to announce the Turtles license. With the TMNT line ending as early as 2014, the figure remains a curious, extremely rare chapter of LEGO history.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/comcon025-1.jpg",
+  },
+  // Quelle: BrickEconomy; NYCC 2012, exklusive Kraang-Variante.
+  {
+    id: "comcon026",
+    name: { de: "Kraang (NYCC 2012)", en: "Kraang (NYCC 2012)" },
+    theme: "Teenage Mutant Ninja Turtles",
+    firstYear: 2012,
+    appearsInSetIds: ["COMCON026"],
+    rarity: "ultra-rare",
+    valueNewEUR: 220,
+    valueUsedEUR: 120,
+    priceHistory: [
+      { year: 2015, priceEUR: 90 },
+      { year: 2019, priceEUR: 140 },
+      { year: 2023, priceEUR: 190 },
+      { year: 2026, priceEUR: 220 },
+    ],
+    description: {
+      de: "Der Kraang-Droide im hellblauen Business-Anzug - mit dem Alien-Hirn, das aus dem zerrissenen Torso lugt - gab es nur auf der New York Comic-Con 2012, als LEGO die Turtles-Reihe vorstellte. Zusammen mit Shadow Leonardo eines von zwei TMNT-Messe-Exclusives.",
+      en: "The Kraang droid in its light blue business suit - alien brain peeking through the torn torso - was only available at New York Comic-Con 2012 when LEGO unveiled the Turtles line. Together with Shadow Leonardo one of just two TMNT convention exclusives.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/comcon026-1.jpg",
+  },
+  // Quelle: BrickEconomy; Store-Eroeffnung Leicester Square 2016 (275 Stueck),
+  // limitierte Neuauflage 40308 (2017).
+  {
+    id: "lester",
+    name: { de: "Lester (Leicester Square)", en: "Lester (Leicester Square)" },
+    theme: "Promotional",
+    firstYear: 2016,
+    appearsInSetIds: ["40308", "LESTER"],
+    rarity: "ultra-rare",
+    valueNewEUR: 420,
+    valueUsedEUR: 250,
+    priceHistory: [
+      { year: 2018, priceEUR: 180 },
+      { year: 2021, priceEUR: 280 },
+      { year: 2024, priceEUR: 360 },
+      { year: 2026, priceEUR: 420 },
+    ],
+    description: {
+      de: "Lester, das Maskottchen des Londoner Flagship-Stores, wurde zur Eröffnung am Leicester Square 2016 in nur 275 Exemplaren verschenkt - 2017 folgte eine ebenfalls limitierte Blister-Auflage (40308). Die wohl berühmteste Store-Exklusivfigur.",
+      en: "Lester, the mascot of the London flagship store, was given away in just 275 copies at the 2016 Leicester Square opening - followed in 2017 by an equally limited blister release (40308). Probably the most famous store-exclusive figure.",
+    },
+    imageUrl: "https://cdn.rebrickable.com/media/sets/fig-001723.jpg",
   },
 ];
