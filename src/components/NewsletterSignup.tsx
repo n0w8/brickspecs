@@ -40,7 +40,7 @@ export default function NewsletterSignup({ variant }: { variant: "inline" | "box
         setMessage(
           data?.message ??
             (lang === "de"
-              ? "Das hat nicht geklappt - bitte versuch es spaeter noch einmal."
+              ? "Das hat nicht geklappt - bitte versuch es später noch einmal."
               : "That did not work - please try again later.")
         );
       }
@@ -48,7 +48,7 @@ export default function NewsletterSignup({ variant }: { variant: "inline" | "box
       setStatus("error");
       setMessage(
         lang === "de"
-          ? "Netzwerkfehler - bitte versuch es spaeter noch einmal."
+          ? "Netzwerkfehler - bitte versuch es später noch einmal."
           : "Network error - please try again later."
       );
     }

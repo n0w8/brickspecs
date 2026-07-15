@@ -87,7 +87,7 @@ export async function POST(request: Request) {
 
   // Honeypot gefuellt -> Bot. Stilles 200, damit der Bot nichts lernt.
   if (honeypot) {
-    return reply(true, "Danke fuer dein Feedback!", 200);
+    return reply(true, "Danke für dein Feedback!", 200);
   }
 
   if (message.length < 10 || message.length > 2000) {
@@ -99,7 +99,7 @@ export async function POST(request: Request) {
   }
 
   if (email && (email.length > 254 || !EMAIL_RE.test(email))) {
-    return reply(false, "Bitte gib eine gueltige E-Mail-Adresse ein (oder lass das Feld leer).", 400);
+    return reply(false, "Bitte gib eine gültige E-Mail-Adresse ein (oder lass das Feld leer).", 400);
   }
 
   if (isRateLimited(clientIp(request))) {
@@ -150,12 +150,12 @@ export async function POST(request: Request) {
       console.error(`[feedback] Brevo-Fehler HTTP ${res.status}: ${body.slice(0, 300)}`);
       return reply(
         false,
-        "Senden gerade nicht moeglich - bitte versuch es spaeter noch einmal.",
+        "Senden gerade nicht möglich - bitte versuch es später noch einmal.",
         502
       );
     }
 
-    return reply(true, "Danke fuer dein Feedback! Wir lesen jede Nachricht.", 200);
+    return reply(true, "Danke für dein Feedback! Wir lesen jede Nachricht.", 200);
   } catch (err) {
     console.error(`[feedback] Brevo nicht erreichbar: ${(err as Error).message}`);
     return reply(

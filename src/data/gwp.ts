@@ -1,7 +1,7 @@
 import type { LocalizedString } from "./types";
 
 /**
- * Aktuelle und angekuendigte LEGO-Gratis-Beigaben (GWP = Gift with Purchase).
+ * Aktuelle und angekündigte LEGO-Gratis-Beigaben (GWP = Gift with Purchase).
  * Redaktionell gepflegt; der Telegram-Watcher meldet neue Aktionen automatisch,
  * die dann hier eingepflegt werden.
  */
@@ -17,7 +17,7 @@ export interface GwpPromo {
   startDate: string;
   /** ISO-Datum Aktionsende (null = bis Vorrat reicht / unbekannt) */
   endDate: string | null;
-  /** Ungefaehrer Warenwert in EUR */
+  /** Ungefährer Warenwert in EUR */
   valueEUR: number | null;
   imageUrl?: string;
   source: string;
@@ -38,7 +38,7 @@ export const GWPS: GwpPromo[] = [
       en: "LEGO Ideas Sea Serpent (retro GWP)",
     },
     condition: {
-      de: "Ab 180 EUR Einkaufswert im LEGO Shop waehrend der Insiders Days (LEGO Insiders Konto erforderlich)",
+      de: "Ab 180 EUR Einkaufswert im LEGO Shop während der Insiders Days (LEGO Insiders Konto erforderlich)",
       en: "From 180 EUR spend at the LEGO Shop during Insiders Days (LEGO Insiders account required)",
     },
     shop: "LEGO Shop",
@@ -61,7 +61,7 @@ export const GWPS: GwpPromo[] = [
       en: "Airplane (Special Edition)",
     },
     condition: {
-      de: "Ab 100 EUR Einkaufswert auf LEGO City, Creator 3-in-1 oder Friends im LEGO Shop waehrend der Insiders Days",
+      de: "Ab 100 EUR Einkaufswert auf LEGO City, Creator 3-in-1 oder Friends im LEGO Shop während der Insiders Days",
       en: "From 100 EUR spend on LEGO City, Creator 3-in-1 or Friends at the LEGO Shop during Insiders Days",
     },
     shop: "LEGO Shop",
@@ -95,7 +95,7 @@ export const GWPS: GwpPromo[] = [
     source: "Brick Fanatics / Jay's Brick Blog",
     status: "confirmed",
     note: {
-      de: "261 Teile, exklusive Ro-Laren-Minifigur. Aktuell nur noch in Australien verfuegbar (mehrfach verlaengert, zuletzt bis 31.08.2026); in Europa und den USA seit dem Start vergriffen.",
+      de: "261 Teile, exklusive Ro-Laren-Minifigur. Aktuell nur noch in Australien verfügbar (mehrfach verlängert, zuletzt bis 31.08.2026); in Europa und den USA seit dem Start vergriffen.",
       en: "261 pieces, exclusive Ro Laren minifigure. Currently only available in Australia (extended several times, most recently until 31 Aug 2026); sold out in Europe and the US since launch.",
     },
   },
@@ -118,7 +118,7 @@ export const GWPS: GwpPromo[] = [
     source: "StoneWars / Bricks Up / Brick Fanatics",
     status: "confirmed",
     note: {
-      de: "Offiziell enthuellt: 185 Teile, erstes SMART-Play-GWP (Retro-Fernseher mit wechselbaren Kanaelen). Aktuell nur ueber Pokemon-Center-Vorbestellungen (USA) erhaeltlich, im LEGO Shop zum Theme-Start am 01.08.2026 erwartet; die 130-EUR-Schwelle ist von USD/GBP abgeleitet und noch nicht final bestaetigt.",
+      de: "Offiziell enthüllt: 185 Teile, erstes SMART-Play-GWP (Retro-Fernseher mit wechselbaren Kanälen). Aktuell nur über Pokemon-Center-Vorbestellungen (USA) erhältlich, im LEGO Shop zum Theme-Start am 01.08.2026 erwartet; die 130-EUR-Schwelle ist von USD/GBP abgeleitet und noch nicht final bestätigt.",
       en: "Officially revealed: 185 pieces, first SMART Play GWP (retro TV with changeable channels). Currently only via Pokemon Center pre-orders (USA), expected at the LEGO Shop for the theme launch on 1 Aug 2026; the 130 EUR threshold is derived from USD/GBP and not yet finally confirmed.",
     },
   },
@@ -140,7 +140,7 @@ export const GWPS: GwpPromo[] = [
     source: "Steine-Kanal (Leak via _itavix_bricks_)",
     status: "rumor",
     note: {
-      de: "Unbestaetigtes Geruecht: Das Ideas-Set 21369 (1.478 Teile, ca. 199,99 USD) soll am 01.08.2026 mit passendem GWP 40896 erscheinen; Inhalt unbekannt, spekuliert werden die Lone Gunmen.",
+      de: "Unbestätigtes Gerücht: Das Ideas-Set 21369 (1.478 Teile, ca. 199,99 USD) soll am 01.08.2026 mit passendem GWP 40896 erscheinen; Inhalt unbekannt, spekuliert werden die Lone Gunmen.",
       en: "Unconfirmed rumor: the Ideas set 21369 (1,478 pieces, approx. 199.99 USD) is said to launch on 1 Aug 2026 with matching GWP 40896; contents unknown, the Lone Gunmen are speculated.",
     },
   },

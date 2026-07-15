@@ -1052,7 +1052,7 @@ export const UPCOMING: UpcomingSet[] = [
     },
   },
 
-  /* ---------- August 2026: Pokemon Smart Play (offiziell enthuellt) ---------- */
+  /* ---------- August 2026: Pokemon Smart Play (offiziell enthüllt) ---------- */
   {
     id: "72155",
     setNumber: "72155",
@@ -1064,7 +1064,7 @@ export const UPCOMING: UpcomingSet[] = [
     status: "confirmed",
     source: "Jay's Brick Blog",
     description: {
-      de: "Teil der ersten offiziell enthuellten LEGO-Pokemon-Welle mit Start am 1. August 2026. Kompatibles Set ohne Smart Brick.",
+      de: "Teil der ersten offiziell enthüllten LEGO-Pokemon-Welle mit Start am 1. August 2026. Kompatibles Set ohne Smart Brick.",
       en: "Part of the first officially unveiled LEGO Pokemon wave launching August 1, 2026. Compatible set without a Smart Brick.",
     },
   },
@@ -1086,7 +1086,7 @@ export const UPCOMING: UpcomingSet[] = [
   {
     id: "72157",
     setNumber: "72157",
-    name: { de: "Glumandas und Kleinsteins Hoehlenduell", en: "Charmander and Geodude's Cavern Clash" },
+    name: { de: "Glumandas und Kleinsteins Höhlenduell", en: "Charmander and Geodude's Cavern Clash" },
     theme: "Pokemon",
     window: "2026-08",
     expectedPriceEUR: 19.99,
@@ -1124,14 +1124,14 @@ export const UPCOMING: UpcomingSet[] = [
     status: "confirmed",
     source: "Jay's Brick Blog",
     description: {
-      de: "Guenstigstes Set der Startwelle: kleines Pummeluff-Konzert mit 88 Teilen.",
+      de: "Günstigstes Set der Startwelle: kleines Pummeluff-Konzert mit 88 Teilen.",
       en: "Cheapest set of the launch wave: a small Jigglypuff concert at 88 pieces.",
     },
   },
   {
     id: "72161",
     setNumber: "72161",
-    name: { de: "Drohnensuche nach dem mysterioesen Mew", en: "Drone Search for Mythical Mew" },
+    name: { de: "Drohnensuche nach dem mysteriösen Mew", en: "Drone Search for Mythical Mew" },
     theme: "Pokemon",
     window: "2026-08",
     expectedPriceEUR: 49.99,
@@ -1184,7 +1184,7 @@ export const UPCOMING: UpcomingSet[] = [
     status: "confirmed",
     source: "Jay's Brick Blog",
     description: {
-      de: "Eines von zwei Sets der Startwelle mit dem LEGO Smart Brick, der ueber Licht, Ton und Bewegung auf das Spiel reagiert.",
+      de: "Eines von zwei Sets der Startwelle mit dem LEGO Smart Brick, der über Licht, Ton und Bewegung auf das Spiel reagiert.",
       en: "One of two launch-wave sets with the LEGO Smart Brick that responds to play through light, sound and motion.",
     },
   },
@@ -1229,7 +1229,7 @@ export const UPCOMING: UpcomingSet[] = [
     status: "confirmed",
     source: "Jay's Brick Blog",
     description: {
-      de: "Groesstes Smart-Play-Set der Startwelle mit LEGO Smart Brick, Glurak und Blitza.",
+      de: "Größtes Smart-Play-Set der Startwelle mit LEGO Smart Brick, Glurak und Blitza.",
       en: "Largest Smart Play set of the launch wave with a LEGO Smart Brick, Charizard and Jolteon.",
     },
   },
@@ -1244,7 +1244,7 @@ export const UPCOMING: UpcomingSet[] = [
     status: "confirmed",
     source: "insider-gaming",
     description: {
-      de: "Gift-with-Purchase der Pokemon-Startwelle: Ditto verkleidet als Schiggy, nur als Zugabe erhaeltlich.",
+      de: "Gift-with-Purchase der Pokemon-Startwelle: Ditto verkleidet als Schiggy, nur als Zugabe erhältlich.",
       en: "Gift-with-purchase from the Pokemon launch wave: Ditto disguised as Squirtle, only available as a bonus.",
     },
   },
@@ -1261,7 +1261,7 @@ export const UPCOMING: UpcomingSet[] = [
     status: "rumor",
     source: "insider-gaming",
     description: {
-      de: "Grosser aufklappbarer Pokeball mit Innenszene und Minifiguren (Rot, Professor Eich). Preis laut Leak rund 260 US-Dollar, Teilezahl je nach Quelle 2.239 bis 2.339.",
+      de: "Großer aufklappbarer Pokeball mit Innenszene und Minifiguren (Rot, Professor Eich). Preis laut Leak rund 260 US-Dollar, Teilezahl je nach Quelle 2.239 bis 2.339.",
       en: "Large openable Poke Ball with an interior scene and minifigures (Red, Professor Oak). Leaked price around 260 US dollars, piece count between 2,239 and 2,339 depending on source.",
     },
   },
@@ -1353,7 +1353,7 @@ export const UPCOMING: UpcomingSet[] = [
     status: "rumor",
     source: "GameRant",
     description: {
-      de: "Baubare Figur von Schiffsarzt Chopper mit 577 Teilen (fruehe Leaks nannten 576). Teil der geleakten August-Welle.",
+      de: "Baubare Figur von Schiffsarzt Chopper mit 577 Teilen (frühe Leaks nannten 576). Teil der geleakten August-Welle.",
       en: "Buildable figure of ship's doctor Chopper at 577 pieces (early leaks said 576). Part of the leaked August wave.",
     },
   },
@@ -1383,7 +1383,7 @@ export const UPCOMING: UpcomingSet[] = [
     status: "rumor",
     source: "GameRant",
     description: {
-      de: "Displaymodell von Luffys Gum-Gum-Teufelsfrucht fuer 69,99 US-Dollar. Teilezahl noch nicht durchgesickert.",
+      de: "Displaymodell von Luffys Gum-Gum-Teufelsfrucht für 69,99 US-Dollar. Teilezahl noch nicht durchgesickert.",
       en: "Display model of Luffy's Gum-Gum Devil Fruit at 69.99 US dollars. Piece count has not leaked yet.",
     },
   },
@@ -1400,7 +1400,7 @@ export const UPCOMING: UpcomingSet[] = [
     status: "rumor",
     source: "Brick Fanatics",
     description: {
-      de: "Grosses 18+ Batmobil aus Tim Burtons Batmans Rueckkehr mit 2.272 Teilen, laut Leaker Brick Tap ab 1. September fuer rund 220 Dollar.",
+      de: "Großes 18+ Batmobil aus Tim Burtons Batmans Rückkehr mit 2.272 Teilen, laut Leaker Brick Tap ab 1. September für rund 220 Dollar.",
       en: "Large 18+ Batmobile from Tim Burton's Batman Returns at 2,272 pieces, per leaker Brick Tap arriving September 1 for around 220 dollars.",
     },
   },
@@ -1447,7 +1447,7 @@ export const UPCOMING: UpcomingSet[] = [
     status: "rumor",
     source: "Brick Fanatics",
     description: {
-      de: "Erstes LEGO-Dragon-Ball-Set: Shenlong-Diorama mit 1.760 Teilen, jungem Son-Goku, Dragon Balls und Jindujun-Wolke, laut Leak ab 1. November 2026 fuer rund 200 Dollar.",
+      de: "Erstes LEGO-Dragon-Ball-Set: Shenlong-Diorama mit 1.760 Teilen, jungem Son-Goku, Dragon Balls und Jindujun-Wolke, laut Leak ab 1. November 2026 für rund 200 Dollar.",
       en: "First-ever LEGO Dragon Ball set: a Shenron diorama at 1,760 pieces with young Goku, Dragon Balls and the Nimbus cloud, per the leak arriving November 1, 2026 for around 200 dollars.",
     },
   },
@@ -1467,7 +1467,7 @@ export const UPCOMING: UpcomingSet[] = [
     },
   },
 
-  /* ---------- 2027: Neue Themen (geleakt/angekuendigt) ---------- */
+  /* ---------- 2027: Neue Themen (geleakt/angekündigt) ---------- */
   {
     id: "dragon-ball-theme-2027",
     setNumber: null,

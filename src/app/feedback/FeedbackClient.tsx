@@ -54,7 +54,7 @@ export default function FeedbackClient() {
       setResult({
         ok: false,
         message: de
-          ? "Senden gerade nicht moeglich - bitte versuch es spaeter noch einmal."
+          ? "Senden gerade nicht möglich - bitte versuch es später noch einmal."
           : "Sending failed - please try again later.",
       });
     } finally {
