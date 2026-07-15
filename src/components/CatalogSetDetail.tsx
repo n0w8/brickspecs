@@ -6,6 +6,7 @@ import BrickImage from "./BrickImage";
 import BuyLinksBar from "./BuyLinksBar";
 import PricePanel, { type PanelMinifig } from "./PricePanel";
 import AddToPortfolio from "./AddToPortfolio";
+import WishlistButton from "./WishlistButton";
 import PriceAlertButton from "./PriceAlertButton";
 import SetStats from "./SetStats";
 import PartsList from "./PartsList";
@@ -160,6 +161,8 @@ export default function CatalogSetDetail({
       <PartsList catalogId={entry.id} setNumber={entry.id.replace(/-\d+$/, "")} />
 
       <AddToPortfolio setId={entry.id} name={displayName} img={entry.img} />
+
+      <WishlistButton setId={entry.id} name={displayName} img={entry.img} />
 
       <PriceAlertButton setId={entry.id} name={displayName} img={entry.img} />
 

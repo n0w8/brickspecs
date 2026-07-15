@@ -11,6 +11,7 @@ import { pick, useLang, useT } from "@/lib/i18n";
 import { formatDate, formatEUR } from "@/lib/format";
 import SetCard from "@/components/SetCard";
 import HeroPortfolioChart from "@/components/HeroPortfolioChart";
+import HomeWishlist from "@/components/HomeWishlist";
 import GwpBanner from "@/components/GwpBanner";
 
 export default function Home() {
@@ -165,6 +166,9 @@ export default function Home() {
           </Link>
         ))}
       </section>
+
+      {/* Wunschliste: Gaeste-Teaser bzw. eigene Vorschau */}
+      <HomeWishlist />
 
       {/* Aktuelle Gratis-Beigaben */}
       <GwpBanner />

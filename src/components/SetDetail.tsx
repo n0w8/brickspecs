@@ -12,6 +12,7 @@ import BuyLinksBar from "./BuyLinksBar";
 import PriceChart from "./PriceChart";
 import PricePanel, { type PanelMinifig } from "./PricePanel";
 import AddToPortfolio from "./AddToPortfolio";
+import WishlistButton from "./WishlistButton";
 import PriceAlertButton from "./PriceAlertButton";
 import SetStats from "./SetStats";
 import PartsList from "./PartsList";
@@ -184,6 +185,13 @@ export default function SetDetail({
 
       {/* Portfolio */}
       <AddToPortfolio
+        setId={set.id}
+        name={pick(set.name, lang)}
+        img={set.imageUrl}
+      />
+
+      {/* Wunschliste */}
+      <WishlistButton
         setId={set.id}
         name={pick(set.name, lang)}
         img={set.imageUrl}

@@ -42,6 +42,9 @@ export default function Footer() {
           <Link href="/preisalarm" className="text-[var(--muted)] hover:text-[var(--yellow)]">
             {lang === "de" ? "Preisalarm" : "Price alerts"}
           </Link>
+          <Link href="/wishlist" className="text-[var(--muted)] hover:text-[var(--yellow)]">
+            {lang === "de" ? "Wunschliste" : "Wishlist"}
+          </Link>
           <Link href="/funktionen" className="text-[var(--muted)] hover:text-[var(--yellow)]">
             {lang === "de" ? "Alle Funktionen" : "All features"}
           </Link>
