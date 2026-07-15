@@ -131,6 +131,31 @@ export default function PricePanel({
         <p className="text-sm text-[var(--muted)]">{t("price.loading")}</p>
       ) : !data || (data.avgNewEUR === null && data.avgUsedEUR === null) ? (
         <p className="text-sm text-[var(--muted)]">{t("price.none")}</p>
+      ) : data.mode === "demo" ? (
+        // Ehrlicher Platzhalter statt irrefuehrender Zufallszahlen: solange
+        // die BrickLink-Anbindung nicht aktiv ist, zeigen wir bewusst KEINE
+        // konkreten Preise (jeder Sammler wuerde falsche Werte sofort erkennen).
+        <div className="grid gap-3 sm:grid-cols-2">
+          {[
+            { label: t("price.new"), yellow: true },
+            { label: t("price.used"), yellow: false },
+          ].map((slot) => (
+            <div key={slot.label} className="card !bg-[var(--surface-2)] p-4">
+              <p className="text-xs text-[var(--muted)] mb-1">{slot.label}</p>
+              <p className={`text-2xl font-extrabold ${slot.yellow ? "text-[var(--yellow)]" : ""}`}>
+                --
+              </p>
+              <p className="text-xs text-[var(--muted)] mt-1">
+                {lang === "de" ? "echte Marktdaten folgen" : "real market data coming"}
+              </p>
+            </div>
+          ))}
+          <p className="sm:col-span-2 text-xs text-[var(--muted)] leading-relaxed">
+            {lang === "de"
+              ? "Neu/versiegelte und gebrauchte Durchschnittspreise (6-Monats-Schnitt) werden direkt aus BrickLink geladen, sobald die Anbindung aktiv ist. Bis dahin zeigen wir hier bewusst keine Schaetzwerte."
+              : "Average prices for new/sealed and used (6-month average) load directly from BrickLink once the connection is active. Until then we deliberately show no estimated values here."}
+          </p>
+        </div>
       ) : (
         <div className="grid gap-3 sm:grid-cols-2">
           <div className="card !bg-[var(--surface-2)] p-4">
