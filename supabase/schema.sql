@@ -231,3 +231,46 @@ end;
 $$;
 
 grant execute on function public.set_holder_count(text) to anon, authenticated, service_role;
+
+-- ---------------------------------------------------------------------------
+-- BrickLink-Preise: 6-Monats-Verkaufsschnitt je Set, neu UND gebraucht getrennt.
+-- Befuellt vom taeglichen Sync-Job (scripts/sync-bricklink-prices.mjs) ueber die
+-- BrickLink Price-Guide-API (guide_type=sold). Lesen darf jeder (anon +
+-- authenticated), schreiben nur der Server (service_role). set_id = Katalog-ID
+-- im BrickLink-Format inkl. Variante, z. B. "10305-1".
+-- ---------------------------------------------------------------------------
+create table if not exists public.set_prices (
+  set_id text primary key,
+  new_eur numeric,
+  used_eur numeric,
+  new_qty int,
+  used_qty int,
+  currency text not null default 'EUR',
+  updated_at timestamptz not null default now()
+);
+
+alter table public.set_prices enable row level security;
+
+drop policy if exists "set_prices_select_all" on public.set_prices;
+create policy "set_prices_select_all" on public.set_prices
+  for select to anon, authenticated using (true);
+
+drop policy if exists "set_prices_write_service" on public.set_prices;
+create policy "set_prices_write_service" on public.set_prices
+  for all to service_role using (true) with check (true);
+
+-- ---------------------------------------------------------------------------
+-- Winzige Fortschritts-Tabelle fuer den rollierenden Sync-Cursor (Key/Value).
+-- Haelt z. B. "bricklink_cursor" = letzter verarbeiteter Listenindex. Nur der
+-- Server (service_role) liest/schreibt hier; RLS blockt anon/authenticated.
+-- ---------------------------------------------------------------------------
+create table if not exists public.sync_state (
+  key text primary key,
+  value text
+);
+
+alter table public.sync_state enable row level security;
+
+drop policy if exists "sync_state_service_only" on public.sync_state;
+create policy "sync_state_service_only" on public.sync_state
+  for all to service_role using (true) with check (true);

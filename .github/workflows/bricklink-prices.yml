@@ -1,0 +1,37 @@
+# BrickLink-Preis-Sync: holt taeglich den 6-Monats-Verkaufsschnitt (neu +
+# gebraucht) je Set von der BrickLink-API und schreibt ihn nach Supabase
+# (public.set_prices). Ein rollierender Cursor deckt ueber mehrere Laeufe den
+# kompletten Katalog ab. KEIN Commit noetig - die Daten liegen in Supabase.
+name: BrickLink-Preise
+
+on:
+  schedule:
+    - cron: "30 4 * * *" # 04:30 UTC = 06:30 MESZ
+  workflow_dispatch: {}
+
+concurrency:
+  group: bricklink-prices
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Dependencies installieren
+        run: npm ci
+
+      - name: Preise synchronisieren
+        env:
+          BRICKLINK_CONSUMER_KEY: ${{ secrets.BRICKLINK_CONSUMER_KEY }}
+          BRICKLINK_CONSUMER_SECRET: ${{ secrets.BRICKLINK_CONSUMER_SECRET }}
+          BRICKLINK_TOKEN: ${{ secrets.BRICKLINK_TOKEN }}
+          BRICKLINK_TOKEN_SECRET: ${{ secrets.BRICKLINK_TOKEN_SECRET }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+        run: node scripts/sync-bricklink-prices.mjs

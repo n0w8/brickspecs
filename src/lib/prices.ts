@@ -1,17 +1,19 @@
 // Preis-Schicht: Durchschnittspreise pro Land & Quelle.
 //
-// Modus "live":  BrickLink Price Guide API (sobald BRICKLINK_*-Env-Keys gesetzt
-//                sind - Seller-Konto mit API-Freischaltung nötig).
-// Modus "demo":  Deterministisches Schätzmodell auf Basis kuratierter Werte
-//                bzw. Teilezahl/Alter - klar als Demo gekennzeichnet.
+// Modus "live":  BrickLink 6-Monats-Verkaufsschnitt (neu + gebraucht) aus der
+//                Tabelle public.set_prices in Supabase. Befuellt vom taeglichen
+//                Sync-Job (scripts/sync-bricklink-prices.mjs). Solange fuer ein
+//                Set noch keine Zeile existiert, faellt die Anzeige auf den
+//                ehrlichen Demo-Platzhalter zurueck.
+// Modus "demo":  Kein irrefuehrender Zahlenwert - PricePanel zeigt einen
+//                Platzhalter ("echte Marktdaten folgen").
 //
-// eBay-Verkaufsdaten: Die offizielle "Marketplace Insights"-API ist
-// zugangsbeschränkt; der Adapter ist vorbereitet und fällt bis zur
-// Freischaltung auf das Demo-Modell zurück.
+// eBay-Verkaufsdaten liegen uns NICHT vor - fuer source=ebay-sold bleibt es
+// daher immer bei Modus "demo" (wir erfinden keine Werte).
 
-import { createHmac, randomBytes } from "node:crypto";
 import { SETS } from "@/data/sets";
 import { curatedForCatalogId, getCatalogSet } from "@/lib/catalog";
+import { getSupabaseAdmin } from "@/lib/supabase/server";
 
 export type PriceSource = "bricklink" | "ebay-sold";
 
@@ -99,78 +101,40 @@ function demoPrices(catalogId: string, source: PriceSource, country: string): Pr
   };
 }
 
-/* ---------- BrickLink Live-Adapter (OAuth 1.0a) ---------- */
+/* ---------- BrickLink Live-Daten aus Supabase (set_prices) ---------- */
 
-interface BLCredentials {
-  consumerKey: string;
-  consumerSecret: string;
-  tokenValue: string;
-  tokenSecret: string;
+interface SetPriceRow {
+  new_eur: number | string | null;
+  used_eur: number | string | null;
+  new_qty: number | null;
+  used_qty: number | null;
 }
 
-function blCredentials(): BLCredentials | null {
-  const {
-    BRICKLINK_CONSUMER_KEY: consumerKey,
-    BRICKLINK_CONSUMER_SECRET: consumerSecret,
-    BRICKLINK_TOKEN_VALUE: tokenValue,
-    BRICKLINK_TOKEN_SECRET: tokenSecret,
-  } = process.env;
-  if (!consumerKey || !consumerSecret || !tokenValue || !tokenSecret) return null;
-  return { consumerKey, consumerSecret, tokenValue, tokenSecret };
+function toNum(v: number | string | null): number | null {
+  if (v === null || v === undefined || v === "") return null;
+  const n = typeof v === "number" ? v : Number(v);
+  return Number.isFinite(n) ? n : null;
 }
 
-function pctEnc(s: string): string {
-  return encodeURIComponent(s).replace(/[!'()*]/g, (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`);
-}
-
-async function blPriceGuide(
-  creds: BLCredentials,
-  setNo: string,
-  condition: "N" | "U",
-  country: string
-): Promise<{ avg: number; count: number } | null> {
-  const url = `https://api.bricklink.com/api/store/v1/items/SET/${setNo}/price`;
-  const query: Record<string, string> = {
-    guide_type: "sold",
-    new_or_used: condition,
-    country_code: country,
-    currency_code: "EUR",
-  };
-  const oauth: Record<string, string> = {
-    oauth_consumer_key: creds.consumerKey,
-    oauth_token: creds.tokenValue,
-    oauth_nonce: randomBytes(16).toString("hex"),
-    oauth_timestamp: String(Math.floor(Date.now() / 1000)),
-    oauth_signature_method: "HMAC-SHA1",
-    oauth_version: "1.0",
-  };
-  const allParams = { ...query, ...oauth };
-  const paramString = Object.keys(allParams)
-    .sort()
-    .map((k) => `${pctEnc(k)}=${pctEnc(allParams[k])}`)
-    .join("&");
-  const baseString = `GET&${pctEnc(url)}&${pctEnc(paramString)}`;
-  const signingKey = `${pctEnc(creds.consumerSecret)}&${pctEnc(creds.tokenSecret)}`;
-  const signature = createHmac("sha1", signingKey).update(baseString).digest("base64");
-
-  const authHeader =
-    "OAuth " +
-    Object.entries({ ...oauth, oauth_signature: signature })
-      .map(([k, v]) => `${pctEnc(k)}="${pctEnc(v)}"`)
-      .join(",");
-
-  const qs = new URLSearchParams(query).toString();
-  const res = await fetch(`${url}?${qs}`, {
-    headers: { Authorization: authHeader },
-    signal: AbortSignal.timeout(8000),
-  });
-  if (!res.ok) throw new Error(`BrickLink API: HTTP ${res.status}`);
-  const json = (await res.json()) as {
-    meta: { code: number };
-    data?: { avg_price: string; total_quantity: number };
-  };
-  if (json.meta.code !== 200 || !json.data) return null;
-  return { avg: Number(json.data.avg_price), count: json.data.total_quantity };
+/**
+ * Liest die vom Sync-Job befuellte set_prices-Zeile (6-Monats-Verkaufsschnitt).
+ * Liefert null, wenn Supabase nicht konfiguriert ist, keine Zeile existiert
+ * oder die Tabelle noch nicht deployt wurde.
+ */
+async function livePriceFromDb(catalogId: string): Promise<SetPriceRow | null> {
+  const admin = getSupabaseAdmin();
+  if (!admin) return null;
+  try {
+    const { data, error } = await admin
+      .from("set_prices")
+      .select("new_eur, used_eur, new_qty, used_qty")
+      .eq("set_id", catalogId)
+      .maybeSingle();
+    if (error || !data) return null;
+    return data as SetPriceRow;
+  } catch {
+    return null;
+  }
 }
 
 /* ---------- Öffentliche API ---------- */
@@ -181,30 +145,29 @@ export async function getPrices(
   country: string
 ): Promise<PriceResult> {
   const entry = getCatalogSet(setId);
-  const catalogId = entry?.n ?? setId;
+  // Lookup-Schluessel = Katalog-ID im BrickLink-Format ("10305-1"). setId kann
+  // kuratiert ("10305") oder Katalog ("10305-1") sein - beide normalisieren.
+  const catalogId = entry?.n ?? (/-\d+$/.test(setId) ? setId : `${setId}-1`);
 
-  const creds = blCredentials();
-  if (source === "bricklink" && creds) {
-    try {
-      const [priceNew, priceUsed] = await Promise.all([
-        blPriceGuide(creds, catalogId, "N", country),
-        blPriceGuide(creds, catalogId, "U", country),
-      ]);
-      return {
-        setId: catalogId,
-        source,
-        country,
-        currency: "EUR",
-        avgNewEUR: priceNew ? Math.round(priceNew.avg) : null,
-        avgUsedEUR: priceUsed ? Math.round(priceUsed.avg) : null,
-        samplesNew: priceNew?.count ?? 0,
-        samplesUsed: priceUsed?.count ?? 0,
-        mode: "live",
-      };
-    } catch (err) {
-      const fallback = demoPrices(catalogId, source, country);
-      fallback.note = `BrickLink-API nicht erreichbar (${err instanceof Error ? err.message : "Fehler"}) - Demo-Werte.`;
-      return fallback;
+  // eBay-Verkaufsdaten haben wir nicht -> immer ehrlicher Demo-Platzhalter.
+  if (source === "bricklink") {
+    const row = await livePriceFromDb(catalogId);
+    if (row) {
+      const avgNew = toNum(row.new_eur);
+      const avgUsed = toNum(row.used_eur);
+      if (avgNew !== null || avgUsed !== null) {
+        return {
+          setId: catalogId,
+          source,
+          country,
+          currency: "EUR",
+          avgNewEUR: avgNew !== null ? Math.round(avgNew) : null,
+          avgUsedEUR: avgUsed !== null ? Math.round(avgUsed) : null,
+          samplesNew: row.new_qty ?? 0,
+          samplesUsed: row.used_qty ?? 0,
+          mode: "live",
+        };
+      }
     }
   }
 
