@@ -248,6 +248,41 @@ export function searchCatalog(params: CatalogSearchParams) {
   let primary: CatalogSet[];
   const secondary: CatalogSet[] = [];
   if (q) {
+    // Reine Setnummern ("600" oder "600-2") treffen EXAKT dieses Set (alle
+    // Varianten), nicht jede Nummer, die so beginnt (600 != 6000/60017).
+    // Nur wenn es die Nummer nicht gibt, greift die normale Suche.
+    const numeric = /^\d+(-\d+)?$/.test(q);
+    if (numeric) {
+      const wantedBase = q.includes("-") ? q : null;
+      const exact = base.filter((s) =>
+        wantedBase ? s.n === q : s.n === q || s.n.startsWith(`${q}-`)
+      );
+      if (exact.length > 0) {
+        primary = exact;
+        const total = primary.length;
+        const start = (page - 1) * pageSize;
+        return {
+          total,
+          page,
+          pageSize,
+          results: primary.slice(start, start + pageSize).map((s) => {
+            const curated = c.curatedByCatalogId.get(s.n);
+            return {
+              id: s.n,
+              name: s.t,
+              ...(s.d !== undefined ? { nameDe: s.d } : {}),
+              year: s.y,
+              theme: rootTheme(c.themes, s.th),
+              parts: s.p,
+              img: s.i,
+              ...(curated
+                ? { curatedId: curated.id, curatedValueEUR: curated.currentValueNewEUR }
+                : {}),
+            };
+          }),
+        };
+      }
+    }
     const expansions = expandSearchQuery(q).map((e) => e.toLowerCase());
     primary = [];
     for (const s of base) {
