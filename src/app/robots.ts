@@ -7,7 +7,9 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: "/api/",
+      // Private bzw. interne Bereiche: API, Admin und Nutzer-Seiten
+      // (zusaetzlich per robots-Metadata noindex markiert).
+      disallow: ["/api/", "/admin", "/profil", "/portfolio", "/preisalarm", "/auth/"],
     },
     sitemap: `${BASE_URL}/sitemap.xml`,
   };

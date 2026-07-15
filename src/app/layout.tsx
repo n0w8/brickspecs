@@ -18,11 +18,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://brickspecs.com"),
   title: "BrickSpecs - LEGO-Lexikon, Preise, Leaks & City-Ideen",
   description:
     "Das Portal für LEGO-Sammler: Set-Lexikon mit Steckbriefen, Minifiguren-Datenbank, Preisentwicklungen, EOL-Radar, Leaks & Deals und LEGO-City-Inspiration.",
   applicationName: "BrickSpecs",
   appleWebApp: { capable: true, title: "BrickSpecs", statusBarStyle: "black-translucent" },
+  openGraph: {
+    type: "website",
+    siteName: "BrickSpecs",
+    locale: "de_AT",
+    title: "BrickSpecs - LEGO-Lexikon, Preise, Leaks & City-Ideen",
+    description:
+      "Das Portal für LEGO-Sammler: Set-Lexikon mit Steckbriefen, Minifiguren-Datenbank, Preisentwicklungen, EOL-Radar, Leaks & Deals und LEGO-City-Inspiration.",
+  },
 };
 
 export const viewport: Viewport = {

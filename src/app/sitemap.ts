@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { SETS } from "@/data/sets";
 import { MINIFIGS } from "@/data/minifigs";
 import { ARTICLES } from "@/data/articles";
+import { GWPS } from "@/data/gwp";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://brickspecs.com";
 
@@ -22,6 +23,9 @@ const STATIC_ROUTES: {
   { path: "/scanner", changeFrequency: "monthly", priority: 0.7 },
   { path: "/box-scanner", changeFrequency: "monthly", priority: 0.7 },
   { path: "/funktionen", changeFrequency: "monthly", priority: 0.6 },
+  { path: "/neuheiten", changeFrequency: "daily", priority: 0.8 },
+  { path: "/preise", changeFrequency: "monthly", priority: 0.6 },
+  { path: "/buecher-merch", changeFrequency: "weekly", priority: 0.5 },
   { path: "/city-hub", changeFrequency: "monthly", priority: 0.5 },
   { path: "/partner", changeFrequency: "monthly", priority: 0.5 },
   { path: "/feedback", changeFrequency: "monthly", priority: 0.4 },
@@ -56,10 +60,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  // Bewusst NICHT enthalten: die 27k+ Katalog-Sets und 17k+ Katalog-Figuren
+  // GWP-Detailseiten (redaktionelle Daten aus src/data/gwp.ts)
+  const gwpEntries: MetadataRoute.Sitemap = GWPS.map((gwp) => ({
+    url: `${BASE_URL}/gwp/${gwp.id}`,
+    changeFrequency: "weekly",
+    priority: 0.6,
+  }));
+
+  // Bewusst NICHT enthalten: die 19k+ Katalog-Bau-Sets und 17k+ Katalog-Figuren
   // (Rebrickable-Dump, /lexikon/{n} bzw. /minifiguren/fig-*). Die kommen in
   // Phase 2 per Sitemap-Splitting dazu (generateSitemaps, max. 50.000 URLs
   // pro Sitemap-Datei) - eine einzelne Sitemap würde sonst zu groß und die
   // kuratierten Seiten im Crawl-Budget untergehen.
-  return [...staticEntries, ...setEntries, ...figEntries, ...articleEntries];
+  return [...staticEntries, ...setEntries, ...figEntries, ...articleEntries, ...gwpEntries];
 }

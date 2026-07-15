@@ -5,6 +5,7 @@
 // - localStorage-Fallback (Supabase nicht konfiguriert): bisheriges
 //   Phase-1-Panel unveraendert (AdminLocal).
 
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { User } from "@supabase/supabase-js";
 import { getSupabaseAdmin, getSupabaseServer } from "@/lib/supabase/server";
@@ -14,6 +15,12 @@ import AdminLocal from "./AdminLocal";
 
 // Kennzahlen immer frisch laden, nie cachen.
 export const dynamic = "force-dynamic";
+
+// Interne Seite: nie indexieren.
+export const metadata: Metadata = {
+  title: "Admin | BrickSpecs",
+  robots: { index: false, follow: false },
+};
 
 /** Founder-Gesamtauflage (muss zur SQL-Funktion claim_founder_number passen). */
 const FOUNDER_TOTAL = 500;
