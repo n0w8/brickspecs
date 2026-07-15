@@ -91,7 +91,7 @@ export const UI = {
   "common.priceChart": { de: "Preisentwicklung (neu/versiegelt)", en: "Price development (new/sealed)" },
   "common.estimates": { de: "Demo-Daten: recherchierte Schätzwerte, Stand Juli 2026.", en: "Demo data: researched estimates as of July 2026." },
   "common.investmentScore": { de: "Investment-Score", en: "Investment score" },
-  "common.relatedSets": { de: "Enthaltene Minifiguren", en: "Included minifigures" },
+  "common.includedMinifigs": { de: "Enthaltene Minifiguren", en: "Included minifigures" },
   "common.minutes": { de: "Min. Lesezeit", en: "min read" },
 
   "avail.available": { de: "Verfügbar", en: "Available" },

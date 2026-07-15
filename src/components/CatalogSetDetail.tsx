@@ -48,7 +48,7 @@ export function ExternalLinkChips({ catalogId }: { catalogId: string }) {
   );
 }
 
-/** Steckbrief für Katalog-Sets ohne redaktionelle Daten (alle 27k+ Sets). */
+/** Steckbrief für Katalog-Sets ohne redaktionelle Daten (alle ~19,6k Bau-Sets). */
 export default function CatalogSetDetail({
   entry,
   similar = [],

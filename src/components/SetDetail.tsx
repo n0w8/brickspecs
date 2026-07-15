@@ -189,7 +189,7 @@ export default function SetDetail({
       {/* Minifiguren im Set (Katalog-Inventar, ggf. kuratiert angereichert) */}
       {catalogFigList.length > 0 && (
         <section>
-          <h2 className="font-bold text-lg mb-4">👤 {t("common.relatedSets")}</h2>
+          <h2 className="font-bold text-lg mb-4">👤 {t("common.includedMinifigs")}</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {catalogFigList.map((fig) => {
               const curated = curatedByCatalogFigId.get(fig.id);

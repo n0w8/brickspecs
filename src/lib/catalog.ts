@@ -1,5 +1,6 @@
 // Serverseitige Katalog-Schicht: lädt den kompletten Rebrickable-Dump
-// (27k+ Sets) einmal in den Speicher. NUR aus Server-Code importieren.
+// (27k+ Einträge, nach Non-Building-Filter ~19,6k Bau-Sets) einmal in den
+// Speicher. NUR aus Server-Code importieren.
 
 import { readFileSync } from "node:fs";
 import { join } from "node:path";

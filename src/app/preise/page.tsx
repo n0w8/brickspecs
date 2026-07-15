@@ -63,7 +63,7 @@ const CARDS: CardDef[] = [
       en: "Everything for browsing - free forever.",
     },
     features: [
-      { de: "Kompletter Katalog: 27.000+ Sets & 17.000+ Figuren", en: "Full catalog: 27,000+ sets & 17,000+ figures" },
+      { de: "Kompletter Katalog: 19.000+ Bau-Sets & 17.000+ Figuren", en: "Full catalog: 19,000+ building sets & 17,000+ figures" },
       { de: "Aktuelle Preise nach Land & Quelle", en: "Current prices by country & source" },
       { de: "5 Portfolio-Sets", en: "5 portfolio sets" },
       { de: "3 Preisalarme", en: "3 price alerts" },

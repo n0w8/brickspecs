@@ -23,8 +23,8 @@ const GROUPS: { heading: { de: string; en: string }; features: Feature[] }[] = [
         href: "/lexikon",
         title: { de: "Set-Lexikon", en: "Set encyclopedia" },
         desc: {
-          de: "Über 27.000 LEGO-Sets - jedes je erschienene Set mit Steckbrief, Bild, Teilezahl, Theme und Jahrgang. Wird täglich automatisch aktualisiert.",
-          en: "Over 27,000 LEGO sets - every set ever released with profile, image, part count, theme and year. Updated automatically every day.",
+          de: "Über 19.000 LEGO-Bau-Sets - jedes je erschienene Bau-Set mit Steckbrief, Bild, Teilezahl, Theme und Jahrgang. Wird täglich automatisch aktualisiert.",
+          en: "Over 19,000 LEGO building sets - every building set ever released with profile, image, part count, theme and year. Updated automatically every day.",
         },
       },
       {

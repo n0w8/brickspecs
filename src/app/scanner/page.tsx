@@ -23,8 +23,8 @@ const TXT = {
   },
   scanning: { de: "Scanne Noppen ...", en: "Scanning studs ..." },
   scanningSub: {
-    de: "Dein Foto wird gerade mit über 20.000 Sets verglichen.",
-    en: "Your photo is being compared against 20,000+ sets.",
+    de: "Dein Foto wird gerade mit über 19.000 Bau-Sets verglichen.",
+    en: "Your photo is being compared against 19,000+ building sets.",
   },
   bestMatch: { de: "Bester Treffer", en: "Best match" },
   confidence: { de: "Konfidenz", en: "Confidence" },
@@ -68,7 +68,7 @@ const TXT = {
   },
   credit: { de: "Erkennung powered by Brickognize", en: "Recognition powered by Brickognize" },
   errTooLarge: {
-    de: "Dieses Foto konnte nicht verarbeitet werden. iPhone-Tipp: Einstellungen -> Kamera -> Formate -> 'Maximale Kompatibilität' waehlen, oder mach einen Screenshot vom Foto und scanne den.",
+    de: "Dieses Foto konnte nicht verarbeitet werden. iPhone-Tipp: Einstellungen -> Kamera -> Formate -> 'Maximale Kompatibilität' wählen, oder mach einen Screenshot vom Foto und scanne den.",
     en: "This photo could not be processed. iPhone tip: Settings -> Camera -> Formats -> 'Most Compatible', or take a screenshot of the photo and scan that.",
   },
   errNotImage: {

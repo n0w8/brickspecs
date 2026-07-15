@@ -135,7 +135,7 @@ export default function Home() {
               🧱 {(catalogTotal ?? SETS.length).toLocaleString(lang === "de" ? "de-DE" : "en-GB")}{" "}
               {lang === "de" ? "Sets im Katalog" : "sets in catalog"}
             </span>
-            <span className="badge badge-red">★ {SETS.length} {lang === "de" ? "Steckbriefe+" : "profiles+"}</span>
+            <span className="badge badge-red">★ {SETS.length}+ {lang === "de" ? "kuratierte Steckbriefe" : "curated profiles"}</span>
             <span className="badge badge-blue">
               👤 {(figsTotal ?? MINIFIGS.length).toLocaleString(lang === "de" ? "de-DE" : "en-GB")}{" "}
               {t("common.minifigs")}
