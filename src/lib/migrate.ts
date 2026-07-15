@@ -2,9 +2,10 @@
 
 /**
  * Einmaliger Import der Phase-1-Daten (localStorage) in die Supabase-Tabellen.
- * Wird beim ersten Login eines echten Kontos ausgefuehrt. Die lokalen Daten
- * bleiben unangetastet liegen (Sicherung) - nur ein Marker verhindert, dass
- * derselbe Nutzer doppelt importiert.
+ * Wird beim ersten Login des ERSTEN echten Kontos in diesem Browser
+ * ausgefuehrt - genau einmal pro Browser, nicht pro Konto (sonst erbt jedes
+ * neue Konto am selben Rechner dieselben Alt-Daten). Die lokalen Daten
+ * bleiben als Sicherung liegen; der Marker haelt fest, wer importiert hat.
  */
 
 import type { SupabaseClient } from "@supabase/supabase-js";
@@ -40,16 +41,20 @@ function readJson<T>(key: string): T | null {
   }
 }
 
-function migratedIds(): string[] {
-  const raw = window.localStorage.getItem(MIGRATED_KEY);
-  return raw ? raw.split(",").filter(Boolean) : [];
+/** true, sobald IRGENDEIN Konto in diesem Browser den Import erledigt hat. */
+function hasMigrated(): boolean {
+  try {
+    return Boolean(window.localStorage.getItem(MIGRATED_KEY));
+  } catch {
+    return true;
+  }
 }
 
 function markMigrated(userId: string): void {
-  const ids = migratedIds();
-  if (!ids.includes(userId)) {
-    ids.push(userId);
-    window.localStorage.setItem(MIGRATED_KEY, ids.join(","));
+  try {
+    window.localStorage.setItem(MIGRATED_KEY, userId);
+  } catch {
+    // Speichern nicht moeglich - schlimmstenfalls wird nie erneut importiert
   }
 }
 
@@ -66,14 +71,14 @@ let inflightUser: string | null = null;
 
 /**
  * Importiert Portfolio + Preisalarme des Phase-1-Demo-Benutzers in die DB.
- * Idempotent pro Nutzer (Marker "bricktopia.migrated"), parallel-sicher.
+ * Genau EINMAL pro Browser (Marker "bricktopia.migrated"), parallel-sicher.
  */
 export function ensureLocalDataMigrated(
   supabase: SupabaseClient,
   userId: string
 ): Promise<void> {
   if (typeof window === "undefined") return Promise.resolve();
-  if (migratedIds().includes(userId)) return Promise.resolve();
+  if (hasMigrated()) return Promise.resolve();
   if (inflight && inflightUser === userId) return inflight;
   inflightUser = userId;
   inflight = doMigrate(supabase, userId).finally(() => {
