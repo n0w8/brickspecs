@@ -15,6 +15,7 @@ import {
 import { getPortfolio } from "@/lib/portfolio";
 import { getWishlist } from "@/lib/wishlist";
 import { getAlerts } from "@/lib/alerts";
+import { isAdminUser } from "@/lib/admin";
 import { openBillingPortal } from "@/lib/paywall";
 import { PLAN_META, formatFounderNumber, getPlanRecord, type Plan, type PlanRecord } from "@/lib/plan";
 import { formatEUR } from "@/lib/format";
@@ -217,6 +218,29 @@ export default function ProfilePage() {
           {isCloud ? t("auth.cloudNote") : t("auth.demoNote")}
         </p>
       </div>
+
+      {/* Admin-Panel (nur Betreiber-Konten) */}
+      {isAdminUser(user.email) && (
+        <Link
+          href="/admin"
+          className="card p-6 flex items-center gap-4 border-2 !border-[var(--yellow)] hover:!bg-[var(--surface-2)] transition-colors"
+        >
+          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[var(--yellow)] text-2xl">
+            🛠️
+          </span>
+          <div className="min-w-0">
+            <h2 className="font-bold text-lg">
+              {lang === "de" ? "Admin-Panel" : "Admin panel"}
+            </h2>
+            <p className="text-sm text-[var(--muted)]">
+              {lang === "de"
+                ? "Nutzer, Pläne, Founder, Referrals & Statistiken verwalten"
+                : "Manage users, plans, founders, referrals & stats"}
+            </p>
+          </div>
+          <span className="ml-auto text-xl font-bold text-[var(--yellow)]">→</span>
+        </Link>
+      )}
 
       {/* Portfolio-Übersicht */}
       <div className="card p-8">
