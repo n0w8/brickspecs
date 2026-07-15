@@ -43,6 +43,12 @@ export default function CatalogSetDetail({
   // themeName kommt als "Root · Sub" (oder nur "Root") aus themeNameOf()
   const themeParts = entry.themeName.split(" · ").filter(Boolean);
 
+  // Automatische Verfuegbarkeit: Rebrickable liefert keine EOL-Daten. LEGO-Sets
+  // laufen nach 1-3 Jahren aus - Sets ab 2 Jahren Alter sind so gut wie immer
+  // aus dem Handel (EOL). Ganz neue Jahrgaenge lassen wir bewusst ohne Aussage.
+  const age = entry.year > 0 ? new Date().getFullYear() - entry.year : -1;
+  const retired = age >= 2;
+
   return (
     <div className="flex flex-col gap-8 pt-8">
       <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-[var(--muted)]">
@@ -89,6 +95,18 @@ export default function CatalogSetDetail({
             <span className="font-mono text-sm text-[var(--muted)]">{entry.id}</span>
             <span className="badge badge-blue">{entry.themeName}</span>
             {entry.year > 0 && <span className="badge badge-gray">{entry.year}</span>}
+            {retired ? (
+              <span
+                className="badge badge-gray"
+                title={lang === "de" ? "Aus dem Alter geschaetzt" : "Estimated from the set's age"}
+              >
+                ⛔ {lang === "de" ? "EOL - nicht mehr im Handel" : "Retired - no longer sold"}
+              </span>
+            ) : entry.year > 0 ? (
+              <span className="badge badge-green">
+                🟢 {lang === "de" ? "Aktuell erhältlich" : "Currently available"}
+              </span>
+            ) : null}
             {/* Aufrufe & Sammler: auf Desktop rechts oben, auf Handy in neuer Zeile */}
             <SetStats setId={entry.id} className="w-full sm:w-auto sm:ml-auto" />
           </div>
