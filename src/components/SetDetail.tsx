@@ -18,7 +18,6 @@ import PartsList from "./PartsList";
 import { RarityBadge } from "./MinifigCard";
 import { AvailabilityBadge } from "./SetCard";
 import SimilarSetsRow, { type SimilarSetItem } from "./SimilarSetsRow";
-import { ExternalLinkChips } from "./CatalogSetDetail";
 
 export default function SetDetail({
   setId,
@@ -117,9 +116,6 @@ export default function SetDetail({
             {set.subtheme ? ` · ${set.subtheme}` : ""}
           </p>
           <p className="leading-relaxed text-[#c7cede]">{pick(set.description, lang)}</p>
-
-          {/* Externe Referenzen (Katalog-ID mit "-1"-Suffix) */}
-          <ExternalLinkChips catalogId={`${set.id}-1`} />
 
           {/* Investment-Score */}
           <div className="mt-auto pt-3">

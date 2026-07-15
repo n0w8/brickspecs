@@ -22,37 +22,6 @@ export interface CatalogEntryProps {
   img: string;
 }
 
-/** Externe Referenz-Links (Brickset, Rebrickable, BrickLink) als Chips. */
-export function ExternalLinkChips({ catalogId }: { catalogId: string }) {
-  const { lang } = useLang();
-  const links = [
-    { label: "Brickset", href: `https://brickset.com/sets/${catalogId}` },
-    { label: "Rebrickable", href: `https://rebrickable.com/sets/${catalogId}/` },
-    {
-      label: "BrickLink",
-      href: `https://www.bricklink.com/v2/catalog/catalogitem.page?S=${catalogId}`,
-    },
-  ];
-  return (
-    <div className="flex flex-wrap items-center gap-2">
-      <span className="text-xs text-[var(--muted)]">
-        {lang === "de" ? "Extern nachschlagen:" : "Look up externally:"}
-      </span>
-      {links.map((l) => (
-        <a
-          key={l.label}
-          href={l.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="badge badge-gray hover:text-[var(--yellow)] hover:border-[var(--yellow)] transition-colors"
-        >
-          {l.label} ↗
-        </a>
-      ))}
-    </div>
-  );
-}
-
 /** Steckbrief für Katalog-Sets ohne redaktionelle Daten (alle ~19,6k Bau-Sets). */
 export default function CatalogSetDetail({
   entry,
@@ -123,9 +92,6 @@ export default function CatalogSetDetail({
           </div>
           <h1 className="text-3xl font-extrabold leading-tight">{displayName}</h1>
           <p className="text-sm text-[var(--muted)] leading-relaxed">{t("catalog.noEditorial")}</p>
-          <div className="mt-auto pt-3">
-            <ExternalLinkChips catalogId={entry.id} />
-          </div>
         </div>
       </div>
 
