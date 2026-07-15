@@ -32,6 +32,8 @@ interface PriceData {
   avgUsedEUR: number | null;
   samplesNew: number;
   samplesUsed: number;
+  partOutNewEUR?: number | null;
+  partOutUsedEUR?: number | null;
   mode: "live" | "demo";
   note?: string;
 }
@@ -129,7 +131,11 @@ export default function PricePanel({
 
       {loading ? (
         <p className="text-sm text-[var(--muted)]">{t("price.loading")}</p>
-      ) : !data || (data.avgNewEUR === null && data.avgUsedEUR === null) ? (
+      ) : !data ||
+        (data.avgNewEUR === null &&
+          data.avgUsedEUR === null &&
+          data.partOutNewEUR == null &&
+          data.partOutUsedEUR == null) ? (
         <p className="text-sm text-[var(--muted)]">{t("price.none")}</p>
       ) : data.mode === "demo" ? (
         // Ehrlicher Platzhalter statt irrefuehrender Zufallszahlen: solange
@@ -157,24 +163,55 @@ export default function PricePanel({
           </p>
         </div>
       ) : (
-        <div className="grid gap-3 sm:grid-cols-2">
-          <div className="card !bg-[var(--surface-2)] p-4">
-            <p className="text-xs text-[var(--muted)] mb-1">{t("price.new")}</p>
-            <p className="text-2xl font-extrabold text-[var(--yellow)]">
-              {formatEUR(data.avgNewEUR, lang)}
-            </p>
-            <p className="text-xs text-[var(--muted)] mt-1">
-              {data.samplesNew} {t("price.samples")}
-            </p>
+        <>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <div className="card !bg-[var(--surface-2)] p-4">
+              <p className="text-xs text-[var(--muted)] mb-1">{t("price.new")}</p>
+              <p className="text-2xl font-extrabold text-[var(--yellow)]">
+                {formatEUR(data.avgNewEUR, lang)}
+              </p>
+              <p className="text-xs text-[var(--muted)] mt-1">
+                {data.samplesNew} {t("price.samples")}
+              </p>
+            </div>
+            <div className="card !bg-[var(--surface-2)] p-4">
+              <p className="text-xs text-[var(--muted)] mb-1">{t("price.used")}</p>
+              <p className="text-2xl font-extrabold">{formatEUR(data.avgUsedEUR, lang)}</p>
+              <p className="text-xs text-[var(--muted)] mt-1">
+                {data.samplesUsed} {t("price.samples")}
+              </p>
+            </div>
           </div>
-          <div className="card !bg-[var(--surface-2)] p-4">
-            <p className="text-xs text-[var(--muted)] mb-1">{t("price.used")}</p>
-            <p className="text-2xl font-extrabold">{formatEUR(data.avgUsedEUR, lang)}</p>
-            <p className="text-xs text-[var(--muted)] mt-1">
-              {data.samplesUsed} {t("price.samples")}
-            </p>
-          </div>
-        </div>
+
+          {/* Teilewert (Part-Out): dezent unter den Neu/Gebraucht-Karten,
+              nur wenn der Sync ihn berechnet hat. */}
+          {(data.partOutNewEUR != null || data.partOutUsedEUR != null) && (
+            <div className="mt-3 rounded-xl border border-[var(--border)] bg-[var(--surface-2)] p-3">
+              <p className="text-xs font-semibold mb-1.5">
+                🧩 {lang === "de" ? "Teilewert (Part-Out)" : "Part value (part-out)"}
+              </p>
+              <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm">
+                {data.partOutNewEUR != null && (
+                  <span>
+                    <span className="text-[var(--muted)]">{t("price.new")}: </span>
+                    <span className="font-bold">{formatEUR(data.partOutNewEUR, lang)}</span>
+                  </span>
+                )}
+                {data.partOutUsedEUR != null && (
+                  <span>
+                    <span className="text-[var(--muted)]">{t("price.used")}: </span>
+                    <span className="font-bold">{formatEUR(data.partOutUsedEUR, lang)}</span>
+                  </span>
+                )}
+              </div>
+              <p className="text-xs text-[var(--muted)] mt-1.5 leading-relaxed">
+                {lang === "de"
+                  ? "Summe der Einzelteil-Preise (aktuelle BrickLink-Angebote)"
+                  : "Sum of individual part prices (current BrickLink listings)"}
+              </p>
+            </div>
+          )}
+        </>
       )}
 
       {/* Minifiguren im Set */}

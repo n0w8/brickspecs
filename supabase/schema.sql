@@ -274,3 +274,39 @@ alter table public.sync_state enable row level security;
 drop policy if exists "sync_state_service_only" on public.sync_state;
 create policy "sync_state_service_only" on public.sync_state
   for all to service_role using (true) with check (true);
+
+-- ---------------------------------------------------------------------------
+-- Part-Out-Value (Teilewert): Preis-Cache je Einzelteil/Minifigur.
+-- Befuellt vom Part-Out-Sync (scripts/sync-partout.mjs) ueber die BrickLink
+-- Price-Guide-API (guide_type=stock = aktueller Angebots-Durchschnitt), neu
+-- UND gebraucht getrennt. Ein Eintrag pro (part_type, part_no, color_id);
+-- Minifiguren/farb-lose Teile nutzen color_id -1. Der Cache amortisiert das
+-- API-Budget ueber Tage hinweg, weil Sets sich viele Teile teilen. Lesen darf
+-- jeder (anon + authenticated), schreiben nur der Server (service_role).
+-- ---------------------------------------------------------------------------
+create table if not exists public.part_prices (
+  part_type text not null,
+  part_no text not null,
+  color_id int not null default -1,
+  new_eur numeric,
+  used_eur numeric,
+  updated_at timestamptz not null default now(),
+  primary key (part_type, part_no, color_id)
+);
+
+alter table public.part_prices enable row level security;
+
+drop policy if exists "part_prices_select_all" on public.part_prices;
+create policy "part_prices_select_all" on public.part_prices
+  for select to anon, authenticated using (true);
+
+drop policy if exists "part_prices_write_service" on public.part_prices;
+create policy "part_prices_write_service" on public.part_prices
+  for all to service_role using (true) with check (true);
+
+-- set_prices um die aggregierten Part-Out-Werte je Set erweitern (idempotent).
+-- part_out_new_eur / part_out_used_eur = Summe(Teilepreis * Menge), getrennt
+-- nach neu/gebraucht. part_out_updated_at haelt den Zeitpunkt der Berechnung.
+alter table public.set_prices add column if not exists part_out_new_eur numeric;
+alter table public.set_prices add column if not exists part_out_used_eur numeric;
+alter table public.set_prices add column if not exists part_out_updated_at timestamptz;

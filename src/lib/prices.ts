@@ -46,6 +46,10 @@ export interface PriceResult {
   avgUsedEUR: number | null;
   samplesNew: number;
   samplesUsed: number;
+  /** Teilewert (Part-Out) neu = Summe der Einzelteil-Preise; null wenn nicht berechnet. */
+  partOutNewEUR: number | null;
+  /** Teilewert (Part-Out) gebraucht; null wenn nicht berechnet. */
+  partOutUsedEUR: number | null;
   mode: "live" | "demo";
   note?: string;
 }
@@ -97,6 +101,9 @@ function demoPrices(catalogId: string, source: PriceSource, country: string): Pr
     avgUsedEUR: baseUsed !== null ? Math.round(baseUsed * f) : null,
     samplesNew: baseNew !== null ? 4 + Math.floor(seed * 46) : 0,
     samplesUsed: baseUsed !== null ? 6 + Math.floor(seed * 70) : 0,
+    // Part-Out ist ausschliesslich ein Live-Wert (echte BrickLink-Angebote).
+    partOutNewEUR: null,
+    partOutUsedEUR: null,
     mode: "demo",
   };
 }
@@ -108,9 +115,12 @@ interface SetPriceRow {
   used_eur: number | string | null;
   new_qty: number | null;
   used_qty: number | null;
+  // Optional: nur vorhanden, wenn das Part-Out-Schema deployt ist.
+  part_out_new_eur?: number | string | null;
+  part_out_used_eur?: number | string | null;
 }
 
-function toNum(v: number | string | null): number | null {
+function toNum(v: number | string | null | undefined): number | null {
   if (v === null || v === undefined || v === "") return null;
   const n = typeof v === "number" ? v : Number(v);
   return Number.isFinite(n) ? n : null;
@@ -125,9 +135,12 @@ async function livePriceFromDb(catalogId: string): Promise<SetPriceRow | null> {
   const admin = getSupabaseAdmin();
   if (!admin) return null;
   try {
+    // select("*"): liefert die Part-Out-Spalten mit, sobald sie deployt sind,
+    // wirft aber NICHT, solange das Part-Out-Schema noch fehlt (dann bleibt die
+    // bestehende Neu/Gebraucht-Anzeige unveraendert).
     const { data, error } = await admin
       .from("set_prices")
-      .select("new_eur, used_eur, new_qty, used_qty")
+      .select("*")
       .eq("set_id", catalogId)
       .maybeSingle();
     if (error || !data) return null;
@@ -155,7 +168,10 @@ export async function getPrices(
     if (row) {
       const avgNew = toNum(row.new_eur);
       const avgUsed = toNum(row.used_eur);
-      if (avgNew !== null || avgUsed !== null) {
+      const partOutNew = toNum(row.part_out_new_eur);
+      const partOutUsed = toNum(row.part_out_used_eur);
+      // Live, sobald IRGENDEIN echter Wert vorliegt (Sold-Schnitt oder Teilewert).
+      if (avgNew !== null || avgUsed !== null || partOutNew !== null || partOutUsed !== null) {
         return {
           setId: catalogId,
           source,
@@ -165,6 +181,8 @@ export async function getPrices(
           avgUsedEUR: avgUsed !== null ? Math.round(avgUsed) : null,
           samplesNew: row.new_qty ?? 0,
           samplesUsed: row.used_qty ?? 0,
+          partOutNewEUR: partOutNew !== null ? Math.round(partOutNew * 100) / 100 : null,
+          partOutUsedEUR: partOutUsed !== null ? Math.round(partOutUsed * 100) / 100 : null,
           mode: "live",
         };
       }

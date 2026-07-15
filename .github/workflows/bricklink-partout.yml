@@ -1,0 +1,39 @@
+# Part-Out-Value-Sync: berechnet taeglich den Teilewert (Summe der Einzelteil-
+# und Minifiguren-Preise, neu + gebraucht) je Set aus der BrickLink-API und
+# schreibt ihn nach Supabase (public.set_prices + Cache public.part_prices).
+# Ein rollierender Cursor + Teile-Cache decken ueber mehrere Laeufe immer mehr
+# Sets ab. Bewusst VERSETZT zum Sold-Preis-Sync (04:30 UTC), damit sich die
+# BrickLink-Tageslimits nicht ueberschneiden. KEIN Commit noetig (Daten in Supabase).
+name: BrickLink-Teilewert
+
+on:
+  schedule:
+    - cron: "30 12 * * *" # 12:30 UTC = andere Tageshaelfte als bricklink-prices.yml
+  workflow_dispatch: {}
+
+concurrency:
+  group: bricklink-partout
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Dependencies installieren
+        run: npm ci
+
+      - name: Teilewert synchronisieren
+        env:
+          BRICKLINK_CONSUMER_KEY: ${{ secrets.BRICKLINK_CONSUMER_KEY }}
+          BRICKLINK_CONSUMER_SECRET: ${{ secrets.BRICKLINK_CONSUMER_SECRET }}
+          BRICKLINK_TOKEN: ${{ secrets.BRICKLINK_TOKEN }}
+          BRICKLINK_TOKEN_SECRET: ${{ secrets.BRICKLINK_TOKEN_SECRET }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+        run: node scripts/sync-partout.mjs
