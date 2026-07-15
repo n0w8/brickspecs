@@ -7,7 +7,16 @@ name: BrickLink-Preise
 on:
   schedule:
     - cron: "30 4 * * *" # 04:30 UTC = 06:30 MESZ
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      sets:
+        description: "Test: nur diese Setnummern (komma-getrennt, z. B. 10305-1,10188-1). Leer = voller Lauf."
+        required: false
+        default: ""
+      limit:
+        description: "Test: nur die ersten N Sets. Leer = voller Lauf."
+        required: false
+        default: ""
 
 concurrency:
   group: bricklink-prices
@@ -34,4 +43,9 @@ jobs:
           BRICKLINK_TOKEN_SECRET: ${{ secrets.BRICKLINK_TOKEN_SECRET }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-        run: node scripts/sync-bricklink-prices.mjs
+        run: |
+          ARGS=""
+          if [ -n "${{ inputs.sets }}" ]; then ARGS="$ARGS --sets ${{ inputs.sets }}"; fi
+          if [ -n "${{ inputs.limit }}" ]; then ARGS="$ARGS --limit ${{ inputs.limit }}"; fi
+          echo "[workflow] node scripts/sync-bricklink-prices.mjs $ARGS"
+          node scripts/sync-bricklink-prices.mjs $ARGS
