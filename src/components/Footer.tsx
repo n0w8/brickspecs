@@ -51,9 +51,10 @@ export default function Footer() {
           <Link href="/partner" className="text-[var(--muted)] hover:text-[var(--yellow)]">
             {lang === "de" ? "Creator-Programm" : "Creator program"}
           </Link>
-          <Link href="/admin" className="text-[var(--muted)] hover:text-[var(--yellow)]">
-            Admin
-          </Link>
+          {/* Kein oeffentlicher Admin-Link: /admin liefert fuer Nicht-Admins
+              bewusst 404 (siehe src/app/admin/page.tsx) - ein Footer-Link waere
+              fuer praktisch alle Besucher ein toter Link. Admins rufen die
+              Seite direkt per URL auf. */}
         </div>
         <div className="text-[var(--muted)] leading-relaxed">
           <p className="mb-2">
