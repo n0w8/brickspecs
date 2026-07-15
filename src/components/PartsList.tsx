@@ -155,14 +155,6 @@ export default function PartsList({
           >
             BrickLink Part-Out ↗
           </a>
-          <a
-            href={rebrickableParts}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="chip hover:!border-[var(--yellow)]"
-          >
-            Rebrickable {lang === "de" ? "Teileseite" : "parts page"} ↗
-          </a>
         </div>
       </div>
     </section>
