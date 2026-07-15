@@ -13,6 +13,7 @@ import {
   type Profile,
 } from "@/lib/auth";
 import { getPortfolio } from "@/lib/portfolio";
+import { getWishlist } from "@/lib/wishlist";
 import { getAlerts } from "@/lib/alerts";
 import { openBillingPortal } from "@/lib/paywall";
 import { PLAN_META, formatFounderNumber, getPlanRecord, type Plan, type PlanRecord } from "@/lib/plan";
@@ -54,6 +55,7 @@ export default function ProfilePage() {
     invested: 0,
   });
   const [alertCount, setAlertCount] = useState(0);
+  const [wishlistCount, setWishlistCount] = useState(0);
   const [planRec, setPlanRec] = useState<PlanRecord | null>(null);
   // Nach der Rückkehr vom Stripe-Checkout (?checkout=success) Banner zeigen.
   // Lazy-Initializer: bis "checked" true ist, rendert die Seite ohnehin null,
@@ -98,9 +100,10 @@ export default function ProfilePage() {
       setUser(u);
       setStore(u?.bricklinkStore ?? "");
       if (u) {
-        const [pf, alerts, prof] = await Promise.all([
+        const [pf, alerts, wl, prof] = await Promise.all([
           getPortfolio(),
           getAlerts(),
+          u.source === "supabase" ? getWishlist() : Promise.resolve([]),
           u.source === "supabase" ? getProfile() : Promise.resolve(null),
         ]);
         if (cancelled) return;
@@ -110,6 +113,7 @@ export default function ProfilePage() {
           invested: pf.reduce((s, i) => s + (i.purchasePriceEUR ?? 0) * i.quantity, 0),
         });
         setAlertCount(alerts.length);
+        setWishlistCount(wl.length);
         if (u.source === "supabase") {
           setProfile(prof);
           // Referral-Kennzahlen laden - Fehler still ignorieren (Sektion
@@ -243,6 +247,29 @@ export default function ProfilePage() {
           </div>
         )}
       </div>
+
+      {/* Wunschliste (nur echte Konten - konto-gebunden) */}
+      {isCloud && (
+        <div className="card p-8">
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <h2 className="font-bold text-lg">
+              ❤️ {lang === "de" ? "Wunschliste" : "Wishlist"}
+            </h2>
+            <Link href="/wishlist" className="btn btn-primary !py-1.5 !px-4 text-sm">
+              {lang === "de" ? "Wunschliste" : "Wishlist"} →
+            </Link>
+          </div>
+          <p className="text-sm text-[var(--muted)]">
+            {wishlistCount === 0
+              ? lang === "de"
+                ? "Noch keine Sets gemerkt - tippe bei einem Set auf das Herz."
+                : "No sets saved yet - tap the heart on any set."
+              : lang === "de"
+                ? `${wishlistCount} ${wishlistCount === 1 ? "Set gemerkt" : "Sets gemerkt"}`
+                : `${wishlistCount} ${wishlistCount === 1 ? "set saved" : "sets saved"}`}
+          </p>
+        </div>
+      )}
 
       {/* Preisalarme */}
       <div className="card p-8">
