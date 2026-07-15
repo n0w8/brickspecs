@@ -6,6 +6,7 @@ import { SETS } from "@/data/sets";
 import { pick, useLang, useT } from "@/lib/i18n";
 import { formatEUR } from "@/lib/format";
 import BrickImage from "./BrickImage";
+import MinifigPricePanel from "./MinifigPricePanel";
 import PriceChart from "./PriceChart";
 import SetCard from "./SetCard";
 import SetThumbGrid, { type SetThumb } from "./SetThumbGrid";
@@ -29,6 +30,12 @@ export default function MinifigDetail({
   const unknownSetIds = fig.appearsInSetIds.filter(
     (id) => !SETS.some((s) => s.id === id)
   );
+
+  // Fuer die BrickLink-Preise brauchen wir die Rebrickable-fig-ID: kuratierte
+  // Figuren tragen eine BrickLink-artige id ("sw0107"), die zugehoerige
+  // fig-XXXXXX steckt aber in der imageUrl. Wenn nicht ableitbar, reicht die
+  // Panel-API auch die BrickLink-id durch (Suche ueber beide Spalten).
+  const priceFigId = fig.imageUrl?.match(/fig-\d+/)?.[0] ?? fig.id;
 
   return (
     <div className="flex flex-col gap-8 pt-8">
@@ -69,6 +76,8 @@ export default function MinifigDetail({
           </div>
         </div>
       </div>
+
+      <MinifigPricePanel figId={priceFigId} />
 
       <section className="card p-5">
         <h2 className="font-bold text-lg mb-4">📈 {t("common.priceChart")}</h2>

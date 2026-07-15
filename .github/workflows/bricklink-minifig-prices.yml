@@ -1,0 +1,44 @@
+# BrickLink-Minifiguren-Preis-Sync: holt taeglich den 6-Monats-Verkaufsschnitt
+# (neu + gebraucht) je Minifigur von der BrickLink-API und schreibt ihn nach
+# Supabase (public.minifig_prices). Die ID-Bruecke fig-XXXXXX -> BrickLink-ID
+# laeuft ueber die Rebrickable-API (external_ids.BrickLink) und wird gecacht.
+# Ein rollierender Cursor deckt ueber mehrere Laeufe den kompletten Katalog ab.
+# KEIN Commit noetig - die Daten liegen in Supabase.
+#
+# Cron VERSETZT gelegt: 20:00 UTC, damit sich der Lauf nicht mit dem
+# Set-Preis-Sync (04:30) und dem Part-Out-Sync (12:30) ueberschneidet und das
+# BrickLink-Tagesbudget nicht kollidiert.
+name: BrickLink-Minifiguren-Preise
+
+on:
+  schedule:
+    - cron: "0 20 * * *" # 20:00 UTC = 22:00 MESZ
+  workflow_dispatch: {}
+
+concurrency:
+  group: bricklink-minifig-prices
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Dependencies installieren
+        run: npm ci
+
+      - name: Minifiguren-Preise synchronisieren
+        env:
+          BRICKLINK_CONSUMER_KEY: ${{ secrets.BRICKLINK_CONSUMER_KEY }}
+          BRICKLINK_CONSUMER_SECRET: ${{ secrets.BRICKLINK_CONSUMER_SECRET }}
+          BRICKLINK_TOKEN: ${{ secrets.BRICKLINK_TOKEN }}
+          BRICKLINK_TOKEN_SECRET: ${{ secrets.BRICKLINK_TOKEN_SECRET }}
+          REBRICKABLE_API_KEY: ${{ secrets.REBRICKABLE_API_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+        run: node scripts/sync-minifig-prices.mjs

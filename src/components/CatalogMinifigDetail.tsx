@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useLang, useT } from "@/lib/i18n";
 import BrickImage from "./BrickImage";
+import MinifigPricePanel from "./MinifigPricePanel";
 import SetThumbGrid, { type SetThumb } from "./SetThumbGrid";
 
 export interface CatalogFigProps {
@@ -48,6 +49,8 @@ export default function CatalogMinifigDetail({ fig }: { fig: CatalogFigProps }) 
           <p className="text-sm text-[var(--muted)] leading-relaxed">{t("figs.noEditorial")}</p>
         </div>
       </div>
+
+      <MinifigPricePanel figId={fig.id} />
 
       <section className="card p-5">
         <h2 className="font-bold text-lg mb-4">
