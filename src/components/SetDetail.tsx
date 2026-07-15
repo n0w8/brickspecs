@@ -8,6 +8,7 @@ import { pick, useLang, useT } from "@/lib/i18n";
 import { formatEUR, growthPercent, investmentScore } from "@/lib/format";
 import { matchCuratedToCatalog } from "@/lib/fig-match";
 import BrickImage from "./BrickImage";
+import BuyLinksBar from "./BuyLinksBar";
 import PriceChart from "./PriceChart";
 import PricePanel, { type PanelMinifig } from "./PricePanel";
 import AddToPortfolio from "./AddToPortfolio";
@@ -133,6 +134,9 @@ export default function SetDetail({
           </div>
         </div>
       </div>
+
+      {/* Kaufen bei ... (prominent, Land wie im Preis-Panel) */}
+      <BuyLinksBar setId={set.id} />
 
       {/* Steckbrief */}
       <div className="grid gap-3 grid-cols-2 sm:grid-cols-4">

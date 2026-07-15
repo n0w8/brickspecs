@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useLang, useT } from "@/lib/i18n";
 import { formatEUR } from "@/lib/format";
-import { withAmazonTag } from "@/lib/config";
+import { buyLinks, COUNTRY_KEY } from "@/lib/buy-links";
 
 /** Kompakte Minifiguren-Chips im Preis-Panel (zwischen Preisen und Kauf-Links). */
 export interface PanelMinifig {
@@ -36,53 +36,7 @@ interface PriceData {
   note?: string;
 }
 
-const COUNTRY_KEY = "bricktopia.country";
 const SOURCE_KEY = "bricktopia.priceSource";
-
-/* Länderabhängige Shop-Links (Suche/Katalogseite beim Händler) */
-const LEGO_LOCALE: Record<string, string> = {
-  DE: "de-de", AT: "de-at", CH: "de-ch", US: "en-us", GB: "en-gb",
-  FR: "fr-fr", NL: "nl-nl", IT: "it-it", ES: "es-es", PL: "pl-pl",
-};
-const AMAZON_TLD: Record<string, string> = {
-  DE: "de", AT: "de", CH: "de", US: "com", GB: "co.uk",
-  FR: "fr", NL: "nl", IT: "it", ES: "es", PL: "pl",
-};
-const EBAY_TLD: Record<string, string> = {
-  DE: "de", AT: "at", CH: "ch", US: "com", GB: "co.uk",
-  FR: "fr", NL: "nl", IT: "it", ES: "es", PL: "pl",
-};
-
-function buyLinks(setId: string, country: string): { label: string; href: string }[] {
-  const base = setId.replace(/-\d+$/, "");
-  const q = encodeURIComponent(`LEGO ${base}`);
-  const blId = setId.includes("-") ? setId : `${setId}-1`;
-  const links = [
-    {
-      label: "LEGO.com",
-      href: `https://www.lego.com/${LEGO_LOCALE[country] ?? "de-de"}/search?q=${base}`,
-    },
-    {
-      label: "Amazon",
-      href: withAmazonTag(`https://www.amazon.${AMAZON_TLD[country] ?? "de"}/s?k=${q}`),
-    },
-    {
-      label: "eBay",
-      href: `https://www.ebay.${EBAY_TLD[country] ?? "de"}/sch/i.html?_nkw=${q}`,
-    },
-    {
-      label: "BrickLink",
-      href: `https://www.bricklink.com/v2/catalog/catalogitem.page?S=${encodeURIComponent(blId)}`,
-    },
-  ];
-  if (country === "DE" || country === "AT") {
-    links.push({
-      label: "idealo",
-      href: `https://www.idealo.${country === "AT" ? "at" : "de"}/preisvergleich/MainSearchProductCategory.html?q=${q}`,
-    });
-  }
-  return links;
-}
 
 export default function PricePanel({
   setId,
@@ -243,14 +197,18 @@ export default function PricePanel({
               key={link.label}
               href={link.href}
               target="_blank"
-              rel="noopener noreferrer"
+              rel={link.affiliate ? "noopener noreferrer sponsored" : "noopener noreferrer"}
               className="chip hover:!border-[var(--yellow)]"
             >
-              {link.label} ↗
+              {link.label}
+              {link.affiliate ? "*" : ""} ↗
             </a>
           ))}
         </div>
-        <p className="text-xs text-[var(--muted)] mt-2">{t("buy.hint")}</p>
+        <p className="text-xs text-[var(--muted)] mt-2">
+          {t("buy.hint")}{" "}
+          {lang === "de" ? "*Affiliate-Link" : "*Affiliate link"}
+        </p>
       </div>
 
       <p className="text-xs text-[var(--muted)] mt-4">

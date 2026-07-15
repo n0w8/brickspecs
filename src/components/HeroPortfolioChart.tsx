@@ -148,8 +148,121 @@ function TwoPointChart({
   );
 }
 
+/**
+ * Teaser für Gäste (nicht eingeloggt): Beispiel-Kurve + Nutzen + Registrieren-CTA.
+ * Klar als Beispiel gekennzeichnet.
+ */
+function GuestTeaser({ lang }: { lang: Lang }) {
+  const benefits =
+    lang === "de"
+      ? [
+          "Wertentwicklung deiner Sets live verfolgen",
+          "Preisalarme bei deinem Wunschpreis",
+          "EOL-Warnungen, bevor ein Set verschwindet",
+        ]
+      : [
+          "Track the value of your sets live",
+          "Price alerts at your target price",
+          "EOL warnings before a set retires",
+        ];
+  return (
+    <div className="card p-5 flex flex-col gap-3">
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <h2 className="font-bold">
+          📈 {lang === "de" ? "Deine Sammlung als Depot" : "Your collection as a portfolio"}
+        </h2>
+        <span className="badge badge-yellow">
+          {lang === "de" ? "Beispiel-Depot" : "Sample portfolio"}
+        </span>
+      </div>
+      <div className="h-40 w-full">
+        <ResponsiveContainer width="100%" height="100%">
+          <AreaChart data={DEMO_PORTFOLIO} margin={{ top: 10, right: 10, bottom: 0, left: 0 }}>
+            <defs>
+              <linearGradient id="guestTeaserStroke" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="#23a45c" />
+                <stop offset="100%" stopColor="#f6c700" />
+              </linearGradient>
+              <linearGradient id="guestTeaserFill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#23a45c" stopOpacity={0.3} />
+                <stop offset="100%" stopColor="#f6c700" stopOpacity={0.02} />
+              </linearGradient>
+            </defs>
+            <CartesianGrid stroke="#232c47" strokeDasharray="3 3" vertical={false} />
+            <XAxis
+              dataKey="year"
+              stroke="#94a0bd"
+              fontSize={11}
+              tickLine={false}
+              axisLine={{ stroke: "#232c47" }}
+            />
+            <YAxis
+              stroke="#94a0bd"
+              fontSize={11}
+              tickLine={false}
+              axisLine={false}
+              width={62}
+              tickFormatter={(v: number) => formatEUR(v, lang)}
+            />
+            <Tooltip
+              contentStyle={{
+                background: "#1a2138",
+                border: "1px solid #232c47",
+                borderRadius: 10,
+                color: "#f2f4fb",
+              }}
+              labelStyle={{ color: "#94a0bd" }}
+              formatter={(value) => [
+                formatEUR(value as number, lang),
+                lang === "de" ? "Beispielwert" : "Sample value",
+              ]}
+            />
+            <Area
+              type="monotone"
+              dataKey="priceEUR"
+              stroke="url(#guestTeaserStroke)"
+              strokeWidth={2.5}
+              fill="url(#guestTeaserFill)"
+              dot={false}
+              activeDot={{ r: 5, fill: "#f6c700" }}
+            />
+          </AreaChart>
+        </ResponsiveContainer>
+      </div>
+      <p className="text-xs text-[var(--muted)]">
+        {lang === "de"
+          ? "Beispiel: 12 Sets, 2020 zur UVP gekauft - heute 4.560 €"
+          : "Example: 12 sets bought at RRP in 2020 - worth 4,560 € today"}{" "}
+        <span className="badge badge-green">+268%</span>
+      </p>
+      <ul className="flex flex-col gap-1.5 text-sm">
+        {benefits.map((b) => (
+          <li key={b} className="flex items-start gap-2">
+            <span className="text-[#4cd587] font-bold" aria-hidden>
+              ✓
+            </span>
+            <span>{b}</span>
+          </li>
+        ))}
+      </ul>
+      <div className="flex flex-wrap items-center gap-3 mt-1">
+        <Link href="/registrieren" className="btn btn-primary flex-1">
+          {lang === "de" ? "Kostenlos registrieren" : "Sign up for free"} →
+        </Link>
+        <Link
+          href="/login"
+          className="text-sm text-[var(--muted)] hover:text-[var(--yellow)] whitespace-nowrap"
+        >
+          {lang === "de" ? "Anmelden" : "Log in"}
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 export default function HeroPortfolioChart() {
   const { lang } = useLang();
+  const [loggedIn, setLoggedIn] = useState<boolean | null>(null);
   const [items, setItems] = useState<PortfolioItem[] | null>(null);
   const [unitPrices, setUnitPrices] = useState<Record<string, number | null> | null>(null);
 
@@ -159,6 +272,7 @@ export default function HeroPortfolioChart() {
       const li = await isAuthenticated();
       const pf = li ? await getPortfolio() : [];
       if (cancelled) return;
+      setLoggedIn(li);
       setItems(pf);
       if (pf.length === 0) {
         setUnitPrices({});
@@ -223,7 +337,7 @@ export default function HeroPortfolioChart() {
   }, [items, unitPrices]);
 
   // Noch am Laden: Platzhalter in Kartenhöhe, kein Layout-Springen
-  if (items === null || (items.length > 0 && unitPrices === null)) {
+  if (loggedIn === null || items === null || (items.length > 0 && unitPrices === null)) {
     return (
       <div className="card p-5 min-h-[380px] flex items-center justify-center">
         <p className="text-sm text-[var(--muted)]">
@@ -233,7 +347,12 @@ export default function HeroPortfolioChart() {
     );
   }
 
-  // Fallback: Beispiel-Portfolio (nicht eingeloggt oder Portfolio leer)
+  // Gäste sehen den Teaser mit Beispiel-Kurve und Registrieren-CTA
+  if (!loggedIn) {
+    return <GuestTeaser lang={lang} />;
+  }
+
+  // Fallback: Beispiel-Portfolio (eingeloggt, aber Portfolio noch leer)
   if (!real) {
     return (
       <div className="card p-5">

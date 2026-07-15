@@ -14,10 +14,10 @@ export const TELEGRAM_CHANNEL_URL =
   process.env.NEXT_PUBLIC_TELEGRAM_CHANNEL_URL ?? "https://t.me/brickspecs";
 
 /**
- * Amazon-PartnerNet-Tag (z. B. "brickspecs-21"). Wird an alle Amazon-Kauflinks
- * gehängt, sobald NEXT_PUBLIC_AMAZON_TAG gesetzt ist.
+ * Amazon-PartnerNet-Tag. Wird an alle Amazon-Kauflinks gehängt;
+ * über NEXT_PUBLIC_AMAZON_TAG übersteuerbar.
  */
-export const AMAZON_TAG = process.env.NEXT_PUBLIC_AMAZON_TAG ?? "";
+export const AMAZON_TAG = process.env.NEXT_PUBLIC_AMAZON_TAG ?? "fuchsmedia-21";
 
 /** Hängt den Affiliate-Tag an eine Amazon-URL (andere URLs unverändert). */
 export function withAmazonTag(url: string): string {

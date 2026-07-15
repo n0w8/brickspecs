@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useLang, useT } from "@/lib/i18n";
 import BrickImage from "./BrickImage";
+import BuyLinksBar from "./BuyLinksBar";
 import PricePanel, { type PanelMinifig } from "./PricePanel";
 import AddToPortfolio from "./AddToPortfolio";
 import PriceAlertButton from "./PriceAlertButton";
@@ -125,6 +126,9 @@ export default function CatalogSetDetail({
           </div>
         </div>
       </div>
+
+      {/* Kaufen bei ... (prominent, Land wie im Preis-Panel) */}
+      <BuyLinksBar setId={entry.id} />
 
       <div className="grid gap-3 grid-cols-2 sm:grid-cols-4">
         <div className="card p-4">
