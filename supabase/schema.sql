@@ -72,6 +72,12 @@ create policy "profiles_update_own" on public.profiles
     and plan = (select p.plan from public.profiles p where p.id = auth.uid())
     and coalesce(founder_number, -1) = coalesce((select p.founder_number from public.profiles p where p.id = auth.uid()), -1)
     and coalesce(stripe_customer_id, '') = coalesce((select p.stripe_customer_id from public.profiles p where p.id = auth.uid()), '')
+    -- Referral-Felder ebenso: referred_by wird nur von /api/referral/claim
+    -- (service_role) gesetzt, referral_code nur vom Signup-Trigger. Sonst
+    -- koennte ein Nutzer sich selbst einem eigenen Zweitkonto zuordnen und
+    -- 25% Provision auf die eigenen Zahlungen kassieren.
+    and coalesce(referred_by::text, '') = coalesce((select p.referred_by::text from public.profiles p where p.id = auth.uid()), '')
+    and coalesce(referral_code, '') = coalesce((select p.referral_code from public.profiles p where p.id = auth.uid()), '')
   );
 
 drop policy if exists "portfolio_all_own" on public.portfolio_items;

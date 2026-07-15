@@ -15,6 +15,34 @@ import { NextResponse } from "next/server";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const BREVO_BASE = "https://api.brevo.com/v3";
 
+/* ---------- Rate-Limit: max. 5 Anmeldungen pro IP und Stunde ---------- */
+// Gleiches Muster wie /api/feedback: in-memory, bewusst nicht persistent
+// (Serverless-Kaltstart setzt den Zaehler zurueck - fuer ein Formular genug).
+
+const RATE_LIMIT = 5;
+const RATE_WINDOW_MS = 60 * 60 * 1000;
+
+const hitsByIp = new Map<string, number[]>();
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const recent = (hitsByIp.get(ip) ?? []).filter((t) => now - t < RATE_WINDOW_MS);
+  if (recent.length >= RATE_LIMIT) {
+    hitsByIp.set(ip, recent);
+    return true;
+  }
+  recent.push(now);
+  hitsByIp.set(ip, recent);
+  if (hitsByIp.size > 5000) hitsByIp.clear();
+  return false;
+}
+
+function clientIp(request: Request): string {
+  const fwd = request.headers.get("x-forwarded-for");
+  if (fwd) return fwd.split(",")[0].trim();
+  return request.headers.get("x-real-ip") ?? "unknown";
+}
+
 function reply(ok: boolean, message: string, status: number) {
   return NextResponse.json({ ok, message }, { status });
 }
@@ -34,12 +62,20 @@ export async function POST(request: Request) {
   }
 
   if (!email || email.length > 254 || !EMAIL_RE.test(email)) {
-    return reply(false, "Bitte gib eine gueltige E-Mail-Adresse ein.", 400);
+    return reply(false, "Bitte gib eine gültige E-Mail-Adresse ein.", 400);
+  }
+
+  if (isRateLimited(clientIp(request))) {
+    return reply(
+      false,
+      "Zu viele Anmeldungen in kurzer Zeit - bitte versuch es später noch einmal.",
+      429
+    );
   }
 
   const apiKey = process.env.BREVO_API_KEY;
   if (!apiKey) {
-    return reply(false, "Der Newsletter startet in Kuerze - schau bald wieder vorbei.", 503);
+    return reply(false, "Der Newsletter startet in Kürze - schau bald wieder vorbei.", 503);
   }
 
   const listId = Number(process.env.BREVO_LIST_ID);
@@ -47,7 +83,7 @@ export async function POST(request: Request) {
     console.error("[newsletter] BREVO_LIST_ID fehlt oder ist keine gueltige Zahl.");
     return reply(
       false,
-      "Anmeldung gerade nicht moeglich - bitte versuch es spaeter noch einmal.",
+      "Anmeldung gerade nicht möglich - bitte versuch es später noch einmal.",
       500
     );
   }
@@ -82,7 +118,7 @@ export async function POST(request: Request) {
         console.error(`[newsletter] Brevo-Fehler HTTP ${res.status}: ${body.slice(0, 300)}`);
         return reply(
           false,
-          "Anmeldung gerade nicht moeglich - bitte versuch es spaeter noch einmal.",
+          "Anmeldung gerade nicht möglich - bitte versuch es später noch einmal.",
           502
         );
       }
@@ -100,7 +136,7 @@ export async function POST(request: Request) {
     console.error(`[newsletter] Brevo nicht erreichbar: ${(err as Error).message}`);
     return reply(
       false,
-      "Anmeldung gerade nicht moeglich - bitte versuch es spaeter noch einmal.",
+      "Anmeldung gerade nicht möglich - bitte versuch es später noch einmal.",
       502
     );
   }
