@@ -16,9 +16,10 @@ import AdminLocal from "./AdminLocal";
 // Kennzahlen immer frisch laden, nie cachen.
 export const dynamic = "force-dynamic";
 
-// Interne Seite: nie indexieren.
+// Interne Seite: nie indexieren. Neutraler Titel, damit der Browser-Tab
+// Nicht-Admins (die eine 404 sehen) nicht die Existenz der Seite verraet.
 export const metadata: Metadata = {
-  title: "Admin | BrickSpecs",
+  title: "BrickSpecs",
   robots: { index: false, follow: false },
 };
 
