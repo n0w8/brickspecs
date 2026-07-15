@@ -92,6 +92,8 @@ const TXT = {
 interface ScanItem {
   id: string;
   name: string;
+  /** Nur bei Sets: deutscher Katalogname, falls er vom englischen abweicht */
+  nameDe?: string;
   score: number;
   img: string;
   type: string;
@@ -439,14 +441,16 @@ export default function ScannerPage() {
             <div className="flex flex-col sm:flex-row">
               <BrickImage
                 src={bestSet.img}
-                alt={bestSet.name}
+                alt={lang === "de" && bestSet.nameDe ? bestSet.nameDe : bestSet.name}
                 label={bestSet.id}
                 className="h-48 w-full shrink-0 sm:h-auto sm:w-56"
               />
               <div className="flex flex-1 flex-col gap-3 p-5">
                 <div>
                   <span className="badge badge-yellow">{typeLabel(bestSet.type, lang)}</span>
-                  <h2 className="mt-2 text-xl font-extrabold">{bestSet.name}</h2>
+                  <h2 className="mt-2 text-xl font-extrabold">
+                    {lang === "de" && bestSet.nameDe ? bestSet.nameDe : bestSet.name}
+                  </h2>
                   <p className="font-mono text-sm text-[var(--muted)]">{bestSet.id}</p>
                 </div>
 
@@ -585,11 +589,12 @@ export default function ScannerPage() {
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {otherItems.map((item) => {
               const href = hrefFor(item);
+              const itemName = lang === "de" && item.nameDe ? item.nameDe : item.name;
               const inner = (
                 <div className="flex items-center gap-3 p-3">
                   <BrickImage
                     src={item.img}
-                    alt={item.name}
+                    alt={itemName}
                     label={item.id}
                     className="h-16 w-16 shrink-0 rounded-lg"
                   />
@@ -602,7 +607,7 @@ export default function ScannerPage() {
                       </span>
                       <span className="text-xs text-[var(--muted)]">{pct(item.score)} %</span>
                     </div>
-                    <p className="mt-1 truncate text-sm font-bold">{item.name}</p>
+                    <p className="mt-1 truncate text-sm font-bold">{itemName}</p>
                     <p className="truncate font-mono text-xs text-[var(--muted)]">{item.id}</p>
                     {item.type === "fig" && (item.setCount ?? 0) > 0 && (
                       <p className="mt-0.5 truncate text-xs text-[var(--muted)]">

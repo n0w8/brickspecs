@@ -7,6 +7,8 @@ import BrickImage from "./BrickImage";
 export interface SimilarSetItem {
   id: string;
   name: string;
+  /** Deutscher Name, nur wenn er vom englischen abweicht */
+  nameDe?: string;
   year: number;
   theme: string;
   parts: number;
@@ -25,17 +27,19 @@ export default function SimilarSetsRow({ sets }: { sets: SimilarSetItem[] }) {
         🧩 {lang === "de" ? "Ähnliche Sets" : "Similar sets"}
       </h2>
       <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
-        {sets.slice(0, 6).map((s) => (
+        {sets.slice(0, 6).map((s) => {
+          const displayName = lang === "de" && s.nameDe ? s.nameDe : s.name;
+          return (
           <Link key={s.id} href={`/lexikon/${s.id}`} className="card flex flex-col">
             <BrickImage
               src={s.img || undefined}
-              alt={s.name}
+              alt={displayName}
               label={s.id}
               className="h-28 w-full"
               imgClassName="object-contain p-2"
             />
             <div className="p-3 flex flex-col gap-1 flex-1">
-              <p className="text-sm font-semibold leading-snug">{s.name}</p>
+              <p className="text-sm font-semibold leading-snug">{displayName}</p>
               <p className="font-mono text-xs text-[var(--muted)] mt-auto pt-1">
                 {s.id}
                 {s.year > 0 ? ` · ${s.year}` : ""}
@@ -48,7 +52,8 @@ export default function SimilarSetsRow({ sets }: { sets: SimilarSetItem[] }) {
               )}
             </div>
           </Link>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

@@ -146,3 +146,19 @@ if (newSets.length > 0) {
 } else {
   console.log("[sync-catalog] Keine neuen Sets seit letztem Lauf.");
 }
+
+// Deutsche Katalognamen für den frischen Dump neu erzeugen (names-de.json).
+// Bewusst non-fatal: schlägt die Übersetzung fehl, bleibt der Sync gültig -
+// die App fällt dann einfach auf die (ggf. ältere) names-de.json zurück.
+try {
+  const { execFileSync } = await import("node:child_process");
+  execFileSync(process.execPath, [join(ROOT, "scripts", "generate-names-de.mjs")], {
+    stdio: "inherit",
+  });
+} catch (err) {
+  console.warn(
+    `[sync-catalog] Warnung: generate-names-de.mjs fehlgeschlagen (nicht kritisch): ${
+      err?.message ?? err
+    }`
+  );
+}

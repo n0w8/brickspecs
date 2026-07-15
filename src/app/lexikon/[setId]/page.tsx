@@ -59,7 +59,9 @@ export async function generateMetadata({
     if (curatedMatch) return curatedSetMetadata(curatedMatch);
 
     const setNumber = entry.n.replace(/-\d+$/, "");
-    const title = `${entry.t} (${setNumber}) - Steckbrief, Preise & Wertentwicklung | BrickSpecs`;
+    // Seite ist de-primär: deutscher Katalogname, falls vorhanden
+    const metaName = entry.d ?? entry.t;
+    const title = `${metaName} (${setNumber}) - Steckbrief, Preise & Wertentwicklung | BrickSpecs`;
     const facts = [
       entry.y > 0 ? `aus dem Jahr ${entry.y}` : "",
       entry.p > 0 ? `mit ${entry.p.toLocaleString("de-DE")} Teilen` : "",
@@ -67,7 +69,7 @@ export async function generateMetadata({
       .filter(Boolean)
       .join(" ");
     const description = truncateDescription(
-      `LEGO ${entry.t} (${setNumber})${facts ? ` ${facts}` : ""} - Steckbrief, aktuelle Preise und Wertentwicklung im BrickSpecs-Lexikon.`
+      `LEGO ${metaName} (${setNumber})${facts ? ` ${facts}` : ""} - Steckbrief, aktuelle Preise und Wertentwicklung im BrickSpecs-Lexikon.`
     );
     return {
       title,
@@ -133,6 +135,7 @@ function similarSetsFor(catalogId: string): SimilarSetItem[] {
       picked.push({
         id: r.id,
         name: r.name,
+        ...(r.nameDe !== undefined ? { nameDe: r.nameDe } : {}),
         year: r.year,
         theme: r.theme,
         parts: r.parts,
@@ -201,6 +204,7 @@ export default async function SetDetailPage({
       entry={{
         id: entry.n,
         name: entry.t,
+        ...(entry.d !== undefined ? { nameDe: entry.d } : {}),
         year: entry.y,
         themeName: themeNameOf(entry.th),
         parts: entry.p,

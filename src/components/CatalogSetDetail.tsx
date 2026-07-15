@@ -11,6 +11,8 @@ import SimilarSetsRow, { type SimilarSetItem } from "./SimilarSetsRow";
 export interface CatalogEntryProps {
   id: string;
   name: string;
+  /** Deutscher Name, nur wenn er vom englischen abweicht */
+  nameDe?: string;
   year: number;
   themeName: string;
   parts: number;
@@ -63,6 +65,9 @@ export default function CatalogSetDetail({
   const { lang } = useLang();
   const t = useT();
 
+  // Bei Sprache DE deutschen Katalognamen zeigen, sonst englischen
+  const displayName = lang === "de" && entry.nameDe ? entry.nameDe : entry.name;
+
   // themeName kommt als "Root · Sub" (oder nur "Root") aus themeNameOf()
   const themeParts = entry.themeName.split(" · ").filter(Boolean);
 
@@ -102,7 +107,7 @@ export default function CatalogSetDetail({
       <div className="card grid md:grid-cols-[320px_1fr]">
         <BrickImage
           src={entry.img || undefined}
-          alt={entry.name}
+          alt={displayName}
           label={entry.id}
           className="h-64 md:h-full w-full"
           imgClassName="object-contain p-4"
@@ -113,7 +118,7 @@ export default function CatalogSetDetail({
             <span className="badge badge-blue">{entry.themeName}</span>
             {entry.year > 0 && <span className="badge badge-gray">{entry.year}</span>}
           </div>
-          <h1 className="text-3xl font-extrabold leading-tight">{entry.name}</h1>
+          <h1 className="text-3xl font-extrabold leading-tight">{displayName}</h1>
           <p className="text-sm text-[var(--muted)] leading-relaxed">{t("catalog.noEditorial")}</p>
           <div className="mt-auto pt-3">
             <ExternalLinkChips catalogId={entry.id} />
@@ -159,9 +164,9 @@ export default function CatalogSetDetail({
 
       <PricePanel setId={entry.id} figs={figs} figsTotal={figsTotal} />
 
-      <AddToPortfolio setId={entry.id} name={entry.name} img={entry.img} />
+      <AddToPortfolio setId={entry.id} name={displayName} img={entry.img} />
 
-      <PriceAlertButton setId={entry.id} name={entry.name} img={entry.img} />
+      <PriceAlertButton setId={entry.id} name={displayName} img={entry.img} />
 
       {similar.length > 0 && <SimilarSetsRow sets={similar} />}
     </div>

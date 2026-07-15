@@ -9,6 +9,8 @@ import BrickImage from "./BrickImage";
 interface ResultItem {
   id: string;
   name: string;
+  /** Deutscher Name, nur wenn er vom englischen abweicht */
+  nameDe?: string;
   year: number;
   theme: string;
   parts: number;
@@ -171,11 +173,13 @@ export default function LexiconBrowser({
         <div className="card p-10 text-center text-[var(--muted)]">{t("common.noResults")}</div>
       ) : (
         <div className={`grid gap-4 sm:grid-cols-2 lg:grid-cols-4 ${loading ? "opacity-50" : ""}`}>
-          {(data?.results ?? []).map((item) => (
+          {(data?.results ?? []).map((item) => {
+            const displayName = lang === "de" && item.nameDe ? item.nameDe : item.name;
+            return (
             <Link key={item.id} href={`/lexikon/${item.id}`} className="card flex flex-col">
               <BrickImage
                 src={item.img || undefined}
-                alt={item.name}
+                alt={displayName}
                 label={item.id}
                 className="h-40 w-full"
                 imgClassName="object-contain p-2"
@@ -189,7 +193,7 @@ export default function LexiconBrowser({
                     <span className="badge badge-yellow">★ {t("lex.curatedBadge")}</span>
                   )}
                 </div>
-                <p className="font-semibold leading-snug">{item.name}</p>
+                <p className="font-semibold leading-snug">{displayName}</p>
                 <p className="text-xs text-[var(--muted)]">
                   {item.theme}
                   {item.parts > 0
@@ -205,7 +209,8 @@ export default function LexiconBrowser({
                 )}
               </div>
             </Link>
-          ))}
+            );
+          })}
         </div>
       )}
 

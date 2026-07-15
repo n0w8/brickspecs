@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { figsInSet, getCatalogFig } from "@/lib/minifig-catalog";
+import { getCatalogSet } from "@/lib/catalog";
 import { resolveBrickLinkFig } from "@/lib/fig-bridge";
 import { MINIFIGS } from "@/data/minifigs";
 
@@ -41,6 +42,8 @@ interface BrickognizeResponse {
 export interface ScanItem {
   id: string;
   name: string;
+  /** Nur bei Sets: deutscher Katalogname, falls er vom englischen abweicht */
+  nameDe?: string;
   score: number;
   img: string;
   type: string;
@@ -159,8 +162,10 @@ export async function POST(req: NextRequest) {
             img: item.img_url,
             type: item.type,
           };
-          // Sets: enthaltene Minifiguren mitliefern.
+          // Sets: deutschen Katalognamen und enthaltene Minifiguren mitliefern.
           if (item.type === "set") {
+            const catalogEntry = getCatalogSet(item.id);
+            if (catalogEntry?.d) base.nameDe = catalogEntry.d;
             const setFigs = figsInSet(item.id);
             if (setFigs.length > 0) {
               base.figs = setFigs.slice(0, 8).map((f) => ({ id: f.n, name: f.t, img: f.i }));

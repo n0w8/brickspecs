@@ -13,6 +13,8 @@ export interface CatalogSet {
   n: string;
   /** Name (englisch, aus Katalog) */
   t: string;
+  /** Deutscher Name (aus names-de.json), nur wenn er vom englischen abweicht */
+  d?: string;
   y: number;
   /** Theme-ID */
   th: string;
@@ -69,6 +71,18 @@ function load(): Cache {
     ThemeEntry
   >;
 
+  // Deutsche Katalognamen (von scripts/generate-names-de.mjs erzeugt).
+  // Optional: fehlt die Datei, bleiben alle Namen englisch.
+  let namesDe: Record<string, string> = {};
+  try {
+    namesDe = JSON.parse(readFileSync(join(dir, "names-de.json"), "utf8")) as Record<
+      string,
+      string
+    >;
+  } catch {
+    // kein Fehler - Feature ist dann einfach inaktiv
+  }
+
   // Root-Theme pro Theme-ID einmal auflösen (für den Non-Building-Filter).
   const rootByThemeId = new Map<string, string>();
   const rootOf = (id: string): string => {
@@ -101,6 +115,8 @@ function load(): Cache {
   const byId = new Map<string, CatalogSet>();
   const byBase = new Map<string, CatalogSet[]>();
   for (const s of cat.sets) {
+    const de = namesDe[s.n];
+    if (de) s.d = de;
     byId.set(s.n, s);
     const base = s.n.replace(/-\d+$/, "");
     const list = byBase.get(base);
@@ -194,6 +210,8 @@ export interface CatalogSearchParams {
 export interface CatalogSearchResultItem {
   id: string;
   name: string;
+  /** Deutscher Name, nur wenn er vom englischen abweicht */
+  nameDe?: string;
   year: number;
   theme: string;
   parts: number;
@@ -217,8 +235,12 @@ export function searchCatalog(params: CatalogSearchParams) {
     return true;
   });
 
+  // Gematcht wird gegen Setnummer, englischen UND deutschen Namen -
+  // "Polizeistation" findet damit auch ohne Synonym-Umweg direkt Treffer.
   const matches = (s: CatalogSet, term: string) =>
-    s.n.toLowerCase().startsWith(term) || s.t.toLowerCase().includes(term);
+    s.n.toLowerCase().startsWith(term) ||
+    s.t.toLowerCase().includes(term) ||
+    (s.d !== undefined && s.d.toLowerCase().includes(term));
 
   // Query-Abgleich: Original-Query zuerst; deutsche Begriffe werden
   // zusätzlich über die DE->EN-Synonym-Map gesucht (z. B. "Polizeistation"
@@ -263,6 +285,7 @@ export function searchCatalog(params: CatalogSearchParams) {
     return {
       id: s.n,
       name: s.t,
+      ...(s.d !== undefined ? { nameDe: s.d } : {}),
       year: s.y,
       theme: rootTheme(c.themes, s.th),
       parts: s.p,
