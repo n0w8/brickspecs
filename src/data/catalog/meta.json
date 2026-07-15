@@ -1,72 +1,37 @@
 {
-  "fetchedAt": "2026-07-14T07:04:01.346Z",
-  "totalSets": 27336,
+  "fetchedAt": "2026-07-15T07:07:05.369Z",
+  "totalSets": 27342,
   "totalThemes": 494,
   "newSetsLastRun": [
     {
-      "id": "203012602-1",
-      "name": "Ninjago Kai Easy Backpack",
+      "id": "100491-1",
+      "name": "Blue Shopping Bag",
       "year": 2026
     },
     {
-      "id": "6663671-1",
-      "name": "Cristiano Ronaldo Poster",
+      "id": "111154-1",
+      "name": "Star Wars Patch Cap",
       "year": 2026
     },
     {
-      "id": "6663672-1",
-      "name": "Vinicius Junior Poster",
+      "id": "203732607-1",
+      "name": "Colourful Bricks Round Crossbody Bag Large",
       "year": 2026
     },
     {
-      "id": "202542406-1",
-      "name": "Iconic Sparkle School Bag Set",
-      "year": 2024
+      "id": "203732611-1",
+      "name": "Brick Dots Red Round Crossbody Bag Large",
+      "year": 2026
     },
     {
-      "id": "202132204-1",
-      "name": "Ninjago Golden Team Optimo Plus Backpack with Gym Bag",
-      "year": 2022
+      "id": "21372-1",
+      "name": "La Catrina",
+      "year": 2026
     },
     {
-      "id": "202292301-1",
-      "name": "Ninjago Lloyd Backpack with Gym Bag and Pencil Case",
-      "year": 2022
-    },
-    {
-      "id": "202292302-1",
-      "name": "Ninjago Kai Backpack with Gym Bag and Pencil Case",
-      "year": 2022
-    },
-    {
-      "id": "5711013141783-1",
-      "name": "Ninjago Kai School Bag Set of 6",
-      "year": 2022
-    },
-    {
-      "id": "SLIZER-4",
-      "name": "Slizer Sticker Sheet",
-      "year": 1999
-    },
-    {
-      "id": "APRODUCTANIDEA-1",
-      "name": "A product — an idea",
-      "year": 1986
-    },
-    {
-      "id": "DEVELOPINGAPRODUCT-1",
-      "name": "Developing a product",
-      "year": 1986
-    },
-    {
-      "id": "LEGOPRIZE-1",
-      "name": "The LEGO Prize",
-      "year": 1986
-    },
-    {
-      "id": "PRODUCTSAFETY-1",
-      "name": "Product Safety",
-      "year": 1986
+      "id": "BACKPACK-23",
+      "name": "Ninjago Backpack Lloyd",
+      "year": 2021
     }
   ]
 }
