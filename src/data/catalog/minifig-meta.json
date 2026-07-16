@@ -1,5 +1,10 @@
 {
-  "fetchedAt": "2026-07-15T07:07:06.220Z",
-  "totalFigs": 17061,
-  "newFigsLastRun": []
+  "fetchedAt": "2026-07-16T07:16:32.153Z",
+  "totalFigs": 17062,
+  "newFigsLastRun": [
+    {
+      "id": "fig-017970",
+      "name": "Alex, Flat Silver Helmet"
+    }
+  ]
 }

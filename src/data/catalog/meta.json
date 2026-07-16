@@ -1,37 +1,22 @@
 {
-  "fetchedAt": "2026-07-15T07:07:05.369Z",
-  "totalSets": 27342,
+  "fetchedAt": "2026-07-16T07:16:31.292Z",
+  "totalSets": 27345,
   "totalThemes": 494,
   "newSetsLastRun": [
     {
-      "id": "100491-1",
-      "name": "Blue Shopping Bag",
+      "id": "11386-1",
+      "name": "SpongeBob SquarePants: Bikini Bottom",
       "year": 2026
     },
     {
-      "id": "111154-1",
-      "name": "Star Wars Patch Cap",
+      "id": "40858-1",
+      "name": "SpongeBob SquarePants Figure",
       "year": 2026
     },
     {
-      "id": "203732607-1",
-      "name": "Colourful Bricks Round Crossbody Bag Large",
-      "year": 2026
-    },
-    {
-      "id": "203732611-1",
-      "name": "Brick Dots Red Round Crossbody Bag Large",
-      "year": 2026
-    },
-    {
-      "id": "21372-1",
-      "name": "La Catrina",
-      "year": 2026
-    },
-    {
-      "id": "BACKPACK-23",
-      "name": "Ninjago Backpack Lloyd",
-      "year": 2021
+      "id": "AUTOSHOW-1",
+      "name": "Chevrolet Silverado Lego Movie promotional",
+      "year": 2019
     }
   ]
 }
