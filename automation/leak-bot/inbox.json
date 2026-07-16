@@ -3458,5 +3458,33 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-07-16T15:56:59.956Z"
+  },
+  {
+    "id": "089f757c-ab3a-48ad-b635-bcf9ac95a157",
+    "type": "news",
+    "title": "Discover how LEGO Art brought Gustav Klimt’s The Kiss to life",
+    "body": "Going for gold",
+    "url": "https://www.brickfanatics.com/discover-how-lego-art-brought-gustav-klimt-s-the-kiss-to-life",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-07-16T17:11:28.133Z"
+  },
+  {
+    "id": "a3978f5b-319f-4d7f-a484-36f84bf0aa27",
+    "type": "news",
+    "title": "LEGO Ideas La Catrina’s designers are open to customisation",
+    "body": "Dressed for success",
+    "url": "https://www.brickfanatics.com/lego-ideas-la-catrina-s-designers-are-open-to-customisation",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-07-16T17:11:28.133Z"
   }
 ]
