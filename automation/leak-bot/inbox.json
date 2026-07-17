@@ -3626,5 +3626,33 @@
     "rrpEUR": null,
     "buyUrl": "https://www.amazon.de/s?k=LEGO+Huge+set+currently+off",
     "postedAt": "2026-07-17T11:47:05.519Z"
+  },
+  {
+    "id": "bb89e661-c1ff-45bc-a5e7-1c02cdaac581",
+    "type": "news",
+    "title": "Early reviews call LEGO Art 31221 Gustav Klimt - The Kiss a beautiful build despite price",
+    "body": "The reviews are glowing",
+    "url": "https://www.brickfanatics.com/early-reviews-lego-art-31221-gustav-klimt-the-kiss",
+    "source": "Brick Fanatics",
+    "set": "31221",
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+31221",
+    "postedAt": "2026-07-17T12:50:17.604Z"
+  },
+  {
+    "id": "42a7fc70-d331-4a8d-b892-3c43db3dd9ae",
+    "type": "news",
+    "title": "What could have been for LEGO SpongeBob's 2026 box art",
+    "body": "Another case of black box syndrome",
+    "url": "https://www.brickfanatics.com/what-could-have-been-lego-spongebobs-2026-box-art",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-07-17T12:50:17.604Z"
   }
 ]
