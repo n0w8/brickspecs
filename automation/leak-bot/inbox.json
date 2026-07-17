@@ -3584,5 +3584,47 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-07-17T10:23:04.527Z"
+  },
+  {
+    "id": "8c87b6d8-d8bf-4f4b-847e-ec48c0e76fd8",
+    "type": "news",
+    "title": "Weitere Infos zu Umfang und Größe des nächsten LEGO Icons Star Trek Set (11385): Brücke der Enterprise (TOS) mit acht Minifiguren",
+    "body": "📢 Update (17. Juli 2026, 12:43 Uhr): Gerade haben wir darüber berichtet, dass das kommende LEGO Start Trek Set voraussichtlich am 23. Juli im Rahmen der SDCC vorgestellt werden wird, da gibt es auch schon [...] Der Beitrag Weitere Infos zu Umfang und Größe des nächsten LEGO Icons Star Trek Set …",
+    "url": "https://www.stonewars.de/geruechte/zweites-lego-star-trek-set-geruecht/",
+    "source": "StoneWars",
+    "set": "11385",
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+11385",
+    "postedAt": "2026-07-17T11:47:05.519Z"
+  },
+  {
+    "id": "3df9985d-ad0d-4b40-b745-6b0bc1e655cd",
+    "type": "news",
+    "title": "11 of the best references in the biggest ever LEGO SpongeBob set",
+    "body": "A nostalgia-filled adventure",
+    "url": "https://www.brickfanatics.com/11-references-biggest-ever-lego-spongebob-set",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-07-17T11:47:05.519Z"
+  },
+  {
+    "id": "d5639f11-8a03-4cdf-8853-d478e179030c",
+    "type": "news",
+    "title": "Huge LEGO F1 set is currently £27 off on Amazon UK",
+    "body": "Start your engines",
+    "url": "https://www.brickfanatics.com/huge-lego-f1-set-is-currently-27-off-on-amazon-uk",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": "Amazon",
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+Huge+set+currently+off",
+    "postedAt": "2026-07-17T11:47:05.519Z"
   }
 ]
