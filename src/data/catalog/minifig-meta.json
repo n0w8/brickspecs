@@ -1,10 +1,14 @@
 {
-  "fetchedAt": "2026-07-16T07:16:32.153Z",
-  "totalFigs": 17062,
+  "fetchedAt": "2026-07-17T07:11:15.720Z",
+  "totalFigs": 17064,
   "newFigsLastRun": [
     {
-      "id": "fig-017970",
-      "name": "Alex, Flat Silver Helmet"
+      "id": "fig-017971",
+      "name": "Hermione Granger, Gryffindor Robes Open, Hair in Bun"
+    },
+    {
+      "id": "fig-017972",
+      "name": "Construction Worker, Reddish Orange Jacket, Red Hard Hat"
     }
   ]
 }

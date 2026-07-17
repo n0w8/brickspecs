@@ -1,22 +1,17 @@
 {
-  "fetchedAt": "2026-07-16T07:16:31.292Z",
-  "totalSets": 27345,
+  "fetchedAt": "2026-07-17T07:11:14.329Z",
+  "totalSets": 27347,
   "totalThemes": 494,
   "newSetsLastRun": [
     {
-      "id": "11386-1",
-      "name": "SpongeBob SquarePants: Bikini Bottom",
+      "id": "31221-1",
+      "name": "Gustav Klimt – The Kiss",
       "year": 2026
     },
     {
-      "id": "40858-1",
-      "name": "SpongeBob SquarePants Figure",
+      "id": "951340-1",
+      "name": "Construction Worker with Roller",
       "year": 2026
-    },
-    {
-      "id": "AUTOSHOW-1",
-      "name": "Chevrolet Silverado Lego Movie promotional",
-      "year": 2019
     }
   ]
 }
