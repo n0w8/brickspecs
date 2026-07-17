@@ -13,6 +13,7 @@ import SetCard from "@/components/SetCard";
 import HeroPortfolioChart from "@/components/HeroPortfolioChart";
 import HomeWishlist from "@/components/HomeWishlist";
 import GwpBanner from "@/components/GwpBanner";
+import OnlineNow from "@/components/OnlineNow";
 
 export default function Home() {
   const { lang } = useLang();
@@ -142,6 +143,7 @@ export default function Home() {
               {t("common.minifigs")}
             </span>
             <span className="badge badge-green">📰 {ARTICLES.length} {t("nav.articles")}</span>
+            <OnlineNow />
           </div>
         </div>
 

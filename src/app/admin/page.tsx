@@ -9,7 +9,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { User } from "@supabase/supabase-js";
 import { getSupabaseAdmin, getSupabaseServer } from "@/lib/supabase/server";
+import { getStripe } from "@/lib/stripe/server";
 import { isAdminUser } from "@/lib/admin";
+import type { SupabaseClient } from "@supabase/supabase-js";
 import AdminCloud, { type AdminCloudStats } from "./AdminCloud";
 import AdminLocal from "./AdminLocal";
 
@@ -45,6 +47,64 @@ async function fetchNewsletterSubscribers(): Promise<number | null> {
   }
 }
 
+/** Live-Praesenz: Sessions mit last_seen in den letzten 3 Minuten. */
+async function countOnlineNow(admin: SupabaseClient): Promise<number | null> {
+  const since = new Date(Date.now() - 3 * 60 * 1000).toISOString();
+  const { count, error } = await admin
+    .from("presence")
+    .select("session_id", { count: "exact", head: true })
+    .gt("last_seen", since);
+  if (error) return null; // Tabelle noch nicht deployt -> n/a
+  return count ?? 0;
+}
+
+/** Umsatzkennzahlen aus Stripe: MRR, aktive Abos, Monat, gesamt. */
+async function loadRevenue(): Promise<AdminCloudStats["revenue"]> {
+  const stripe = getStripe();
+  if (!stripe) return null;
+  const liveMode = (process.env.STRIPE_SECRET_KEY ?? "").startsWith("sk_live");
+  try {
+    let mrrCents = 0;
+    let activeSubs = 0;
+    for await (const sub of stripe.subscriptions.list({ status: "active", limit: 100 })) {
+      activeSubs += 1;
+      for (const item of sub.items.data) {
+        const amt = (item.price.unit_amount ?? 0) * (item.quantity ?? 1);
+        const iv = item.price.recurring?.interval;
+        const ivc = item.price.recurring?.interval_count ?? 1;
+        if (iv === "month") mrrCents += amt / ivc;
+        else if (iv === "year") mrrCents += amt / (12 * ivc);
+        else if (iv === "week") mrrCents += (amt * 52) / 12 / ivc;
+        else if (iv === "day") mrrCents += (amt * 30) / ivc;
+      }
+    }
+
+    const now = new Date();
+    const monthStart = Math.floor(new Date(now.getFullYear(), now.getMonth(), 1).getTime() / 1000);
+    let monthCents = 0;
+    let totalCents = 0;
+    let seen = 0;
+    for await (const ch of stripe.charges.list({ limit: 100 })) {
+      if (++seen > 2000) break; // Sicherheitsdeckel gegen sehr grosse Historien
+      if (ch.status !== "succeeded" || !ch.paid) continue;
+      const net = ch.amount - (ch.amount_refunded ?? 0);
+      if (net <= 0) continue;
+      totalCents += net;
+      if (ch.created >= monthStart) monthCents += net;
+    }
+
+    return {
+      mrrEur: Math.round(mrrCents) / 100,
+      activeSubs,
+      monthEur: Math.round(monthCents) / 100,
+      totalEur: Math.round(totalCents) / 100,
+      liveMode,
+    };
+  } catch {
+    return { mrrEur: 0, activeSubs: 0, monthEur: 0, totalEur: 0, liveMode };
+  }
+}
+
 async function loadStats(): Promise<AdminCloudStats> {
   const admin = getSupabaseAdmin();
   const empty: AdminCloudStats = {
@@ -61,13 +121,20 @@ async function loadStats(): Promise<AdminCloudStats> {
     referralPaidTotal: null,
     referralRows: [],
     serviceRoleMissing: admin === null,
+    onlineNow: null,
+    revenue: null,
   };
   if (!admin) {
-    empty.newsletterSubscribers = await fetchNewsletterSubscribers();
+    const [subs, revenue] = await Promise.all([
+      fetchNewsletterSubscribers(),
+      loadRevenue(),
+    ]);
+    empty.newsletterSubscribers = subs;
+    empty.revenue = revenue;
     return empty;
   }
 
-  const [usersRes, profilesRes, portfolioRes, alertsRes, newsletter, earningsRes] =
+  const [usersRes, profilesRes, portfolioRes, alertsRes, newsletter, earningsRes, onlineNow, revenue] =
     await Promise.all([
       admin.auth.admin.listUsers({ page: 1, perPage: 1000 }),
       admin.from("profiles").select("id, plan, founder_number"),
@@ -78,6 +145,8 @@ async function loadStats(): Promise<AdminCloudStats> {
         .eq("active", true),
       fetchNewsletterSubscribers(),
       admin.from("referral_earnings").select("referrer_id, amount_eur, status"),
+      countOnlineNow(admin),
+      loadRevenue(),
     ]);
 
   // Nutzerzahlen + letzte Registrierungen aus auth.users
@@ -182,6 +251,8 @@ async function loadStats(): Promise<AdminCloudStats> {
     referralPaidTotal,
     referralRows,
     serviceRoleMissing: false,
+    onlineNow,
+    revenue,
   };
 }
 

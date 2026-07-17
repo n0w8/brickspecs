@@ -29,6 +29,17 @@ export interface AdminCloudStats {
   referralPaidTotal: number | null;
   referralRows: { email: string; pendingEur: number }[];
   serviceRoleMissing: boolean;
+  /** Sessions, die in den letzten 3 Minuten aktiv waren. */
+  onlineNow: number | null;
+  /** Umsatzkennzahlen aus Stripe (null = Stripe nicht konfiguriert). */
+  revenue: {
+    mrrEur: number;
+    activeSubs: number;
+    monthEur: number;
+    totalEur: number;
+    /** true = echter Live-Modus, false = Stripe-Testmodus. */
+    liveMode: boolean;
+  } | null;
 }
 
 const PLAN_ORDER = ["free", "sammler", "investor", "founder"] as const;
@@ -57,6 +68,10 @@ export default function AdminCloud({ stats }: { stats: AdminCloudStats }) {
   const locale = lang === "de" ? "de-DE" : "en-GB";
 
   const tiles = [
+    {
+      label: lang === "de" ? "Gerade online" : "Online now",
+      value: stats.onlineNow === null ? "n/a" : `🟢 ${stats.onlineNow.toLocaleString(locale)}`,
+    },
     {
       label: lang === "de" ? "Nutzer gesamt" : "Total users",
       value: fmt(stats.totalUsers, locale),
@@ -112,7 +127,7 @@ export default function AdminCloud({ stats }: { stats: AdminCloudStats }) {
         <h2 className="font-bold text-lg mb-4">
           📊 {lang === "de" ? "Kennzahlen" : "Key metrics"}
         </h2>
-        <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
           {tiles.map((t) => (
             <div key={t.label} className="card p-4">
               <p className="text-xs text-[var(--muted)] mb-1">{t.label}</p>
@@ -121,6 +136,69 @@ export default function AdminCloud({ stats }: { stats: AdminCloudStats }) {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Umsatz (Stripe) */}
+      <section className="card p-5">
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+          <h2 className="font-bold text-lg">
+            💰 {lang === "de" ? "Umsatz" : "Revenue"}
+          </h2>
+          {stats.revenue && (
+            <span className={`badge ${stats.revenue.liveMode ? "badge-green" : "badge-yellow"}`}>
+              {stats.revenue.liveMode
+                ? lang === "de" ? "Live" : "Live"
+                : lang === "de" ? "Stripe-Testmodus" : "Stripe test mode"}
+            </span>
+          )}
+        </div>
+        {stats.revenue === null ? (
+          <p className="text-sm text-[var(--muted)]">
+            {lang === "de"
+              ? "Stripe ist nicht konfiguriert - keine Umsatzdaten."
+              : "Stripe is not configured - no revenue data."}
+          </p>
+        ) : (
+          <>
+            <div className="grid gap-3 grid-cols-2 lg:grid-cols-4">
+              <div className="card !bg-[var(--surface-2)] p-4">
+                <p className="text-xs text-[var(--muted)] mb-1">
+                  MRR {lang === "de" ? "(monatl. wiederkehrend)" : "(monthly recurring)"}
+                </p>
+                <p className="font-bold text-lg text-[var(--yellow)]">
+                  {fmtEur(stats.revenue.mrrEur, locale)}
+                </p>
+              </div>
+              <div className="card !bg-[var(--surface-2)] p-4">
+                <p className="text-xs text-[var(--muted)] mb-1">
+                  {lang === "de" ? "Aktive Abos" : "Active subs"}
+                </p>
+                <p className="font-bold text-lg">
+                  {stats.revenue.activeSubs.toLocaleString(locale)}
+                </p>
+              </div>
+              <div className="card !bg-[var(--surface-2)] p-4">
+                <p className="text-xs text-[var(--muted)] mb-1">
+                  {lang === "de" ? "Umsatz diesen Monat" : "Revenue this month"}
+                </p>
+                <p className="font-bold text-lg">{fmtEur(stats.revenue.monthEur, locale)}</p>
+              </div>
+              <div className="card !bg-[var(--surface-2)] p-4">
+                <p className="text-xs text-[var(--muted)] mb-1">
+                  {lang === "de" ? "Umsatz gesamt" : "Total revenue"}
+                </p>
+                <p className="font-bold text-lg">{fmtEur(stats.revenue.totalEur, locale)}</p>
+              </div>
+            </div>
+            {!stats.revenue.liveMode && (
+              <p className="text-xs text-[var(--muted)] mt-3">
+                {lang === "de"
+                  ? "Hinweis: Stripe läuft noch im Testmodus - hier erscheinen erst echte Zahlen, sobald die Zahlung live geschaltet ist."
+                  : "Note: Stripe is still in test mode - real figures appear once payments go live."}
+              </p>
+            )}
+          </>
+        )}
       </section>
 
       {/* Plan-Verteilung */}
