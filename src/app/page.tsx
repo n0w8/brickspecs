@@ -14,6 +14,7 @@ import HeroPortfolioChart from "@/components/HeroPortfolioChart";
 import HomeWishlist from "@/components/HomeWishlist";
 import GwpBanner from "@/components/GwpBanner";
 import OnlineNow from "@/components/OnlineNow";
+import SocialProof from "@/components/SocialProof";
 
 export default function Home() {
   const { lang } = useLang();
@@ -168,6 +169,9 @@ export default function Home() {
           </Link>
         ))}
       </section>
+
+      {/* Social Proof + Founder-Fortschritt */}
+      <SocialProof />
 
       {/* Wunschliste: Gaeste-Teaser bzw. eigene Vorschau */}
       <HomeWishlist />

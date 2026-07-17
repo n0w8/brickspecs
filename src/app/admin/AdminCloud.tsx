@@ -5,6 +5,7 @@
 // (src/app/admin/page.tsx) - hier passiert nur noch Darstellung + Sprache.
 
 import { useLang } from "@/lib/i18n";
+import MailBroadcast from "@/components/admin/MailBroadcast";
 
 export interface AdminRecentUser {
   email: string;
@@ -200,6 +201,9 @@ export default function AdminCloud({ stats }: { stats: AdminCloudStats }) {
           </>
         )}
       </section>
+
+      {/* Massen-E-Mail */}
+      <MailBroadcast />
 
       {/* Plan-Verteilung */}
       <section className="card p-5">
