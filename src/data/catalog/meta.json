@@ -1,17 +1,6 @@
 {
-  "fetchedAt": "2026-07-17T07:11:14.329Z",
+  "fetchedAt": "2026-07-18T06:53:26.674Z",
   "totalSets": 27347,
   "totalThemes": 494,
-  "newSetsLastRun": [
-    {
-      "id": "31221-1",
-      "name": "Gustav Klimt – The Kiss",
-      "year": 2026
-    },
-    {
-      "id": "951340-1",
-      "name": "Construction Worker with Roller",
-      "year": 2026
-    }
-  ]
+  "newSetsLastRun": []
 }

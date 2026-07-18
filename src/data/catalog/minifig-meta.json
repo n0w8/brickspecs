@@ -1,14 +1,5 @@
 {
-  "fetchedAt": "2026-07-17T07:11:15.720Z",
+  "fetchedAt": "2026-07-18T06:53:27.362Z",
   "totalFigs": 17064,
-  "newFigsLastRun": [
-    {
-      "id": "fig-017971",
-      "name": "Hermione Granger, Gryffindor Robes Open, Hair in Bun"
-    },
-    {
-      "id": "fig-017972",
-      "name": "Construction Worker, Reddish Orange Jacket, Red Hard Hat"
-    }
-  ]
+  "newFigsLastRun": []
 }
