@@ -1,6 +1,37 @@
 {
-  "fetchedAt": "2026-07-18T06:53:26.674Z",
-  "totalSets": 27347,
+  "fetchedAt": "2026-07-19T07:22:28.053Z",
+  "totalSets": 27350,
   "totalThemes": 494,
-  "newSetsLastRun": []
+  "newSetsLastRun": [
+    {
+      "id": "5010388-1",
+      "name": "Play Box",
+      "year": 2026
+    },
+    {
+      "id": "951386-1",
+      "name": "Zane",
+      "year": 2026
+    },
+    {
+      "id": "951408-1",
+      "name": "Death Trooper",
+      "year": 2026
+    },
+    {
+      "id": "6568275-1",
+      "name": "2025 Store Manager's Summit: New Orleans Alligator Float",
+      "year": 2025
+    },
+    {
+      "id": "DP0961300F-1",
+      "name": "City Fire Trio Backpack",
+      "year": 2021
+    },
+    {
+      "id": "DP0962700c-1",
+      "name": "City Foiled Again Backpack",
+      "year": 2020
+    }
+  ]
 }
