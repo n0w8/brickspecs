@@ -4,13 +4,26 @@ import { getSupabaseAdmin } from "@/lib/supabase/server";
 import { FOUNDER_TOTAL_SUPPLY } from "@/lib/stripe/server";
 
 /**
- * GET /api/stats - oeffentliche Aggregat-Kennzahlen fuer Social Proof auf der
- * Startseite (keine personenbezogenen Daten). 60s Prozess-Cache + CDN-Header.
- * Antwort: { users, portfolioSets, foundersSold, foundersTotal, live }.
+ * GET /api/stats - oeffentliche Aggregat-Kennzahlen (kein PII).
+ *
+ * PRIVACY-SCHWELLE: Nutzer- und Portfolio-Zahlen werden erst oeffentlich
+ * ausgeliefert, wenn sie 4-stellig sind (>= 1000) - vorher kommt null.
+ * Der Betreiber sieht die echten Zahlen immer im Admin-Panel (/admin),
+ * das direkt auf die Datenbank geht und nicht ueber diese Route.
+ *
+ * 60s Prozess-Cache + CDN-Header.
  */
+
+const PUBLIC_THRESHOLD = 1000;
 
 let cache: { data: object; at: number } | null = null;
 const CACHE_MS = 60_000;
+
+/** Zahl erst ab Schwelle veroeffentlichen, sonst null. */
+function gated(count: number | null): number | null {
+  if (count === null || count < PUBLIC_THRESHOLD) return null;
+  return count;
+}
 
 export async function GET() {
   if (cache && Date.now() - cache.at < CACHE_MS) {
@@ -21,14 +34,13 @@ export async function GET() {
 
   const admin = getSupabaseAdmin();
   if (!admin) {
-    const demo = {
+    return NextResponse.json({
       users: null,
       portfolioSets: null,
       foundersSold: null,
       foundersTotal: FOUNDER_TOTAL_SUPPLY,
       live: false,
-    };
-    return NextResponse.json(demo);
+    });
   }
 
   const [usersRes, pfRes, foundersRes] = await Promise.all([
@@ -38,9 +50,10 @@ export async function GET() {
   ]);
 
   const data = {
-    users: usersRes.error ? null : (usersRes.count ?? 0),
-    portfolioSets: pfRes.error ? null : (pfRes.count ?? 0),
-    foundersSold: foundersRes.error ? null : (foundersRes.count ?? 0),
+    users: gated(usersRes.error ? null : (usersRes.count ?? 0)),
+    portfolioSets: gated(pfRes.error ? null : (pfRes.count ?? 0)),
+    // Founder-Verkaufszahl bleibt bis zum Founder-Launch ebenfalls privat.
+    foundersSold: gated(foundersRes.error ? null : (foundersRes.count ?? 0)),
     foundersTotal: FOUNDER_TOTAL_SUPPLY,
     live: true,
   };

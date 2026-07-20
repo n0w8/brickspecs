@@ -17,6 +17,11 @@ import { getSupabaseAdmin } from "@/lib/supabase/server";
 
 const WINDOW_MS = 3 * 60 * 1000; // "online" = aktiv in den letzten 3 Minuten
 
+// Oeffentliche Anzeige erst ab dieser Zahl - kleine Werte verraten sonst,
+// wie klein die Community noch ist. Der Admin sieht die echte Zahl immer
+// (das Admin-Panel zaehlt direkt in der DB, nicht ueber diese Route).
+const PUBLIC_MIN_ONLINE = 5;
+
 async function countOnline(admin: ReturnType<typeof getSupabaseAdmin>): Promise<number | null> {
   if (!admin) return null;
   const since = new Date(Date.now() - WINDOW_MS).toISOString();
@@ -25,7 +30,8 @@ async function countOnline(admin: ReturnType<typeof getSupabaseAdmin>): Promise<
     .select("session_id", { count: "exact", head: true })
     .gt("last_seen", since);
   if (error) return null;
-  return count ?? 0;
+  const n = count ?? 0;
+  return n >= PUBLIC_MIN_ONLINE ? n : null;
 }
 
 export async function POST(req: Request) {

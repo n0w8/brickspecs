@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { getSupabaseAdmin, getSupabaseServer } from "@/lib/supabase/server";
+import { FOUNDER_COMING_SOON } from "@/lib/plan";
 import {
   FOUNDER_TOTAL_SUPPLY,
   baseUrlFromRequest,
@@ -46,6 +47,15 @@ export async function POST(request: Request) {
   const lookupKey = lookupKeyFor(plan, billing);
   if (!lookupKey) {
     return NextResponse.json({ error: "Unbekannter Plan." }, { status: 400 });
+  }
+
+  // Founder Brick ist noch nicht freigeschaltet (Teaser-Phase) - auch
+  // direkte API-Aufrufe duerfen keinen Founder-Checkout starten.
+  if (plan === "founder" && FOUNDER_COMING_SOON) {
+    return NextResponse.json(
+      { error: "Der Founder Brick kommt mit einem der nächsten Updates." },
+      { status: 403 }
+    );
   }
 
   const admin = getSupabaseAdmin();

@@ -1,0 +1,31 @@
+# Neue-Nutzer-Alarm: prueft alle 15 Minuten auf neue Registrierungen und
+# schickt dem Betreiber eine Mail (Brevo, news@brickspecs.com). Neue Nutzer
+# werden zusaetzlich automatisch in die Brevo-Massenmail-Liste importiert.
+# Cursor liegt in Supabase (sync_state.user_notify_cursor) - KEIN Commit noetig.
+name: Neue-Nutzer-Alarm
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: new-user-alert
+  cancel-in-progress: false
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Neue Registrierungen pruefen
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+        run: node scripts/notify-new-users.mjs

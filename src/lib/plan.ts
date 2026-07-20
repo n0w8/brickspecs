@@ -24,6 +24,13 @@ export interface PlanRecord {
 export const FOUNDER_TOTAL = 500;
 export const FOUNDER_REMAINING = 473;
 
+/**
+ * Founder Brick noch nicht freigeschaltet: Karte ist Teaser ("kommt mit einem
+ * der naechsten Updates"), Kauf ist client- UND serverseitig gesperrt.
+ * Zum Launch einfach auf false setzen (ein zentraler Schalter).
+ */
+export const FOUNDER_COMING_SOON = true;
+
 export const PLAN_META: Record<
   Plan,
   { name: { de: string; en: string }; color: string; icon: string }

@@ -8,6 +8,7 @@ import type { Lang } from "@/data/types";
 import { getProfile, isAuthenticated } from "@/lib/auth";
 import { startCheckout, stripePaywallEnabled, stripeTestMode } from "@/lib/paywall";
 import {
+  FOUNDER_COMING_SOON,
   FOUNDER_REMAINING,
   FOUNDER_TOTAL,
   PLAN_META,
@@ -407,13 +408,17 @@ export default function PricingPage() {
               {founder && (
                 <p className="mb-3">
                   <span className="badge badge-yellow">
-                    {founderLeft <= 0
+                    {FOUNDER_COMING_SOON
                       ? lang === "de"
-                        ? "Ausverkauft"
-                        : "Sold out"
-                      : lang === "de"
-                        ? `Noch ${founderLeft} von ${FOUNDER_TOTAL}`
-                        : `${founderLeft} of ${FOUNDER_TOTAL} left`}
+                        ? `🔜 Limitiert auf ${FOUNDER_TOTAL} Stück`
+                        : `🔜 Limited to ${FOUNDER_TOTAL} bricks`
+                      : founderLeft <= 0
+                        ? lang === "de"
+                          ? "Ausverkauft"
+                          : "Sold out"
+                        : lang === "de"
+                          ? `Noch ${founderLeft} von ${FOUNDER_TOTAL}`
+                          : `${founderLeft} of ${FOUNDER_TOTAL} left`}
                   </span>
                 </p>
               )}
@@ -431,6 +436,13 @@ export default function PricingPage() {
                 {isCurrent ? (
                   <button type="button" className="btn w-full opacity-60 cursor-default" disabled>
                     ✓ {lang === "de" ? "Aktueller Plan" : "Current plan"}
+                  </button>
+                ) : founder && FOUNDER_COMING_SOON ? (
+                  <button type="button" className="btn w-full opacity-70 cursor-default" disabled>
+                    🔜{" "}
+                    {lang === "de"
+                      ? "Kommt mit einem der nächsten Updates"
+                      : "Coming in one of the next updates"}
                   </button>
                 ) : founder && stripeMode && founderLeft <= 0 ? (
                   <button type="button" className="btn w-full opacity-60 cursor-default" disabled>
