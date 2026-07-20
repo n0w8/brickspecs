@@ -1,14 +1,5 @@
 {
-  "fetchedAt": "2026-07-19T07:22:28.886Z",
+  "fetchedAt": "2026-07-20T07:52:10.036Z",
   "totalFigs": 17066,
-  "newFigsLastRun": [
-    {
-      "id": "fig-017973",
-      "name": "Construction Worker, Dark Orange Shirt, Dark Bluish Gray Legs, Red Hard Hat with Short Hair"
-    },
-    {
-      "id": "fig-017974",
-      "name": "Project Manager, Bright Light Blue Shirt, Dark Bluish Grey Legs, Red Hard Hat"
-    }
-  ]
+  "newFigsLastRun": []
 }
