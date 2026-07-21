@@ -4466,5 +4466,33 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-07-21T06:16:36.817Z"
+  },
+  {
+    "id": "b8acad2b-a0ee-403f-97cc-f675d689b22a",
+    "type": "news",
+    "title": "'Exciting' monthly LEGO Insiders event coming soon",
+    "body": "A monthly event for LEGO Insiders members is on the way",
+    "url": "https://www.brickfanatics.com/monthly-lego-insiders-event-teased-coming-soon",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-07-21T10:51:53.511Z"
+  },
+  {
+    "id": "a9825798-390b-4acb-a45a-0dbf439ea76e",
+    "type": "news",
+    "title": "World Cup winners gifted LEGO World Cup trophy set",
+    "body": "That's two World Cups for the Spanish team's players this year",
+    "url": "https://www.brickfanatics.com/world-cup-winners-gifted-lego-world-cup-trophy-set",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-07-21T10:51:53.511Z"
   }
 ]
