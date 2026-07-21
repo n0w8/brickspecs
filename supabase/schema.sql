@@ -150,9 +150,11 @@ as $$
 declare
   next_no int;
 begin
+  -- Serialisierung: verhindert doppelte Nummern bei parallelen Zahlungen.
+  perform pg_advisory_xact_lock(hashtext('claim_founder_number'));
+
   select coalesce(max(founder_number), 0) + 1 into next_no
-  from public.profiles
-  for update;
+  from public.profiles;
 
   if next_no > 500 then
     raise exception 'founder_sold_out';
@@ -162,9 +164,18 @@ begin
   set plan = 'founder', plan_billing = 'once', founder_number = next_no
   where id = p_user;
 
+  if not found then
+    raise exception 'profile_not_found';
+  end if;
+
   return next_no;
 end;
 $$;
+
+-- SECURITY: Default-EXECUTE fuer anon/authenticated entziehen - sonst koennte
+-- sich jeder per PostgREST-RPC einen Gratis-Founder holen (Stripe-Bypass).
+revoke execute on function public.claim_founder_number(uuid) from public, anon, authenticated;
+grant execute on function public.claim_founder_number(uuid) to service_role;
 
 -- ---------------------------------------------------------------------------
 -- Set-Aufrufe: oeffentlicher Zaehler pro Set-Detailseite. Lesen darf jeder,
@@ -207,9 +218,51 @@ begin
 end;
 $$;
 
--- Wird serverseitig via service_role aufgerufen; ein GRANT an anon/authenticated
--- ist nicht noetig, schadet aber nicht. Bewusst NICHT breit gegrantet.
+-- Wird serverseitig via service_role aufgerufen. Default-EXECUTE fuer
+-- anon/authenticated entziehen (sonst Zaehler-Manipulation per RPC moeglich).
+revoke execute on function public.increment_set_view(text) from public, anon, authenticated;
 grant execute on function public.increment_set_view(text) to service_role;
+
+-- ---------------------------------------------------------------------------
+-- Free-Limits serverseitig erzwingen (5 Portfolio-Sets, 3 Preisalarme) -
+-- Client-Checks allein waeren per Direkt-API umgehbar.
+-- ---------------------------------------------------------------------------
+create or replace function public.enforce_free_limits()
+returns trigger
+language plpgsql
+security definer set search_path = public
+as $$
+declare
+  user_plan text;
+  cnt int;
+begin
+  select plan into user_plan from public.profiles where id = new.user_id;
+  if coalesce(user_plan, 'free') = 'free' then
+    if tg_table_name = 'portfolio_items' then
+      select count(*) into cnt from public.portfolio_items where user_id = new.user_id;
+      if cnt >= 5 then
+        raise exception 'free_limit_portfolio';
+      end if;
+    elsif tg_table_name = 'price_alerts' then
+      select count(*) into cnt from public.price_alerts where user_id = new.user_id;
+      if cnt >= 3 then
+        raise exception 'free_limit_alerts';
+      end if;
+    end if;
+  end if;
+  return new;
+end;
+$$;
+
+drop trigger if exists portfolio_free_limit on public.portfolio_items;
+create trigger portfolio_free_limit
+  before insert on public.portfolio_items
+  for each row execute function public.enforce_free_limits();
+
+drop trigger if exists alerts_free_limit on public.price_alerts;
+create trigger alerts_free_limit
+  before insert on public.price_alerts
+  for each row execute function public.enforce_free_limits();
 
 -- Anzahl unterschiedlicher Sammler, die ein Set im Portfolio haben. Liefert nur
 -- ein Aggregat (count distinct), keine Personendaten - datenschutzkonform, daher

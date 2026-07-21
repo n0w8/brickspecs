@@ -74,8 +74,8 @@ export default function YearsPage() {
           </p>
           <p className="text-sm text-[var(--muted)]">
             {lang === "de"
-              ? "Alle angekündigten und geleakten Neuheiten findest du im Neuheiten-Radar."
-              : "Find all announced and leaked upcoming sets in the New Releases radar."}
+              ? "Alle offiziell angekündigten Neuheiten findest du im Neuheiten-Radar."
+              : "Find all officially announced upcoming sets in the New Releases radar."}
           </p>
         </div>
         <span className="btn btn-primary shrink-0">

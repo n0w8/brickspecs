@@ -111,6 +111,26 @@ export async function POST(request: Request) {
     const base = baseUrlFromRequest(request);
     const isSubscription = plan !== "founder";
 
+    // Doppel-Abo-Schutz: Wer schon ein aktives Abo hat, soll den Plan ueber
+    // das Stripe-Portal wechseln (anteilige Verrechnung) statt ein zweites,
+    // parallel laufendes Abo zu kaufen.
+    if (isSubscription) {
+      const existing = await stripe.subscriptions.list({
+        customer: customerId,
+        status: "active",
+        limit: 1,
+      });
+      if (existing.data.length > 0) {
+        return NextResponse.json(
+          {
+            error:
+              "Du hast bereits ein aktives Abo. Bitte wechsle deinen Plan über \"Abo verwalten\" in deinem Profil - dort wird fair anteilig verrechnet.",
+          },
+          { status: 409 }
+        );
+      }
+    }
+
     const session = await stripe.checkout.sessions.create({
       mode: isSubscription ? "subscription" : "payment",
       customer: customerId,

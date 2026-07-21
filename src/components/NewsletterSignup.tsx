@@ -103,8 +103,8 @@ export default function NewsletterSignup({ variant }: { variant: "inline" | "box
         </h2>
         <p className="text-sm text-[#c7cede]">
           {lang === "de"
-            ? "Wir schicken dir neue LEGO-Deals, Gratis-Beigaben und Leaks direkt ins Postfach - kompakt und meist einmal am Tag."
-            : "We send new LEGO deals, gifts with purchase and leaks straight to your inbox - compact and usually once a day."}
+            ? "Wir schicken dir neue LEGO-Deals, Gratis-Beigaben und News direkt ins Postfach - kompakt und meist einmal am Tag."
+            : "We send new LEGO deals, gifts with purchase and news straight to your inbox - compact and usually once a day."}
         </p>
         {form}
         {feedback}

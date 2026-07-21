@@ -89,7 +89,7 @@ export const UI = {
   "common.readMore": { de: "Weiterlesen", en: "Read more" },
   "common.back": { de: "Zurück", en: "Back" },
   "common.priceChart": { de: "Preisentwicklung (neu/versiegelt)", en: "Price development (new/sealed)" },
-  "common.estimates": { de: "Demo-Daten: recherchierte Schätzwerte, Stand Juli 2026.", en: "Demo data: researched estimates as of July 2026." },
+  "common.estimates": { de: "Verlaufskurve: recherchierte Schätzwerte - aktuelle Marktpreise siehe Preis-Panel (BrickLink, täglich aktualisiert).", en: "History curve: researched estimates - see the price panel for current market prices (BrickLink, updated daily)." },
   "common.investmentScore": { de: "Investment-Score", en: "Investment score" },
   "common.includedMinifigs": { de: "Enthaltene Minifiguren", en: "Included minifigures" },
   "common.minutes": { de: "Min. Lesezeit", en: "min read" },

@@ -16,8 +16,8 @@ export default function Footer() {
           </p>
           <p className="text-[var(--muted)] leading-relaxed">
             {lang === "de"
-              ? "Das Portal für LEGO-Sammler: Lexikon, Preise, EOL-Radar, Leaks und City-Inspiration."
-              : "The portal for LEGO collectors: encyclopedia, prices, EOL radar, leaks and city inspiration."}
+              ? "Das Portal für LEGO-Sammler: Lexikon, Preise, EOL-Radar, Deals und City-Inspiration."
+              : "The portal for LEGO collectors: encyclopedia, prices, EOL radar, deals and city inspiration."}
           </p>
         </div>
         <div className="flex flex-col gap-2">
@@ -62,8 +62,8 @@ export default function Footer() {
         <div className="text-[var(--muted)] leading-relaxed">
           <p className="mb-2">
             {lang === "de"
-              ? "Alle Preise sind recherchierte Schätzwerte (Demo-Daten, Stand Juli 2026) - keine Anlageberatung."
-              : "All prices are researched estimates (demo data as of July 2026) - not financial advice."}
+              ? "Marktpreise stammen aus BrickLink-Verkaufsdaten (täglich aktualisiert); übrige Angaben sind recherchierte Schätzwerte - keine Anlageberatung."
+              : "Market prices come from BrickLink sales data (updated daily); other figures are researched estimates - not financial advice."}
           </p>
           <p className="mb-2">
             {lang === "de"

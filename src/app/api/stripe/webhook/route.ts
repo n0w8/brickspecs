@@ -222,6 +222,30 @@ export async function POST(request: Request) {
           .eq("id", profileId)
           .maybeSingle();
         if (current?.plan === "founder") break; // Founder nie downgraden
+
+        // Nur downgraden, wenn wirklich KEIN anderes Abo mehr aktiv ist -
+        // sonst wuerde z. B. die Kuendigung eines alten Sammler-Abos den
+        // parallel laufenden Investor-Plan auf "free" zuruecksetzen.
+        const customerId = customerIdOf(sub.customer);
+        if (customerId) {
+          const remaining = await stripe.subscriptions.list({
+            customer: customerId,
+            status: "active",
+            limit: 10,
+          });
+          const other = remaining.data.find((s) => s.id !== sub.id);
+          const mappedOther = other
+            ? planFromLookupKey(other.items.data[0]?.price?.lookup_key ?? null)
+            : null;
+          if (mappedOther) {
+            await admin
+              .from("profiles")
+              .update({ plan: mappedOther.plan, plan_billing: mappedOther.billing })
+              .eq("id", profileId);
+            break;
+          }
+        }
+
         await admin
           .from("profiles")
           .update({ plan: "free", plan_billing: null })

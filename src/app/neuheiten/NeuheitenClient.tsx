@@ -35,7 +35,10 @@ function windowLabel(window: string, lang: "de" | "en"): string {
   return window;
 }
 
-type StatusFilter = "all" | UpcomingSet["status"];
+// NUR offiziell bestaetigte Sets - Geruechte/Leaks werden oeffentlich nicht
+// gezeigt (RLFM-sicher: LEGO-Fan-Media-Partner duerfen mit Leaks nichts zu
+// tun haben). Die Daten bleiben in upcoming.ts erhalten, nur die Anzeige filtert.
+const PUBLIC_SETS = UPCOMING.filter((s) => s.status === "confirmed");
 
 export default function NeuheitenClient({
   profileLinks,
@@ -48,18 +51,15 @@ export default function NeuheitenClient({
   profileLinks: Record<string, string>;
 }) {
   const { lang } = useLang();
-  const [status, setStatus] = useState<StatusFilter>("all");
   const [theme, setTheme] = useState<string>("all");
 
   const themes = useMemo(
-    () => [...new Set(UPCOMING.map((s) => s.theme))].sort((a, b) => a.localeCompare(b)),
+    () => [...new Set(PUBLIC_SETS.map((s) => s.theme))].sort((a, b) => a.localeCompare(b)),
     []
   );
 
   const groups = useMemo(() => {
-    const filtered = UPCOMING.filter(
-      (s) => (status === "all" || s.status === status) && (theme === "all" || s.theme === theme)
-    );
+    const filtered = PUBLIC_SETS.filter((s) => theme === "all" || s.theme === theme);
     const byWindow = new Map<string, UpcomingSet[]>();
     for (const set of filtered) {
       const list = byWindow.get(set.window) ?? [];
@@ -74,10 +74,7 @@ export default function NeuheitenClient({
           (a, b) => a.theme.localeCompare(b.theme) || pick(a.name, lang).localeCompare(pick(b.name, lang))
         ),
       }));
-  }, [status, theme, lang]);
-
-  const confirmedCount = UPCOMING.filter((s) => s.status === "confirmed").length;
-  const rumorCount = UPCOMING.length - confirmedCount;
+  }, [theme, lang]);
 
   return (
     <div className="flex flex-col gap-6 pt-8">
@@ -87,28 +84,16 @@ export default function NeuheitenClient({
         </h1>
         <p className="text-[var(--muted)] max-w-2xl">
           {lang === "de"
-            ? "Alle angekündigten und geleakten Sets bis Ende 2027 - recherchiert und laufend gepflegt."
-            : "All announced and leaked sets through the end of 2027 - researched and continuously maintained."}
+            ? "Alle offiziell angekündigten Sets bis Ende 2027 - recherchiert und laufend gepflegt."
+            : "All officially announced sets through the end of 2027 - researched and continuously maintained."}
         </p>
       </div>
 
       {/* Filter */}
       <div className="flex flex-wrap items-center gap-2">
-        <button className={`chip ${status === "all" ? "chip-active" : ""}`} onClick={() => setStatus("all")}>
-          {lang === "de" ? "Alle" : "All"} ({UPCOMING.length})
-        </button>
-        <button
-          className={`chip ${status === "confirmed" ? "chip-active" : ""}`}
-          onClick={() => setStatus("confirmed")}
-        >
-          ✅ {lang === "de" ? "Bestätigt" : "Confirmed"} ({confirmedCount})
-        </button>
-        <button
-          className={`chip ${status === "rumor" ? "chip-active" : ""}`}
-          onClick={() => setStatus("rumor")}
-        >
-          🔮 {lang === "de" ? "Gerücht" : "Rumor"} ({rumorCount})
-        </button>
+        <span className="chip chip-active cursor-default">
+          ✅ {lang === "de" ? "Offiziell bestätigt" : "Officially confirmed"} ({PUBLIC_SETS.length})
+        </span>
         <select
           className="input !w-auto ml-auto"
           value={theme}
@@ -184,8 +169,8 @@ export default function NeuheitenClient({
 
       <p className="text-xs text-[var(--muted)]">
         {lang === "de"
-          ? "Hinweis: Gerüchte sind unbestätigte Informationen aus der Fan-Community. Setnummern, Namen, Preise und Termine können sich bis zur offiziellen Ankündigung ändern."
-          : "Note: rumors are unconfirmed information from the fan community. Set numbers, names, prices and dates can change until the official announcement."}
+          ? "Hinweis: Preise und Termine können sich bis zum Release ändern. Alle Angaben stammen aus offiziellen Ankündigungen und seriösen Quellen."
+          : "Note: prices and dates can change until release. All information comes from official announcements and reputable sources."}
       </p>
     </div>
   );

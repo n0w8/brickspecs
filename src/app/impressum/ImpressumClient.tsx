@@ -95,20 +95,8 @@ export default function ImpressumClient() {
         )}
       </p>
 
-      <H2>{lang === "de" ? "Online-Streitbeilegung" : "Online dispute resolution"}</H2>
+      <H2>{lang === "de" ? "Verbraucherstreitbeilegung" : "Consumer dispute resolution"}</H2>
       <p>
-        {lang === "de"
-          ? "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: "
-          : "The European Commission provides a platform for online dispute resolution: "}
-        <a
-          className="text-[var(--yellow)] hover:underline"
-          href="https://ec.europa.eu/consumers/odr"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          https://ec.europa.eu/consumers/odr
-        </a>
-        .{" "}
         {lang === "de"
           ? "Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
           : "We are neither obliged nor willing to participate in dispute resolution proceedings before a consumer arbitration board."}

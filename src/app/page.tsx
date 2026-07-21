@@ -78,8 +78,8 @@ export default function Home() {
           <p className="text-sm font-semibold">
             🎉{" "}
             {lang === "de"
-              ? "Anmeldung bestätigt! Ab jetzt bekommst du die besten LEGO-Deals, Gratis-Beigaben und Leaks per E-Mail."
-              : "Subscription confirmed! You will now receive the best LEGO deals, gifts with purchase and leaks by e-mail."}
+              ? "Anmeldung bestätigt! Ab jetzt bekommst du die besten LEGO-Deals, Gratis-Beigaben und News per E-Mail."
+              : "Subscription confirmed! You will now receive the best LEGO deals, gifts with purchase and news by e-mail."}
           </p>
           <button
             type="button"

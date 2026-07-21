@@ -119,8 +119,8 @@ const CARDS: CardDef[] = [
     features: [
       { de: "Alle Investor-Features - lebenslang", en: "All Investor features - for life" },
       {
-        de: "Exklusives Founder-Emblem mit deiner Nummer (#042 von 500) - wird technisch nie wieder vergeben",
-        en: "Exclusive founder emblem with your number (#042 of 500) - technically never issued again",
+        de: "Exklusives Founder-Emblem mit deiner Nummer (z. B. #042 von 500) - wird technisch nie wieder vergeben",
+        en: "Exclusive founder emblem with your number (e.g. #042 of 500) - technically never issued again",
       },
       {
         de: "Dein Name auf der Supporter-Wall (kommt mit Phase 3)",
@@ -163,8 +163,15 @@ const FAQ: {
   {
     q: { de: "Was genau ist der Founder Brick?", en: "What exactly is the Founder Brick?" },
     a: {
-      de: "Eine einmalige Lifetime-Mitgliedschaft, limitiert auf 500 Stück: alle Investor-Features für immer, ein exklusives Founder-Emblem mit deiner Nummer (#042 von 500), das technisch nie wieder vergeben wird, dein Name auf der Supporter-Wall (kommt mit Phase 3) und Zugang zu allen zukünftigen Premium-Features ohne Aufpreis. Ist die Auflage weg, ist sie weg.",
-      en: "A one-time lifetime membership, limited to 500 bricks: all Investor features forever, an exclusive founder emblem with your number (#042 of 500) that is technically never issued again, your name on the supporter wall (coming with phase 3) and access to all future premium features at no extra cost. Once the run is gone, it is gone.",
+      de: "Eine einmalige Lifetime-Mitgliedschaft, limitiert auf 500 Stück: alle Investor-Features für immer, ein exklusives Founder-Emblem mit deiner Nummer (z. B. #042 von 500), das technisch nie wieder vergeben wird, dein Name auf der Supporter-Wall (kommt mit Phase 3) und Zugang zu allen zukünftigen Premium-Features ohne Aufpreis. Ist die Auflage weg, ist sie weg.",
+      en: "A one-time lifetime membership, limited to 500 bricks: all Investor features forever, an exclusive founder emblem with your number (e.g. #042 of 500) that is technically never issued again, your name on the supporter wall (coming with phase 3) and access to all future premium features at no extra cost. Once the run is gone, it is gone.",
+    },
+  },
+  {
+    q: { de: "Habe ich ein Widerrufsrecht?", en: "Do I have a right of withdrawal?" },
+    a: {
+      de: "Ja. Als Verbraucher kannst du binnen 14 Tagen ab Vertragsabschluss ohne Angabe von Gründen widerrufen - formlos genügt, z. B. per E-Mail an office@fuchsmedia.at. Mit dem Kauf stimmst du ausdrücklich zu, dass wir sofort mit der Bereitstellung der digitalen Leistung beginnen; du nimmst zur Kenntnis, dass dein Widerrufsrecht mit vollständiger Bereitstellung erlischt. Bei laufenden Abos erstatten wir im Widerrufsfall anteilig für den nicht genutzten Zeitraum. Unabhängig davon kannst du dein Abo jederzeit über 'Abo verwalten' im Profil kündigen.",
+      en: "Yes. As a consumer you can withdraw within 14 days of conclusion of the contract without giving reasons - informally, e.g. by e-mail to office@fuchsmedia.at. By purchasing you expressly agree that we start providing the digital service immediately; you acknowledge that your right of withdrawal expires once the service has been fully provided. For running subscriptions we refund proportionately for the unused period in case of withdrawal. Independently of this, you can cancel your subscription at any time via 'Manage subscription' in your profile.",
     },
   },
   {
@@ -278,11 +285,14 @@ export default function PricingPage() {
         if (!err) return; // Redirect zu Stripe läuft
         setBusyPlan(null);
         if (err.status === 409) {
-          setFounderLeft(0);
+          // 409 = Founder ausverkauft ODER bereits aktives Abo - die
+          // Server-Meldung ist spezifischer als ein generischer Text.
+          if (plan === "founder") setFounderLeft(0);
           setCheckoutError(
-            lang === "de"
-              ? "Der Founder Brick ist ausverkauft - alle 500 Stück sind vergeben."
-              : "The Founder Brick is sold out - all 500 bricks are taken."
+            err.message ||
+              (lang === "de"
+                ? "Der Founder Brick ist ausverkauft - alle 500 Stück sind vergeben."
+                : "The Founder Brick is sold out - all 500 bricks are taken.")
           );
         } else if (err.status === 401) {
           router.push("/registrieren");
@@ -516,8 +526,8 @@ export default function PricingPage() {
       <p className="text-center text-xs text-[var(--muted)] mt-10">
         {stripeMode
           ? lang === "de"
-            ? `Alle Preise inkl. MwSt. Sichere Zahlung über Stripe.${testMode ? " Test-Modus: Es wird keine echte Karte belastet." : ""}`
-            : `All prices incl. VAT. Secure payment via Stripe.${testMode ? " Test mode: no real card is charged." : ""}`
+            ? `Alle Preise inkl. MwSt. Sichere Zahlung über Stripe. Mit dem Kauf stimmst du dem sofortigen Leistungsbeginn zu - Details zum Widerrufsrecht in den häufigen Fragen.${testMode ? " Test-Modus: Es wird keine echte Karte belastet." : ""}`
+            : `All prices incl. VAT. Secure payment via Stripe. By purchasing you agree to immediate provision of the service - see the FAQ for withdrawal details.${testMode ? " Test mode: no real card is charged." : ""}`
           : lang === "de"
             ? "Alle Preise inkl. MwSt. Demo-Modus: Es findet keine echte Zahlung statt - Pläne werden lokal in deinem Browser vorgemerkt."
             : "All prices incl. VAT. Demo mode: no real payment takes place - plans are noted locally in your browser."}

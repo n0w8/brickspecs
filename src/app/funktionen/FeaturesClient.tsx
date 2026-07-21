@@ -59,8 +59,8 @@ const GROUPS: { heading: { de: string; en: string }; features: Feature[] }[] = [
         href: "/neuheiten",
         title: { de: "Neuheiten-Radar", en: "New releases radar" },
         desc: {
-          de: "Angekündigte und geleakte kommende Sets mit Quelle und Status (bestätigt oder Gerücht).",
-          en: "Announced and leaked upcoming sets with source and status (confirmed or rumor).",
+          de: "Offiziell angekündigte kommende Sets mit Quelle und Release-Fenster.",
+          en: "Officially announced upcoming sets with source and release window.",
         },
       },
       {
@@ -139,15 +139,15 @@ const GROUPS: { heading: { de: string; en: string }; features: Feature[] }[] = [
     ],
   },
   {
-    heading: { de: "Deals, Leaks & Alarm-Kanäle", en: "Deals, leaks & alert channels" },
+    heading: { de: "Deals, News & Alarm-Kanäle", en: "Deals, news & alert channels" },
     features: [
       {
         emoji: "💸",
         href: "/leaks",
-        title: { de: "Leaks & Deals-Feed", en: "Leaks & deals feed" },
+        title: { de: "Deals & News-Feed", en: "Deals & news feed" },
         desc: {
-          de: "Ein Wächter prüft alle 5 Minuten die großen LEGO-News-Quellen und sammelt Deals, Leaks und Aktionen an einem Ort.",
-          en: "A watcher checks the major LEGO news sources every 5 minutes and collects deals, leaks and promos in one place.",
+          de: "Ein Wächter prüft alle 5 Minuten die großen LEGO-News-Quellen und sammelt Deals, News und Aktionen an einem Ort.",
+          en: "A watcher checks the major LEGO news sources every 5 minutes and collects deals, news and promos in one place.",
         },
       },
       {
@@ -164,8 +164,8 @@ const GROUPS: { heading: { de: string; en: string }; features: Feature[] }[] = [
         href: "https://t.me/brickspecs",
         title: { de: "Telegram-Alarm", en: "Telegram alerts" },
         desc: {
-          de: "Deals, Leaks und GWPs sofort als Telegram-Nachricht - strukturiert mit Preis, Rabatt, Shop und Link.",
-          en: "Deals, leaks and GWPs instantly as Telegram messages - structured with price, discount, shop and link.",
+          de: "Deals, News und GWPs sofort als Telegram-Nachricht - strukturiert mit Preis, Rabatt, Shop und Link.",
+          en: "Deals, news and GWPs instantly as Telegram messages - structured with price, discount, shop and link.",
         },
       },
       {
@@ -173,8 +173,8 @@ const GROUPS: { heading: { de: string; en: string }; features: Feature[] }[] = [
         href: "/",
         title: { de: "E-Mail-Newsletter", en: "E-mail newsletter" },
         desc: {
-          de: "Der tägliche BrickSpecs Alarm: neue Deals, Beigaben und Leaks bequem per Mail.",
-          en: "The daily BrickSpecs alert: new deals, gifts and leaks conveniently by mail.",
+          de: "Der tägliche BrickSpecs Alarm: neue Deals, Beigaben und News bequem per Mail.",
+          en: "The daily BrickSpecs alert: new deals, gifts and news conveniently by mail.",
         },
       },
     ],

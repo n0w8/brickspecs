@@ -166,8 +166,20 @@ export async function getPrices(
   if (source === "bricklink") {
     const row = await livePriceFromDb(catalogId);
     if (row) {
-      const avgNew = toNum(row.new_eur);
+      let avgNew = toNum(row.new_eur);
       const avgUsed = toNum(row.used_eur);
+      // Ausreisser-Schutz: Mini-Stichproben (1-2 Verkaeufe) liefern vereinzelt
+      // absurde Neu-Preise (z. B. mitverkaufte Anleitungen statt Sets). Liegt
+      // "neu" bei winziger Stichprobe unter einem Drittel von "gebraucht",
+      // unterdruecken wir den Neu-Wert lieber, als Unsinn anzuzeigen.
+      if (
+        avgNew !== null &&
+        avgUsed !== null &&
+        (row.new_qty ?? 0) < 3 &&
+        avgNew * 3 < avgUsed
+      ) {
+        avgNew = null;
+      }
       const partOutNew = toNum(row.part_out_new_eur);
       const partOutUsed = toNum(row.part_out_used_eur);
       // Live, sobald IRGENDEIN echter Wert vorliegt (Sold-Schnitt oder Teilewert).

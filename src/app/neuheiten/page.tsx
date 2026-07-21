@@ -4,9 +4,9 @@ import { getCatalogSet } from "@/lib/catalog";
 import NeuheitenClient from "./NeuheitenClient";
 
 export const metadata: Metadata = {
-  title: "Neuheiten-Radar - angekündigte & geleakte LEGO-Sets | BrickSpecs",
+  title: "Neuheiten-Radar - offiziell angekündigte LEGO-Sets | BrickSpecs",
   description:
-    "Alle angekündigten und geleakten LEGO-Sets bis Ende 2027: Release-Fenster, erwartete Preise, Teilezahlen und Quellen - laufend gepflegt.",
+    "Alle offiziell angekündigten LEGO-Sets bis Ende 2027: Release-Fenster, erwartete Preise, Teilezahlen und Quellen - laufend gepflegt.",
 };
 
 /**
