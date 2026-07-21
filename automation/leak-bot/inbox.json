@@ -4634,5 +4634,33 @@
     "rrpEUR": null,
     "buyUrl": "https://www.amazon.de/s?k=LEGO+21369",
     "postedAt": "2026-07-21T14:25:16.966Z"
+  },
+  {
+    "id": "d286f90d-8e94-49bd-a940-9a69798fe305",
+    "type": "news",
+    "title": "LEGO The X-Files isn't just another case of a repeated face",
+    "body": "A repeated face, but with an important design change",
+    "url": "https://www.brickfanatics.com/lego-the-x-files-isn-t-another-case-stolen-face",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-07-21T15:59:15.905Z"
+  },
+  {
+    "id": "22313e80-440a-4297-9490-3a0c8d789112",
+    "type": "news",
+    "title": "How different is LEGO Ideas 21369 X-Files from the original fan design?",
+    "body": "The truth is out there… but the changes are here",
+    "url": "https://www.brickfanatics.com/different-lego-ideas-x-files-fan-design",
+    "source": "Brick Fanatics",
+    "set": "21369",
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+21369",
+    "postedAt": "2026-07-21T15:59:15.905Z"
   }
 ]
