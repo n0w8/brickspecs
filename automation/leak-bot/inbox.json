@@ -4732,5 +4732,33 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-07-21T17:23:29.695Z"
+  },
+  {
+    "id": "a580cbec-b816-4f43-9aca-aa59e3a1726c",
+    "type": "news",
+    "title": "The World Cup final reveals LEGO's missed football opportunity",
+    "body": "It was a open goal",
+    "url": "https://www.brickfanatics.com/world-cup-final-lego-missed-football-opportunity",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-07-21T18:46:11.124Z"
+  },
+  {
+    "id": "5d2bb4a4-ca4c-4eaa-8427-ba4ebf41746d",
+    "type": "news",
+    "title": "You can build your own LEGO Patrick Star before SpongeBob returns",
+    "body": "No, this is (BrickHeadz) Patrick",
+    "url": "https://www.brickfanatics.com/build-your-own-lego-patrick-star-spongebob-returns",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-07-21T18:46:11.124Z"
   }
 ]
