@@ -893,8 +893,8 @@ export const UPCOMING: UpcomingSet[] = [
     status: "confirmed",
     source: "Brickset",
     description: {
-      de: "Am Mario-Tag 2026 offiziell angekündigt: Ab 2027 gibt es erstmals echte Super-Mario-Minifiguren samt Playsets. Gerüchte nennen Luigi, Bowser als Bigfig und Yoshi mit abnehmbarem Sattel.",
-      en: "Officially announced on Mario Day 2026: real Super Mario minifigures with playsets arrive in 2027. Rumors name Luigi, Bowser as a bigfig and Yoshi with a removable saddle.",
+      de: "Am Mario-Tag 2026 offiziell angekündigt: Ab 2027 gibt es erstmals echte Super-Mario-Minifiguren samt Playsets. Welche Charaktere genau kommen, verrät LEGO erst zur offiziellen Enthüllung.",
+      en: "Officially announced on Mario Day 2026: real Super Mario minifigures with playsets arrive in 2027. LEGO will reveal the exact character lineup at the official unveiling.",
     },
   },
 
