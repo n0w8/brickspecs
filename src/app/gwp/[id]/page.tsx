@@ -3,8 +3,10 @@ import { notFound } from "next/navigation";
 import { GWPS } from "@/data/gwp";
 import GwpDetailClient from "./GwpDetailClient";
 
+// Nur bestaetigte Aktionen sind oeffentlich erreichbar - Geruechte/Leaks
+// bekommen keine Seite (RLFM-sicher fuer Fan-Media-Partner).
 export function generateStaticParams() {
-  return GWPS.map((gwp) => ({ id: gwp.id }));
+  return GWPS.filter((g) => g.status === "confirmed").map((gwp) => ({ id: gwp.id }));
 }
 
 /** Kuerzt einen Text auf ~155 Zeichen (Wortgrenze) fuer Meta-Descriptions. */
@@ -52,6 +54,6 @@ export default async function GwpDetailPage({
 }) {
   const { id } = await params;
   const gwp = GWPS.find((g) => g.id === id);
-  if (!gwp) notFound();
+  if (!gwp || gwp.status !== "confirmed") notFound();
   return <GwpDetailClient gwp={gwp} />;
 }

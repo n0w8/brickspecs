@@ -53,7 +53,7 @@ export const UI = {
   "nav.lexicon": { de: "Set-Lexikon", en: "Set Encyclopedia" },
   "nav.minifigs": { de: "Minifiguren", en: "Minifigures" },
   "nav.eol": { de: "EOL-Radar", en: "EOL Radar" },
-  "nav.leaks": { de: "Leaks & Deals", en: "Leaks & Deals" },
+  "nav.leaks": { de: "Deals & News", en: "Deals & News" },
   "nav.articles": { de: "Artikel", en: "Articles" },
   "nav.city": { de: "City-Hub", en: "City Hub" },
   "nav.portfolio": { de: "Portfolio", en: "Portfolio" },
@@ -107,19 +107,19 @@ export const UI = {
 
   "home.heroTitle": { de: "Das Portal für LEGO-Sammler", en: "The portal for LEGO collectors" },
   "home.heroSub": {
-    de: "Set-Lexikon, Minifiguren-Datenbank, Preisentwicklungen, EOL-Prognosen und blitzschnelle Leaks - alles an einem Ort.",
-    en: "Set encyclopedia, minifigure database, price trends, EOL forecasts and lightning-fast leaks - all in one place.",
+    de: "Set-Lexikon, Minifiguren-Datenbank, echte Marktpreise, EOL-Prognosen und blitzschnelle Deals - alles an einem Ort.",
+    en: "Set encyclopedia, minifigure database, real market prices, EOL forecasts and lightning-fast deals - all in one place.",
   },
   "home.searchPlaceholder": { de: "Set-Nummer oder Name suchen, z. B. 10188 …", en: "Search set number or name, e.g. 10188 …" },
   "home.featured": { de: "Legendäre Sets", en: "Legendary sets" },
   "home.eolTeaser": { de: "Bald EOL - jetzt noch zur UVP", en: "Retiring soon - still at RRP" },
-  "home.latestLeaks": { de: "Frische Leaks & Deals", en: "Fresh leaks & deals" },
+  "home.latestLeaks": { de: "Frische Deals & News", en: "Fresh deals & news" },
   "home.latestArticles": { de: "Neue Artikel", en: "Latest articles" },
 
   "leaks.whatsapp": { de: "WhatsApp-Kanal beitreten", en: "Join WhatsApp channel" },
   "leaks.whatsappSub": {
-    de: "Unser Leak-Bot postet Leaks & Schnäppchen in Sekunden direkt in den Kanal.",
-    en: "Our leak bot posts leaks & deals to the channel within seconds.",
+    de: "Unser Deal-Bot postet Schnäppchen & News in Sekunden direkt in den Kanal.",
+    en: "Our deal bot posts bargains & news to the channel within seconds.",
   },
 
   "eol.title": { de: "EOL-Radar", en: "EOL Radar" },

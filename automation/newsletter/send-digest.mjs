@@ -27,8 +27,10 @@ const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const INBOX_FILE = path.join(SCRIPT_DIR, "..", "leak-bot", "inbox.json");
 const STATE_FILE = path.join(SCRIPT_DIR, "last-digest.json");
 
-/** Nur diese Fund-Typen landen im Digest (reine News nicht). */
-const DIGEST_TYPES = new Set(["deal", "gwp", "leak"]);
+/** Nur diese Fund-Typen landen im Digest (reine News nicht).
+ *  "leak" ist BEWUSST ausgeschlossen: BrickSpecs verbreitet keine Leaks -
+ *  RLFM-Partner (LEGO Fan Media) duerfen mit Leaks nichts zu tun haben. */
+const DIGEST_TYPES = new Set(["deal", "gwp"]);
 /** Obergrenze pro Mail - die neuesten zuerst. */
 const MAX_ITEMS = 20;
 const EPOCH = "1970-01-01T00:00:00.000Z";

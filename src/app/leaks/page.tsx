@@ -18,8 +18,11 @@ function timeAgo(iso: string, lang: "de" | "en"): string {
   return lang === "de" ? `vor ${days} Tagen` : `${days} days ago`;
 }
 
-const TYPE_META: Record<LeakPost["type"], { emoji: string; de: string; en: string }> = {
-  leak: { emoji: "🔍", de: "Leak", en: "Leak" },
+// BEWUSST OHNE "leak": BrickSpecs zeigt keine Leaks (unbestaetigte Vorab-
+// Informationen). RLFM-Kanaele (Recognized LEGO Fan Media) duerfen mit Leaks
+// nicht interagieren - damit Partner die Seite bedenkenlos bewerben koennen,
+// sind Leak-Eintraege komplett aus der oeffentlichen Anzeige gefiltert.
+const TYPE_META: Partial<Record<LeakPost["type"], { emoji: string; de: string; en: string }>> = {
   news: { emoji: "📰", de: "News", en: "News" },
   deal: { emoji: "💸", de: "Deal", en: "Deal" },
 };
@@ -32,6 +35,7 @@ export default function LeaksPage() {
   const posts = useMemo(
     () =>
       [...LEAKS]
+        .filter((p) => p.type !== "leak")
         .filter((p) => filter === "all" || p.type === filter)
         .sort((a, b) => b.postedAt.localeCompare(a.postedAt)),
     [filter]
@@ -40,11 +44,11 @@ export default function LeaksPage() {
   return (
     <div className="flex flex-col gap-6 pt-8">
       <div>
-        <h1 className="text-3xl font-extrabold mb-1">🔍 {t("nav.leaks")}</h1>
+        <h1 className="text-3xl font-extrabold mb-1">💸 {t("nav.leaks")}</h1>
         <p className="text-[var(--muted)] max-w-2xl">
           {lang === "de"
-            ? "Leaks, News und Schnäppchen - kuratiert und blitzschnell. In Phase 3 postet unser Bot alles automatisch in den WhatsApp-Kanal."
-            : "Leaks, news and deals - curated and lightning-fast. In phase 3 our bot posts everything to the WhatsApp channel automatically."}
+            ? "Offizielle News und die besten Schnäppchen - kuratiert und blitzschnell, aus den großen seriösen Quellen."
+            : "Official news and the best deals - curated and lightning-fast, from the big reputable sources."}
         </p>
       </div>
 
@@ -85,13 +89,18 @@ export default function LeaksPage() {
         <button className={`chip ${filter === "all" ? "chip-active" : ""}`} onClick={() => setFilter("all")}>
           {t("common.all")}
         </button>
-        {(Object.keys(TYPE_META) as LeakPost["type"][]).map((type) => (
+        {(
+          Object.entries(TYPE_META) as [
+            LeakPost["type"],
+            { emoji: string; de: string; en: string },
+          ][]
+        ).map(([type, meta]) => (
           <button
             key={type}
             className={`chip ${filter === type ? "chip-active" : ""}`}
             onClick={() => setFilter(type)}
           >
-            {TYPE_META[type].emoji} {TYPE_META[type][lang]}
+            {meta.emoji} {meta[lang]}
           </button>
         ))}
       </div>
@@ -100,6 +109,7 @@ export default function LeaksPage() {
       <div className="flex flex-col gap-4">
         {posts.map((post) => {
           const meta = TYPE_META[post.type];
+          if (!meta) return null;
           const discount =
             post.dealPriceEUR && post.dealRrpEUR
               ? Math.round((1 - post.dealPriceEUR / post.dealRrpEUR) * 100)
@@ -181,8 +191,8 @@ export default function LeaksPage() {
 
       <p className="text-xs text-[var(--muted)]">
         {lang === "de"
-          ? "Hinweis: Leaks sind unbestätigte Informationen. Automatisierung (WhatsApp-Bot) ist als Phase 3 vorbereitet - siehe automation/leak-bot im Projekt."
-          : "Note: leaks are unconfirmed information. Automation (WhatsApp bot) is prepared as phase 3 - see automation/leak-bot in the project."}
+          ? "Alle Angaben ohne Gewähr - Preise und Aktionen können sich jederzeit ändern."
+          : "All information without guarantee - prices and promotions can change at any time."}
       </p>
     </div>
   );

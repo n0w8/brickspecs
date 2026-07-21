@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 
 // Metadaten fuer die Client-Seite (Segment-Layout, rendert nur children).
 export const metadata: Metadata = {
-  title: "LEGO Leaks & Deals | BrickSpecs",
+  title: "LEGO Deals & News | BrickSpecs",
   description:
-    "Frische LEGO-Leaks, Deals und Aktionen aus den großen News-Quellen - automatisch gesammelt und laufend aktualisiert, an einem Ort.",
+    "Die besten LEGO-Deals, offizielle News und Aktionen aus den großen Quellen - automatisch gesammelt und laufend aktualisiert, an einem Ort.",
 };
 
 export default function LeaksLayout({ children }: { children: React.ReactNode }) {

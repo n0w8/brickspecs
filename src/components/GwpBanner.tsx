@@ -75,15 +75,21 @@ export default function GwpBanner() {
   const { lang } = useLang();
   const now = Date.now();
 
-  const active = GWPS.filter(
-    (g) =>
-      new Date(g.startDate).getTime() <= now &&
-      (g.endDate === null || new Date(g.endDate).getTime() >= now - 86400000)
-  ).sort((a, b) => (a.endDate ?? "9999").localeCompare(b.endDate ?? "9999"));
+  // Nur bestaetigte Aktionen zeigen - Geruechte/Leaks bleiben oeffentlich
+  // aussen vor (RLFM-sicher fuer Fan-Media-Partner).
+  const confirmed = GWPS.filter((g) => g.status === "confirmed");
 
-  const upcoming = GWPS.filter((g) => new Date(g.startDate).getTime() > now).sort((a, b) =>
-    a.startDate.localeCompare(b.startDate)
-  );
+  const active = confirmed
+    .filter(
+      (g) =>
+        new Date(g.startDate).getTime() <= now &&
+        (g.endDate === null || new Date(g.endDate).getTime() >= now - 86400000)
+    )
+    .sort((a, b) => (a.endDate ?? "9999").localeCompare(b.endDate ?? "9999"));
+
+  const upcoming = confirmed
+    .filter((g) => new Date(g.startDate).getTime() > now)
+    .sort((a, b) => a.startDate.localeCompare(b.startDate));
 
   if (active.length === 0 && upcoming.length === 0) return null;
 

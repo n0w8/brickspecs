@@ -59,7 +59,10 @@ export default function Home() {
     )
     .slice(0, 3);
 
-  const latestLeaks = [...LEAKS]
+  // Nur Deals & News - Leaks werden nirgends oeffentlich gezeigt (RLFM-sicher,
+  // damit LEGO-Fan-Media-Partner die Seite bedenkenlos bewerben koennen).
+  const latestLeaks = LEAKS
+    .filter((l) => l.type !== "leak")
     .sort((a, b) => b.postedAt.localeCompare(a.postedAt))
     .slice(0, 3);
 
