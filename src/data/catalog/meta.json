@@ -1,327 +1,182 @@
 {
-  "fetchedAt": "2026-07-20T07:52:08.591Z",
-  "totalSets": 27412,
+  "fetchedAt": "2026-07-21T07:27:56.530Z",
+  "totalSets": 27447,
   "totalThemes": 494,
   "newSetsLastRun": [
     {
-      "id": "757894517472-1",
-      "name": "Chequered Brick Lunch Bag",
-      "year": 2027
-    },
-    {
-      "id": "12009-1",
-      "name": "Ninjago: Destiny's Bounty Adventures",
+      "id": "10018247-1",
+      "name": "Castle Jibbitz",
       "year": 2026
     },
     {
-      "id": "203022402-1",
-      "name": "Ninjago Reach Beyond Easy Set",
+      "id": "10018248-1",
+      "name": "Red Tile 2x2 Jibbitz",
       "year": 2026
     },
     {
-      "id": "203032408-1",
-      "name": "Ninjago Green School Bag Set of 6",
+      "id": "10018249-1",
+      "name": "Spaceship Jibbitz",
       "year": 2026
     },
     {
-      "id": "203032409-1",
-      "name": "Ninjago Red School Bag Set of 6",
+      "id": "10018250-1",
+      "name": "Red Tile 1x1 Jibbitz",
       "year": 2026
     },
     {
-      "id": "203062508-1",
-      "name": "Ninjago Lloyd Backpack with Gym Bag and Pencil Case",
+      "id": "10018251-1",
+      "name": "Yellow Tile 1x2 Jibbitz",
       "year": 2026
     },
     {
-      "id": "203062513-1",
-      "name": "Ninjago Cole Backpack with Gym Bag and Pencil Case",
+      "id": "10018252-1",
+      "name": "Gaming Minifigure Jibbitz",
       "year": 2026
     },
     {
-      "id": "21067-1",
-      "name": "Tower Bridge",
+      "id": "10018253-1",
+      "name": "Headphones Jibbitz",
       "year": 2026
     },
     {
-      "id": "757894517489-1",
-      "name": "Multicolour Brick Lunch Bag",
+      "id": "10018255-1",
+      "name": "DJ Set Jibbitz",
       "year": 2026
     },
     {
-      "id": "BP0460555-1",
-      "name": "Multicolour Brick Backpack",
+      "id": "10018256-1",
+      "name": "Sailboat Jibbitz",
       "year": 2026
     },
     {
-      "id": "BP0461825-1",
-      "name": "I Play My Way Backpack",
+      "id": "10018257-1",
+      "name": "Sunflower Jibbitz",
       "year": 2026
     },
     {
-      "id": "BP0462258-1",
-      "name": "Rainbow Hearts Backpack",
+      "id": "10018258-1",
+      "name": "Bumblebee Minifigure Jibbitz",
       "year": 2026
     },
     {
-      "id": "JWNLEG0003-1",
-      "name": "Ninjago Backpack with Lunch Bag and Pencil Case",
+      "id": "10018259-1",
+      "name": "White Flower Jibbitz",
       "year": 2026
     },
     {
-      "id": "OLBB0001AZ-1",
-      "name": "Master Builder Backpack",
+      "id": "10018260-1",
+      "name": "Yellow Flower Bud Jibbitz",
       "year": 2026
     },
     {
-      "id": "202642501-1",
-      "name": "Ninjago Elemental Master of Energy Backpack",
-      "year": 2025
+      "id": "10018261-1",
+      "name": "Blue Tile 1x1 Jibbitz",
+      "year": 2026
     },
     {
-      "id": "202642502-1",
-      "name": "Ninjago Dragon Energy Backpack",
-      "year": 2025
+      "id": "10019740-1",
+      "name": "Purple Flower Jibbitz",
+      "year": 2026
     },
     {
-      "id": "202642505-1",
+      "id": "10019741-1",
+      "name": "Ladybug Jibbitz",
+      "year": 2026
+    },
+    {
+      "id": "10019742-1",
+      "name": "Purple Flower Bud Jibbitz",
+      "year": 2026
+    },
+    {
+      "id": "10019743-1",
+      "name": "Dark Green Leaf Jibbitz",
+      "year": 2026
+    },
+    {
+      "id": "10019744-1",
+      "name": "Blue Flower Jibbitz",
+      "year": 2026
+    },
+    {
+      "id": "100722007-1",
+      "name": "Minifigure Backpack",
+      "year": 2026
+    },
+    {
+      "id": "202372607-1",
+      "name": "Colourful Bricks 3-Layer Pencil Case",
+      "year": 2026
+    },
+    {
+      "id": "202372619-1",
+      "name": "Colourful Typography 3-Layer Pencil Case",
+      "year": 2026
+    },
+    {
+      "id": "4000351-1",
+      "name": "FIFA World Cup Official Trophy – Champions Edition",
+      "year": 2026
+    },
+    {
+      "id": "6669168-1",
+      "name": "Sports Car",
+      "year": 2026
+    },
+    {
+      "id": "201682505-1",
       "name": "City Space Explorer Backpack",
       "year": 2025
     },
     {
-      "id": "203012505-1",
-      "name": "City Space Explorer Easy Backpack",
+      "id": "202832403-1",
+      "name": "Ninjago Family Duffle",
       "year": 2025
     },
     {
-      "id": "5056635618573-1",
-      "name": "LEGO Party (All Formats)",
+      "id": "203482524-1",
+      "name": "Ninjago Core Lloyd Duffle Bag",
       "year": 2025
     },
     {
-      "id": "LG3GNJFL001UK-1",
-      "name": "Christmas Sherpa Blanket",
+      "id": "203672523-1",
+      "name": "Ninjago Dragon Energy School Bag Set of 6",
       "year": 2025
     },
     {
-      "id": "106141-1",
-      "name": "Candy Cane Fleece Blanket",
+      "id": "203672524-1",
+      "name": "Ninjago Core Lloyd School Bag Set of 6",
+      "year": 2025
+    },
+    {
+      "id": "LLOYDKO-1",
+      "name": "Lloyd Keepsake Ornament",
+      "year": 2025
+    },
+    {
+      "id": "100698-1",
+      "name": "Minifigure Pencil Case",
       "year": 2024
     },
     {
-      "id": "BP0462700-1",
-      "name": "Neon Bricks Hearts Backpack",
-      "year": 2024
-    },
-    {
-      "id": "MT0461600-1",
-      "name": "Bricks Mesh Tote Bag",
-      "year": 2024
-    },
-    {
-      "id": "MT0461650-1",
-      "name": "Shark Suit Guy Mesh Tote Bag",
-      "year": 2024
-    },
-    {
-      "id": "MT0461700-1",
-      "name": "Surfer Girl Mesh Tote Bag",
-      "year": 2024
-    },
-    {
-      "id": "202282214-1",
-      "name": "Ninjago Gold/Blue Backpack with Gym Bag and Pencil Case",
-      "year": 2022
-    },
-    {
-      "id": "203042302-1",
-      "name": "Ninjago Kai School Bag Set of 6",
-      "year": 2022
-    },
-    {
-      "id": "DPLN961B-1",
-      "name": "Blueprint Backpack and Lunchbox Combo",
-      "year": 2022
-    },
-    {
-      "id": "LEG28758-1",
-      "name": "The LEGO Movie 2 Rex-treme Backpack",
+      "id": "100722006-1",
+      "name": "Minifigure Backpack",
       "year": 2021
     },
     {
-      "id": "100351705-1",
-      "name": "Friends Popstar Backpack Trolley",
-      "year": 2020
+      "id": "201952101-1",
+      "name": "Ninjago Green Lloyd Nielsen Set",
+      "year": 2021
     },
     {
-      "id": "200951814-1",
-      "name": "Friends Confetti Deluxe Set",
-      "year": 2020
+      "id": "201952102-1",
+      "name": "Ninjago Golden Lloyd Nielsen Set",
+      "year": 2021
     },
     {
-      "id": "200961814-1",
-      "name": "Friends Confetti Backpack with Gym Bag",
-      "year": 2020
-    },
-    {
-      "id": "100341915-1",
-      "name": "Friends Good Vibes Gym Bag",
-      "year": 2019
-    },
-    {
-      "id": "100361827-1",
-      "name": "Star Wars BB-8 Backpack",
-      "year": 2019
-    },
-    {
-      "id": "100521915-1",
-      "name": "Friends Good Vibes Pencil Case",
-      "year": 2019
-    },
-    {
-      "id": "200131915-1",
-      "name": "Friends Good Vibes Backpack with Sports Bag",
-      "year": 2019
-    },
-    {
-      "id": "200141914-1",
-      "name": "Friends Girls Rock Backpack with Sports Bag",
-      "year": 2019
-    },
-    {
-      "id": "200141915-1",
-      "name": "Friends Good Vibes Backpack with Sports Bag",
-      "year": 2019
-    },
-    {
-      "id": "200631915-1",
-      "name": "Friends Good Vibes Card Wallet",
-      "year": 2019
-    },
-    {
-      "id": "200641915-1",
-      "name": "Friends  Good Vibes Card Wallet",
-      "year": 2019
-    },
-    {
-      "id": "200701915-1",
-      "name": "Friends Good Vibes Toiletry Bag",
-      "year": 2019
-    },
-    {
-      "id": "201061915-1",
-      "name": "Friends Good Vibes Backpack",
-      "year": 2019
-    },
-    {
-      "id": "201131914-1",
-      "name": "Friends Girls Rock Satchel Set",
-      "year": 2019
-    },
-    {
-      "id": "201131915-1",
-      "name": "Friends Good Vibes Satchel Set",
-      "year": 2019
-    },
-    {
-      "id": "201141908-1",
-      "name": "Ninjago Lloyd Energy School Bag Set of 4",
-      "year": 2019
-    },
-    {
-      "id": "200091712-1",
-      "name": "Elves Backpack with Sports Bag",
-      "year": 2018
-    },
-    {
-      "id": "200091814-1",
-      "name": "Friends Confetti Backpack with Sports Bag",
-      "year": 2018
-    },
-    {
-      "id": "200131712-1",
-      "name": "Elves Backpack with Sports Bag",
-      "year": 2018
-    },
-    {
-      "id": "200241712-1",
-      "name": "Elves Backpack",
-      "year": 2018
-    },
-    {
-      "id": "200451712-1",
-      "name": "Elves Satchel Set",
-      "year": 2018
-    },
-    {
-      "id": "200561726-1",
-      "name": "Star Wars Darth Vader Backpack",
-      "year": 2018
-    },
-    {
-      "id": "16075-1",
-      "name": "Friends Popstar Easy Set",
-      "year": 2017
-    },
-    {
-      "id": "16151-1",
-      "name": "City Fire Backpack with Gym Bag",
-      "year": 2017
-    },
-    {
-      "id": "16155-1",
-      "name": "Friends Popstar Backpack with Gym Bag",
-      "year": 2017
-    },
-    {
-      "id": "200141705-1",
-      "name": "Friends Popstar Backpack with Sports Bag",
-      "year": 2017
-    },
-    {
-      "id": "200181705-1",
-      "name": "Friends Popstar Backpack with Gym Bag",
-      "year": 2017
-    },
-    {
-      "id": "200481705-1",
-      "name": "Friends Popstar Backpack with Gym Bag and Pencil Case",
-      "year": 2017
-    },
-    {
-      "id": "200611705-1",
-      "name": "Friends Popstar Backpack",
-      "year": 2017
-    },
-    {
-      "id": "201782004-1",
-      "name": "Friends Pink Satchel Set",
-      "year": 2017
-    },
-    {
-      "id": "15053-1",
-      "name": "Friends Best Friend Easy Set",
-      "year": 2015
-    },
-    {
-      "id": "15225-1",
-      "name": "Jungle Friends Backpack with Gym Bag",
-      "year": 2015
-    },
-    {
-      "id": "16093-1",
-      "name": "Friends Best Friend Easy Set",
-      "year": 2015
-    },
-    {
-      "id": "16153-1",
-      "name": "Friends Best Friend Backpack with Gym Bag",
-      "year": 2015
-    },
-    {
-      "id": "16154-1",
-      "name": "Friends Horse Backpack with Gym Bag",
-      "year": 2015
+      "id": "201952103-1",
+      "name": "Ninjago Prime Empire Nielsen Set",
+      "year": 2021
     }
   ]
 }
