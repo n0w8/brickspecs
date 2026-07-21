@@ -4494,5 +4494,47 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-07-21T10:51:53.511Z"
+  },
+  {
+    "id": "842ee838-4e5f-4769-b2c8-3d08824a4083",
+    "type": "news",
+    "title": "What to expect from LEGO at San Diego Comic-Con 2026",
+    "body": "It's going to be a fun week",
+    "url": "https://www.brickfanatics.com/what-to-expect-lego-at-san-diego-comic-con-2026",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-07-21T12:15:36.390Z"
+  },
+  {
+    "id": "d253d48e-b121-4f7d-af36-a135e162125b",
+    "type": "news",
+    "title": "LEGO Star Wars 75455 Boba Fett review",
+    "body": "75455 Boba Fett offers an in-depth, authentic LEGO Star Wars exploration of one of the original trilogy's most popular characters.",
+    "url": "https://www.brickfanatics.com/lego-star-wars-75455-boba-fett-review",
+    "source": "Brick Fanatics",
+    "set": "75455",
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+75455",
+    "postedAt": "2026-07-21T12:15:36.390Z"
+  },
+  {
+    "id": "10b5e7eb-1a50-48bb-8c03-2421d7bcdf42",
+    "type": "deal",
+    "title": "Grandiose LEGO Angebote bei Amazon auf City, Star Wars, Speed Champions und Co.",
+    "body": "Die derzeit besten LEGO Angebote in unserer Übersicht: Klasse Rabatte auf LEGO City, Speed Champions, Star Wars, Harry Potter und Co.! Der Beitrag Grandiose LEGO Angebote bei Amazon auf City, Star Wars, Speed Champions und Co. erschien zuerst auf zusammengebaut .",
+    "url": "https://zusammengebaut.com/grandiose-lego-angebote-bei-amazon-auf-city-star-wars-speed-champions-und-co-229147/",
+    "source": "zusammengebaut",
+    "set": null,
+    "shop": "Amazon",
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+Grandiose+Angebote+bei+Amazon",
+    "postedAt": "2026-07-21T12:15:36.390Z"
   }
 ]
