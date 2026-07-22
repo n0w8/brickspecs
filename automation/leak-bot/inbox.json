@@ -4788,5 +4788,47 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-07-22T03:39:32.735Z"
+  },
+  {
+    "id": "3228a8dd-ca1a-4159-aaf1-f33f2637db3f",
+    "type": "deal",
+    "title": "LEGO Angebote bei Amazon im Juli: Bis 50% Rabatt – z.B. LEGO Lieferwagen (60500) für 14,99 Euro oder Fußballer-Dioramen zum Bestpreis",
+    "body": "Amazon hat bei einigen LEGO Sets nochmal kräftig an der Preisschraube gedreht, wodurch ein paar gute LEGO Angebote bei Amazon zusammenkommen, die wir euch hier natürlich nicht vorenthalten wollen. Im besten Fall sind bis zu [...] Der Beitrag LEGO Angebote bei Amazon im Juli: Bis 50% Rabatt – z.B. …",
+    "url": "https://www.stonewars.de/angebote/lego-angebote-amazon-juli-2026/",
+    "source": "StoneWars",
+    "set": "60500",
+    "shop": "Amazon",
+    "priceEUR": 14.99,
+    "rrpEUR": 29.98,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+60500",
+    "postedAt": "2026-07-22T08:45:19.329Z"
+  },
+  {
+    "id": "cccf947c-602c-44a3-a9ea-00374c4be1b7",
+    "type": "news",
+    "title": "The LEGO Spider-Man magazine is pulling out all the stops right now",
+    "body": "From MCU Spidey to a lesser-spotted villain – and retired pieces",
+    "url": "https://www.brickfanatics.com/lego-spider-man-magazine-pulling-out-all-the-stops",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-07-22T08:45:19.329Z"
+  },
+  {
+    "id": "f430189c-02a6-4da1-b1e7-358a4f2d94d4",
+    "type": "news",
+    "title": "LEGO News: Ponte Vecchio in Florence, Umbau Dungeons & Dragon und Teenwolf",
+    "body": "Die LEGO Leser News mit der Ponte Vecchio in Florence und Teenwolf bei Ideas sowie einem fantastischen Umbau des Dungeons & Dragon Sets. Der Beitrag LEGO News: Ponte Vecchio in Florence, Umbau Dungeons & Dragon und Teenwolf erschien zuerst auf zusammengebaut .",
+    "url": "https://zusammengebaut.com/lego-news-ponte-vecchio-in-florence-umbau-dungeons-dragon-und-teenwolf-228230/",
+    "source": "zusammengebaut",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-07-22T08:45:19.329Z"
   }
 ]
