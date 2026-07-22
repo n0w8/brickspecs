@@ -1,182 +1,42 @@
 {
-  "fetchedAt": "2026-07-21T07:27:56.530Z",
-  "totalSets": 27447,
+  "fetchedAt": "2026-07-22T07:29:39.341Z",
+  "totalSets": 27450,
   "totalThemes": 494,
   "newSetsLastRun": [
     {
-      "id": "10018247-1",
-      "name": "Castle Jibbitz",
+      "id": "211873001-1",
+      "name": "Adult's Create Clogs - Black",
       "year": 2026
     },
     {
-      "id": "10018248-1",
-      "name": "Red Tile 2x2 Jibbitz",
+      "id": "211873100-1",
+      "name": "Adult's Create Clogs - White",
       "year": 2026
     },
     {
-      "id": "10018249-1",
-      "name": "Spaceship Jibbitz",
-      "year": 2026
-    },
-    {
-      "id": "10018250-1",
-      "name": "Red Tile 1x1 Jibbitz",
-      "year": 2026
-    },
-    {
-      "id": "10018251-1",
-      "name": "Yellow Tile 1x2 Jibbitz",
-      "year": 2026
-    },
-    {
-      "id": "10018252-1",
-      "name": "Gaming Minifigure Jibbitz",
-      "year": 2026
-    },
-    {
-      "id": "10018253-1",
-      "name": "Headphones Jibbitz",
-      "year": 2026
-    },
-    {
-      "id": "10018255-1",
-      "name": "DJ Set Jibbitz",
-      "year": 2026
-    },
-    {
-      "id": "10018256-1",
-      "name": "Sailboat Jibbitz",
-      "year": 2026
-    },
-    {
-      "id": "10018257-1",
-      "name": "Sunflower Jibbitz",
-      "year": 2026
-    },
-    {
-      "id": "10018258-1",
-      "name": "Bumblebee Minifigure Jibbitz",
-      "year": 2026
-    },
-    {
-      "id": "10018259-1",
-      "name": "White Flower Jibbitz",
-      "year": 2026
-    },
-    {
-      "id": "10018260-1",
-      "name": "Yellow Flower Bud Jibbitz",
-      "year": 2026
-    },
-    {
-      "id": "10018261-1",
-      "name": "Blue Tile 1x1 Jibbitz",
-      "year": 2026
-    },
-    {
-      "id": "10019740-1",
-      "name": "Purple Flower Jibbitz",
-      "year": 2026
-    },
-    {
-      "id": "10019741-1",
-      "name": "Ladybug Jibbitz",
-      "year": 2026
-    },
-    {
-      "id": "10019742-1",
-      "name": "Purple Flower Bud Jibbitz",
-      "year": 2026
-    },
-    {
-      "id": "10019743-1",
-      "name": "Dark Green Leaf Jibbitz",
-      "year": 2026
-    },
-    {
-      "id": "10019744-1",
-      "name": "Blue Flower Jibbitz",
-      "year": 2026
-    },
-    {
-      "id": "100722007-1",
-      "name": "Minifigure Backpack",
-      "year": 2026
-    },
-    {
-      "id": "202372607-1",
-      "name": "Colourful Bricks 3-Layer Pencil Case",
-      "year": 2026
-    },
-    {
-      "id": "202372619-1",
-      "name": "Colourful Typography 3-Layer Pencil Case",
-      "year": 2026
-    },
-    {
-      "id": "4000351-1",
-      "name": "FIFA World Cup Official Trophy – Champions Edition",
-      "year": 2026
-    },
-    {
-      "id": "6669168-1",
-      "name": "Sports Car",
-      "year": 2026
-    },
-    {
-      "id": "201682505-1",
-      "name": "City Space Explorer Backpack",
-      "year": 2025
-    },
-    {
-      "id": "202832403-1",
-      "name": "Ninjago Family Duffle",
-      "year": 2025
-    },
-    {
-      "id": "203482524-1",
-      "name": "Ninjago Core Lloyd Duffle Bag",
-      "year": 2025
-    },
-    {
-      "id": "203672523-1",
-      "name": "Ninjago Dragon Energy School Bag Set of 6",
-      "year": 2025
-    },
-    {
-      "id": "203672524-1",
-      "name": "Ninjago Core Lloyd School Bag Set of 6",
-      "year": 2025
-    },
-    {
-      "id": "LLOYDKO-1",
+      "id": "661127107159-1",
       "name": "Lloyd Keepsake Ornament",
       "year": 2025
     },
     {
-      "id": "100698-1",
-      "name": "Minifigure Pencil Case",
-      "year": 2024
+      "id": "LN0154200-1",
+      "name": "Ninjago Lloyd Lunch Bag",
+      "year": 2025
     },
     {
-      "id": "100722006-1",
-      "name": "Minifigure Backpack",
-      "year": 2021
+      "id": "757894514235-1",
+      "name": "Ninjago Future Lloyd Lunch Bag",
+      "year": 2023
     },
     {
-      "id": "201952101-1",
-      "name": "Ninjago Green Lloyd Nielsen Set",
-      "year": 2021
+      "id": "757894514242-1",
+      "name": "Ninjago Future Kai Lunch Bag",
+      "year": 2023
     },
     {
-      "id": "201952102-1",
-      "name": "Ninjago Golden Lloyd Nielsen Set",
-      "year": 2021
-    },
-    {
-      "id": "201952103-1",
-      "name": "Ninjago Prime Empire Nielsen Set",
-      "year": 2021
+      "id": "757894514273-1",
+      "name": "Ninjago Level-Up Lunch Bag",
+      "year": 2023
     }
   ]
 }
