@@ -4830,5 +4830,33 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-07-22T08:45:19.329Z"
+  },
+  {
+    "id": "9c74deca-7748-4404-9c9c-18fc6c1b3d8d",
+    "type": "news",
+    "title": "LEGO 2027: Erste Neuheiten des nächsten Jahres in der Übersicht",
+    "body": "2027 geht es mit LEGO Sets weiter und wir haben bereits die erste Übersicht angelegt. Neben den ersten Gerüchten und Details gibt es so früh fürs nächste Jahr auch noch viele Fragezeichen, aber wir werden [...] Der Beitrag LEGO 2027: Erste Neuheiten des nächsten Jahres in der Übersicht erschien …",
+    "url": "https://www.stonewars.de/news/lego-2027-erste-neuheiten/",
+    "source": "StoneWars",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-07-22T10:52:40.386Z"
+  },
+  {
+    "id": "a7183d15-8ee3-41ae-83ca-bee1770bef8c",
+    "type": "leak",
+    "title": "Every LEGO Star Wars set rumoured for 2027 – July 2026 update",
+    "body": "From 50th-anniversary sets and minifigures to new helmets, midi-scale sets and more",
+    "url": "https://www.brickfanatics.com/every-lego-star-wars-set-rumoured-2027-jul-2026",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-07-22T10:52:40.386Z"
   }
 ]
