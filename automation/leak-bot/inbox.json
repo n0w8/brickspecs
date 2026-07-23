@@ -5222,5 +5222,47 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-07-23T08:48:06.356Z"
+  },
+  {
+    "id": "146285d2-a69d-46ad-93ca-719bfa3e5aac",
+    "type": "news",
+    "title": "LEGO Super Mario 72051 Donkey Kong Arcade: Retro-Action aus Bausteinen",
+    "body": "Nach dem Classic Space Flipper und dem Pacman-Automaten aus LEGO Steinen geht es mit Donkey Kong Arcade aus der LEGO Super Mario Themenreihe weiter. Der Bausatz besteht aus 1.367 Teilen, hat eine UVP in Höhe von 169,99 Euro und kommt bereits Anfang August 2026 in den Handel. Laut Online-Shop ist …",
+    "url": "https://www.promobricks.de/lego-super-mario-72051-donkey-kong-arcade-retro-action-aus-bausteinen/",
+    "source": "Promobricks",
+    "set": "72051",
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": 169.99,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+72051",
+    "postedAt": "2026-07-23T10:53:49.412Z"
+  },
+  {
+    "id": "cc7fb62f-ea6a-425f-b90c-333906a6b7dd",
+    "type": "news",
+    "title": "Tour the LEGO SDCC 2026 SMART Play booth",
+    "body": "Pick your poison: Pokémon or Star Wars?",
+    "url": "https://www.brickfanatics.com/tour-the-lego-sdcc-2026-smart-play-booth",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-07-23T10:53:49.412Z"
+  },
+  {
+    "id": "b94ed84f-3b80-40d3-8e0d-09191c4745b3",
+    "type": "news",
+    "title": "LEGO’s exclusive new Bugatti set has a painful Star Wars recolour",
+    "body": "Will it ever find its way into the wild?",
+    "url": "https://www.brickfanatics.com/lego-bugatti-set-has-a-painful-star-wars-recolour",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-07-23T10:53:49.412Z"
   }
 ]
