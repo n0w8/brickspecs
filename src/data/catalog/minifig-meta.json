@@ -1,14 +1,5 @@
 {
-  "fetchedAt": "2026-07-22T07:29:41.039Z",
+  "fetchedAt": "2026-07-23T07:27:21.270Z",
   "totalFigs": 17068,
-  "newFigsLastRun": [
-    {
-      "id": "fig-017975",
-      "name": "Chef, White Short Legs"
-    },
-    {
-      "id": "fig-017976",
-      "name": "Droid Brain"
-    }
-  ]
+  "newFigsLastRun": []
 }
