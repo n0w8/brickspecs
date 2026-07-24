@@ -5810,5 +5810,33 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-07-24T18:44:42.734Z"
+  },
+  {
+    "id": "3ee3f4d1-ffa4-451b-b235-e0063f57bac5",
+    "type": "news",
+    "title": "LEGO teases new Batman build with Batman Returns quote",
+    "body": "What could it possibly be?",
+    "url": "https://www.brickfanatics.com/lego-teases-new-batman-build-batman-returns-quote",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-07-24T20:02:59.306Z"
+  },
+  {
+    "id": "f01a3d06-87da-4f85-ab12-cefc8051719c",
+    "type": "news",
+    "title": "New Batman villain revealed, and it's from a LEGO contest",
+    "body": "Meet Rhetoric, the newest Batman villain born from a LEGO contest",
+    "url": "https://www.brickfanatics.com/new-batman-villain-revealed-from-lego-contest",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-07-24T20:02:59.306Z"
   }
 ]
