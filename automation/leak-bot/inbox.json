@@ -5600,5 +5600,33 @@
     "rrpEUR": null,
     "buyUrl": "https://www.amazon.de/s?k=LEGO+76332",
     "postedAt": "2026-07-24T10:47:47.490Z"
+  },
+  {
+    "id": "27501de6-76a7-4a1d-961e-0784a0403089",
+    "type": "gwp",
+    "title": "LEGO explains why the X-Files GWP is Scully’s Lab",
+    "body": "'What was something that we could actually execute really easily?'",
+    "url": "https://www.brickfanatics.com/lego-explains-why-x-files-gwp-is-scullys-lab",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-07-24T12:07:51.837Z"
+  },
+  {
+    "id": "0f07120a-947f-49f5-8240-a83fc58d282d",
+    "type": "news",
+    "title": "LEGO Technic mystery boxes might not stay a mystery for long",
+    "body": "No guessing required",
+    "url": "https://www.brickfanatics.com/lego-technic-mystery-boxes-not-for-long",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-07-24T12:07:51.837Z"
   }
 ]
