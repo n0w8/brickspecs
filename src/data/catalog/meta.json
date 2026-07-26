@@ -1,381 +1,121 @@
 {
-  "fetchedAt": "2026-07-25T07:10:10.285Z",
-  "totalSets": 27600,
-  "totalThemes": 495,
+  "fetchedAt": "2026-07-26T07:30:53.350Z",
+  "totalSets": 27623,
+  "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "IQ3579400-1",
-      "name": "adidas Mercurial Vapor Pro x LEGO (Concord Green Strike) - Kids' Shoes",
-      "year": 2026
-    },
-    {
-      "id": "IQ3580601-1",
-      "name": "Nike Mercurial Vapor x LEGO (Rush Red University Gold) - Kids' Shoes",
-      "year": 2026
-    },
-    {
-      "id": "IU3852700-1",
-      "name": "Nike Air Max Phoenix x LEGO (University Gold Black) - Kids' Shoes",
-      "year": 2026
-    },
-    {
-      "id": "H65337-1",
-      "name": "adidas x LEGO VIDIYO (Black) - T-Shirt",
-      "year": 2024
-    },
-    {
-      "id": "HB9878-1",
-      "name": "adidas x LEGO VIDIYO (White Multi-Color) T-Shirt",
-      "year": 2024
-    },
-    {
-      "id": "AQ5617-1",
-      "name": "adidas PureBoost Toddler x LEGO (Green White Blue) - Infant Shoes",
+      "id": "GW4420-1",
+      "name": "adidas Winterplay x LEGO - Kids' Boots",
       "year": 2023
     },
     {
-      "id": "FX4922-1",
-      "name": "adidas Superstar 360 J x LEGO (Black Green) - Kids' Shoes",
+      "id": "GW9352-1",
+      "name": "adidas Five Ten Freerider x LEGO (Green Glow Bliss Orchid) - Kids' Shoes",
       "year": 2023
     },
     {
-      "id": "FZ5504-1",
-      "name": "adidas Sport Mid x LEGO (Black Blue Yellow) - Kids' Shoes",
+      "id": "GX3329-1",
+      "name": "adidas NMD 360 x LEGO (Black Multi) - Infant Shoes",
       "year": 2023
     },
     {
-      "id": "GW0921-1",
-      "name": "adidas Racer TR x LEGO (White Shock Blue) - Kids' Shoes",
+      "id": "HQ1308-1",
+      "name": "adidas DNA Two-Strap Hook-and-Loop x LEGO (Yellow Black Shock Blue) - Infant Shoes",
       "year": 2023
     },
     {
-      "id": "GW4422-1",
-      "name": "adidas Winterplay x LEGO (Shock Blue Red Core Black) - Kids' Boots",
+      "id": "HQ5848-1",
+      "name": "adidas Terrex Captain Toey J x LEGO (Green Glow Orchid) - Kids' Sandals",
       "year": 2023
     },
     {
-      "id": "GX3287-1",
-      "name": "adidas Superstar 360 x LEGO (All Over Print) - Infant Shoes",
+      "id": "IE4977-1",
+      "name": "adidas TERREX Captain Toey x LEGO (Bright Blue Yellow) - Kids' Sandals",
       "year": 2023
     },
     {
-      "id": "GY3325-1",
-      "name": "adidas Originals Superstar x LEGO (Core Black Green) - Kids' Shoes",
+      "id": "IF2199-1",
+      "name": "adidas Superstar CF x LEGO (Bricks and Figurine - White Royal Blue) - Infant Shoes",
       "year": 2023
     },
     {
-      "id": "GZ5487-1",
-      "name": "adidas Dame ExtPly 7 x LEGO (Bye Bye) - Kids' Shoes",
+      "id": "IF2200-1",
+      "name": "adidas Superstar CF I x LEGO (Bricks and Figurine - White Wonder Quartz) - Infant Shoes",
       "year": 2023
     },
     {
-      "id": "HB4464-1",
-      "name": "adidas x Classic LEGO Red Jacket and Pant Set",
+      "id": "IF2918-1",
+      "name": "adidas Superstar 360 x LEGO (Grey Bright Blue Black) - Infant Shoes",
       "year": 2023
     },
     {
-      "id": "HB4467-1",
-      "name": "adidas x Classic LEGO Tan Yellow Crewneck Sweatshirt",
-      "year": 2023
-    },
-    {
-      "id": "HP5877-1",
-      "name": "adidas Tech Runner EL x LEGO (Core Black Red) - Kids' Shoes",
-      "year": 2023
-    },
-    {
-      "id": "HP5884-1",
-      "name": "adidas Tech Runner x LEGO (Shock Blue Red) - Kids' Shoes",
-      "year": 2023
-    },
-    {
-      "id": "HP9382-1",
-      "name": "adidas Grand Court 2.0 x LEGO (White Blue Yellow) - Men's Shoes",
-      "year": 2023
-    },
-    {
-      "id": "HP9383-1",
-      "name": "adidas Grand Court 2.0 x LEGO (White Black Red) - Men's Shoes",
-      "year": 2023
-    },
-    {
-      "id": "HQ1309-1",
-      "name": "adidas Sport DNA x LEGO (Black Red) - Infant Shoes",
-      "year": 2023
-    },
-    {
-      "id": "HQ1320-1",
-      "name": "adidas Racer TR21 x LEGO (Core White Green) - Infant Shoes",
-      "year": 2023
-    },
-    {
-      "id": "HQ1321-1",
-      "name": "adidas Racer TR21 EL x LEGO (Digi Camo Green) - Infant Shoes",
-      "year": 2023
-    },
-    {
-      "id": "HQ1322-1",
-      "name": "adidas Racer TR21 EL x LEGO (Digi Camo Bliss Orchid) - Infant Shoes",
-      "year": 2023
-    },
-    {
-      "id": "HQ1325-1",
-      "name": "adidas Racer TR21 EL x LEGO (Digi Camo - Green) - Kids' Shoes",
-      "year": 2023
-    },
-    {
-      "id": "HQ1326-1",
-      "name": "adidas Racer TR21 EL x LEGO (Digi Camo Bliss Orchid) - Kids' Shoes",
-      "year": 2023
-    },
-    {
-      "id": "HT5180-1",
-      "name": "adidas x LEGO Soccer Badge of Sport Graphic (White) - T-Shirt",
-      "year": 2023
-    },
-    {
-      "id": "HT6360-1",
-      "name": "adidas x Classic LEGO Multi-Color Socks 3 Pairs",
-      "year": 2023
-    },
-    {
-      "id": "ID9525-1",
-      "name": "adidas Tech RNR x LEGO (Black Silver Metallic) - Kids' Shoes",
-      "year": 2023
-    },
-    {
-      "id": "ID9529-1",
-      "name": "adidas Tech Runner x LEGO (Triple Black) - Kids' Shoes",
-      "year": 2023
-    },
-    {
-      "id": "ID9530-1",
-      "name": "adidas Tech Runner x LEGO (White Black Red) - Kids' Shoes",
-      "year": 2023
-    },
-    {
-      "id": "IE4976-1",
-      "name": "adidas Terrex Agravic Flow x LEGO (Bright Blue) - Kids' Shoes",
-      "year": 2023
-    },
-    {
-      "id": "IF2168-1",
-      "name": "adidas Superstar 360 x LEGO (Allover Print - Wonder Quartz) - Kids' Shoes",
-      "year": 2023
-    },
-    {
-      "id": "IF2169-1",
-      "name": "adidas Superstar 360 x LEGO (Allover Print - Wonder Quartz) - Infant Shoes",
-      "year": 2023
-    },
-    {
-      "id": "IF2891-1",
-      "name": "adidas Racer TR21 x LEGO (White Shock Blue Yellow) - Infant Shoes",
-      "year": 2023
-    },
-    {
-      "id": "IF2910-1",
-      "name": "adidas originals Superstar Velcro x LEGO (White Pink) - Kids' Shoes",
-      "year": 2023
-    },
-    {
-      "id": "IF2912-1",
-      "name": "adidas Superstar x LEGO (White Yellow Pink) - Infant Shoes",
-      "year": 2023
-    },
-    {
-      "id": "IF2919-1",
-      "name": "adidas Superstar 360 x LEGO (Grey One) - Kids' Shoes",
-      "year": 2023
-    },
-    {
-      "id": "IG0567-1",
-      "name": "adidas Racer TR21 EL x LEGO (Blue Digi Camo) - Infant Shoes",
-      "year": 2023
-    },
-    {
-      "id": "IG0568-1",
-      "name": "adidas Racer TR21 EL x LEGO (Red Digi Camo) - Kids' Shoes",
-      "year": 2023
-    },
-    {
-      "id": "GV7276-1",
-      "name": "adidas D.O.N. Issue #3 GCA x LEGO (Minifig) - Men's Shoes",
+      "id": "GV8237-1",
+      "name": "adidas Racer TR EL x LEGO (Halo Blue Sub Green) - Little Kids' Shoes",
       "year": 2022
     },
     {
-      "id": "GV8233-1",
-      "name": "adidas Adilette Slide x LEGO (Equipment Yellow Green) - Kids' Shoes",
+      "id": "GW4000-1",
+      "name": "adidas Racer TR x LEGO (Ecru Tint Bahia Orange) - Little Kids' Shoes",
       "year": 2022
     },
     {
-      "id": "GW1873-1",
-      "name": "adidas Racer TR I x LEGO (Off White Bliss Lilac) - Infant Shoes",
+      "id": "GW4002-1",
+      "name": "adidas Racer TR x LEGO (Black Equipment Yellow) - Little Kids' Shoes",
       "year": 2022
     },
     {
-      "id": "GW3014-1",
-      "name": "adidas Sport Pro J x LEGO (Equipment Yellow) - Kids' Shoes",
+      "id": "GX3219-1",
+      "name": "adidas Racer TR EL I x LEGO (Black Equipment Yellow) - Infant Shoes",
       "year": 2022
     },
     {
-      "id": "GW3015-1",
-      "name": "adidas Sport Pro J x LEGO (Red White) - Kids' Shoes",
+      "id": "HQ3506-1",
+      "name": "adidas Terrex Agravic Flow J x LEGO (Bright Blue Metal Grey) - Kids' Shoes",
       "year": 2022
     },
     {
-      "id": "GW3018-1",
-      "name": "adidas Sport Pro I x LEGO (White Red) - Infant Shoes",
-      "year": 2022
-    },
-    {
-      "id": "GW3681-1",
-      "name": "adidas Racer TR21 x LEGO (Core Black Red) - Men's Shoes",
-      "year": 2022
-    },
-    {
-      "id": "GW3978-1",
-      "name": "adidas Sport Pro K x LEGO (White Brown Yellow) - Kids' Shoes",
-      "year": 2022
-    },
-    {
-      "id": "GW6420-1",
-      "name": "adidas Racer TR I x LEGO (Black Equipment Yellow) - Infant Shoes",
-      "year": 2022
-    },
-    {
-      "id": "GW8092-1",
-      "name": "adidas Sport Pro I x LEGO (Equipment Yellow) - Infant Shoes",
-      "year": 2022
-    },
-    {
-      "id": "GW8123-1",
-      "name": "adidas Sport Pro J x LEGO (Black Equipment Yellow) - Kids' Shoes",
-      "year": 2022
-    },
-    {
-      "id": "GW8555-1",
-      "name": "adidas Gamemode TF x LEGO (Team Yellow Red Bricks) - Men's Shoes",
-      "year": 2022
-    },
-    {
-      "id": "GX3183-1",
-      "name": "adidas Racer TR J x LEGO (Red Shock Blue) - Kids' Shoes",
-      "year": 2022
-    },
-    {
-      "id": "GX3222-1",
-      "name": "adidas Racer TR I x LEGO (Red Shock Blue) - Infant Shoes",
-      "year": 2022
-    },
-    {
-      "id": "GY0074-1",
-      "name": "adidas Terrex Agravic x LEGO (White) - Kids' Shoes",
-      "year": 2022
-    },
-    {
-      "id": "GY5090-1",
-      "name": "adidas Captain Toey J x LEGO (Bright Blue Red) - Kids' Sandals",
-      "year": 2022
-    },
-    {
-      "id": "HQ8871-1",
-      "name": "adidas Racer TR21 x LEGO (Black Red Yellow) - Men's Shoes",
-      "year": 2022
-    },
-    {
-      "id": "FX4959-1",
-      "name": "adidas ZX 360 x LEGO (Bold Orange) - Infant Shoes",
+      "id": "FX2865-1",
+      "name": "adidas Sport x LEGO (Red) - Kids' Shoes",
       "year": 2021
     },
     {
-      "id": "FX9561-1",
-      "name": "adidas RapidaZen J x LEGO (Shock Blue) - Kids' Shoes",
+      "id": "FX2870-1",
+      "name": "adidas Sport x LEGO (Shock Blue) - Kids' Shoes",
       "year": 2021
     },
     {
-      "id": "FX9563-1",
-      "name": "adidas RapidaZen J x LEGO (Shock Blue Equipment Yellow) - Infant Shoes",
+      "id": "FX2871-1",
+      "name": "adidas Sport x LEGO (Red) - Kids' Shoes",
       "year": 2021
     },
     {
-      "id": "FY7081-1",
-      "name": "adidas ZX 8000 x LEGO (Color Pack - Equipment Yellow) - Men's Shoes",
+      "id": "FX2875-1",
+      "name": "adidas Sport Cf I x LEGO (Black Gray Yellow) - Infant Shoes",
       "year": 2021
     },
     {
-      "id": "FY8443-1",
-      "name": "adidas Sport x LEGO (Black Gold Metallic) - Kids' Shoes",
+      "id": "G57946-1",
+      "name": "adidas FortaRun X EL x LEGO (Real Magenta Bricks) - Kids' Shoes",
       "year": 2021
     },
     {
-      "id": "FZ0396-1",
-      "name": "adidas RapidaZen J x LEGO (Light Pink Semi Frozen Yellow) - Kids' Shoes",
+      "id": "GY2613-1",
+      "name": "adidas Sport I x LEGO (Shock Blue Green) - Infant Shoes",
       "year": 2021
     },
     {
-      "id": "FZ0397-1",
-      "name": "adidas RapidaZen x LEGO (Light Pink Semi Frozen Yellow) - Infant Shoes",
+      "id": "GZ5512-1",
+      "name": "adidas D.O.N. Issue 3 x LEGO (Minifig) - Big Kids' Shoes",
       "year": 2021
     },
     {
-      "id": "GY2612-1",
-      "name": "adidas Sport J x LEGO (Shock Blue Green) - Kids' Shoes",
+      "id": "S42806-1",
+      "name": "adidas Dame ExtPly 7 x LEGO (Bye Bye) - Big Kids' Shoes",
       "year": 2021
     },
     {
-      "id": "GZ5529-1",
-      "name": "adidas D.O.N. Issue #3 x LEGO (Minifig) - Men's Shoes",
-      "year": 2021
-    },
-    {
-      "id": "GZ8214-1",
-      "name": "adidas ZX 8000 J x LEGO (Red White) - Kids' Shoes",
-      "year": 2021
-    },
-    {
-      "id": "H02730-1",
-      "name": "adidas Superstar 360 J x LEGO (Shock Blue) - Kids' Shoes",
-      "year": 2021
-    },
-    {
-      "id": "H03963-1",
-      "name": "adidas Superstar CF J x LEGO (White Red Blue) - Kids' Shoes",
-      "year": 2021
-    },
-    {
-      "id": "H03964-1",
-      "name": "adidas Superstar CF J x LEGO (White Yellow Green) - Kids' Shoes",
-      "year": 2021
-    },
-    {
-      "id": "H03969-1",
-      "name": "adidas Superstar CF I x LEGO (White Red Blue) - Infant Shoes",
-      "year": 2021
-    },
-    {
-      "id": "H03970-1",
-      "name": "adidas Superstar CF x LEGO (White Yellow Green) - Infant Shoes",
-      "year": 2021
-    },
-    {
-      "id": "H05284-1",
-      "name": "adidas RapidaZen I x LEGO (Red Shock Blue) - Infant Shoes",
-      "year": 2021
-    },
-    {
-      "id": "H67468-1",
-      "name": "adidas Captain Toey K x LEGO (Blue) - Kids' Sandals",
-      "year": 2021
-    },
-    {
-      "id": "H67471-1",
-      "name": "adidas Captain Toey x LEGO (Red) - Kids' Sandals",
-      "year": 2021
-    },
-    {
-      "id": "FZ3482-1",
-      "name": "adidas ZX8000 x LEGO (A-ZX Series - Mixed Blocks) - Men's Shoes",
+      "id": "FY8439-1",
+      "name": "adidas Sport x LEGO (Equipment Yellow) - Kids' Shoes",
       "year": 2020
     }
   ]
