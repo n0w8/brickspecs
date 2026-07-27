@@ -1,122 +1,72 @@
 {
-  "fetchedAt": "2026-07-26T07:30:53.350Z",
-  "totalSets": 27623,
+  "fetchedAt": "2026-07-27T08:22:07.762Z",
+  "totalSets": 27636,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "GW4420-1",
-      "name": "adidas Winterplay x LEGO - Kids' Boots",
-      "year": 2023
+      "id": "10019396-1",
+      "name": "Ninjago Kai 5 Pack",
+      "year": 2026
     },
     {
-      "id": "GW9352-1",
-      "name": "adidas Five Ten Freerider x LEGO (Green Glow Bliss Orchid) - Kids' Shoes",
-      "year": 2023
+      "id": "10019397-1",
+      "name": "Ninjago Lloyd 5 Pack",
+      "year": 2026
     },
     {
-      "id": "GX3329-1",
-      "name": "adidas NMD 360 x LEGO (Black Multi) - Infant Shoes",
-      "year": 2023
+      "id": "10019398-1",
+      "name": "Ninjago Zane 5 Pack",
+      "year": 2026
     },
     {
-      "id": "HQ1308-1",
-      "name": "adidas DNA Two-Strap Hook-and-Loop x LEGO (Yellow Black Shock Blue) - Infant Shoes",
-      "year": 2023
+      "id": "10019399-1",
+      "name": "Ninjago Nya 5 Pack",
+      "year": 2026
     },
     {
-      "id": "HQ5848-1",
-      "name": "adidas Terrex Captain Toey J x LEGO (Green Glow Orchid) - Kids' Sandals",
-      "year": 2023
+      "id": "10019400-1",
+      "name": "Ninjago Jay 5 Pack",
+      "year": 2026
     },
     {
-      "id": "IE4977-1",
-      "name": "adidas TERREX Captain Toey x LEGO (Bright Blue Yellow) - Kids' Sandals",
-      "year": 2023
+      "id": "10019401-1",
+      "name": "Ninjago Cole 5 Pack",
+      "year": 2026
     },
     {
-      "id": "IF2199-1",
-      "name": "adidas Superstar CF x LEGO (Bricks and Figurine - White Royal Blue) - Infant Shoes",
-      "year": 2023
+      "id": "10019737-1",
+      "name": "Lt Grey Tile 1x2 Jibbitz",
+      "year": 2026
     },
     {
-      "id": "IF2200-1",
-      "name": "adidas Superstar CF I x LEGO (Bricks and Figurine - White Wonder Quartz) - Infant Shoes",
-      "year": 2023
+      "id": "10019738-1",
+      "name": "Dark Grey Tile 1x1 Jibbitz",
+      "year": 2026
     },
     {
-      "id": "IF2918-1",
-      "name": "adidas Superstar 360 x LEGO (Grey Bright Blue Black) - Infant Shoes",
-      "year": 2023
+      "id": "10019739-1",
+      "name": "Green Tile 1x1 Jibbitz",
+      "year": 2026
     },
     {
-      "id": "GV8237-1",
-      "name": "adidas Racer TR EL x LEGO (Halo Blue Sub Green) - Little Kids' Shoes",
+      "id": "213552-1",
+      "name": "Kid's Ninjago Classic Clog",
+      "year": 2026
+    },
+    {
+      "id": "213553-1",
+      "name": "Ninjago Classic Clog",
+      "year": 2026
+    },
+    {
+      "id": "66815-1",
+      "name": "Shrek Series - 6 Pack",
+      "year": 2026
+    },
+    {
+      "id": "GX3286-1",
+      "name": "adidas Superstar 360 x LEGO (All Over Print) - Kids' Shoes",
       "year": 2022
-    },
-    {
-      "id": "GW4000-1",
-      "name": "adidas Racer TR x LEGO (Ecru Tint Bahia Orange) - Little Kids' Shoes",
-      "year": 2022
-    },
-    {
-      "id": "GW4002-1",
-      "name": "adidas Racer TR x LEGO (Black Equipment Yellow) - Little Kids' Shoes",
-      "year": 2022
-    },
-    {
-      "id": "GX3219-1",
-      "name": "adidas Racer TR EL I x LEGO (Black Equipment Yellow) - Infant Shoes",
-      "year": 2022
-    },
-    {
-      "id": "HQ3506-1",
-      "name": "adidas Terrex Agravic Flow J x LEGO (Bright Blue Metal Grey) - Kids' Shoes",
-      "year": 2022
-    },
-    {
-      "id": "FX2865-1",
-      "name": "adidas Sport x LEGO (Red) - Kids' Shoes",
-      "year": 2021
-    },
-    {
-      "id": "FX2870-1",
-      "name": "adidas Sport x LEGO (Shock Blue) - Kids' Shoes",
-      "year": 2021
-    },
-    {
-      "id": "FX2871-1",
-      "name": "adidas Sport x LEGO (Red) - Kids' Shoes",
-      "year": 2021
-    },
-    {
-      "id": "FX2875-1",
-      "name": "adidas Sport Cf I x LEGO (Black Gray Yellow) - Infant Shoes",
-      "year": 2021
-    },
-    {
-      "id": "G57946-1",
-      "name": "adidas FortaRun X EL x LEGO (Real Magenta Bricks) - Kids' Shoes",
-      "year": 2021
-    },
-    {
-      "id": "GY2613-1",
-      "name": "adidas Sport I x LEGO (Shock Blue Green) - Infant Shoes",
-      "year": 2021
-    },
-    {
-      "id": "GZ5512-1",
-      "name": "adidas D.O.N. Issue 3 x LEGO (Minifig) - Big Kids' Shoes",
-      "year": 2021
-    },
-    {
-      "id": "S42806-1",
-      "name": "adidas Dame ExtPly 7 x LEGO (Bye Bye) - Big Kids' Shoes",
-      "year": 2021
-    },
-    {
-      "id": "FY8439-1",
-      "name": "adidas Sport x LEGO (Equipment Yellow) - Kids' Shoes",
-      "year": 2020
     }
   ]
 }
