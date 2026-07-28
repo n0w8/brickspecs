@@ -6706,5 +6706,33 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-07-28T07:06:27.343Z"
+  },
+  {
+    "id": "9cd35c41-d700-4c99-a43a-49bcd27471bc",
+    "type": "news",
+    "title": "Amazon matches two for £20 offer, including £18 NINJAGO set",
+    "body": "Play your cards right, and you're essentially getting a set for free...",
+    "url": "https://www.brickfanatics.com/amazon-matches-two-for-20-including-18-ninjago-set",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": "Amazon",
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+Amazon+matches+two+for",
+    "postedAt": "2026-07-28T09:43:24.600Z"
+  },
+  {
+    "id": "8e72126e-adfa-4e56-aa3b-1bfc220bf49d",
+    "type": "news",
+    "title": "LEGO designer makes internet's favourite raccoon from set",
+    "body": "The internet's new favourite raccoon, Jimothy, has been made into a LEGO model using just the parts from an official set out now. You might have seen a certain short-bodied raccoon doing the rounds on social media this week, named by the internet as Jimothy. Senior Design Manager Jordan Scott has …",
+    "url": "https://www.brickfanatics.com/lego-designer-makes-internet-s-favourite-raccoon-from-set",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-07-28T09:43:24.600Z"
   }
 ]
