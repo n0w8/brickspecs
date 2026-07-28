@@ -1,72 +1,142 @@
 {
-  "fetchedAt": "2026-07-27T08:22:07.762Z",
-  "totalSets": 27636,
+  "fetchedAt": "2026-07-28T07:33:06.406Z",
+  "totalSets": 27657,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "10019396-1",
-      "name": "Ninjago Kai 5 Pack",
+      "id": "2DD00088-1",
+      "name": "Minecraft Trading Cards Series 3: On Fire - Booster Pack",
       "year": 2026
     },
     {
-      "id": "10019397-1",
-      "name": "Ninjago Lloyd 5 Pack",
+      "id": "40880-1",
+      "name": "Avengers: Doomsday Heroes & Villain",
       "year": 2026
     },
     {
-      "id": "10019398-1",
-      "name": "Ninjago Zane 5 Pack",
+      "id": "76345-1",
+      "name": "Doctor Doom Bust",
       "year": 2026
     },
     {
-      "id": "10019399-1",
-      "name": "Ninjago Nya 5 Pack",
+      "id": "76347-1",
+      "name": "Avengers: Doomsday Quinjet",
       "year": 2026
     },
     {
-      "id": "10019400-1",
-      "name": "Ninjago Jay 5 Pack",
+      "id": "76348-1",
+      "name": "Epic Battle: Avengers: Doomsday",
       "year": 2026
     },
     {
-      "id": "10019401-1",
-      "name": "Ninjago Cole 5 Pack",
+      "id": "76352-1",
+      "name": "Avengers: Doomsday New Avengers Tower",
       "year": 2026
     },
     {
-      "id": "10019737-1",
-      "name": "Lt Grey Tile 1x2 Jibbitz",
+      "id": "MTCBINDER3-1",
+      "name": "Minecraft Trading Cards Series 3: On Fire - Card Binder",
       "year": 2026
     },
     {
-      "id": "10019738-1",
-      "name": "Dark Grey Tile 1x1 Jibbitz",
+      "id": "MTCPOSTER-1",
+      "name": "Minecraft Trading Cards Series 3: On Fire - Card Gallery Poster",
       "year": 2026
     },
     {
-      "id": "10019739-1",
-      "name": "Green Tile 1x1 Jibbitz",
-      "year": 2026
+      "id": "702262PL-1",
+      "name": "Ninjago Trading Card Game Series 8: Crystalized - Booster Pack [Polish]",
+      "year": 2023
     },
     {
-      "id": "213552-1",
-      "name": "Kid's Ninjago Classic Clog",
-      "year": 2026
+      "id": "GV8965-1",
+      "name": "adidas Originals Stan Smith x LEGO (White Pantone) - Kids' Shoes",
+      "year": 2023
     },
     {
-      "id": "213553-1",
-      "name": "Ninjago Classic Clog",
-      "year": 2026
+      "id": "HB4462-1",
+      "name": "adidas x Classic LEGO Yellow Tee and Pant Set",
+      "year": 2023
     },
     {
-      "id": "66815-1",
-      "name": "Shrek Series - 6 Pack",
-      "year": 2026
+      "id": "HB4466-1",
+      "name": "adidas x Classic LEGO Red Hoodie",
+      "year": 2023
     },
     {
-      "id": "GX3286-1",
-      "name": "adidas Superstar 360 x LEGO (All Over Print) - Kids' Shoes",
+      "id": "HB4469-1",
+      "name": "adidas x Classic LEGO Grey Windbreaker",
+      "year": 2023
+    },
+    {
+      "id": "HR1108-1",
+      "name": "adidas Five Ten Freerider x LEGO (Green Black) - Kids' Shoes",
+      "year": 2023
+    },
+    {
+      "id": "GV8969-1",
+      "name": "adidas Stan Smith I x LEGO (White Pantone) - Infant Shoes",
       "year": 2022
+    },
+    {
+      "id": "GW1877-1",
+      "name": "adidas Racer TR x LEGO (Off White Bliss) - Kids' Shoes",
+      "year": 2022
+    },
+    {
+      "id": "GW8124-1",
+      "name": "adidas Sport Pro J x LEGO (Black Equipment Yellow) - Kids' Shoes",
+      "year": 2022
+    },
+    {
+      "id": "GX7206-1",
+      "name": "adidas Superstar x LEGO (Clear White Ice Mint) - Women's Shoes",
+      "year": 2022
+    },
+    {
+      "id": "GZ2412-1",
+      "name": "adidas Sport Pro J x LEGO (Red Off White) - Kids' Shoes",
+      "year": 2022
+    },
+    {
+      "id": "HC9798-1",
+      "name": "adidas Tiro x LEGO Jersey",
+      "year": 2022
+    },
+    {
+      "id": "FZ3983-1",
+      "name": "adidas Ultraboost DNA x LEGO (Color Pack - Multi) - Men's Shoes",
+      "year": 2021
+    },
+    {
+      "id": "FZ5444-1",
+      "name": "adidas Sport x LEGO (Black Green) - Infant Shoes",
+      "year": 2021
+    },
+    {
+      "id": "GX7612-1",
+      "name": "adidas Sport J x LEGO (Shock Blue Green) - Kids' Shoes",
+      "year": 2021
+    },
+    {
+      "id": "H03955-1",
+      "name": "adidas Superstar J x LEGO (Cloud White Red) - Kids' Shoes",
+      "year": 2021
+    },
+    {
+      "id": "H03957-1",
+      "name": "adidas  x LEGO (White Green) - Kids' Shoes",
+      "year": 2021
+    },
+    {
+      "id": "H03958-1",
+      "name": "adidas Superstar J x LEGO (White Eqt Yellow) - Women's Shoes",
+      "year": 2021
+    },
+    {
+      "id": "H67954-1",
+      "name": "adidas Ultraboost DNA x LEGO (Color Pack - Green) - Men's Shoes",
+      "year": 2021
     }
   ]
 }
