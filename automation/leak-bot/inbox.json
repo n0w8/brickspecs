@@ -7112,5 +7112,19 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-07-29T15:23:22.320Z"
+  },
+  {
+    "id": "bef582e9-e17e-4253-b34a-a5b2e90045af",
+    "type": "deal",
+    "title": "Up to 43% off new and retiring LEGO sets at Amazon UK",
+    "body": "Build a bag with bonus discounts at checkout",
+    "url": "https://www.brickfanatics.com/up-to-43-off-new-and-retiring-lego-amazon-uk",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": "Amazon",
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+off+new+and+retiring",
+    "postedAt": "2026-07-29T16:43:46.006Z"
   }
 ]
