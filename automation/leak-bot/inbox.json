@@ -7196,5 +7196,33 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-07-30T03:25:49.038Z"
+  },
+  {
+    "id": "870843d0-5416-422c-a086-d8c5672e3232",
+    "type": "news",
+    "title": "New microscale Hogwarts, same old LEGO Harry Potter",
+    "body": "Stop us if you’ve seen this one before",
+    "url": "https://www.brickfanatics.com/new-microscale-hogwarts-same-old-lego-harry-potter",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-07-30T08:43:49.219Z"
+  },
+  {
+    "id": "229fa713-dc8e-43d5-80d8-abd67b7b0bac",
+    "type": "news",
+    "title": "LEGO Harry Potter 40975 Mini Hogwarts Castle offiziell vorgestellt",
+    "body": "Auf ein Neues! Das LEGO Harry Potter 40975 Mini Hogwarts Castle wurde soeben offiziell vorgestellt: Alle Infos! Der Beitrag LEGO Harry Potter 40975 Mini Hogwarts Castle offiziell vorgestellt erschien zuerst auf zusammengebaut .",
+    "url": "https://zusammengebaut.com/lego-harry-potter-40975-mini-hogwarts-castle-offiziell-vorgestellt-229510/",
+    "source": "zusammengebaut",
+    "set": "40975",
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+40975",
+    "postedAt": "2026-07-30T08:43:49.219Z"
   }
 ]
