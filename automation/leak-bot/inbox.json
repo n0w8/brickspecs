@@ -7490,5 +7490,33 @@
     "rrpEUR": null,
     "buyUrl": "https://www.amazon.de/s?k=LEGO+75455",
     "postedAt": "2026-07-31T07:32:45.408Z"
+  },
+  {
+    "id": "98b550bf-4cac-4251-aac8-044e22792cdf",
+    "type": "leak",
+    "title": "First rumoured details on LEGO 2027 modular building",
+    "body": "Time is of the essence",
+    "url": "https://www.brickfanatics.com/first-rumoured-details-lego-2027-modular-building",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-07-31T10:08:52.277Z"
+  },
+  {
+    "id": "fb0af51f-5c03-46ae-88a2-e1b5ffede983",
+    "type": "gwp",
+    "title": "LEGO PlayStation Astro Bot GWP rumoured for October 2026",
+    "body": "Old meets new",
+    "url": "https://www.brickfanatics.com/lego-playstation-astro-bot-gwp-rumoured-2026",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-07-31T10:08:52.277Z"
   }
 ]
