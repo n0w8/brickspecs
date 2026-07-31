@@ -7700,5 +7700,33 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-07-31T16:19:34.501Z"
+  },
+  {
+    "id": "175f21b1-8dda-4056-aa11-55fde427fa72",
+    "type": "news",
+    "title": "Free LEGO Pokémon giveaway starts tomorrow",
+    "body": "Free LEGO? Who can say no?",
+    "url": "https://www.brickfanatics.com/free-lego-pokemon-giveaway-starts-tomorrow",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-07-31T17:57:02.514Z"
+  },
+  {
+    "id": "5e780d03-0dc4-45aa-9e8b-b220f8c5f390",
+    "type": "news",
+    "title": "LEGO NINJAGO Crocs added to LEGO.com, and for less",
+    "body": "Release date and full pricing revealed, too",
+    "url": "https://www.brickfanatics.com/lego-ninjago-crocs-added-to-lego-com-and-for-less",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": "LEGO Shop",
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-07-31T17:57:02.514Z"
   }
 ]
