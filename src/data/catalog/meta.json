@@ -1,6 +1,12 @@
 {
-  "fetchedAt": "2026-07-31T07:45:07.794Z",
+  "fetchedAt": "2026-08-01T07:23:19.528Z",
   "totalSets": 27845,
   "totalThemes": 496,
-  "newSetsLastRun": []
+  "newSetsLastRun": [
+    {
+      "id": "DISABLED-2",
+      "name": "Spider-Man with Web",
+      "year": 2026
+    }
+  ]
 }
