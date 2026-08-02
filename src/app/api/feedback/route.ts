@@ -17,7 +17,19 @@ import { NextResponse } from "next/server";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const BREVO_SEND_URL = "https://api.brevo.com/v3/smtp/email";
-const FEEDBACK_TO = "domsgard1337@gmail.com";
+
+/**
+ * Empfaenger des Nutzer-Feedbacks. Ueber FEEDBACK_TO umstellbar, damit die
+ * Adresse nicht im Code klebt. Default ist bewusst die Betriebs-Adresse -
+ * NICHT die private Hauptadresse des Betreibers.
+ */
+const FEEDBACK_TO = process.env.FEEDBACK_TO || "michiges@gmx.at";
+
+/**
+ * Absender: MUSS eine in Brevo authentifizierte Domain sein (brickspecs.com ist
+ * per SPF/DKIM verifiziert), sonst landet die Mail im Spam oder wird abgelehnt.
+ */
+const FEEDBACK_FROM = process.env.BREVO_SENDER_EMAIL || "news@brickspecs.com";
 
 const CATEGORIES = {
   vorschlag: "Vorschlag",
@@ -137,7 +149,7 @@ export async function POST(request: Request) {
         accept: "application/json",
       },
       body: JSON.stringify({
-        sender: { name: "BrickSpecs Feedback", email: FEEDBACK_TO },
+        sender: { name: "BrickSpecs Feedback", email: FEEDBACK_FROM },
         to: [{ email: FEEDBACK_TO }],
         ...(email ? { replyTo: { email } } : {}),
         subject: `[BrickSpecs Feedback] ${CATEGORIES[category]}`,
