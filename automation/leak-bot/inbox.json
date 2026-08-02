@@ -8316,5 +8316,33 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-08-02T14:15:05.964Z"
+  },
+  {
+    "id": "d4a2e6c1-4c5e-408e-9e3b-a17c8fdc5ddb",
+    "type": "news",
+    "title": "LEGO Technic's new Mighty Machines have a bigger box",
+    "body": "Buildable models mean a bigger box, but they didn't last time...",
+    "url": "https://www.brickfanatics.com/lego-technic-mighty-machines-bigger-box-than-usual",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-08-02T15:29:02.620Z"
+  },
+  {
+    "id": "082befde-8cf0-41b3-a900-c1b58b610d6a",
+    "type": "news",
+    "title": "LEGO Editions Messi art slashed to half price",
+    "body": "50% off, and including an exclusive LEGO goat",
+    "url": "https://www.brickfanatics.com/lego-editions-messi-art-slashed-to-half-price",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-08-02T15:29:02.620Z"
   }
 ]
