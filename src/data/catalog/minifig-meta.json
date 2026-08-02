@@ -1,5 +1,298 @@
 {
-  "fetchedAt": "2026-08-01T07:23:20.313Z",
-  "totalFigs": 17068,
-  "newFigsLastRun": []
+  "fetchedAt": "2026-08-02T07:27:19.132Z",
+  "totalFigs": 17141,
+  "newFigsLastRun": [
+    {
+      "id": "fig-017977",
+      "name": "Boba Fett, Helmet, Jetpack Neckwear, Printed Arms, Nougat Head, Pauldron"
+    },
+    {
+      "id": "fig-017978",
+      "name": "Man, Sand Green Shirt, Tan Legs, Dark Tan Cap and Scarf"
+    },
+    {
+      "id": "fig-017979",
+      "name": "Race Driver, Light Bluish Gray Shirt, Bright Light Blue Legs, Blue Helmet with Black Visor"
+    },
+    {
+      "id": "fig-017980",
+      "name": "RAce Driver, White and Blakc Race Jacket, Light Bluish Gray Legs, Magenta Hair"
+    },
+    {
+      "id": "fig-017981",
+      "name": "Kellen"
+    },
+    {
+      "id": "fig-017982",
+      "name": "Flores"
+    },
+    {
+      "id": "fig-017983",
+      "name": "Valorie"
+    },
+    {
+      "id": "fig-017984",
+      "name": "Ren (Minecraft)"
+    },
+    {
+      "id": "fig-017985",
+      "name": "Shadow the Hedgehog, Open Mouth Smile"
+    },
+    {
+      "id": "fig-017986",
+      "name": "Miles 'Tails' Prower, Closed Mouth Smile"
+    },
+    {
+      "id": "fig-017987",
+      "name": "Tony Tony Chopper, Open Mouth"
+    },
+    {
+      "id": "fig-017988",
+      "name": "Tony Tony Chopper, Closed Mouth"
+    },
+    {
+      "id": "fig-017989",
+      "name": "Mr. 13"
+    },
+    {
+      "id": "fig-017990",
+      "name": "Gabby, Medium Lavendar Hair, Fairy Wings"
+    },
+    {
+      "id": "fig-017991",
+      "name": "Monkey D. Luffy, Short Legs, Eating"
+    },
+    {
+      "id": "fig-017992",
+      "name": "Monkey D. Luffy, Long Arms, Hat"
+    },
+    {
+      "id": "fig-017993",
+      "name": "Zora Bennett, Hat"
+    },
+    {
+      "id": "fig-017994",
+      "name": "Duncan Kincaid, Dark Geren Beret"
+    },
+    {
+      "id": "fig-017995",
+      "name": "Dr. Henry Loomis"
+    },
+    {
+      "id": "fig-017996",
+      "name": "Astronaut"
+    },
+    {
+      "id": "fig-017997",
+      "name": "Olivia Rodrigo"
+    },
+    {
+      "id": "fig-017998",
+      "name": "Olivia Rodrigo, Light Aqua Outfit"
+    },
+    {
+      "id": "fig-017999",
+      "name": "Olivia Rodrigo, Cheerleader Outfit"
+    },
+    {
+      "id": "fig-018000",
+      "name": "Olivia Rodrigo, Red Outfit"
+    },
+    {
+      "id": "fig-018001",
+      "name": "Olivia Rodrigo, White Skirt"
+    },
+    {
+      "id": "fig-018002",
+      "name": "Dr. Sarah Harding"
+    },
+    {
+      "id": "fig-018003",
+      "name": "Ian Malcolm, Dark Blue Undershirt"
+    },
+    {
+      "id": "fig-018004",
+      "name": "Kayla Watts, Black Hair"
+    },
+    {
+      "id": "fig-018005",
+      "name": "Owen Grady, Dark Tan Vest over Dark Blue Shirt"
+    },
+    {
+      "id": "fig-018006",
+      "name": "Dana Scully, Scrubs"
+    },
+    {
+      "id": "fig-018007",
+      "name": "Dana Scully"
+    },
+    {
+      "id": "fig-018008",
+      "name": "Fox Mulder"
+    },
+    {
+      "id": "fig-018009",
+      "name": "Mr. X (The X-Files)"
+    },
+    {
+      "id": "fig-018010",
+      "name": "Alex Krycek"
+    },
+    {
+      "id": "fig-018011",
+      "name": "The Flukeman"
+    },
+    {
+      "id": "fig-018012",
+      "name": "Alien (Little Gray Alien)"
+    },
+    {
+      "id": "fig-018013",
+      "name": "Cigarette Smoking Man (Carl Busch)"
+    },
+    {
+      "id": "fig-018014",
+      "name": "Walter Skinner"
+    },
+    {
+      "id": "fig-018015",
+      "name": "Zinnia"
+    },
+    {
+      "id": "fig-018016",
+      "name": "Billy Brennan"
+    },
+    {
+      "id": "fig-018017",
+      "name": "Alan Grant"
+    },
+    {
+      "id": "fig-018018",
+      "name": "Monkey D. Luffy, Hat, Dark Tan Legs"
+    },
+    {
+      "id": "fig-018019",
+      "name": "Sanji, Bright Light Blue Shirt"
+    },
+    {
+      "id": "fig-018020",
+      "name": "Monkey d. dragon"
+    },
+    {
+      "id": "fig-018021",
+      "name": "Captain Smoker"
+    },
+    {
+      "id": "fig-018022",
+      "name": "Roronoa Zoro, Hair, Stern"
+    },
+    {
+      "id": "fig-018023",
+      "name": "Captain Tashigi"
+    },
+    {
+      "id": "fig-018024",
+      "name": "Nami, Dark Turquoise Shirt"
+    },
+    {
+      "id": "fig-018025",
+      "name": "Usopp, Lavender Outift"
+    },
+    {
+      "id": "fig-018026",
+      "name": "Miss All Sunday / Nico Robin"
+    },
+    {
+      "id": "fig-018027",
+      "name": "Embo, Olice Green"
+    },
+    {
+      "id": "fig-018028",
+      "name": "Imperial Remnant Warlord"
+    },
+    {
+      "id": "fig-018030",
+      "name": "Snowtrooper, White Hips, Printed Legs, White Hands (Warm Tan Head)"
+    },
+    {
+      "id": "fig-018031",
+      "name": "Imperial Remnant Snowtrooper, Medium Nougat Head"
+    },
+    {
+      "id": "fig-018032",
+      "name": "Imperial Remnant Snowtrooper, Umber Brown Head"
+    },
+    {
+      "id": "fig-018033",
+      "name": "AT-AT Driver, White Uniform, Printed Legs"
+    },
+    {
+      "id": "fig-018034",
+      "name": "Kuill, Backpack"
+    },
+    {
+      "id": "fig-018035",
+      "name": "The Mandalorian / Din Djarin - Tan Armor, Dirty"
+    },
+    {
+      "id": "fig-018036",
+      "name": "Jawa, Red Eyes, Cross Straps"
+    },
+    {
+      "id": "fig-018037",
+      "name": "Jawa, Red Eyes, Strap over Left Shoulder"
+    },
+    {
+      "id": "fig-018038",
+      "name": "Jawa, Red Eyes, Strap over Right Shoulder"
+    },
+    {
+      "id": "fig-018039",
+      "name": "Droid"
+    },
+    {
+      "id": "fig-018040",
+      "name": "Dr. Hiriluk"
+    },
+    {
+      "id": "fig-018041",
+      "name": "Dr. Kureha"
+    },
+    {
+      "id": "fig-018042",
+      "name": "Usopp, Dark Green and Olive Green Outfit"
+    },
+    {
+      "id": "fig-018043",
+      "name": "Miss Goldenweek / Marianne"
+    },
+    {
+      "id": "fig-018044",
+      "name": "Mr. 3"
+    },
+    {
+      "id": "fig-018045",
+      "name": "Roronoa Zoro, Hair, Dark Pink Legs"
+    },
+    {
+      "id": "fig-018046",
+      "name": "Monkey D. Luffy, Neck Bracket, Yellow Shirt"
+    },
+    {
+      "id": "fig-018047",
+      "name": "Sanji, White Hoodie"
+    },
+    {
+      "id": "fig-018048",
+      "name": "Nefertari Vivi"
+    },
+    {
+      "id": "fig-018049",
+      "name": "Nami, Dark Purple Outfit"
+    },
+    {
+      "id": "fig-018050",
+      "name": "Wapol"
+    }
+  ]
 }
