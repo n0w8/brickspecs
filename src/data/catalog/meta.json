@@ -1,42 +1,32 @@
 {
-  "fetchedAt": "2026-08-02T07:27:18.014Z",
-  "totalSets": 27852,
+  "fetchedAt": "2026-08-03T08:20:54.783Z",
+  "totalSets": 27856,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "4000701-1",
-      "name": "SMART Oran Berry Tag",
+      "id": "76788-1",
+      "name": "Nevermore Academy",
       "year": 2026
     },
     {
-      "id": "4000702-1",
-      "name": "SMART Trophy Tag",
+      "id": "GNOME-1",
+      "name": "Gnome",
       "year": 2026
     },
     {
-      "id": "4000703-1",
-      "name": "SMART Sitrus Berry Tag",
-      "year": 2026
+      "id": "850834-2",
+      "name": "Construction Worker Plush",
+      "year": 2014
     },
     {
-      "id": "40958-1",
-      "name": "Christmas Stocking",
-      "year": 2026
+      "id": "SLIZER-5",
+      "name": "Database Set for 1061-1 Single Disk Pack",
+      "year": 2000
     },
     {
-      "id": "76787-1",
-      "name": "Wednesday Backpack",
-      "year": 2026
-    },
-    {
-      "id": "951375-1",
-      "name": "Nya and Grimfax",
-      "year": 2026
-    },
-    {
-      "id": "DOSSIER-1",
-      "name": "One Piece Dossier Tiles",
-      "year": 2026
+      "id": "2384-1",
+      "name": "Farm bucket",
+      "year": 1992
     }
   ]
 }
