@@ -8918,5 +8918,33 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-08-04T15:40:37.791Z"
+  },
+  {
+    "id": "cde84406-e139-4cdf-a51b-ae74280ef013",
+    "type": "news",
+    "title": "Every LEGO SMART Play set – August 2026 update",
+    "body": "SMART Play is slowly getting smarter",
+    "url": "https://www.brickfanatics.com/every-lego-smart-play-set-august-2026",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-08-04T17:18:09.551Z"
+  },
+  {
+    "id": "c2b67df0-67c1-454b-8785-2a850f8ea6f5",
+    "type": "news",
+    "title": "LEGO Star Wars fan build recreates Darth Maul’s terrifying spider form",
+    "body": "Maul’s journey from Sith Lord to nightmare fuel",
+    "url": "https://www.brickfanatics.com/lego-star-wars-fan-build-recreates-darth-maul",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-08-04T17:18:09.551Z"
   }
 ]
