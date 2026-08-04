@@ -1,32 +1,57 @@
 {
-  "fetchedAt": "2026-08-03T08:20:54.783Z",
-  "totalSets": 27856,
+  "fetchedAt": "2026-08-04T07:30:27.169Z",
+  "totalSets": 27865,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "76788-1",
-      "name": "Nevermore Academy",
+      "id": "40859-1",
+      "name": "Golden Age Superman and Batman Figures",
       "year": 2026
     },
     {
-      "id": "GNOME-1",
+      "id": "40919-1",
+      "name": "Gremlins Gizmo and Stripe Figures",
+      "year": 2026
+    },
+    {
+      "id": "6662602-1",
       "name": "Gnome",
       "year": 2026
     },
     {
-      "id": "850834-2",
-      "name": "Construction Worker Plush",
-      "year": 2014
+      "id": "66820-1",
+      "name": "Hogwarts Crest and Dobby Collector's Set",
+      "year": 2026
     },
     {
-      "id": "SLIZER-5",
-      "name": "Database Set for 1061-1 Single Disk Pack",
-      "year": 2000
+      "id": "66821-1",
+      "name": "Star Wars: Trooper & Droid Battle Pack",
+      "year": 2026
     },
     {
-      "id": "2384-1",
-      "name": "Farm bucket",
-      "year": 1992
+      "id": "66832-1",
+      "name": "Action Vehicles Gift Set",
+      "year": 2026
+    },
+    {
+      "id": "66833-1",
+      "name": "Adventure Worlds Gift Set",
+      "year": 2026
+    },
+    {
+      "id": "66834-1",
+      "name": "Friendship Celebration Gift Set",
+      "year": 2026
+    },
+    {
+      "id": "9788325349318-1",
+      "name": "Harry Potter: Odkryj Hogwart",
+      "year": 2026
+    },
+    {
+      "id": "SCP6613-1",
+      "name": "Activity Cards: Off We Go",
+      "year": 2026
     }
   ]
 }
