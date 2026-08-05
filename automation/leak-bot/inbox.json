@@ -9184,5 +9184,33 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-08-05T15:34:01.968Z"
+  },
+  {
+    "id": "686bee02-f457-4b5b-b27d-1f1f10adbe2d",
+    "type": "news",
+    "title": "LEGO Harry Potter The Ministry of Magic: Then and Now",
+    "body": "What a difference four years makes",
+    "url": "https://www.brickfanatics.com/lego-harry-potter-the-ministry-of-magic-then-and-now",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-08-05T17:05:46.333Z"
+  },
+  {
+    "id": "b0629f6d-74b1-4b9c-aa91-8f7ac1eb9757",
+    "type": "gwp",
+    "title": "LEGO The X-Files GWP mysteriously vanishes in the UK too",
+    "body": "The case of the missing freebie",
+    "url": "https://www.brickfanatics.com/lego-the-x-files-gwp-mysteriously-vanishes-in-the-uk-too",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-08-05T17:05:46.333Z"
   }
 ]
