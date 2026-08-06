@@ -1,382 +1,122 @@
 {
-  "fetchedAt": "2026-08-05T07:32:43.111Z",
-  "totalSets": 27940,
+  "fetchedAt": "2026-08-06T07:33:11.165Z",
+  "totalSets": 27941,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "171290LL-1",
-      "name": "Skeleton Guy Plush",
+      "id": "76476-1",
+      "name": "The Ministry of Magic – Collectors' Edition",
       "year": 2026
     },
     {
-      "id": "354160-1",
-      "name": "Friends Jones Space Cat Plush",
+      "id": "L0002203-1",
+      "name": "Nya",
       "year": 2026
     },
     {
-      "id": "ACP6614S1-1",
-      "name": "ReCreate Activity Cards Built it! Off We Go",
+      "id": "L0002204-1",
+      "name": "Kai - Draconus Form",
       "year": 2026
     },
     {
-      "id": "ACP6615S1-1",
-      "name": "ReCreate Activity Cards Built it! Winter Fun",
+      "id": "L0002205-1",
+      "name": "Zane",
       "year": 2026
     },
     {
-      "id": "ACP6616S1-1",
-      "name": "ReCreate Activity Cards: Built it! Fantasy",
+      "id": "L0002214-1",
+      "name": "Jay and Mutation Monster",
       "year": 2026
     },
     {
-      "id": "ACP6617S1-1",
-      "name": "ReCreate Activity Cards: Built it! Mini World",
+      "id": "L0002215-1",
+      "name": "Nya and Grimfax",
       "year": 2026
     },
     {
-      "id": "ACP6618S1-1",
-      "name": "ReCreate Activity Cards: Built it! Monsters",
+      "id": "L0002223-1",
+      "name": "Street sweeper",
       "year": 2026
     },
     {
-      "id": "ACP6619S1-1",
-      "name": "ReCreate Activity Cards Built it! Hobby",
+      "id": "L0002224-1",
+      "name": "Firefighter",
       "year": 2026
     },
     {
-      "id": "JFA110426L0223952-1",
-      "name": "Halloween Silk Touch Throw",
+      "id": "L0002225-1",
+      "name": "Construction Worker with Roller",
       "year": 2026
     },
     {
-      "id": "JFA110526L048328-1",
-      "name": "Halloween Plush Throw",
+      "id": "L0002236-1",
+      "name": "Republic Gunship",
       "year": 2026
     },
     {
-      "id": "MSC6701-1",
-      "name": "Ninjago: Amazing Minifigure Coloring Book",
+      "id": "L0002239-1",
+      "name": "Death Trooper",
       "year": 2026
     },
     {
-      "id": "PLUSH-10",
-      "name": "T-Rex Costume Fan Plush",
+      "id": "L0002250-1",
+      "name": "Smith with Smithing Table, Netherite Armor and Armor Stand",
       "year": 2026
     },
     {
-      "id": "PLUSH-12",
-      "name": "Duplo Alpaca Plush",
+      "id": "L0002252-1",
+      "name": "Space Sentinel, Enderman and Endermite",
       "year": 2026
     },
     {
-      "id": "PLUSH-13",
-      "name": "Duplo Racoon Plush",
+      "id": "L0002260-1",
+      "name": "Magma Cube",
       "year": 2026
     },
     {
-      "id": "PLUSH-20",
-      "name": "Duplo Crocodile Plush",
+      "id": "L0002265-1",
+      "name": "Kitten and Vet's Office",
       "year": 2026
     },
     {
-      "id": "PLUSH-6",
-      "name": "Construction Worker Plush",
+      "id": "L0002272-1",
+      "name": "Bane in Prison",
       "year": 2026
     },
     {
-      "id": "PLUSH-8",
-      "name": "Duplo Honey Bee Plush",
+      "id": "L0002284-1",
+      "name": "Anti-Venom",
       "year": 2026
     },
     {
-      "id": "SCP6702-1",
-      "name": "Activity Cards: Built it! Ninja Power",
+      "id": "L0002293-1",
+      "name": "Go-Cart",
       "year": 2026
     },
     {
-      "id": "SK07Q226L48529-1",
-      "name": "Gamer Plush",
-      "year": 2026
+      "id": "L0001071-1",
+      "name": "TIE Defender",
+      "year": 2025
     },
     {
-      "id": "SQB6605-1",
-      "name": "Awesome School: Build And Play!",
-      "year": 2026
-    },
-    {
-      "id": "SQB6606-1",
-      "name": "Oceans: Build And Play!",
-      "year": 2026
-    },
-    {
-      "id": "354150-1",
-      "name": "Friends Hamlet Pig Plush",
+      "id": "L0000209-1",
+      "name": "Batman and Mega Mech",
       "year": 2024
     },
     {
-      "id": "GM1809-1",
-      "name": "adidas x LEGO DOTS Reversible Shorts",
+      "id": "L0000079-1",
+      "name": "Cole vs. Bone Knight",
       "year": 2023
     },
     {
-      "id": "GN5506-1",
-      "name": "adidas x LEGO DOTS Graphic Convertible Bag",
+      "id": "L0000940-1",
+      "name": "Kai vs. Bone King",
       "year": 2023
     },
     {
-      "id": "GN6821-1",
-      "name": "adidas x LEGO Ninjago Black Windbreaker",
+      "id": "L0001326-1",
+      "name": "Lloyd vs. Bone Warrior",
       "year": 2023
-    },
-    {
-      "id": "GN8851-1",
-      "name": "adidas x LEGO DOTS Real Magenta Reversible Windbreaker",
-      "year": 2023
-    },
-    {
-      "id": "GN8853-1",
-      "name": "adidas x LEGO DOTS White Short Sleeve Hoodie",
-      "year": 2023
-    },
-    {
-      "id": "GP1144-1",
-      "name": "adidas x LEGO DOTS Short Tights",
-      "year": 2023
-    },
-    {
-      "id": "H26661-1",
-      "name": "adidas x Classic LEGO Bright Blue Hoodie",
-      "year": 2023
-    },
-    {
-      "id": "H44328-1",
-      "name": "adidas x LEGO VIDIYO Socks 3 Pairs",
-      "year": 2023
-    },
-    {
-      "id": "H65356-1",
-      "name": "adidas x Classic LEGO Black Pants",
-      "year": 2023
-    },
-    {
-      "id": "H65366-1",
-      "name": "adidas x Classic LEGO White Tights",
-      "year": 2023
-    },
-    {
-      "id": "HA4045-1",
-      "name": "adidas x Classic LEGO White Graphic T-Shirt",
-      "year": 2023
-    },
-    {
-      "id": "HC9804-1",
-      "name": "adidas x LEGO Tiro Jacket",
-      "year": 2023
-    },
-    {
-      "id": "HK9291-1",
-      "name": "adidas x LEGO Black Graphic T-Shirt",
-      "year": 2023
-    },
-    {
-      "id": "HK9293-1",
-      "name": "adidas x LEGO Blue Graphic T-Shirt",
-      "year": 2023
-    },
-    {
-      "id": "HQ1310-1",
-      "name": "adidas Sport DNA x LEGO (Yellow Multi) - Kids' Shoes",
-      "year": 2023
-    },
-    {
-      "id": "HR4322-1",
-      "name": "adidas x LEGO Black Tiro Pants",
-      "year": 2023
-    },
-    {
-      "id": "HR4323-1",
-      "name": "adidas x LEGO Home Jersey",
-      "year": 2023
-    },
-    {
-      "id": "HS1167-1",
-      "name": "adidas x Classic LEGO Red T-Shirt",
-      "year": 2023
-    },
-    {
-      "id": "HZ1507-1",
-      "name": "adidas x Classic LEGO Cardboard Pants",
-      "year": 2023
-    },
-    {
-      "id": "HZ2906-1",
-      "name": "adidas x LEGO White Crew Socks 3 Pairs",
-      "year": 2023
-    },
-    {
-      "id": "IB9157-1",
-      "name": "adidas x LEGO Black Graphic Tee",
-      "year": 2023
-    },
-    {
-      "id": "IC4951-1",
-      "name": "adidas x Classic LEGO White T-Shirt",
-      "year": 2023
-    },
-    {
-      "id": "II6063-1",
-      "name": "adidas x Classic LEGO Duplo Kids' T-Shirt",
-      "year": 2023
-    },
-    {
-      "id": "IJ7296-1",
-      "name": "adidas x Classic LEGO Bliss Orchid T-Shirt",
-      "year": 2023
-    },
-    {
-      "id": "IL5081-1",
-      "name": "adidas x Classic LEGO Duplo Red Graphic Kids' T-Shirt",
-      "year": 2023
-    },
-    {
-      "id": "IL5088-1",
-      "name": "adidas x Classic LEGO Graphic Red T-Shirt",
-      "year": 2023
-    },
-    {
-      "id": "IP2297-1",
-      "name": "adidas x Classic LEGO Yellow T-Shirt",
-      "year": 2023
-    },
-    {
-      "id": "HQ1312-1",
-      "name": "adidas Sport DNA x LEGO (Equipment Yellow) - Big Kids' Shoes",
-      "year": 2022
-    },
-    {
-      "id": "110529-1",
-      "name": "Kickers Kids Kick Lo LEGO Classic Shoe - Black",
-      "year": 2013
-    },
-    {
-      "id": "110537-1",
-      "name": "Kickers Kids Kick Lo LEGO Classic Shoe - Dark Grey",
-      "year": 2013
-    },
-    {
-      "id": "110528-1",
-      "name": "Kickers Kids LEGO Classic Boot - Garden",
-      "year": 2011
-    },
-    {
-      "id": "111119-1",
-      "name": "Kickers Kids Strap LEGO Classic Boot - White",
-      "year": 2011
-    },
-    {
-      "id": "KA10I0351BA1-1",
-      "name": "Kickers Kids Kick Hi LEGO Classic Boot - Fire",
-      "year": 2011
-    },
-    {
-      "id": "KA10I0355BA2-1",
-      "name": "Kickers Kids Kick Hike LEGO Classic Boot - Blue",
-      "year": 2011
-    },
-    {
-      "id": "KA10I0357PA5-1",
-      "name": "Kickers Kids Blink LEGO Classic Boot - Purple",
-      "year": 2011
-    },
-    {
-      "id": "KA10I0357PA5-2",
-      "name": "Kickers Kids Blink LEGO Classic Boot - Pink",
-      "year": 2011
-    },
-    {
-      "id": "KF0001056B6E-1",
-      "name": "Kickers Kids Strap LEGO Classic Boot - Blue",
-      "year": 2011
-    },
-    {
-      "id": "KF0001056B6E-2",
-      "name": "Kickers Kids Strap LEGO Classic Boot - Dark Blue",
-      "year": 2011
-    },
-    {
-      "id": "KICKERS-4",
-      "name": "Kickers Kids Kick T Bar LEGO Casual Shoe - White",
-      "year": 2011
-    },
-    {
-      "id": "KA10I0350PA5-1",
-      "name": "Kickers Baby LEGO First Walkers - Pink",
-      "year": 2010
-    },
-    {
-      "id": "KA10I0359PA7-1",
-      "name": "Kickers Kids LEGO Leather Boots - Pink",
-      "year": 2010
-    },
-    {
-      "id": "KF0001055BA2-1",
-      "name": "Kickers Toddler LEGO Funky Boot - Blue",
-      "year": 2010
-    },
-    {
-      "id": "KF0001055GA1-1",
-      "name": "Kickers Toddler LEGO Funky Boot - Green",
-      "year": 2010
-    },
-    {
-      "id": "KICKERS-1",
-      "name": "Kickers Kids Kick Hi LEGO Football Print Shoe - Red",
-      "year": 2010
-    },
-    {
-      "id": "KICKERS-3",
-      "name": "Kickers Kids Kick Bar LEGO Mary Jane Flats - White",
-      "year": 2010
-    },
-    {
-      "id": "KS10I0101-1",
-      "name": "Kickers Junior Kick Hi LEGO Lace-Up Boot - Bike",
-      "year": 2010
-    },
-    {
-      "id": "KS10I0103PA7-1",
-      "name": "Kickers Kids Strap LEGO Classic Boot - Purple",
-      "year": 2010
-    },
-    {
-      "id": "KS10I0105-1",
-      "name": "Kickers Kids Kick Hi LEGO Football Print Shoe - Black",
-      "year": 2010
-    },
-    {
-      "id": "KS10I0107MS3-1",
-      "name": "Kickers Kids Kick Lo LEGO Classic Shoe - Green",
-      "year": 2010
-    },
-    {
-      "id": "KS10I0111-1",
-      "name": "Kickers Junior Kick Lo LEGO Lace-Up Shoe - Black",
-      "year": 2010
-    },
-    {
-      "id": "KS10I0113-1",
-      "name": "Kickers Kids Kick T Bar LEGO Casual Shoe - Purple",
-      "year": 2010
-    },
-    {
-      "id": "KS10J0108-1",
-      "name": "Kickers Kids Kick Lo LEGO Classic Shoe - Black",
-      "year": 2010
-    },
-    {
-      "id": "KF0001057RA1-1",
-      "name": "Kickers Junior LEGO Eyelet Boot - Red",
-      "year": 2009
     }
   ]
 }
