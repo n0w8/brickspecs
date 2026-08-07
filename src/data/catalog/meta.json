@@ -1,122 +1,72 @@
 {
-  "fetchedAt": "2026-08-06T07:33:11.165Z",
-  "totalSets": 27941,
+  "fetchedAt": "2026-08-07T06:04:48.108Z",
+  "totalSets": 27954,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "76476-1",
-      "name": "The Ministry of Magic – Collectors' Edition",
+      "id": "71053-1",
+      "name": "Thelonious",
       "year": 2026
     },
     {
-      "id": "L0002203-1",
-      "name": "Nya",
+      "id": "71053-10",
+      "name": "Lord Farquaad",
       "year": 2026
     },
     {
-      "id": "L0002204-1",
-      "name": "Kai - Draconus Form",
+      "id": "71053-11",
+      "name": "Fairy Godmother",
       "year": 2026
     },
     {
-      "id": "L0002205-1",
-      "name": "Zane",
+      "id": "71053-12",
+      "name": "Prince Charming",
       "year": 2026
     },
     {
-      "id": "L0002214-1",
-      "name": "Jay and Mutation Monster",
+      "id": "71053-2",
+      "name": "Puss in Boots",
       "year": 2026
     },
     {
-      "id": "L0002215-1",
-      "name": "Nya and Grimfax",
+      "id": "71053-3",
+      "name": "Gingy",
       "year": 2026
     },
     {
-      "id": "L0002223-1",
-      "name": "Street sweeper",
+      "id": "71053-4",
+      "name": "Shrek",
       "year": 2026
     },
     {
-      "id": "L0002224-1",
-      "name": "Firefighter",
+      "id": "71053-5",
+      "name": "Dragon",
       "year": 2026
     },
     {
-      "id": "L0002225-1",
-      "name": "Construction Worker with Roller",
+      "id": "71053-6",
+      "name": "Fiona and Donkey",
       "year": 2026
     },
     {
-      "id": "L0002236-1",
-      "name": "Republic Gunship",
+      "id": "71053-7",
+      "name": "Merlin",
       "year": 2026
     },
     {
-      "id": "L0002239-1",
-      "name": "Death Trooper",
+      "id": "71053-8",
+      "name": "Pinocchio",
       "year": 2026
     },
     {
-      "id": "L0002250-1",
-      "name": "Smith with Smithing Table, Netherite Armor and Armor Stand",
+      "id": "71053-9",
+      "name": "Big Bad Wolf",
       "year": 2026
     },
     {
-      "id": "L0002252-1",
-      "name": "Space Sentinel, Enderman and Endermite",
+      "id": "MQBZ5202-1",
+      "name": "Minecraft: Wither Quest",
       "year": 2026
-    },
-    {
-      "id": "L0002260-1",
-      "name": "Magma Cube",
-      "year": 2026
-    },
-    {
-      "id": "L0002265-1",
-      "name": "Kitten and Vet's Office",
-      "year": 2026
-    },
-    {
-      "id": "L0002272-1",
-      "name": "Bane in Prison",
-      "year": 2026
-    },
-    {
-      "id": "L0002284-1",
-      "name": "Anti-Venom",
-      "year": 2026
-    },
-    {
-      "id": "L0002293-1",
-      "name": "Go-Cart",
-      "year": 2026
-    },
-    {
-      "id": "L0001071-1",
-      "name": "TIE Defender",
-      "year": 2025
-    },
-    {
-      "id": "L0000209-1",
-      "name": "Batman and Mega Mech",
-      "year": 2024
-    },
-    {
-      "id": "L0000079-1",
-      "name": "Cole vs. Bone Knight",
-      "year": 2023
-    },
-    {
-      "id": "L0000940-1",
-      "name": "Kai vs. Bone King",
-      "year": 2023
-    },
-    {
-      "id": "L0001326-1",
-      "name": "Lloyd vs. Bone Warrior",
-      "year": 2023
     }
   ]
 }
