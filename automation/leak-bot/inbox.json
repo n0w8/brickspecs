@@ -9646,5 +9646,47 @@
     "rrpEUR": null,
     "buyUrl": "https://www.amazon.de/s?k=LEGO+43292",
     "postedAt": "2026-08-07T07:53:27.566Z"
+  },
+  {
+    "id": "69ce7a01-fecf-4f3e-8b91-83df493c23bb",
+    "type": "news",
+    "title": "LEGO The Lord of the Rings Helm’s Deep and Prancing Pony reportedly on the way",
+    "body": "Where was Gondor when our LEGO budgets fell?",
+    "url": "https://www.brickfanatics.com/lego-lord-of-the-rings-helms-deep-prancing-pony",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-08-07T08:42:39.808Z"
+  },
+  {
+    "id": "800a4b18-ff6c-47a9-acb4-6220c80762b6",
+    "type": "leak",
+    "title": "LEGO DC Daily Planet modular building rumoured for 2027",
+    "body": "Beyond Batman at last",
+    "url": "https://www.brickfanatics.com/lego-dc-daily-planet-modular-rumoured-for-2027",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-08-07T08:42:39.808Z"
+  },
+  {
+    "id": "16ff445b-3e3a-4128-918b-84abdb45402b",
+    "type": "leak",
+    "title": "LEGO Pirates of the Caribbean rumoured to return in 2027 or 2028",
+    "body": "The Black Pearl won't have to sail solo much longer",
+    "url": "https://www.brickfanatics.com/lego-pirates-of-the-caribbean-rumoured-to-return-2027-2028",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-08-07T08:42:39.808Z"
   }
 ]
