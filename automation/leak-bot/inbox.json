@@ -9744,5 +9744,33 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-08-07T10:32:15.091Z"
+  },
+  {
+    "id": "00adeb68-4289-41c2-aa20-49994af48804",
+    "type": "news",
+    "title": "It sounds like LEGO Disney’s next big set could be Arendelle Castle",
+    "body": "Do you want to build a snow castle?",
+    "url": "https://www.brickfanatics.com/lego-disney-next-big-set-arendelle-castle",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-08-07T11:24:48.047Z"
+  },
+  {
+    "id": "7ea044b1-f401-4e6b-9586-51ea72183fc2",
+    "type": "leak",
+    "title": "LEGO SMART Play rumoured to expand to two more themes",
+    "body": "Time to get smart... again",
+    "url": "https://www.brickfanatics.com/lego-smart-play-rumoured-to-expand-two-more-themes",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-08-07T11:24:48.047Z"
   }
 ]
