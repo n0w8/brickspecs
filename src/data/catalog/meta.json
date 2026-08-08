@@ -1,71 +1,26 @@
 {
-  "fetchedAt": "2026-08-07T06:04:48.108Z",
-  "totalSets": 27954,
+  "fetchedAt": "2026-08-08T05:35:14.523Z",
+  "totalSets": 27958,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "71053-1",
-      "name": "Thelonious",
+      "id": "40908-1",
+      "name": "Restaurants of the World: Greece",
       "year": 2026
     },
     {
-      "id": "71053-10",
-      "name": "Lord Farquaad",
+      "id": "45832-1",
+      "name": "2026 FLL Challenge set",
       "year": 2026
     },
     {
-      "id": "71053-11",
-      "name": "Fairy Godmother",
+      "id": "45833-1",
+      "name": "2026 FLL Explore Set",
       "year": 2026
     },
     {
-      "id": "71053-12",
-      "name": "Prince Charming",
-      "year": 2026
-    },
-    {
-      "id": "71053-2",
-      "name": "Puss in Boots",
-      "year": 2026
-    },
-    {
-      "id": "71053-3",
-      "name": "Gingy",
-      "year": 2026
-    },
-    {
-      "id": "71053-4",
-      "name": "Shrek",
-      "year": 2026
-    },
-    {
-      "id": "71053-5",
-      "name": "Dragon",
-      "year": 2026
-    },
-    {
-      "id": "71053-6",
-      "name": "Fiona and Donkey",
-      "year": 2026
-    },
-    {
-      "id": "71053-7",
-      "name": "Merlin",
-      "year": 2026
-    },
-    {
-      "id": "71053-8",
-      "name": "Pinocchio",
-      "year": 2026
-    },
-    {
-      "id": "71053-9",
-      "name": "Big Bad Wolf",
-      "year": 2026
-    },
-    {
-      "id": "MQBZ5202-1",
-      "name": "Minecraft: Wither Quest",
+      "id": "6644870-1",
+      "name": "Dragon on Skateboard",
       "year": 2026
     }
   ]
