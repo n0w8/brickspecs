@@ -10122,5 +10122,33 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-08-08T11:34:50.670Z"
+  },
+  {
+    "id": "8f835a40-7098-40d9-8c4c-7122cc087360",
+    "type": "news",
+    "title": "Deep discounts on LEGO Star Wars, City and more at Amazon UK",
+    "body": "Save big on The Mandalorian sets and much more",
+    "url": "https://www.brickfanatics.com/deep-discounts-lego-star-wars-city-more-amazon-uk",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": "Amazon",
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+Deep+discounts+Star+Wars",
+    "postedAt": "2026-08-08T13:31:24.883Z"
+  },
+  {
+    "id": "275720b7-71ce-4d78-ad0e-850137f2e143",
+    "type": "news",
+    "title": "Last chance for multiple LEGO Pokémon gifts-with-purchase",
+    "body": "The X-Files GWP is gone, so don't miss these other two",
+    "url": "https://www.brickfanatics.com/last-chance-multiple-lego-pokemon-gifts-purchase",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-08-08T13:31:24.883Z"
   }
 ]
