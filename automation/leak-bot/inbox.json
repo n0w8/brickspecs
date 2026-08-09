@@ -10500,5 +10500,33 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-08-09T17:16:37.852Z"
+  },
+  {
+    "id": "83ad676a-3aa0-4191-98b4-9db8b89af130",
+    "type": "news",
+    "title": "LEGO Ideas welcomes Sony console and festive favourite",
+    "body": "A festive console-ation",
+    "url": "https://www.brickfanatics.com/lego-ideas-sony-console-and-festive-favourite",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-08-09T19:04:12.204Z"
+  },
+  {
+    "id": "081cf75d-4dc2-4acb-85b1-65e8e5fc8f66",
+    "type": "leak",
+    "title": "New LEGO rumours tease Doctor Doom and Spider-Verse sets",
+    "body": "And yes, there’s some DC news too",
+    "url": "https://www.brickfanatics.com/new-lego-rumours-doctor-doom-spider-verse-sets",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-08-09T19:04:12.204Z"
   }
 ]
