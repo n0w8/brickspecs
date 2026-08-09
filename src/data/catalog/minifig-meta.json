@@ -1,5 +1,10 @@
 {
-  "fetchedAt": "2026-08-08T05:35:15.382Z",
-  "totalFigs": 17142,
-  "newFigsLastRun": []
+  "fetchedAt": "2026-08-09T05:40:51.312Z",
+  "totalFigs": 17143,
+  "newFigsLastRun": [
+    {
+      "id": "fig-018053",
+      "name": "The Riddler, Prison Suit, Neck Bracket"
+    }
+  ]
 }

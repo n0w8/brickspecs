@@ -1,27 +1,32 @@
 {
-  "fetchedAt": "2026-08-08T05:35:14.523Z",
-  "totalSets": 27958,
+  "fetchedAt": "2026-08-09T05:40:50.474Z",
+  "totalSets": 27962,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "40908-1",
-      "name": "Restaurants of the World: Greece",
+      "id": "6644864 -1",
+      "name": "Training Tree",
       "year": 2026
     },
     {
-      "id": "45832-1",
-      "name": "2026 FLL Challenge set",
+      "id": "6647922-1",
+      "name": "She Built That Stickers",
       "year": 2026
     },
     {
-      "id": "45833-1",
-      "name": "2026 FLL Explore Set",
+      "id": "L0002273-1",
+      "name": "The Riddler",
       "year": 2026
     },
     {
-      "id": "6644870-1",
-      "name": "Dragon on Skateboard",
-      "year": 2026
+      "id": "2-1",
+      "name": "Velveeta Set No. 2",
+      "year": 1967
+    },
+    {
+      "id": "3-1",
+      "name": "Velveeta Set No. 3",
+      "year": 1967
     }
   ]
 }
