@@ -10766,5 +10766,33 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-08-10T15:31:59.019Z"
+  },
+  {
+    "id": "7a5c8e72-bb2c-4be1-81ef-103efbd29255",
+    "type": "news",
+    "title": "New LEGO guidelines may already be in practice in early 2027",
+    "body": "That was fast",
+    "url": "https://www.brickfanatics.com/new-lego-guidelines-may-be-in-practice-early-2027",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-08-10T16:25:17.096Z"
+  },
+  {
+    "id": "38dce69a-9f35-4740-be50-d4cfc7273e73",
+    "type": "news",
+    "title": "LEGO Party is still a blast on Nintendo Switch 2",
+    "body": "LEGO Party has finally been optimised on Nintendo Switch 2 with a much-needed upgrade that makes the platform's benefit of portable gameplay far more appealing.",
+    "url": "https://www.brickfanatics.com/lego-party-is-still-a-blast-on-nintendo-switch-2",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-08-10T16:25:17.096Z"
   }
 ]
