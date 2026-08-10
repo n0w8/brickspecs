@@ -1,32 +1,27 @@
 {
-  "fetchedAt": "2026-08-09T05:40:50.474Z",
-  "totalSets": 27962,
+  "fetchedAt": "2026-08-10T06:06:31.863Z",
+  "totalSets": 27965,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "6644864 -1",
+      "id": "5010695-1",
+      "name": "Copenhagen Magnet - Pattern",
+      "year": 2026
+    },
+    {
+      "id": "5010816-1",
+      "name": "Copenhagen Adults T-Shirt (All Sizes)",
+      "year": 2026
+    },
+    {
+      "id": "6644864-1",
       "name": "Training Tree",
       "year": 2026
     },
     {
-      "id": "6647922-1",
-      "name": "She Built That Stickers",
-      "year": 2026
-    },
-    {
-      "id": "L0002273-1",
-      "name": "The Riddler",
-      "year": 2026
-    },
-    {
-      "id": "2-1",
-      "name": "Velveeta Set No. 2",
-      "year": 1967
-    },
-    {
-      "id": "3-1",
-      "name": "Velveeta Set No. 3",
-      "year": 1967
+      "id": "9781645887980-1",
+      "name": "Ninjago: Dragons Rising: Training Time",
+      "year": 2025
     }
   ]
 }
