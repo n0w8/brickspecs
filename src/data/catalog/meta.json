@@ -1,27 +1,6 @@
 {
-  "fetchedAt": "2026-08-10T06:06:31.863Z",
+  "fetchedAt": "2026-08-11T05:47:42.719Z",
   "totalSets": 27965,
   "totalThemes": 496,
-  "newSetsLastRun": [
-    {
-      "id": "5010695-1",
-      "name": "Copenhagen Magnet - Pattern",
-      "year": 2026
-    },
-    {
-      "id": "5010816-1",
-      "name": "Copenhagen Adults T-Shirt (All Sizes)",
-      "year": 2026
-    },
-    {
-      "id": "6644864-1",
-      "name": "Training Tree",
-      "year": 2026
-    },
-    {
-      "id": "9781645887980-1",
-      "name": "Ninjago: Dragons Rising: Training Time",
-      "year": 2025
-    }
-  ]
+  "newSetsLastRun": []
 }

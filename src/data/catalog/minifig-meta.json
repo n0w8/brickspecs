@@ -1,14 +1,5 @@
 {
-  "fetchedAt": "2026-08-10T06:06:33.135Z",
+  "fetchedAt": "2026-08-11T05:47:43.362Z",
   "totalFigs": 17145,
-  "newFigsLastRun": [
-    {
-      "id": "fig-018054",
-      "name": "Futuron Droid"
-    },
-    {
-      "id": "fig-018055",
-      "name": "Arin / Urban Arin, 2646 Hair"
-    }
-  ]
+  "newFigsLastRun": []
 }
