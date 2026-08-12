@@ -1,5 +1,14 @@
 {
-  "fetchedAt": "2026-08-11T05:47:43.362Z",
-  "totalFigs": 17145,
-  "newFigsLastRun": []
+  "fetchedAt": "2026-08-12T06:07:35.739Z",
+  "totalFigs": 17147,
+  "newFigsLastRun": [
+    {
+      "id": "fig-018056",
+      "name": "Knight (Royal Knights) - Black Legs, Red Helmet"
+    },
+    {
+      "id": "fig-018057",
+      "name": "White Torso, Magenta Legs, Black Hair"
+    }
+  ]
 }

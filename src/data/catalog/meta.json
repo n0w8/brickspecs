@@ -1,6 +1,92 @@
 {
-  "fetchedAt": "2026-08-11T05:47:42.719Z",
-  "totalSets": 27965,
+  "fetchedAt": "2026-08-12T06:07:34.938Z",
+  "totalSets": 27962,
   "totalThemes": 496,
-  "newSetsLastRun": []
+  "newSetsLastRun": [
+    {
+      "id": "169980-1",
+      "name": "Friends Racoon Plush",
+      "year": 2026
+    },
+    {
+      "id": "170000-1",
+      "name": "Duplo Crocodile Plush",
+      "year": 2026
+    },
+    {
+      "id": "170010-1",
+      "name": "Duplo Alpaca Plush",
+      "year": 2026
+    },
+    {
+      "id": "170030-1",
+      "name": "Duplo Honey Bee Plush",
+      "year": 2026
+    },
+    {
+      "id": "5010450-1",
+      "name": "Ninjago Classic Clog",
+      "year": 2026
+    },
+    {
+      "id": "5010451-1",
+      "name": "Kid's Ninjago Classic Clog",
+      "year": 2026
+    },
+    {
+      "id": "5010452-1",
+      "name": "Ninjago Kai 5 Pack",
+      "year": 2026
+    },
+    {
+      "id": "5010453-1",
+      "name": "Ninjago Lloyd 5 Pack",
+      "year": 2026
+    },
+    {
+      "id": "5010454-1",
+      "name": "Ninjago Zane 5 Pack",
+      "year": 2026
+    },
+    {
+      "id": "5010455-1",
+      "name": "Ninjago Nya 5 Pack",
+      "year": 2026
+    },
+    {
+      "id": "5010456-1",
+      "name": "Ninjago Jay 5 Pack",
+      "year": 2026
+    },
+    {
+      "id": "5010457-1",
+      "name": "Ninjago Cole 5 Pack",
+      "year": 2026
+    },
+    {
+      "id": "353950-1",
+      "name": "Iconic Brown Dog Plush",
+      "year": 2024
+    },
+    {
+      "id": "354030-1",
+      "name": "Friends Daisy Dog Plush",
+      "year": 2024
+    },
+    {
+      "id": "354060-1",
+      "name": "Friends Dango Dog Plush",
+      "year": 2024
+    },
+    {
+      "id": "335560-1",
+      "name": "I [Heart] LEGOLAND Plush (Male)",
+      "year": 2020
+    },
+    {
+      "id": "335570-1",
+      "name": "I [Heart] LEGOLAND Plush (Female)",
+      "year": 2020
+    }
+  ]
 }
