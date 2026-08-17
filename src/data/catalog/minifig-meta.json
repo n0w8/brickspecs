@@ -1,5 +1,10 @@
 {
-  "fetchedAt": "2026-08-16T05:18:45.439Z",
-  "totalFigs": 17147,
-  "newFigsLastRun": []
+  "fetchedAt": "2026-08-17T05:26:52.923Z",
+  "totalFigs": 17148,
+  "newFigsLastRun": [
+    {
+      "id": "fig-018059",
+      "name": "Iron Patriot MK1, Black Neckbracket"
+    }
+  ]
 }
