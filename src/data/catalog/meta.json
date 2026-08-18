@@ -1,112 +1,12 @@
 {
-  "fetchedAt": "2026-08-17T05:26:52.028Z",
-  "totalSets": 28098,
+  "fetchedAt": "2026-08-18T05:20:09.462Z",
+  "totalSets": 28099,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "9780241831953-1",
-      "name": "Minecraft: Would you Rather?",
-      "year": 2027
-    },
-    {
-      "id": "9780241838563-1",
-      "name": "Ninjago: Dragons Rising: Riyu the Dragon: Noodle Chaos",
-      "year": 2027
-    },
-    {
-      "id": "9780241838570-1",
-      "name": "City: Game On: Penguin Peril",
-      "year": 2027
-    },
-    {
-      "id": "9781534357921-1",
-      "name": "Ninjago: Masters of Spinjitzu",
-      "year": 2027
-    },
-    {
-      "id": "43024-1",
-      "name": "Ayrton Senna Helmet",
+      "id": "122507-1",
+      "name": "Raptor Feeding",
       "year": 2026
-    },
-    {
-      "id": "L0002206-1",
-      "name": "Cole",
-      "year": 2026
-    },
-    {
-      "id": "L0002279-1",
-      "name": "Iron Patriot",
-      "year": 2026
-    },
-    {
-      "id": "PILLOW-1",
-      "name": "Shark Suit Guy Pillow",
-      "year": 2026
-    },
-    {
-      "id": "LNJ257622-1",
-      "name": "HYPE X LEGO NINJAGO Nya T-Shirt",
-      "year": 2021
-    },
-    {
-      "id": "LNJ275627-1",
-      "name": "HYPE X LEGO NINJAGO Long Sleeve T-Shirt",
-      "year": 2021
-    },
-    {
-      "id": "LNJ275628-1",
-      "name": "HYPE X LEGO NINJAGO White Just Hype Faces Adults' T-Shirt",
-      "year": 2021
-    },
-    {
-      "id": "LNJ275629-1",
-      "name": "HYPE X LEGO NINJAGO White Just Hype Faces Kids' T-Shirt",
-      "year": 2021
-    },
-    {
-      "id": "LNJ275630-1",
-      "name": "HYPE X LEGO NINJAGO White Lloyd Adults' T-Shirt",
-      "year": 2021
-    },
-    {
-      "id": "LNJ275631-1",
-      "name": "HYPE X LEGO NINJAGO White Lloyd Kids' T-Shirt",
-      "year": 2021
-    },
-    {
-      "id": "LNJ275640-1",
-      "name": "HYPE X LEGO NINJAGO Black Joggers",
-      "year": 2021
-    },
-    {
-      "id": "LNJ275650-2",
-      "name": "HYPE X LEGO NINJAGO Black Just Hype Faces Joggers",
-      "year": 2021
-    },
-    {
-      "id": "LNJ275654-1",
-      "name": "HYPE X LEGO NINJAGO Nya Adults' Shorts [Printed Logo]",
-      "year": 2021
-    },
-    {
-      "id": "LNJ275659-1",
-      "name": "HYPE X LEGO NINJAGO Cityscape Women's Running Shorts",
-      "year": 2021
-    },
-    {
-      "id": "LNJ275674-1",
-      "name": "HYPE X LEGO NINJAGO Just Hype Long Sleeve T-Shirt",
-      "year": 2021
-    },
-    {
-      "id": "LNJ275677-1",
-      "name": "HYPE X LEGO NINJAGO Jay Adults' T-Shirt",
-      "year": 2021
-    },
-    {
-      "id": "LNJ275693-1",
-      "name": "HYPE X LEGO NINJAGO Dragon Kids' T-Shirt",
-      "year": 2021
     }
   ]
 }
