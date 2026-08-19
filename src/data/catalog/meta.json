@@ -1,11 +1,16 @@
 {
-  "fetchedAt": "2026-08-18T05:20:09.462Z",
-  "totalSets": 28099,
+  "fetchedAt": "2026-08-19T05:20:30.056Z",
+  "totalSets": 28101,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "122507-1",
-      "name": "Raptor Feeding",
+      "id": "6652991-1",
+      "name": "Rock Guitar",
+      "year": 2026
+    },
+    {
+      "id": "76355-1",
+      "name": "Batman Returns Batmobile",
       "year": 2026
     }
   ]
