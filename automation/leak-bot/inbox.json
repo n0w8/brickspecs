@@ -13776,5 +13776,47 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-08-20T08:25:35.358Z"
+  },
+  {
+    "id": "ec600ac7-c681-4e83-a86a-1c191d437539",
+    "type": "news",
+    "title": "First discount on LEGO Peanuts and Tintin sets",
+    "body": "What's the big idea?",
+    "url": "https://www.brickfanatics.com/first-discount-on-lego-peanuts-and-tintin-sets",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-08-20T09:03:56.579Z"
+  },
+  {
+    "id": "67a59952-3a26-489d-affc-9134d6a774a1",
+    "type": "news",
+    "title": "Mattel Brick Shop reveals 3,500-piece Xbox set for adults",
+    "body": "Bang go your hopes for a LEGO Xbox",
+    "url": "https://www.brickfanatics.com/mattel-brick-shop-reveals-3500-piece-xbox-for-adults",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-08-20T09:03:56.579Z"
+  },
+  {
+    "id": "cf0a123f-62c7-4e4b-887f-14ab698282e1",
+    "type": "news",
+    "title": "LEGO Disney 43293 Kakamora im Review",
+    "body": "LEGO Disney 43293 Kakamora im Review: Zwei freche Kakamora mit verstecktem Stauraum, neuen Teilen und überraschend raffiniertem Aufbau. Der Beitrag LEGO Disney 43293 Kakamora im Review erschien zuerst auf zusammengebaut .",
+    "url": "https://zusammengebaut.com/lego-disney-43293-kakamora-im-review-228304/",
+    "source": "zusammengebaut",
+    "set": "43293",
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+43293",
+    "postedAt": "2026-08-20T09:03:56.579Z"
   }
 ]
