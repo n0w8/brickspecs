@@ -1,16 +1,21 @@
 {
-  "fetchedAt": "2026-08-19T05:20:30.056Z",
-  "totalSets": 28101,
+  "fetchedAt": "2026-08-20T05:21:46.543Z",
+  "totalSets": 28104,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "6652991-1",
-      "name": "Rock Guitar",
+      "id": "HV9635902-1",
+      "name": "Nike x LEGO Collection Everyday Essentials Crew Socks",
       "year": 2026
     },
     {
-      "id": "76355-1",
-      "name": "Batman Returns Batmobile",
+      "id": "IM2157645-1",
+      "name": "Nike x LEGO Collection Unisex Football Socks - Pink",
+      "year": 2026
+    },
+    {
+      "id": "IO3116684-1",
+      "name": "Nike x LEGO Collection Big Kids' Hoodie - Pink",
       "year": 2026
     }
   ]
