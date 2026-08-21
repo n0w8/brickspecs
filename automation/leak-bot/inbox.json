@@ -14112,5 +14112,19 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-08-21T07:55:39.071Z"
+  },
+  {
+    "id": "ab4f003c-5d0f-4ca4-81f2-351a33d532e0",
+    "type": "deal",
+    "title": "Five LEGO sets that won’t get any cheaper than Amazon’s new sale",
+    "body": "So now's the best time to buy",
+    "url": "https://www.brickfanatics.com/five-lego-sets-that-wont-get-cheaper-amazon-sale",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": "Amazon",
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+Five+sets+that+won",
+    "postedAt": "2026-08-21T08:30:29.270Z"
   }
 ]
