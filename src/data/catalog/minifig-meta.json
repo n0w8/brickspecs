@@ -1,5 +1,10 @@
 {
-  "fetchedAt": "2026-08-20T05:21:47.333Z",
-  "totalFigs": 17142,
-  "newFigsLastRun": []
+  "fetchedAt": "2026-08-21T05:23:27.558Z",
+  "totalFigs": 17143,
+  "newFigsLastRun": [
+    {
+      "id": "fig-018060",
+      "name": "Quad Driver"
+    }
+  ]
 }

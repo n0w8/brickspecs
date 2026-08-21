@@ -1,22 +1,27 @@
 {
-  "fetchedAt": "2026-08-20T05:21:46.543Z",
-  "totalSets": 28104,
+  "fetchedAt": "2026-08-21T05:23:26.717Z",
+  "totalSets": 28108,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "HV9635902-1",
-      "name": "Nike x LEGO Collection Everyday Essentials Crew Socks",
+      "id": "JWNLEG0009-1",
+      "name": "Ninjago 4 Piece Backpack Set",
       "year": 2026
     },
     {
-      "id": "IM2157645-1",
-      "name": "Nike x LEGO Collection Unisex Football Socks - Pink",
+      "id": "L0002226-1",
+      "name": "Beach Quad",
       "year": 2026
     },
     {
-      "id": "IO3116684-1",
-      "name": "Nike x LEGO Collection Big Kids' Hoodie - Pink",
-      "year": 2026
+      "id": "LEG287451-1",
+      "name": "The LEGO Movie 2 Let's Build Together Backpack",
+      "year": 2019
+    },
+    {
+      "id": "5051888226162-1",
+      "name": "4 Original Numbers with Lunch Box",
+      "year": 2016
     }
   ]
 }
