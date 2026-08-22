@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ReferralCapture from "@/components/ReferralCapture";
 import PresencePinger from "@/components/PresencePinger";
+import GeoTag from "@/components/GeoTag";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -53,6 +54,7 @@ export default function RootLayout({
         <LanguageProvider>
           <ReferralCapture />
           <PresencePinger />
+          <GeoTag />
           <Header />
           <main className="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 pb-20">
             {children}

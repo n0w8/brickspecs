@@ -7,6 +7,12 @@ import { formatEUR } from "@/lib/format";
 import { getProfile, isAuthenticated } from "@/lib/auth";
 import { portfolioLimit } from "@/lib/plan";
 import { getPortfolio, removeItem, updateItem, type PortfolioItem } from "@/lib/portfolio";
+import {
+  buildBrickLinkXml,
+  buildFullCsv,
+  buildRebrickableCsv,
+  downloadTextFile,
+} from "@/lib/portfolio-export";
 import BrickImage from "@/components/BrickImage";
 import PortfolioAllocation from "@/components/PortfolioAllocation";
 
@@ -331,6 +337,56 @@ export default function PortfolioPage() {
                 </div>
               );
             })}
+          </div>
+
+          {/* Export */}
+          <div className="card p-5">
+            <h2 className="font-bold text-lg mb-1">
+              📤 {lang === "de" ? "Sammlung exportieren" : "Export collection"}
+            </h2>
+            <div className="flex flex-wrap gap-2 mt-3">
+              <button
+                className="btn text-sm"
+                onClick={() =>
+                  downloadTextFile(
+                    "brickspecs-portfolio-bricklink.xml",
+                    "application/xml;charset=utf-8",
+                    buildBrickLinkXml(items)
+                  )
+                }
+              >
+                BrickLink (XML)
+              </button>
+              <button
+                className="btn text-sm"
+                onClick={() =>
+                  downloadTextFile(
+                    "brickspecs-portfolio-rebrickable.csv",
+                    "text/csv;charset=utf-8",
+                    buildRebrickableCsv(items)
+                  )
+                }
+              >
+                Rebrickable (CSV)
+              </button>
+              <button
+                className="btn text-sm"
+                onClick={() =>
+                  downloadTextFile(
+                    "brickspecs-portfolio.csv",
+                    "text/csv;charset=utf-8",
+                    buildFullCsv(items)
+                  )
+                }
+              >
+                {lang === "de" ? "Komplett (CSV)" : "Full (CSV)"}
+              </button>
+            </div>
+            <p className="text-xs text-[var(--muted)] mt-3">
+              {lang === "de"
+                ? "Die Dateien lassen sich direkt bei BrickLink (Wanted List Upload) bzw. Rebrickable (Import Set List) einlesen."
+                : "These files can be imported directly at BrickLink (Wanted List Upload) or Rebrickable (Import Set List)."}
+            </p>
           </div>
 
           <p className="text-xs text-[var(--muted)]">{t("price.demoNote")}</p>

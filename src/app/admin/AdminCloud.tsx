@@ -12,6 +12,8 @@ export interface AdminRecentUser {
   createdAt: string;
   plan: string;
   founderNumber: number | null;
+  /** 2-Buchstaben-ISO-Laendercode aus profiles.country - null = unbekannt. */
+  country: string | null;
 }
 
 export interface AdminCloudStats {
@@ -29,6 +31,11 @@ export interface AdminCloudStats {
   referralPendingTotal: number | null;
   referralPaidTotal: number | null;
   referralRows: { email: string; pendingEur: number }[];
+  /**
+   * Nutzer je Herkunftsland (2-Buchstaben-Code, "?" = unbekannt).
+   * null = profiles nicht ladbar (z. B. Spalte/Schema noch nicht deployt).
+   */
+  countryCounts: Record<string, number> | null;
   serviceRoleMissing: boolean;
   /** Sessions, die in den letzten 3 Minuten aktiv waren. */
   onlineNow: number | null;
@@ -64,9 +71,34 @@ function fmtEur(value: number | null, locale: string): string {
   }).format(value);
 }
 
+/** Flaggen-Emoji aus dem 2-Buchstaben-Laendercode (Regional Indicators). */
+function countryFlag(code: string): string {
+  if (!/^[A-Z]{2}$/.test(code)) return "";
+  return String.fromCodePoint(
+    0x1f1e6 + (code.charCodeAt(0) - 65),
+    0x1f1e6 + (code.charCodeAt(1) - 65)
+  );
+}
+
+/** Anzeige "🇩🇪 DE" fuer die Nutzer-Tabelle - "-" bei unbekannter Herkunft. */
+function countryLabel(code: string | null): string {
+  if (!code) return "-";
+  const flag = countryFlag(code);
+  return flag ? `${flag} ${code}` : code;
+}
+
 export default function AdminCloud({ stats }: { stats: AdminCloudStats }) {
   const { lang } = useLang();
   const locale = lang === "de" ? "de-DE" : "en-GB";
+
+  // Laender absteigend nach Anzahl, "?" (unbekannt) bei Gleichstand ans Ende.
+  const countryEntries = stats.countryCounts
+    ? Object.entries(stats.countryCounts).sort(
+        (a, b) =>
+          b[1] - a[1] ||
+          (a[0] === "?" ? 1 : b[0] === "?" ? -1 : a[0].localeCompare(b[0]))
+      )
+    : null;
 
   const tiles = [
     {
@@ -233,6 +265,41 @@ export default function AdminCloud({ stats }: { stats: AdminCloudStats }) {
         )}
       </section>
 
+      {/* Nutzer nach Land (USt/OSS-Uebersicht) */}
+      <section className="card p-5">
+        <h2 className="font-bold text-lg mb-4">
+          🌍 {lang === "de" ? "Nutzer nach Land" : "Users by country"}
+        </h2>
+        {countryEntries === null ? (
+          <p className="text-sm text-[var(--muted)]">n/a</p>
+        ) : countryEntries.length === 0 ? (
+          <p className="text-sm text-[var(--muted)]">
+            {lang === "de" ? "Noch keine Nutzer." : "No users yet."}
+          </p>
+        ) : (
+          <>
+            <div className="flex flex-wrap gap-3">
+              {countryEntries.map(([code, count]) => (
+                <div
+                  key={code}
+                  className="flex items-center gap-2 rounded-xl border border-[var(--border)] px-4 py-2"
+                >
+                  <span className="text-sm font-semibold">
+                    {code === "?" ? "?" : countryLabel(code)}:
+                  </span>
+                  <span className="font-bold">{count.toLocaleString(locale)}</span>
+                </div>
+              ))}
+            </div>
+            <p className="text-xs text-[var(--muted)] mt-3">
+              {lang === "de"
+                ? "Herkunft aus dem Vercel-Geo-Header beim ersten Login-Besuch - nur der Ländercode wird gespeichert, keine IP-Adressen. \"?\" = noch kein Land erfasst."
+                : "Origin from the Vercel geo header on the first visit after login - only the country code is stored, no IP addresses. \"?\" = no country recorded yet."}
+            </p>
+          </>
+        )}
+      </section>
+
       {/* Referral-Guthaben */}
       <section className="card p-5">
         <h2 className="font-bold text-lg mb-4">
@@ -305,6 +372,7 @@ export default function AdminCloud({ stats }: { stats: AdminCloudStats }) {
                 <tr className="text-left text-xs text-[var(--muted)] border-b border-[var(--border)]">
                   <th className="py-2 pr-4">E-Mail</th>
                   <th className="py-2 pr-4">{lang === "de" ? "Registriert" : "Registered"}</th>
+                  <th className="py-2 pr-4">{lang === "de" ? "Land" : "Country"}</th>
                   <th className="py-2 pr-4">Plan</th>
                   <th className="py-2">{lang === "de" ? "Founder-Nr." : "Founder no."}</th>
                 </tr>
@@ -321,6 +389,7 @@ export default function AdminCloud({ stats }: { stats: AdminCloudStats }) {
                       <td className="py-3 pr-4 text-[var(--muted)]">
                         {new Date(u.createdAt).toLocaleString(locale)}
                       </td>
+                      <td className="py-3 pr-4">{countryLabel(u.country)}</td>
                       <td className="py-3 pr-4">
                         <span className={`badge ${meta.badge}`}>
                           {lang === "de" ? meta.de : meta.en}

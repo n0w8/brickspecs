@@ -120,6 +120,7 @@ async function loadStats(): Promise<AdminCloudStats> {
     referralPendingTotal: null,
     referralPaidTotal: null,
     referralRows: [],
+    countryCounts: null,
     serviceRoleMissing: admin === null,
     onlineNow: null,
     revenue: null,
@@ -137,7 +138,9 @@ async function loadStats(): Promise<AdminCloudStats> {
   const [usersRes, profilesRes, portfolioRes, alertsRes, newsletter, earningsRes, onlineNow, revenue] =
     await Promise.all([
       admin.auth.admin.listUsers({ page: 1, perPage: 1000 }),
-      admin.from("profiles").select("id, plan, founder_number"),
+      // "*" statt fester Spaltenliste: die Spalte country ist evtl. noch
+      // nicht deployt - so bricht das Select dann nicht.
+      admin.from("profiles").select("*"),
       admin.from("portfolio_items").select("id", { count: "exact", head: true }),
       admin
         .from("price_alerts")
@@ -162,27 +165,39 @@ async function loadStats(): Promise<AdminCloudStats> {
     );
   }
 
-  // Plan-Verteilung + Founder-Zaehler aus public.profiles
+  // Plan-Verteilung + Founder-Zaehler + Laender aus public.profiles
   let planCounts: Record<string, number> | null = null;
   let founderSold: number | null = null;
+  let countryCounts: Record<string, number> | null = null;
   const profileById = new Map<
     string,
-    { plan: string; founder_number: number | null }
+    { plan: string; founder_number: number | null; country: string | null }
   >();
   if (!profilesRes.error && profilesRes.data) {
     planCounts = { free: 0, sammler: 0, investor: 0, founder: 0 };
     founderSold = 0;
+    countryCounts = {};
     for (const row of profilesRes.data as {
       id: string;
       plan: string | null;
       founder_number: number | null;
+      // Spalte evtl. noch nicht deployt -> Feld fehlt dann einfach.
+      country?: string | null;
     }[]) {
       const plan = row.plan && row.plan in planCounts ? row.plan : "free";
       planCounts[plan] += 1;
       if (row.founder_number !== null) founderSold += 1;
+      const country =
+        typeof row.country === "string" && /^[A-Z]{2}$/.test(row.country)
+          ? row.country
+          : null;
+      // Unbekannte Herkunft unter "?" sammeln.
+      const countryKey = country ?? "?";
+      countryCounts[countryKey] = (countryCounts[countryKey] ?? 0) + 1;
       profileById.set(row.id, {
         plan,
         founder_number: row.founder_number ?? null,
+        country,
       });
     }
   }
@@ -234,6 +249,7 @@ async function loadStats(): Promise<AdminCloudStats> {
       createdAt: u.created_at,
       plan: profile?.plan ?? "free",
       founderNumber: profile?.founder_number ?? null,
+      country: profile?.country ?? null,
     };
   });
 
@@ -250,6 +266,7 @@ async function loadStats(): Promise<AdminCloudStats> {
     referralPendingTotal,
     referralPaidTotal,
     referralRows,
+    countryCounts,
     serviceRoleMissing: false,
     onlineNow,
     revenue,
