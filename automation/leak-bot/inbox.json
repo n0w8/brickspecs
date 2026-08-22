@@ -14616,5 +14616,33 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-08-22T19:09:59.979Z"
+  },
+  {
+    "id": "45f0cd21-5b29-4c1d-9d91-5822f08d16c1",
+    "type": "deal",
+    "title": "Knaller! LEGO Angebote bei Amazon mit bis zu 53% Rabatt, u.A. Blumenstrauß (10280) für nur 27,99 Euro",
+    "body": "📢 Update (23. August 2026, 0:08 Uhr): Zu später Stunde haben wir erneut ein paar wirklich teilweise extrem gute LEGO Angebote von Amazon für euch zusammengestellt! Unter anderem bietet Amazon gerade den LEGO Botanicals Blumenstrauß [...] Der Beitrag Knaller! LEGO Angebote bei Amazon mit bis zu 53% …",
+    "url": "https://www.stonewars.de/angebote/lego-angebote-amazon-august-2026-update/",
+    "source": "StoneWars",
+    "set": "10280",
+    "shop": "Amazon",
+    "priceEUR": 27.99,
+    "rrpEUR": 59.55,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+10280",
+    "postedAt": "2026-08-22T22:29:29.381Z"
+  },
+  {
+    "id": "c080b461-192d-4f32-9176-57f97e1d018d",
+    "type": "news",
+    "title": "What's hot this week",
+    "body": "These are the sets that have been viewed the most this week: TW LW Set Views 1 10179 Ultimate Collector's Millennium Falcon 3720 2 76139 1989 Batmobile 3020 3 76355 Batman Returns Batmobile 2388 4 5078 Crane Accessories (Container Crane Set) 2198 5 9 &uarr; 76178 Daily Bugle 1949 6 76252 Batcave – …",
+    "url": "https://brickset.com/article/134153",
+    "source": "Brickset",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-08-22T22:29:29.381Z"
   }
 ]
