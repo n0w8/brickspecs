@@ -1,10 +1,22 @@
 {
-  "fetchedAt": "2026-08-21T05:23:27.558Z",
-  "totalFigs": 17143,
+  "fetchedAt": "2026-08-22T05:18:05.405Z",
+  "totalFigs": 17147,
   "newFigsLastRun": [
     {
-      "id": "fig-018060",
-      "name": "Quad Driver"
+      "id": "fig-018061",
+      "name": "Cyber Brain Spider, Medium Azure Appendages"
+    },
+    {
+      "id": "fig-018062",
+      "name": "Cyber Brain Spider, Magenta Appendages"
+    },
+    {
+      "id": "fig-018063",
+      "name": "Cyber Brain Spider, Medium Azure Appendages. 4 Legs"
+    },
+    {
+      "id": "fig-018064",
+      "name": "Pizza Worker, Diver Helmet"
     }
   ]
 }

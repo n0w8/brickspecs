@@ -1,27 +1,17 @@
 {
-  "fetchedAt": "2026-08-21T05:23:26.717Z",
-  "totalSets": 28108,
+  "fetchedAt": "2026-08-22T05:18:03.762Z",
+  "totalSets": 28109,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "JWNLEG0009-1",
-      "name": "Ninjago 4 Piece Backpack Set",
+      "id": "6557640-13",
+      "name": "Race Car",
       "year": 2026
     },
     {
-      "id": "L0002226-1",
-      "name": "Beach Quad",
+      "id": "6645355-1",
+      "name": "\"Bouw je voetbaldroom\" Envelope",
       "year": 2026
-    },
-    {
-      "id": "LEG287451-1",
-      "name": "The LEGO Movie 2 Let's Build Together Backpack",
-      "year": 2019
-    },
-    {
-      "id": "5051888226162-1",
-      "name": "4 Original Numbers with Lunch Box",
-      "year": 2016
     }
   ]
 }
