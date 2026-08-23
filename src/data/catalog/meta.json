@@ -1,16 +1,46 @@
 {
-  "fetchedAt": "2026-08-22T05:18:03.762Z",
-  "totalSets": 28109,
+  "fetchedAt": "2026-08-23T05:20:35.354Z",
+  "totalSets": 28116,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "6557640-13",
-      "name": "Race Car",
+      "id": "9788325349080-1",
+      "name": "Brick Book: Color by Number",
       "year": 2026
     },
     {
-      "id": "6645355-1",
-      "name": "\"Bouw je voetbaldroom\" Envelope",
+      "id": "9788325349097-1",
+      "name": "Brick Book: Coloring",
+      "year": 2026
+    },
+    {
+      "id": "9788325349103-1",
+      "name": "Brick Book: Activity",
+      "year": 2026
+    },
+    {
+      "id": "9788325349110-1",
+      "name": "Brick Book: Activity",
+      "year": 2026
+    },
+    {
+      "id": "9788325349127-1",
+      "name": "Ninjago: Dragons Rising: 100 Mazes",
+      "year": 2026
+    },
+    {
+      "id": "9788325349141-1",
+      "name": "Doodle Time",
+      "year": 2026
+    },
+    {
+      "id": "9788325349158-1",
+      "name": "Color Me",
+      "year": 2026
+    },
+    {
+      "id": "L0002261-1",
+      "name": "Raptor and Volcano",
       "year": 2026
     }
   ]
