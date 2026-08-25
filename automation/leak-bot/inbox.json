@@ -15386,5 +15386,47 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-08-25T11:17:56.157Z"
+  },
+  {
+    "id": "b346095b-53cf-4379-8bcc-d1947b2c4ea7",
+    "type": "deal",
+    "title": "LEGO Angebote bei Amazon mit bis zu 50% Rabatt, u.A. LEGO Nintendo 72046 Game Boy für 38,99 Euro",
+    "body": "📢 Update (25. August 2026, 15:01 Uhr): Wir haben die Liste mit den aktuellen LEGO Angeboten bei Amazon noch einmal überarbeitet. In den letzten Tagen ist es bei den wirklich guten Preisen ein echtes Kommen [...] Der Beitrag LEGO Angebote bei Amazon mit bis zu 50% Rabatt, u.A. LEGO Nintendo 72046 …",
+    "url": "https://www.stonewars.de/angebote/lego-angebote-amazon-august-2026-update-2/",
+    "source": "StoneWars",
+    "set": "72046",
+    "shop": "Amazon",
+    "priceEUR": 38.99,
+    "rrpEUR": 77.98,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+72046",
+    "postedAt": "2026-08-25T13:13:28.009Z"
+  },
+  {
+    "id": "1d4036f6-aa10-44b5-ad49-4969a5866d6e",
+    "type": "news",
+    "title": "Who's who and what's what in LEGO 71053 Shrek minifigures",
+    "body": "What exactly is a 'Shrek'?",
+    "url": "https://www.brickfanatics.com/who-s-who-what-s-what-lego-71053-shrek-minifigures",
+    "source": "Brick Fanatics",
+    "set": "71053",
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+71053",
+    "postedAt": "2026-08-25T13:13:28.009Z"
+  },
+  {
+    "id": "d92b992d-3e83-4200-9ec0-391b9975dc59",
+    "type": "deal",
+    "title": "Herausragende LEGO Angebote bei Amazon: 40 Prozent Rabatt „die Regel“!",
+    "body": "Auch auf viele kleinere LEGO Sets gibt es nun fantastische Rabatte bei Amazon: Unsere lange Übersicht mit den aktuell besten LEGO Angeboten! Der Beitrag Herausragende LEGO Angebote bei Amazon: 40 Prozent Rabatt „die Regel“! erschien zuerst auf zusammengebaut .",
+    "url": "https://zusammengebaut.com/herausragende-lego-angebote-bei-amazon-40-prozent-rabatt-die-regel-230003/",
+    "source": "zusammengebaut",
+    "set": null,
+    "shop": "Amazon",
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+Herausragende+Angebote+bei+Amazon",
+    "postedAt": "2026-08-25T13:13:28.009Z"
   }
 ]
