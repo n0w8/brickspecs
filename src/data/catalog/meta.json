@@ -1,11 +1,16 @@
 {
-  "fetchedAt": "2026-08-24T05:29:59.310Z",
-  "totalSets": 28117,
+  "fetchedAt": "2026-08-25T05:23:01.338Z",
+  "totalSets": 28119,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "71053-15",
-      "name": "Shrek Series - Tower Box",
+      "id": "6644876-1",
+      "name": "Micro Castle",
+      "year": 2026
+    },
+    {
+      "id": "6644878-1",
+      "name": "Batman Mini Bust",
       "year": 2026
     }
   ]
