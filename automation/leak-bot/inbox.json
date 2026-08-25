@@ -15456,5 +15456,33 @@
     "rrpEUR": null,
     "buyUrl": "https://www.amazon.de/s?k=LEGO+40901",
     "postedAt": "2026-08-25T14:56:28.713Z"
+  },
+  {
+    "id": "e27dac8b-76bc-4f4c-8a98-7e0d4a94d2bd",
+    "type": "news",
+    "title": "New LEGO Harry Potter figure lacks magic, but is versatile",
+    "body": "They're not exactly a wizard, but that's OK",
+    "url": "https://www.brickfanatics.com/new-lego-harry-potter-figure-lacks-magic-versatile",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-08-25T15:37:00.987Z"
+  },
+  {
+    "id": "71725e47-4397-4b85-84fc-79c0b0976ccf",
+    "type": "news",
+    "title": "Every LEGO set releasing on September 1, 2026",
+    "body": "There’s a lot of LEGO to keep track of",
+    "url": "https://www.brickfanatics.com/every-lego-set-releasing-on-september-1-2026",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-08-25T15:37:00.987Z"
   }
 ]
