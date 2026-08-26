@@ -15862,5 +15862,33 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-08-26T16:06:24.386Z"
+  },
+  {
+    "id": "e2f26383-fdfa-4210-9504-6d0392b600c6",
+    "type": "news",
+    "title": "LEGO Super Mario’s new Luigi minifigures are missing something",
+    "body": "Shouldn’t Mario’s brother be taller?",
+    "url": "https://www.brickfanatics.com/lego-super-mario-s-new-luigi-minifigures-are-missing-something",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-08-26T18:51:26.839Z"
+  },
+  {
+    "id": "69e4ed59-af0e-44eb-b09a-28fc8aa386d8",
+    "type": "news",
+    "title": "LEGO Batman’s Mayhem Collection DLC adds all-new features",
+    "body": "It's Mayhem on the streets of Gotham City",
+    "url": "https://www.brickfanatics.com/lego-batman-mayhem-collection-dlc-adds-all-new-features",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-08-26T18:51:26.839Z"
   }
 ]
