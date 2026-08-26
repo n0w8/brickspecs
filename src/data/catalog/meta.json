@@ -1,17 +1,6 @@
 {
-  "fetchedAt": "2026-08-25T05:23:01.338Z",
+  "fetchedAt": "2026-08-26T05:24:11.604Z",
   "totalSets": 28119,
   "totalThemes": 496,
-  "newSetsLastRun": [
-    {
-      "id": "6644876-1",
-      "name": "Micro Castle",
-      "year": 2026
-    },
-    {
-      "id": "6644878-1",
-      "name": "Batman Mini Bust",
-      "year": 2026
-    }
-  ]
+  "newSetsLastRun": []
 }
