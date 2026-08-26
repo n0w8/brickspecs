@@ -15680,5 +15680,33 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-08-26T09:28:07.532Z"
+  },
+  {
+    "id": "e3ebf358-e828-49dd-b846-ec7e9f8dd7b2",
+    "type": "news",
+    "title": "LEGO Skylines city builder video game announced for 2027",
+    "body": "From the current developers of Cities: Skylines II",
+    "url": "https://www.brickfanatics.com/lego-skylines-video-game-announced-for-2027",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-08-26T10:05:22.572Z"
+  },
+  {
+    "id": "ea058bcf-6676-4902-9d6e-aed4473bc08c",
+    "type": "gwp",
+    "title": "LEGO Star Wars 40897 Darth Vader’s Lightsaber GWP revealed",
+    "body": "A fine addition to your collection",
+    "url": "https://www.brickfanatics.com/lego-star-wars-40897-darth-vaders-lightsaber-revealed",
+    "source": "Brick Fanatics",
+    "set": "40897",
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+40897",
+    "postedAt": "2026-08-26T10:05:22.572Z"
   }
 ]
