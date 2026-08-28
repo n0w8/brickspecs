@@ -1,207 +1,92 @@
 {
-  "fetchedAt": "2026-08-27T15:59:41.796Z",
-  "totalSets": 28159,
+  "fetchedAt": "2026-08-28T17:00:11.901Z",
+  "totalSets": 28166,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "72052-1",
-      "name": "Mario's Pipe Jump",
+      "id": "53894-1",
+      "name": "Watercolor Set",
       "year": 2027
     },
     {
-      "id": "72054-1",
-      "name": "Mario Kart – Racing with Mario",
+      "id": "53895-1",
+      "name": "Duplo Water Art Play Mat",
       "year": 2027
     },
     {
-      "id": "72055-1",
-      "name": "Mario's Beach Adventures",
+      "id": "LGLKE262H-1",
+      "name": "Rechargeable Minifigure Key Light (All Colors)",
       "year": 2027
     },
     {
-      "id": "72056-1",
-      "name": "Mario Kart – Luigi & Bowser Jr.'s Race",
+      "id": "LGLLP61-1",
+      "name": "Heart Night Light",
       "year": 2027
     },
     {
-      "id": "72057-1",
-      "name": "Yoshi at Mario's House",
-      "year": 2027
-    },
-    {
-      "id": "72058-1",
-      "name": "Mario Kart – Bowser's Rumbling Race",
-      "year": 2027
-    },
-    {
-      "id": "72060-1",
-      "name": "Fire Mario & Bowser's Castle",
-      "year": 2027
-    },
-    {
-      "id": "72061-1",
-      "name": "Fire Luigi vs. Koopa Troopa Battle",
-      "year": 2027
-    },
-    {
-      "id": "202792621-1",
-      "name": "Ninjago 15th Anniversary Backpack",
+      "id": "40897-1",
+      "name": "Darth Vader's LIGHTSABER",
       "year": 2026
     },
     {
-      "id": "203432621-1",
-      "name": "Ninjago 15th Anniversary Pencil Case",
+      "id": "53747-1",
+      "name": "Star Wars The Mandalorian Ahsoka Tano Sticky Notes with Lightsaber Gel Pen",
       "year": 2026
     },
     {
-      "id": "203522621-1",
-      "name": "Ninjago 15th Anniversary Pencil Case",
+      "id": "53804-1",
+      "name": "Star Wars The Mandalorian Stickers",
       "year": 2026
     },
     {
-      "id": "203532621-1",
-      "name": "Ninjago 15th Anniversary Gym Bag",
+      "id": "53805-1",
+      "name": "Star Wars Holiday Stickers",
       "year": 2026
     },
     {
-      "id": "41480804-1",
-      "name": "Brick Art Line Steel Bottle",
+      "id": "53807-1",
+      "name": "Star Wars The Mandalorian Black and White Stickers",
       "year": 2026
     },
     {
-      "id": "41480805-1",
-      "name": "Spring Flowers Steel Bottle",
+      "id": "53857-1",
+      "name": "Minifigure Stickers",
       "year": 2026
     },
     {
-      "id": "53496-1",
-      "name": "Fortnite Stickers",
+      "id": "53859-1",
+      "name": "Halloween Stickers",
       "year": 2026
     },
     {
-      "id": "53803-1",
-      "name": "Star Wars Stickers",
+      "id": "53862-1",
+      "name": "Ninjago Stickers",
       "year": 2026
     },
     {
-      "id": "53806-1",
-      "name": "Star Wars Black and White Stickers",
+      "id": "75457-1",
+      "name": "Executor Super Star Destroyer",
       "year": 2026
     },
     {
-      "id": "53841-1",
-      "name": "Halloween Key Light Display",
+      "id": "81346-1",
+      "name": "Ninjago: Dragons Rising Bowl",
       "year": 2026
     },
     {
-      "id": "53861-1",
-      "name": "Botanicals Sticker",
+      "id": "81347-1",
+      "name": "Ninjago: Dragons Rising Plate",
       "year": 2026
     },
     {
-      "id": "53863-1",
-      "name": "City Stickers",
-      "year": 2026
+      "id": "FLAMINGMOTORBIKE-1",
+      "name": "Flaming Motorbike",
+      "year": 2019
     },
     {
-      "id": "53879-1",
-      "name": "Birthday Coloring Creativity Set",
-      "year": 2026
-    },
-    {
-      "id": "53881-1",
-      "name": "Botanicals Wildflowers Coloring Creativity Set",
-      "year": 2026
-    },
-    {
-      "id": "53882-1",
-      "name": "Halloween Coloring Creativity Set",
-      "year": 2026
-    },
-    {
-      "id": "53883-1",
-      "name": "Holiday Coloring Creativity Set",
-      "year": 2026
-    },
-    {
-      "id": "53885-1",
-      "name": "Farmer's Market ColorMe Silicone Mat",
-      "year": 2026
-    },
-    {
-      "id": "53893-1",
-      "name": "Water Art Pad",
-      "year": 2026
-    },
-    {
-      "id": "53908-1",
-      "name": "Pirate ColorMe Silicone Mat",
-      "year": 2026
-    },
-    {
-      "id": "53909-1",
-      "name": "AirTag Holder 1 x 1 Round (All Colors)",
-      "year": 2026
-    },
-    {
-      "id": "54018-1",
-      "name": "Fortnite Key Light Display",
-      "year": 2026
-    },
-    {
-      "id": "81313-1",
-      "name": "Ninjago: Dragons Rising Bottle (580ml)",
-      "year": 2026
-    },
-    {
-      "id": "CB2460400-1",
-      "name": "Crossbody Handbag - Retro Logos (Retro Yellow)",
-      "year": 2026
-    },
-    {
-      "id": "CB2460750-1",
-      "name": "Crossbody Handbag - Retro Logos (Retro Pink)",
-      "year": 2026
-    },
-    {
-      "id": "CDU53683-1",
-      "name": "Farmer's Market Key Light Display",
-      "year": 2026
-    },
-    {
-      "id": "53289-1",
-      "name": "Lightsaber Gel Pen Display",
-      "year": 2025
-    },
-    {
-      "id": "53682-1",
-      "name": "Dinosaur Key Light Display",
-      "year": 2025
-    },
-    {
-      "id": "9781645888130-1",
-      "name": "Star Wars: Imperial Riddles!",
-      "year": 2025
-    },
-    {
-      "id": "52624-1",
-      "name": "Locking Notebook with Gel Pen Display",
-      "year": 2023
-    },
-    {
-      "id": "52520-1",
-      "name": "Silicone NiteLite Display",
-      "year": 2022
-    },
-    {
-      "id": "52854-1",
-      "name": "DOTS Display",
-      "year": 2022
-    },
-    {
-      "id": "9781789050431-1",
-      "name": "Star Wars: Galactic Sticker Book",
-      "year": 2018
+      "id": "SUMMERFLAMINGO-1",
+      "name": "Summer Flamingo",
+      "year": 2019
     }
   ]
 }
