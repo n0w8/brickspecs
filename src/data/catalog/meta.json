@@ -1,6 +1,17 @@
 {
-  "fetchedAt": "2026-08-29T11:25:01.884Z",
-  "totalSets": 28166,
+  "fetchedAt": "2026-08-30T10:11:24.154Z",
+  "totalSets": 28168,
   "totalThemes": 496,
-  "newSetsLastRun": []
+  "newSetsLastRun": [
+    {
+      "id": "L0002254-1",
+      "name": "Hero, Zombie and TNT Launcher",
+      "year": 2026
+    },
+    {
+      "id": "SLIZER-6",
+      "name": "Slizer/Throwbots Millenium Mug",
+      "year": 1999
+    }
+  ]
 }

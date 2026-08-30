@@ -1,5 +1,18 @@
 {
-  "fetchedAt": "2026-08-29T11:25:02.781Z",
-  "totalFigs": 17162,
-  "newFigsLastRun": []
+  "fetchedAt": "2026-08-30T10:11:25.047Z",
+  "totalFigs": 17165,
+  "newFigsLastRun": [
+    {
+      "id": "fig-018080",
+      "name": "Cornelius Fudge, Black Suit"
+    },
+    {
+      "id": "fig-018081",
+      "name": "Daily Prophet Vendor"
+    },
+    {
+      "id": "fig-018082",
+      "name": "Fountain Statue"
+    }
+  ]
 }
