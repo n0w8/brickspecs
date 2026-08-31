@@ -1,17 +1,27 @@
 {
-  "fetchedAt": "2026-08-30T10:11:24.154Z",
-  "totalSets": 28168,
+  "fetchedAt": "2026-08-31T11:14:26.860Z",
+  "totalSets": 28172,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "L0002254-1",
-      "name": "Hero, Zombie and TNT Launcher",
+      "id": "5011093-1",
+      "name": "LEGO Harry Potter 25th Anniversary Holiday Baubles",
       "year": 2026
     },
     {
-      "id": "SLIZER-6",
-      "name": "Slizer/Throwbots Millenium Mug",
-      "year": 1999
+      "id": "6668941-1",
+      "name": "Trophy",
+      "year": 2026
+    },
+    {
+      "id": "6680480-1",
+      "name": "Jolly Roger Mosaic",
+      "year": 2026
+    },
+    {
+      "id": "6680481-1",
+      "name": "Baroque Works Mosaic",
+      "year": 2026
     }
   ]
 }

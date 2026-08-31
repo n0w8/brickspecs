@@ -1,18 +1,70 @@
 {
-  "fetchedAt": "2026-08-30T10:11:25.047Z",
-  "totalFigs": 17165,
+  "fetchedAt": "2026-08-31T11:14:27.670Z",
+  "totalFigs": 17181,
   "newFigsLastRun": [
     {
-      "id": "fig-018080",
-      "name": "Cornelius Fudge, Black Suit"
+      "id": "fig-018083",
+      "name": "Lucius Malfoy, Black Death Eater Suit"
     },
     {
-      "id": "fig-018081",
-      "name": "Daily Prophet Vendor"
+      "id": "fig-018084",
+      "name": "Sirius Black, Olive Green Jacket"
     },
     {
-      "id": "fig-018082",
-      "name": "Fountain Statue"
+      "id": "fig-018085",
+      "name": "Antonin Dolohov"
+    },
+    {
+      "id": "fig-018086",
+      "name": "Harry Potter, Light Bluish Grey Hoody, Sand Blue Legs"
+    },
+    {
+      "id": "fig-018087",
+      "name": "Hermione Granger, Light Bluish Grey Sweater"
+    },
+    {
+      "id": "fig-018088",
+      "name": "Dolores Umbridge, Warm Pink Outfit"
+    },
+    {
+      "id": "fig-018090",
+      "name": "Alastor Mad-Eye Moody, Odd Legs, Dark Brown Suit"
+    },
+    {
+      "id": "fig-018091",
+      "name": "Ron Weasley, Reddish Brown Sweater"
+    },
+    {
+      "id": "fig-018092",
+      "name": "Voldemort, Dark Green Dress"
+    },
+    {
+      "id": "fig-018094",
+      "name": "Albus Dumbledore. Lavender Dress"
+    },
+    {
+      "id": "fig-018095",
+      "name": "Gold Statue, Tricorn"
+    },
+    {
+      "id": "fig-018096",
+      "name": "Kingsley Shacklebolt, Dark Purple Kufi"
+    },
+    {
+      "id": "fig-018097",
+      "name": "Arabella Figg"
+    },
+    {
+      "id": "fig-018098",
+      "name": "Nymphadora Tonks, Dark Red Suit"
+    },
+    {
+      "id": "fig-018099",
+      "name": "Arthur Weasley"
+    },
+    {
+      "id": "fig-018100",
+      "name": "Jungle Ranger, Armor"
     }
   ]
 }
