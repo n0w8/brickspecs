@@ -1,70 +1,98 @@
 {
-  "fetchedAt": "2026-08-31T11:14:27.670Z",
-  "totalFigs": 17181,
+  "fetchedAt": "2026-09-01T09:39:47.823Z",
+  "totalFigs": 17203,
   "newFigsLastRun": [
     {
-      "id": "fig-018083",
-      "name": "Lucius Malfoy, Black Death Eater Suit"
+      "id": "fig-018102",
+      "name": "Jokerized Batman"
     },
     {
-      "id": "fig-018084",
-      "name": "Sirius Black, Olive Green Jacket"
+      "id": "fig-018103",
+      "name": "Elf - Dark Red Torso, Red Legs"
     },
     {
-      "id": "fig-018085",
-      "name": "Antonin Dolohov"
+      "id": "fig-018104",
+      "name": "Elf - Bright Green Torso, Dark Green Legs"
     },
     {
-      "id": "fig-018086",
-      "name": "Harry Potter, Light Bluish Grey Hoody, Sand Blue Legs"
+      "id": "fig-018105",
+      "name": "Elf - Bright Green Torso, Reddish Brown Legs"
     },
     {
-      "id": "fig-018087",
-      "name": "Hermione Granger, Light Bluish Grey Sweater"
+      "id": "fig-018106",
+      "name": "Snowman, Dark Azure Sweater"
     },
     {
-      "id": "fig-018088",
-      "name": "Dolores Umbridge, Warm Pink Outfit"
+      "id": "fig-018107",
+      "name": "Santa Clause, Casual Clothes"
     },
     {
-      "id": "fig-018090",
-      "name": "Alastor Mad-Eye Moody, Odd Legs, Dark Brown Suit"
+      "id": "fig-018108",
+      "name": "Nova, Winter Outfit"
     },
     {
-      "id": "fig-018091",
-      "name": "Ron Weasley, Reddish Brown Sweater"
+      "id": "fig-018109",
+      "name": "Liann, Winter Outfit"
     },
     {
-      "id": "fig-018092",
-      "name": "Voldemort, Dark Green Dress"
+      "id": "fig-018110",
+      "name": "Aliya, Winter Outfit"
     },
     {
-      "id": "fig-018094",
-      "name": "Albus Dumbledore. Lavender Dress"
+      "id": "fig-018111",
+      "name": "Dr. Doom, 8050 Hood"
     },
     {
-      "id": "fig-018095",
-      "name": "Gold Statue, Tricorn"
+      "id": "fig-018112",
+      "name": "Captain America, Hair"
     },
     {
-      "id": "fig-018096",
-      "name": "Kingsley Shacklebolt, Dark Purple Kufi"
+      "id": "fig-018113",
+      "name": "Wolverine, Christmas Sweater"
     },
     {
-      "id": "fig-018097",
-      "name": "Arabella Figg"
+      "id": "fig-018114",
+      "name": "Captain America Snowman"
     },
     {
-      "id": "fig-018098",
-      "name": "Nymphadora Tonks, Dark Red Suit"
+      "id": "fig-018115",
+      "name": "Iron Man, Pearl Gold Arms, Round Arc Reactor, Helmet and Visor"
     },
     {
-      "id": "fig-018099",
-      "name": "Arthur Weasley"
+      "id": "fig-018116",
+      "name": "Mulan, Microdoll"
     },
     {
-      "id": "fig-018100",
-      "name": "Jungle Ranger, Armor"
+      "id": "fig-018120",
+      "name": "Ariel, Microdoll"
+    },
+    {
+      "id": "fig-018122",
+      "name": "Moana, Microdoll"
+    },
+    {
+      "id": "fig-018123",
+      "name": "Cinderella, Microdoll"
+    },
+    {
+      "id": "fig-018124",
+      "name": "IG-11, Molded Head"
+    },
+    {
+      "id": "fig-018125",
+      "name": "Grogu, 7789 Body, Christmas Sweater"
+    },
+    {
+      "id": "fig-018126",
+      "name": "Festive Pit Droid"
+    },
+    {
+      "id": "fig-018127",
+      "name": "Moff Gideon, Christmas Sweater"
+    },
+    {
+      "id": "fig-018128",
+      "name": "Din Djarin, Christmas Sweater"
     }
   ]
 }
