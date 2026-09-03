@@ -1,11 +1,31 @@
 {
-  "fetchedAt": "2026-09-02T09:11:19.242Z",
-  "totalSets": 28174,
+  "fetchedAt": "2026-09-03T09:17:57.991Z",
+  "totalSets": 28179,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "21371-1",
-      "name": "Wallace & Gromit",
+      "id": "40862-1",
+      "name": "Holiday Ornament Selection 2",
+      "year": 2026
+    },
+    {
+      "id": "40865-1",
+      "name": "Buddy the Elf",
+      "year": 2026
+    },
+    {
+      "id": "40866-1",
+      "name": "Santa's Holiday Sleigh Adventure",
+      "year": 2026
+    },
+    {
+      "id": "40874-1",
+      "name": "Santa's Holiday Countdown",
+      "year": 2026
+    },
+    {
+      "id": "40875-1",
+      "name": "Up-Scaled Mrs. Claus Minifigure",
       "year": 2026
     }
   ]
