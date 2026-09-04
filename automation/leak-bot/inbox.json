@@ -18634,5 +18634,19 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-09-04T16:56:03.230Z"
+  },
+  {
+    "id": "a43f70fc-704f-4280-ad3a-024763399973",
+    "type": "news",
+    "title": "Those LEGO 71053 Shrek minifigure cracks may be misleading",
+    "body": "Possibly not all they're cracked up to be",
+    "url": "https://www.brickfanatics.com/the-lego-71053-shrek-minifigure-cracks-misleading",
+    "source": "Brick Fanatics",
+    "set": "71053",
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+71053",
+    "postedAt": "2026-09-04T19:15:06.507Z"
   }
 ]
