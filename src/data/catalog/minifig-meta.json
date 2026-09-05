@@ -1,5 +1,10 @@
 {
-  "fetchedAt": "2026-09-04T09:11:49.809Z",
-  "totalFigs": 17223,
-  "newFigsLastRun": []
+  "fetchedAt": "2026-09-05T08:42:33.035Z",
+  "totalFigs": 17224,
+  "newFigsLastRun": [
+    {
+      "id": "fig-018149",
+      "name": "Falcon, Neck Bracket"
+    }
+  ]
 }

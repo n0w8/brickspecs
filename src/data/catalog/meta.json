@@ -1,11 +1,16 @@
 {
-  "fetchedAt": "2026-09-04T09:11:49.033Z",
-  "totalSets": 28180,
+  "fetchedAt": "2026-09-05T08:42:31.904Z",
+  "totalSets": 28182,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "ACP6702S1-1",
-      "name": "ReCreate Activity Cards Built it! Ninja in Action!",
+      "id": "72306-1",
+      "name": "PlayStation",
+      "year": 2026
+    },
+    {
+      "id": "POKEMONSTICKER-1",
+      "name": "Pokémon Smart Play Stickers",
       "year": 2026
     }
   ]
