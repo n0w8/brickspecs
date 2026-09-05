@@ -8,6 +8,7 @@
  */
 
 import { useEffect } from "react";
+import { istBot } from "@/lib/bot";
 
 const SID_KEY = "bricktopia.sid";
 
@@ -29,6 +30,7 @@ function sessionId(): string {
 
 export default function PresencePinger() {
   useEffect(() => {
+    if (istBot()) return; // Crawler sind nicht "online" und sollen keine Serverzeit kosten
     const sid = sessionId();
     let stopped = false;
 

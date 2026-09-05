@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useLang } from "@/lib/i18n";
+import { istBot } from "@/lib/bot";
 
 interface Stats {
   views: number | null;
@@ -32,6 +33,7 @@ export default function SetStats({
   useEffect(() => {
     if (firedFor.current === setId) return;
     firedFor.current = setId;
+    if (istBot()) return; // Crawler-Aufrufe zaehlen nicht als Ansichten und kosten sonst Serverzeit
 
     let cancelled = false;
     fetch(`/api/sets/${encodeURIComponent(setId)}/view`, { method: "POST" })

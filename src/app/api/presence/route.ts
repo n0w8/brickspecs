@@ -72,5 +72,9 @@ export async function POST(req: Request) {
 
 export async function GET() {
   const admin = getSupabaseAdmin();
-  return NextResponse.json({ online: await countOnline(admin) });
+  // 30 s am Rand cachen: viele offene Tabs fragen minuetlich, die Zahl aendert sich langsam.
+  return NextResponse.json(
+    { online: await countOnline(admin) },
+    { headers: { "Cache-Control": "public, s-maxage=30, stale-while-revalidate=60" } }
+  );
 }

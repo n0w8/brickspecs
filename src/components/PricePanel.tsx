@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useLang, useT } from "@/lib/i18n";
+import { istBot } from "@/lib/bot";
 import { formatEUR } from "@/lib/format";
 import { buyLinks, COUNTRY_KEY } from "@/lib/buy-links";
 
@@ -66,6 +67,9 @@ export default function PricePanel({
 
   useEffect(() => {
     let cancelled = false;
+    // Crawler bekommen keine Preisabfrage - spart pro Katalogseite einen Funktionsaufruf.
+    // (Sie sehen den Lade-Platzhalter; Preise sind ohnehin nicht indexrelevant.)
+    if (istBot()) return;
     setLoading(true);
     fetch(`/api/prices/${encodeURIComponent(setId)}?source=${source}&country=${country}`)
       .then((r) => r.json())

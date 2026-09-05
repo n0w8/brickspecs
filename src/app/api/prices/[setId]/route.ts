@@ -15,5 +15,9 @@ export async function GET(
   const country = COUNTRIES.some((c) => c.code === countryParam) ? countryParam : "DE";
 
   const result = await getPrices(setId, source, country);
-  return NextResponse.json(result);
+  // Preise werden einmal taeglich per GitHub Action aktualisiert - die Antwort darf am
+  // Vercel-Rand 6 Stunden liegen. Wiederholte Aufrufe kosten dann keine Funktionszeit.
+  return NextResponse.json(result, {
+    headers: { "Cache-Control": "public, s-maxage=21600, stale-while-revalidate=86400" },
+  });
 }

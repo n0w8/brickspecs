@@ -8,6 +8,7 @@
 
 import { useEffect, useState } from "react";
 import { useLang } from "@/lib/i18n";
+import { istBot } from "@/lib/bot";
 
 export default function OnlineNow({ className = "" }: { className?: string }) {
   const { lang } = useLang();
@@ -23,6 +24,7 @@ export default function OnlineNow({ className = "" }: { className?: string }) {
         })
         .catch(() => {});
     };
+    if (istBot()) return; // Crawler brauchen die Online-Zahl nicht
     load();
     const timer = window.setInterval(load, 60_000);
     return () => {
