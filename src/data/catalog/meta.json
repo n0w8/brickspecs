@@ -1,17 +1,17 @@
 {
-  "fetchedAt": "2026-09-05T08:42:31.904Z",
-  "totalSets": 28182,
+  "fetchedAt": "2026-09-06T09:03:55.457Z",
+  "totalSets": 28183,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "72306-1",
-      "name": "PlayStation",
+      "id": "5011029-1",
+      "name": "Ninjago: Destiny's Bounty Adventures",
       "year": 2026
     },
     {
-      "id": "POKEMONSTICKER-1",
-      "name": "Pokémon Smart Play Stickers",
-      "year": 2026
+      "id": "700E-1",
+      "name": "10 x 20 Brickplate",
+      "year": 1954
     }
   ]
 }
