@@ -1,17 +1,57 @@
 {
-  "fetchedAt": "2026-09-06T09:03:55.457Z",
-  "totalSets": 28183,
+  "fetchedAt": "2026-09-07T09:50:26.732Z",
+  "totalSets": 28193,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "5011029-1",
-      "name": "Ninjago: Destiny's Bounty Adventures",
-      "year": 2026
+      "id": "507-2",
+      "name": "Kindergarten Set (Duplo)",
+      "year": 1973
     },
     {
-      "id": "700E-1",
-      "name": "10 x 20 Brickplate",
-      "year": 1954
+      "id": "508-2",
+      "name": "Kindergarten Assortment",
+      "year": 1973
+    },
+    {
+      "id": "94-1",
+      "name": "Therapy I Without Box",
+      "year": 1973
+    },
+    {
+      "id": "95-1",
+      "name": "Therapy II Without Box",
+      "year": 1973
+    },
+    {
+      "id": "96-1",
+      "name": "Therapy III Without Box",
+      "year": 1973
+    },
+    {
+      "id": "4-1",
+      "name": "Therapy I Without Box",
+      "year": 1971
+    },
+    {
+      "id": "5-1",
+      "name": "Therapy II Without Box",
+      "year": 1971
+    },
+    {
+      "id": "6-2",
+      "name": "Therapy III Without Box",
+      "year": 1971
+    },
+    {
+      "id": "8-4",
+      "name": "Storage Case",
+      "year": 1970
+    },
+    {
+      "id": "1234-2",
+      "name": "1/8 Bricks with Letters",
+      "year": 1957
     }
   ]
 }
