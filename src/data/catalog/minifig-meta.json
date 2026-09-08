@@ -1,5 +1,10 @@
 {
-  "fetchedAt": "2026-09-07T09:50:27.705Z",
-  "totalFigs": 17224,
-  "newFigsLastRun": []
+  "fetchedAt": "2026-09-08T09:14:57.179Z",
+  "totalFigs": 17225,
+  "newFigsLastRun": [
+    {
+      "id": "fig-018151",
+      "name": "Retro Video Game Batman"
+    }
+  ]
 }

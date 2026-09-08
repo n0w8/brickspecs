@@ -1,57 +1,397 @@
 {
-  "fetchedAt": "2026-09-07T09:50:26.732Z",
-  "totalSets": 28193,
+  "fetchedAt": "2026-09-08T09:14:55.986Z",
+  "totalSets": 28271,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "507-2",
-      "name": "Kindergarten Set (Duplo)",
-      "year": 1973
+      "id": "11379-1",
+      "name": "Bookstore: Book Nook",
+      "year": 2026
     },
     {
-      "id": "508-2",
-      "name": "Kindergarten Assortment",
-      "year": 1973
+      "id": "113890-1",
+      "name": "New York City Magnet - Pattern",
+      "year": 2026
     },
     {
-      "id": "94-1",
-      "name": "Therapy I Without Box",
-      "year": 1973
+      "id": "113894-1",
+      "name": "New York City Magnet - 3D-Graphics",
+      "year": 2026
     },
     {
-      "id": "95-1",
-      "name": "Therapy II Without Box",
-      "year": 1973
+      "id": "113895-1",
+      "name": "New York City Magnet - Yellow",
+      "year": 2026
     },
     {
-      "id": "96-1",
-      "name": "Therapy III Without Box",
-      "year": 1973
+      "id": "114589-1",
+      "name": "Paris Magnet - Man with Dog and Baguette",
+      "year": 2026
     },
     {
-      "id": "4-1",
-      "name": "Therapy I Without Box",
-      "year": 1971
+      "id": "114590-1",
+      "name": "Paris Magnet - Girl",
+      "year": 2026
     },
     {
-      "id": "5-1",
-      "name": "Therapy II Without Box",
-      "year": 1971
+      "id": "114592-1",
+      "name": "Paris Magnet - Heart",
+      "year": 2026
     },
     {
-      "id": "6-2",
-      "name": "Therapy III Without Box",
-      "year": 1971
+      "id": "114594-1",
+      "name": "Paris Magnet - I [Heart] Paris Minifigure",
+      "year": 2026
     },
     {
-      "id": "8-4",
-      "name": "Storage Case",
-      "year": 1970
+      "id": "114595-1",
+      "name": "Paris Magnet - The LEGO Store Paris",
+      "year": 2026
     },
     {
-      "id": "1234-2",
-      "name": "1/8 Bricks with Letters",
+      "id": "114962-1",
+      "name": "Dublin Magnet - Heart",
+      "year": 2026
+    },
+    {
+      "id": "114967-1",
+      "name": "Dublin Magnet - Character",
+      "year": 2026
+    },
+    {
+      "id": "114968-1",
+      "name": "Dublin Magnet - Green",
+      "year": 2026
+    },
+    {
+      "id": "115925-1",
+      "name": "Madrid Magnet - Pattern",
+      "year": 2026
+    },
+    {
+      "id": "5010786-1",
+      "name": "Munich Magnet - Boy",
+      "year": 2026
+    },
+    {
+      "id": "5010787-1",
+      "name": "Munich Magnet - Girl",
+      "year": 2026
+    },
+    {
+      "id": "53906-1",
+      "name": "LEGOLAND Enamel Button - LEGOLAND Shanghai",
+      "year": 2026
+    },
+    {
+      "id": "6686868-1",
+      "name": "Class Schedule",
+      "year": 2026
+    },
+    {
+      "id": "82954023298-1",
+      "name": "LEGOLAND California Postcard Pin",
+      "year": 2026
+    },
+    {
+      "id": "82954023342-1",
+      "name": "LEGOLAND California Driving School Car Pin",
+      "year": 2026
+    },
+    {
+      "id": "82954023380-1",
+      "name": "LEGOLAND California Solar System Spinning Pin",
+      "year": 2026
+    },
+    {
+      "id": "82954043333-1",
+      "name": "LEGOLAND California Irid Arrow Shape Magnet",
+      "year": 2026
+    },
+    {
+      "id": "82954043340-1",
+      "name": "LEGOLAND California Driving School Car Magnet",
+      "year": 2026
+    },
+    {
+      "id": "82954043418-1",
+      "name": "LEGOLAND California Dino Volcano Scene Magnet",
+      "year": 2026
+    },
+    {
+      "id": "829542064215-1",
+      "name": "LEGOLAND California 3D Pillow Magnet",
+      "year": 2026
+    },
+    {
+      "id": "831521-1",
+      "name": "Commemorative Coin - Banana Guy",
+      "year": 2026
+    },
+    {
+      "id": "831521-2",
+      "name": "Commemorative Coin - Popcorn Costume",
+      "year": 2026
+    },
+    {
+      "id": "831521-3",
+      "name": "Commemorative Coin - LEGOLAND Minifigure",
+      "year": 2026
+    },
+    {
+      "id": "831521-4",
+      "name": "Commemorative Coin - Monkie Kid",
+      "year": 2026
+    },
+    {
+      "id": "831521-5",
+      "name": "Commemorative Coin - LLoyd",
+      "year": 2026
+    },
+    {
+      "id": "831521-6",
+      "name": "Commemorative Coin - Butterfly Girl",
+      "year": 2026
+    },
+    {
+      "id": "BAGTAG-1",
+      "name": "Pretzel Girl Bag Tag",
+      "year": 2026
+    },
+    {
+      "id": "BUTTON-1",
+      "name": "I [Heart] LEGOLAND Enamel Button (Male)",
+      "year": 2026
+    },
+    {
+      "id": "BUTTON-2",
+      "name": "I [Heart] LEGOLAND Enamel Button (Female)",
+      "year": 2026
+    },
+    {
+      "id": "KEYLIGHT-1",
+      "name": "Pretzel Girl Key Light",
+      "year": 2026
+    },
+    {
+      "id": "KEYLIGHT-2",
+      "name": "Lederhosen Guy Key Light",
+      "year": 2026
+    },
+    {
+      "id": "MAGNET-3",
+      "name": "Munich Magnet - Heart",
+      "year": 2026
+    },
+    {
+      "id": "111859-1",
+      "name": "LEGO Store Magnet - Jamsil",
+      "year": 2025
+    },
+    {
+      "id": "6377564-1",
+      "name": "LEGOLAND Florida Groovy Sunset Pin",
+      "year": 2025
+    },
+    {
+      "id": "82954023243-1",
+      "name": "LEGOLAND Dragon Irid Puzzle Pin",
+      "year": 2025
+    },
+    {
+      "id": "82954023250-1",
+      "name": "LEGOLAND Dragon Comic Book Pin",
+      "year": 2025
+    },
+    {
+      "id": "82954023274-1",
+      "name": "LEGOLAND California Entrance Stacked Pin",
+      "year": 2025
+    },
+    {
+      "id": "951125-1",
+      "name": "Travel Stories",
+      "year": 2025
+    },
+    {
+      "id": "MAGGB029-1",
+      "name": "LEGOLAND Winsor Resort Blue Dragon Magnet",
+      "year": 2025
+    },
+    {
+      "id": "MAGGB048-1",
+      "name": "LEGOLAND Winsor Resort Mythica Entrance Magnet",
+      "year": 2025
+    },
+    {
+      "id": "111073-1",
+      "name": "LEGO Store Magnet - Myeongdong",
+      "year": 2024
+    },
+    {
+      "id": "53150-1",
+      "name": "LEGOLAND Enamel Button - Ollie",
+      "year": 2024
+    },
+    {
+      "id": "24685929663-1",
+      "name": "LEGOLAND California Ollie Notebook and Pen",
+      "year": 2023
+    },
+    {
+      "id": "82954023281-1",
+      "name": "LEGOLAND California Gong Pin",
+      "year": 2023
+    },
+    {
+      "id": "82954043272-1",
+      "name": "LEGOLAND California Entrance Stacked Magnet",
+      "year": 2023
+    },
+    {
+      "id": "82954203106-1",
+      "name": "LEGOLAND California Rides Stripes Pin",
+      "year": 2023
+    },
+    {
+      "id": "82954203126-1",
+      "name": "LEGOLAND Car / Pirate / Ninja 3 Pin Set",
+      "year": 2023
+    },
+    {
+      "id": "PIN-1",
+      "name": "Fortnite Peely and Bright Bomber Pin",
+      "year": 2023
+    },
+    {
+      "id": "82954023229-1",
+      "name": "LEGOLAND Camera/Polaroid Pin",
+      "year": 2022
+    },
+    {
+      "id": "82954041377-1",
+      "name": "LEGOLAND California License Plate Magnet",
+      "year": 2022
+    },
+    {
+      "id": "82954043029-1",
+      "name": "LEGOLAND Wood Magnet",
+      "year": 2022
+    },
+    {
+      "id": "656514000427-1",
+      "name": "LEGOLAND Windsor Pirate Swinging Pin",
+      "year": 2019
+    },
+    {
+      "id": "656514000434-1",
+      "name": "LEGOLAND Entrance Portal Pin",
+      "year": 2019
+    },
+    {
+      "id": "656514000465-1",
+      "name": "LEGOLAND Hotel Tower Pin",
+      "year": 2019
+    },
+    {
+      "id": "656514000472-1",
+      "name": "LEGOLAND Haunted House Pin",
+      "year": 2019
+    },
+    {
+      "id": "656514000489-1",
+      "name": "LEGOLAND Driving School Car Pin - Red",
+      "year": 2019
+    },
+    {
+      "id": "4042-2",
+      "name": "LEGOLAND Bottle",
+      "year": 2018
+    },
+    {
+      "id": "9781789050127-1",
+      "name": "Star Wars: Galactic Activity Book",
+      "year": 2018
+    },
+    {
+      "id": "4589754820448-1",
+      "name": "LEGOLAND Japan Notebook",
+      "year": 2017
+    },
+    {
+      "id": "9697000135835-1",
+      "name": "LEGOLAND Malaysia Resort Ninjago: The Ride Key Chain",
+      "year": 2016
+    },
+    {
+      "id": "853150-1",
+      "name": "LEGOLAND Malaysia Notebook",
+      "year": 2013
+    },
+    {
+      "id": "853152-1",
+      "name": "LEGOLAND Malaysia Magnet",
+      "year": 2013
+    },
+    {
+      "id": "4203414-1",
+      "name": "Winch Magnet Set",
+      "year": 2003
+    },
+    {
+      "id": "LGO0193-1",
+      "name": "LEGOLAND California Green Magnet",
+      "year": 2000
+    },
+    {
+      "id": "LGO0195-1",
+      "name": "LEGOLAND California Red Magnet",
+      "year": 2000
+    },
+    {
+      "id": "609205118277-1",
+      "name": "LEGOLAND California 2D Washington DC Magnet",
+      "year": 1999
+    },
+    {
+      "id": "509-2",
+      "name": "Plastic Storage Bag with Duplo Bricks",
+      "year": 1972
+    },
+    {
+      "id": "TerapiI-2",
+      "name": "Therapy I with Duplo",
+      "year": 1969
+    },
+    {
+      "id": "T2-1",
+      "name": "Therapy - Storage Box with 2 Compartments",
+      "year": 1965
+    },
+    {
+      "id": "TerapiI-1",
+      "name": "Therapy I",
+      "year": 1965
+    },
+    {
+      "id": "TerapiII-1",
+      "name": "Therapy II",
+      "year": 1965
+    },
+    {
+      "id": "TerapiIII-1",
+      "name": "Therapy III",
+      "year": 1965
+    },
+    {
+      "id": "1242-3",
+      "name": "Flags, assorted",
       "year": 1957
+    },
+    {
+      "id": "1301-1",
+      "name": "LEGO Mosaic, Large",
+      "year": 1955
     }
   ]
 }
