@@ -1,6 +1,42 @@
 {
-  "fetchedAt": "2026-09-09T09:18:07.932Z",
-  "totalSets": 28271,
+  "fetchedAt": "2026-09-10T09:17:01.043Z",
+  "totalSets": 28278,
   "totalThemes": 496,
-  "newSetsLastRun": []
+  "newSetsLastRun": [
+    {
+      "id": "53571-1",
+      "name": "Monkie Kid Sticky Notes",
+      "year": 2026
+    },
+    {
+      "id": "53603-1",
+      "name": "Monkie Kid Bag Tag",
+      "year": 2026
+    },
+    {
+      "id": "53604-1",
+      "name": "Mei Bag Tag",
+      "year": 2026
+    },
+    {
+      "id": "53605-1",
+      "name": "Monkie King Bag Tag",
+      "year": 2026
+    },
+    {
+      "id": "53620-1",
+      "name": "Monkie Kid Tab Notebook",
+      "year": 2026
+    },
+    {
+      "id": "LGLKE227H-1",
+      "name": "Monkie Kid Key Light",
+      "year": 2026
+    },
+    {
+      "id": "LGLKE228H-1",
+      "name": "Mei Key Light",
+      "year": 2026
+    }
+  ]
 }
