@@ -1,16 +1,11 @@
 {
-  "fetchedAt": "2026-09-11T09:15:48.279Z",
-  "totalSets": 28278,
+  "fetchedAt": "2026-09-12T08:56:15.306Z",
+  "totalSets": 28279,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "5010588-1",
-      "name": "New York City Magnet - Orange 5th Avenue",
-      "year": 2026
-    },
-    {
-      "id": "5010589-1",
-      "name": "New York City Magnet - NY Store Yellow",
+      "id": "21373-1",
+      "name": "Downton Abbey",
       "year": 2026
     }
   ]
