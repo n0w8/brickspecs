@@ -21322,5 +21322,33 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-09-12T16:35:18.600Z"
+  },
+  {
+    "id": "1f08b9c9-2478-45da-a7e6-629da8ea91e6",
+    "type": "news",
+    "title": "Explaining LEGO Ideas 21373 Downton Abbey's minifigures",
+    "body": "From new prints to a fresh piece to a meme.",
+    "url": "https://www.brickfanatics.com/explaining-lego-21373-downton-abbey-minifigures",
+    "source": "Brick Fanatics",
+    "set": "21373",
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+21373",
+    "postedAt": "2026-09-12T18:41:41.795Z"
+  },
+  {
+    "id": "3b94978a-8d7a-4ab1-90a0-7d0afd1a4c74",
+    "type": "gwp",
+    "title": "The best LEGO Batman sets to score double points and a GWP",
+    "body": "One more week to celebrate the Caped Crusader",
+    "url": "https://www.brickfanatics.com/best-lego-batman-sets-double-points-and-a-gwp",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-09-12T18:41:41.795Z"
   }
 ]
