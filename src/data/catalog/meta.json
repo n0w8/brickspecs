@@ -1,11 +1,21 @@
 {
-  "fetchedAt": "2026-09-12T08:56:15.306Z",
-  "totalSets": 28279,
+  "fetchedAt": "2026-09-13T09:53:19.460Z",
+  "totalSets": 28282,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "21373-1",
-      "name": "Downton Abbey",
+      "id": "10371-1",
+      "name": "Cozy Plants",
+      "year": 2026
+    },
+    {
+      "id": "L0002207-1",
+      "name": "Acid Monster",
+      "year": 2026
+    },
+    {
+      "id": "L0002240-1",
+      "name": "Clone Trooper",
       "year": 2026
     }
   ]
