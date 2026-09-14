@@ -1,22 +1,252 @@
 {
-  "fetchedAt": "2026-09-13T09:53:19.460Z",
-  "totalSets": 28282,
+  "fetchedAt": "2026-09-14T10:12:22.903Z",
+  "totalSets": 28327,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "10371-1",
-      "name": "Cozy Plants",
+      "id": "114739-1",
+      "name": "Anaheim Pen - Blue",
       "year": 2026
     },
     {
-      "id": "L0002207-1",
-      "name": "Acid Monster",
+      "id": "5010511-1",
+      "name": "Shanghai Passport Cover",
       "year": 2026
     },
     {
-      "id": "L0002240-1",
-      "name": "Clone Trooper",
+      "id": "5010517-1",
+      "name": "Shanghai Adults T-Shirt (All Sizes)",
       "year": 2026
+    },
+    {
+      "id": "5010521-1",
+      "name": "Shanghai Bag Charm - Crab",
+      "year": 2026
+    },
+    {
+      "id": "5010522-1",
+      "name": "Shanghai Bag Charm - Heart",
+      "year": 2026
+    },
+    {
+      "id": "5010558-1",
+      "name": "Orlando Water Bottle - Royal Blue",
+      "year": 2026
+    },
+    {
+      "id": "5010587-1",
+      "name": "New York City Magnet - Red Apple",
+      "year": 2026
+    },
+    {
+      "id": "5010596-1",
+      "name": "New York City Bag Charm - Hotdog",
+      "year": 2026
+    },
+    {
+      "id": "5010597-1",
+      "name": "New York City Bag Charm - Apple",
+      "year": 2026
+    },
+    {
+      "id": "5010598-1",
+      "name": "New York City Bag Charm - Pizza",
+      "year": 2026
+    },
+    {
+      "id": "5010601-1",
+      "name": "New York City Tote Bag",
+      "year": 2026
+    },
+    {
+      "id": "5010611-1",
+      "name": "Orlando Magnet - Character",
+      "year": 2026
+    },
+    {
+      "id": "5010612-1",
+      "name": "Orlando Magnet - Heart",
+      "year": 2026
+    },
+    {
+      "id": "5010614-1",
+      "name": "Orlando Passport Holder",
+      "year": 2026
+    },
+    {
+      "id": "5010615-1",
+      "name": "Orlando Child Cap",
+      "year": 2026
+    },
+    {
+      "id": "5010620-1",
+      "name": "Orlando Adults T-Shirt (All Sizes)",
+      "year": 2026
+    },
+    {
+      "id": "5010637-1",
+      "name": "I [heart] Anaheim Shopping Bag",
+      "year": 2026
+    },
+    {
+      "id": "611318-1",
+      "name": "Keychain Bag",
+      "year": 2026
+    },
+    {
+      "id": "821504-1",
+      "name": "LEGOLAND Shanghai Magnet",
+      "year": 2026
+    },
+    {
+      "id": "MAGNET-4",
+      "name": "Shanghai Magnet - Heart",
+      "year": 2026
+    },
+    {
+      "id": "MAGNET-5",
+      "name": "Shanghai Magnet - Pattern",
+      "year": 2026
+    },
+    {
+      "id": "MAGNET-6",
+      "name": "Shanghai Magnet - Red",
+      "year": 2026
+    },
+    {
+      "id": "MAGNET-7",
+      "name": "Shanghai Magnet - Chinese",
+      "year": 2026
+    },
+    {
+      "id": "MAGNET-8",
+      "name": "Shanghai Magnet - English",
+      "year": 2026
+    },
+    {
+      "id": "MAGNET-9",
+      "name": "Shanghai Magnet - Girl",
+      "year": 2026
+    },
+    {
+      "id": "TOTEBAG-11",
+      "name": "Shanghai Tote Bag",
+      "year": 2026
+    },
+    {
+      "id": "TSHIRT-1",
+      "name": "Shanghai Kids T-Shirt (All Sizes)",
+      "year": 2026
+    },
+    {
+      "id": "UMBRELLA-5",
+      "name": "Shanghai Umbrella for Children",
+      "year": 2026
+    },
+    {
+      "id": "4895028539078-1",
+      "name": "DADA Bag Tag",
+      "year": 2025
+    },
+    {
+      "id": "820801-1",
+      "name": "2x2 Brick Mug",
+      "year": 2025
+    },
+    {
+      "id": "821505-1",
+      "name": "DADA Metal Key chain",
+      "year": 2025
+    },
+    {
+      "id": "KEYLIGHT-5",
+      "name": "DADA Key Light",
+      "year": 2025
+    },
+    {
+      "id": "NG13141-1",
+      "name": "Juneyao Air x LEGOLAND Shanghai Resort 1:400 B-9957 Airbus A321-200",
+      "year": 2025
+    },
+    {
+      "id": "107536-1",
+      "name": "Calendar 2025",
+      "year": 2024
+    },
+    {
+      "id": "L3852-1",
+      "name": "LEGOLAND Japan Kingdom Games Badge - Orange",
+      "year": 2024
+    },
+    {
+      "id": "L3852-2",
+      "name": "LEGOLAND Japan Kingdom Games Badge - Orange",
+      "year": 2024
+    },
+    {
+      "id": "4101007035067-1",
+      "name": "LEGOLAND Ollie Coin",
+      "year": 2023
+    },
+    {
+      "id": "490635159912-1",
+      "name": "LEGOLAND Dual Hotel Castle Lanyard",
+      "year": 2023
+    },
+    {
+      "id": "MDT20-1",
+      "name": "LEGOLAND California Resort Vacuum Tumbler",
+      "year": 2023
+    },
+    {
+      "id": "Y18-1",
+      "name": "LEGOLAND Dubai Resort 18oz Straight Yard",
+      "year": 2023
+    },
+    {
+      "id": "102302-1",
+      "name": "LEGOLAND Maker Master Player Badge",
+      "year": 2022
+    },
+    {
+      "id": "102302-2",
+      "name": "LEGOLAND Dreamer Master Player Badge",
+      "year": 2022
+    },
+    {
+      "id": "102302-3",
+      "name": "LEGOLAND Designer Master Player Badge",
+      "year": 2022
+    },
+    {
+      "id": "490635156515-1",
+      "name": "LEGOLAND Hotel Lanyard White",
+      "year": 2022
+    },
+    {
+      "id": "4906351520349-1",
+      "name": "LEGOLAND Primary Bricks Lanyard",
+      "year": 2020
+    },
+    {
+      "id": "L3516-1",
+      "name": "LEGOLAND Cactus Girl Badge",
+      "year": 2020
+    },
+    {
+      "id": "L025-1",
+      "name": "Pencil Case Cylinder",
+      "year": 2013
+    },
+    {
+      "id": "852438-1",
+      "name": "40 Years LEGOLAND Billund Key Chain",
+      "year": 2008
+    },
+    {
+      "id": "891970-1",
+      "name": "Technic Bundle Pack",
+      "year": 1997
     }
   ]
 }
