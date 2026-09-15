@@ -22050,5 +22050,47 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-09-15T05:09:09.833Z"
+  },
+  {
+    "id": "a594b239-47f8-4b05-b790-b444b866caef",
+    "type": "news",
+    "title": "Lowest price ever on LEGO Botanicals mushrooms",
+    "body": "One of LEGO Botanicals' best builds for 30% off",
+    "url": "https://www.brickfanatics.com/lowest-price-ever-on-lego-botanicals-mushrooms",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-09-15T10:02:08.759Z"
+  },
+  {
+    "id": "01d7bc72-1eec-408c-9562-ffad3dee0bde",
+    "type": "news",
+    "title": "LEGO BrickLink Designer Program depot references detailed",
+    "body": "This Series 9 set is hiding a lot of secrets",
+    "url": "https://www.brickfanatics.com/lego-bricklink-designer-program-depot-references",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-09-15T10:02:08.759Z"
+  },
+  {
+    "id": "fd10f9c9-ec6d-48cc-87f5-482e6dfb0821",
+    "type": "deal",
+    "title": "Sehr gute LEGO Amazon Angebote auf Star Wars, Technic und City",
+    "body": "Die derzeit besten LEGO Angebote bei Amazon in der Übersicht: Großartige Rabatte auf LEGO Star Wars, Technic, Friends, City, Creator und Co. Der Beitrag Sehr gute LEGO Amazon Angebote auf Star Wars, Technic und City erschien zuerst auf zusammengebaut .",
+    "url": "https://zusammengebaut.com/sehr-gute-lego-amazon-angebote-auf-star-wars-technic-und-city-230760/",
+    "source": "zusammengebaut",
+    "set": null,
+    "shop": "Amazon",
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+Sehr+gute+Amazon+Angebote",
+    "postedAt": "2026-09-15T10:02:08.759Z"
   }
 ]
