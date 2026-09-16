@@ -1,6 +1,67 @@
 {
-  "fetchedAt": "2026-09-15T09:41:39.216Z",
-  "totalSets": 28327,
+  "fetchedAt": "2026-09-16T09:35:42.606Z",
+  "totalSets": 28338,
   "totalThemes": 496,
-  "newSetsLastRun": []
+  "newSetsLastRun": [
+    {
+      "id": "910069-1",
+      "name": "Fisherman's Village",
+      "year": 2027
+    },
+    {
+      "id": "910070-1",
+      "name": "Sleepy Dragon Inn",
+      "year": 2027
+    },
+    {
+      "id": "910071-1",
+      "name": "Wild West Blacksmith",
+      "year": 2027
+    },
+    {
+      "id": "910072-1",
+      "name": "Woodbrick Freight Depot",
+      "year": 2027
+    },
+    {
+      "id": "910073-1",
+      "name": "Pumpkin Patch",
+      "year": 2027
+    },
+    {
+      "id": "115763-1",
+      "name": "Tokyo Passport Holder",
+      "year": 2026
+    },
+    {
+      "id": "5010581-1",
+      "name": "New York City Pen - Yellow",
+      "year": 2026
+    },
+    {
+      "id": "5010584-1",
+      "name": "New York City Magnet - Pattern",
+      "year": 2026
+    },
+    {
+      "id": "5010585-1",
+      "name": "New York City Magnet - Hot Dog",
+      "year": 2026
+    },
+    {
+      "id": "5010590-1",
+      "name": "New York City Magnet - Lady Liberty",
+      "year": 2026
+    },
+    {
+      "id": "5010592-1",
+      "name": "New York City Child Cap",
+      "year": 2026
+    },
+    {
+      "id": "TALLSHIP-1",
+      "name": "Tall ship",
+      "year": 2026
+    }
+  ]
 }
