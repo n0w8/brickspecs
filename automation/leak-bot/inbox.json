@@ -22526,5 +22526,33 @@
     "rrpEUR": null,
     "buyUrl": "https://www.amazon.de/s?k=LEGO+40900",
     "postedAt": "2026-09-16T16:47:00.230Z"
+  },
+  {
+    "id": "cf9c19f7-d382-4509-902b-8ad02b05b5ba",
+    "type": "news",
+    "title": "Dig a LEGO Jurassic World Triceratops discount at Amazon UK",
+    "body": "No bare bones deal",
+    "url": "https://www.brickfanatics.com/dig-a-lego-jurassic-world-triceratops-discount-at-amazon-uk",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": "Amazon",
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+Dig+Jurassic+World+Triceratops",
+    "postedAt": "2026-09-16T19:44:18.772Z"
+  },
+  {
+    "id": "1c6087b2-e05b-4add-9b1d-ba3dfbebac09",
+    "type": "news",
+    "title": "The best LEGO Christmas sets to go with 11387 Holiday House",
+    "body": "Four festive builds to add to your seasonal street",
+    "url": "https://www.brickfanatics.com/the-best-lego-christmas-sets-to-go-with-11387-holiday-house",
+    "source": "Brick Fanatics",
+    "set": "11387",
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+11387",
+    "postedAt": "2026-09-16T19:44:18.772Z"
   }
 ]
