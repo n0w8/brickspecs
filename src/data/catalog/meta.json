@@ -1,67 +1,97 @@
 {
-  "fetchedAt": "2026-09-16T09:35:42.606Z",
-  "totalSets": 28338,
+  "fetchedAt": "2026-09-17T09:44:12.381Z",
+  "totalSets": 28356,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "910069-1",
-      "name": "Fisherman's Village",
+      "id": "9780241845875-1",
+      "name": "DK Super Readers Level 2: DC Comics Super Heroes: Batman: Batman Saves the Day",
       "year": 2027
     },
     {
-      "id": "910070-1",
-      "name": "Sleepy Dragon Inn",
+      "id": "9781837252657-1",
+      "name": "Star Wars: Rise of a Jedi",
       "year": 2027
     },
     {
-      "id": "910071-1",
-      "name": "Wild West Blacksmith",
+      "id": "9781837252671-1",
+      "name": "Marvel Super Heroes: Spidey and His Amazing Friends: Adventures on Spider Island",
       "year": 2027
     },
     {
-      "id": "910072-1",
-      "name": "Woodbrick Freight Depot",
+      "id": "9781837252718-1",
+      "name": "Harry Potter: Journey to Hogwarts",
       "year": 2027
     },
     {
-      "id": "910073-1",
-      "name": "Pumpkin Patch",
+      "id": "9781837252725-1",
+      "name": "Botanicals: Colouring Art",
       "year": 2027
     },
     {
-      "id": "115763-1",
-      "name": "Tokyo Passport Holder",
+      "id": "9781837252732-1",
+      "name": "Ninjago: Lloyd's Battle Missions",
+      "year": 2027
+    },
+    {
+      "id": "9781837252749-1",
+      "name": "Marvel Super Heroes: Spidey and His Amazing Friends: Spidey to the Rescue",
+      "year": 2027
+    },
+    {
+      "id": "9781837252756-1",
+      "name": "Star Wars: Galactic Missions: Search & Find Sticker Activity",
+      "year": 2027
+    },
+    {
+      "id": "9781837252763-1",
+      "name": "Marvel Super Heroes: Ghost-Spider's Adventures",
+      "year": 2027
+    },
+    {
+      "id": "9781837252770-1",
+      "name": "Minecraft: Mob House Mission: Search & Find Sticker Activity",
+      "year": 2027
+    },
+    {
+      "id": "9781837252787-1",
+      "name": "Minecraft: Tiny Mobs: Wolf Pup",
+      "year": 2027
+    },
+    {
+      "id": "9781837252794-1",
+      "name": "Minecraft: Tiny Mobs: Chicken",
+      "year": 2027
+    },
+    {
+      "id": "9781837252800-1",
+      "name": "Tiny Robots: Construction",
+      "year": 2027
+    },
+    {
+      "id": "9781837252817-1",
+      "name": "Tiny Robots: Rescue",
+      "year": 2027
+    },
+    {
+      "id": "9781837252824-1",
+      "name": "Minecraft: Fun to Colour",
+      "year": 2027
+    },
+    {
+      "id": "9798225106492-1",
+      "name": "Skate Park",
+      "year": 2027
+    },
+    {
+      "id": "11387-1",
+      "name": "Holiday House",
       "year": 2026
     },
     {
-      "id": "5010581-1",
-      "name": "New York City Pen - Yellow",
-      "year": 2026
-    },
-    {
-      "id": "5010584-1",
-      "name": "New York City Magnet - Pattern",
-      "year": 2026
-    },
-    {
-      "id": "5010585-1",
-      "name": "New York City Magnet - Hot Dog",
-      "year": 2026
-    },
-    {
-      "id": "5010590-1",
-      "name": "New York City Magnet - Lady Liberty",
-      "year": 2026
-    },
-    {
-      "id": "5010592-1",
-      "name": "New York City Child Cap",
-      "year": 2026
-    },
-    {
-      "id": "TALLSHIP-1",
-      "name": "Tall ship",
-      "year": 2026
+      "id": "9008016-1",
+      "name": "Watch Set, Brick Blue/White",
+      "year": 2017
     }
   ]
 }
