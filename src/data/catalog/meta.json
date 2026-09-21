@@ -1,17 +1,6 @@
 {
-  "fetchedAt": "2026-09-20T09:31:36.147Z",
+  "fetchedAt": "2026-09-21T10:18:17.736Z",
   "totalSets": 28360,
   "totalThemes": 496,
-  "newSetsLastRun": [
-    {
-      "id": "L0002266-1",
-      "name": "Corgi and Ice Cream Stand",
-      "year": 2026
-    },
-    {
-      "id": "LANYARD-12",
-      "name": "LEGO House Sunflower Landyard",
-      "year": 2021
-    }
-  ]
+  "newSetsLastRun": []
 }
