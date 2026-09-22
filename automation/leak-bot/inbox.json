@@ -24108,5 +24108,47 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-09-22T05:30:58.666Z"
+  },
+  {
+    "id": "53f4f3e0-5344-4915-aac3-27d1668d1b36",
+    "type": "deal",
+    "title": "Save up to 52% in Amazon UK's latest massive LEGO sale",
+    "body": "Apologies to your wallet in advance",
+    "url": "https://www.brickfanatics.com/save-up-52-in-amazon-uk-s-latest-massive-lego-sale",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": "Amazon",
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+Save+Amazon+latest+massive",
+    "postedAt": "2026-09-22T10:14:54.425Z"
+  },
+  {
+    "id": "5f18f863-25c9-47b2-bb61-3a25fc457480",
+    "type": "news",
+    "title": "The new LEGO Star Trek bridge set needs one easy upgrade",
+    "body": "Boldly going where it should have gone in the first place",
+    "url": "https://www.brickfanatics.com/new-lego-star-trek-bridge-set-needs-easy-upgrade",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-09-22T10:14:54.425Z"
+  },
+  {
+    "id": "d0350910-52c8-447b-9266-79d44abfc5a3",
+    "type": "news",
+    "title": "LEGO City 60495 Recycling-LKW im Review",
+    "body": "Müllabfuhr Nummer sechs: Mit dem LEGO City 60495 Recycling-LKW bietet die Themenwelt eine Neuauflage eines der wichtigsten City-Unterthemen! Der Beitrag LEGO City 60495 Recycling-LKW im Review erschien zuerst auf zusammengebaut .",
+    "url": "https://zusammengebaut.com/lego-city-60495-recycling-lkw-im-review-229578/",
+    "source": "zusammengebaut",
+    "set": "60495",
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+60495",
+    "postedAt": "2026-09-22T10:14:54.425Z"
   }
 ]
