@@ -1,6 +1,92 @@
 {
-  "fetchedAt": "2026-09-21T10:18:17.736Z",
-  "totalSets": 28360,
+  "fetchedAt": "2026-09-22T09:33:26.376Z",
+  "totalSets": 28377,
   "totalThemes": 496,
-  "newSetsLastRun": []
+  "newSetsLastRun": [
+    {
+      "id": "5010556-1",
+      "name": "New York City Water Bottle - Yellow",
+      "year": 2026
+    },
+    {
+      "id": "5010557-1",
+      "name": "New York City Water Bottle - Red",
+      "year": 2026
+    },
+    {
+      "id": "5010565-1",
+      "name": "Paris Water Bottle - Red",
+      "year": 2026
+    },
+    {
+      "id": "5010582-1",
+      "name": "New York City Pen - Yellow",
+      "year": 2026
+    },
+    {
+      "id": "5010591-1",
+      "name": "New York City Passport Holder",
+      "year": 2026
+    },
+    {
+      "id": "5010593-1",
+      "name": "New York City Adult Cap",
+      "year": 2026
+    },
+    {
+      "id": "5010594-1",
+      "name": "I [heart] New York City Shopping Bag",
+      "year": 2026
+    },
+    {
+      "id": "5010600-1",
+      "name": "New York City Adults T-Shirt (All Sizes)",
+      "year": 2026
+    },
+    {
+      "id": "5010603-1",
+      "name": "New York City Bag Charm - Heart",
+      "year": 2026
+    },
+    {
+      "id": "5010634-1",
+      "name": "Anaheim Passport Holder",
+      "year": 2026
+    },
+    {
+      "id": "5010671-1",
+      "name": "Paris Pen - Red",
+      "year": 2026
+    },
+    {
+      "id": "6670924-1",
+      "name": "I [Heart] LEGO Store Markville Shopping Centre Tile",
+      "year": 2026
+    },
+    {
+      "id": "6670926-1",
+      "name": "I [Heart] LEGO Store Promenade Temecula Tile",
+      "year": 2026
+    },
+    {
+      "id": "5009895-1",
+      "name": "Gel Pen I Love NY Green",
+      "year": 2025
+    },
+    {
+      "id": "6599702-1",
+      "name": "Mickey and Minnie",
+      "year": 2024
+    },
+    {
+      "id": "102302-4",
+      "name": "LEGOLAND Explorer Master Player Badge",
+      "year": 2022
+    },
+    {
+      "id": "102302-5",
+      "name": "LEGOLAND Storyteller Master Player Badge",
+      "year": 2022
+    }
+  ]
 }
