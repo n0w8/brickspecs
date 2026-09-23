@@ -24514,5 +24514,33 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-09-23T17:07:15.092Z"
+  },
+  {
+    "id": "015f002d-7968-4ed4-bb2f-f4ff9538ec7a",
+    "type": "news",
+    "title": "First LEGO Sagrada Família reviews are in – but is it a hit?",
+    "body": "Is bigger always better?",
+    "url": "https://www.brickfanatics.com/first-lego-sagrada-fam-lia-reviews-are-in-but-is-it-a-hit",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-09-23T20:17:01.114Z"
+  },
+  {
+    "id": "de17479d-87be-4f1a-9048-4da3d10036f2",
+    "type": "deal",
+    "title": "Grab LEGO Nintendo Game Boy with 24% off at Amazon UK",
+    "body": "Game on",
+    "url": "https://www.brickfanatics.com/grab-lego-nintendo-game-boy-with-24-off-at-amazon-uk",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": "Amazon",
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+Grab+Nintendo+Game+Boy",
+    "postedAt": "2026-09-23T20:17:01.114Z"
   }
 ]
