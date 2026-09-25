@@ -24822,5 +24822,47 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-09-25T05:30:09.898Z"
+  },
+  {
+    "id": "3bd05de0-465a-4fbc-9102-8a01be7b98a2",
+    "type": "news",
+    "title": "Turn LEGO Barad-dûr into the Tower of Orthanc with no extra pieces",
+    "body": "Complete the Two Towers with a single set",
+    "url": "https://www.brickfanatics.com/turn-lego-barad-dur-into-the-tower-of-orthanc",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-09-25T10:26:58.841Z"
+  },
+  {
+    "id": "b75fd702-bf0f-4ac7-b9c3-8f6bcb3288c0",
+    "type": "news",
+    "title": "How IG-88 got a new LEGO Star Wars head: ‘I really don’t like the cone’",
+    "body": "'We definitely see the benefit when we have all the bounty hunters'",
+    "url": "https://www.brickfanatics.com/how-ig-88-got-a-new-lego-star-wars-head",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-09-25T10:26:58.841Z"
+  },
+  {
+    "id": "dc065d5f-5c7a-47ad-82c4-1afab3ed1beb",
+    "type": "news",
+    "title": "LEGO Creator 31388 Wilde Tiere: Koala Familie im Review",
+    "body": "Vorsicht, Klammergefahr! Die Koala-Familie hält sich nicht nur am Baum fest, sondern könnte sich einen Platz im LEGO-Regal sichern: Review. Der Beitrag LEGO Creator 31388 Wilde Tiere: Koala Familie im Review erschien zuerst auf zusammengebaut .",
+    "url": "https://zusammengebaut.com/lego-creator-31388-wilde-tiere-koala-familie-im-review-229309/",
+    "source": "zusammengebaut",
+    "set": "31388",
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+31388",
+    "postedAt": "2026-09-25T10:26:58.841Z"
   }
 ]
