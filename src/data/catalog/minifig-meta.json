@@ -1,5 +1,10 @@
 {
-  "fetchedAt": "2026-09-24T09:37:54.594Z",
-  "totalFigs": 17225,
-  "newFigsLastRun": []
+  "fetchedAt": "2026-09-25T09:55:18.720Z",
+  "totalFigs": 17226,
+  "newFigsLastRun": [
+    {
+      "id": "fig-018152",
+      "name": "Ice Cream Server, Green Chef Hat"
+    }
+  ]
 }

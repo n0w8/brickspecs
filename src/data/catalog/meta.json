@@ -1,37 +1,42 @@
 {
-  "fetchedAt": "2026-09-24T09:37:53.368Z",
-  "totalSets": 28383,
+  "fetchedAt": "2026-09-25T09:55:17.833Z",
+  "totalSets": 28389,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "64314-1",
-      "name": "Toa Inika Kongu Talisman Nestlé #11",
-      "year": 2006
+      "id": "6659451-1",
+      "name": "Quack & Roll",
+      "year": 2026
     },
     {
-      "id": "65312-1",
-      "name": "Toa Inika Matoro Talisman Nestlé #12",
-      "year": 2006
+      "id": "6674871-1",
+      "name": "Tall ship",
+      "year": 2026
     },
     {
-      "id": "6998-1",
-      "name": "Piraka ReidakTalisman Nestlé #7",
-      "year": 2006
+      "id": "L0002227-1",
+      "name": "Firefighter with Helicopter",
+      "year": 2026
     },
     {
-      "id": "7068-1",
-      "name": "Piraka VezokTalisman Nestlé #9",
-      "year": 2006
+      "id": "RAINBOW-1",
+      "name": "Rainbow",
+      "year": 2026
     },
     {
-      "id": "7069-1",
-      "name": "Toa Inika Hewkii Talisman Nestlé #10",
-      "year": 2006
+      "id": "6557632-1",
+      "name": "Mash Up Vehicle",
+      "year": 2024
     },
     {
-      "id": "7077-1",
-      "name": "Piraka Hakann Talisman Nestlé #8",
-      "year": 2006
+      "id": "6277578-1",
+      "name": "Minicake Blue Candle",
+      "year": 2018
+    },
+    {
+      "id": "BIRTHDAYCAKE-2",
+      "name": "Birthday Cake",
+      "year": 2015
     }
   ]
 }
