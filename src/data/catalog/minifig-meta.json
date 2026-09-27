@@ -1,5 +1,18 @@
 {
-  "fetchedAt": "2026-09-26T09:37:48.346Z",
-  "totalFigs": 17226,
-  "newFigsLastRun": []
+  "fetchedAt": "2026-09-27T10:17:07.108Z",
+  "totalFigs": 17229,
+  "newFigsLastRun": [
+    {
+      "id": "fig-018153",
+      "name": "Firefighter, Black Fire Suit, Pilot Helmet"
+    },
+    {
+      "id": "fig-018154",
+      "name": "Woman, Dark Azure Hoddie, Dark Green Legs"
+    },
+    {
+      "id": "fig-018155",
+      "name": "Man, Dark Azure Hoddie, Dark Green Legs"
+    }
+  ]
 }
