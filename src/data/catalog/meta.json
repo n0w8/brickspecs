@@ -1,12 +1,17 @@
 {
-  "fetchedAt": "2026-09-28T11:19:58.822Z",
-  "totalSets": 28401,
+  "fetchedAt": "2026-09-29T10:58:58.076Z",
+  "totalSets": 28403,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "6596781-1",
-      "name": "LEGO Bench",
-      "year": 2025
+      "id": "6472660-1",
+      "name": "Shamrock",
+      "year": 2023
+    },
+    {
+      "id": "WINDTURBINE-1",
+      "name": "Wind Turbine",
+      "year": 2021
     }
   ]
 }
