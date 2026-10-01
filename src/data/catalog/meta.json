@@ -1,17 +1,82 @@
 {
-  "fetchedAt": "2026-09-29T10:58:58.076Z",
-  "totalSets": 28403,
+  "fetchedAt": "2026-10-01T11:15:37.077Z",
+  "totalSets": 28417,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "6472660-1",
-      "name": "Shamrock",
-      "year": 2023
+      "id": "9781797243153-1",
+      "name": "Mystery Minifigure Mini Puzzle (Springtime Edition) - 12 Pack",
+      "year": 2027
     },
     {
-      "id": "WINDTURBINE-1",
-      "name": "Wind Turbine",
-      "year": 2021
+      "id": "9781797247311-1",
+      "name": "Botanicals Beautiful Blooms 1000-Piece Puzzle",
+      "year": 2027
+    },
+    {
+      "id": "9781797247540-1",
+      "name": "City Construction Zone 100-Piece Puzzle",
+      "year": 2027
+    },
+    {
+      "id": "9781797247571-1",
+      "name": "48-Piece Giant Floor Puzzle: Dinosaurs",
+      "year": 2027
+    },
+    {
+      "id": "9781797248042-1",
+      "name": "Botanicals: 30 Postcards",
+      "year": 2027
+    },
+    {
+      "id": "11390-1",
+      "name": "Dragon Ball: Shenron & Goku",
+      "year": 2026
+    },
+    {
+      "id": "5011169-1",
+      "name": "Halloween Window Stickers",
+      "year": 2026
+    },
+    {
+      "id": "5011215-1",
+      "name": "City Activity Set",
+      "year": 2026
+    },
+    {
+      "id": "6614218-1",
+      "name": "Tulips",
+      "year": 2026
+    },
+    {
+      "id": "6644890-1",
+      "name": "The Holiday Duo",
+      "year": 2026
+    },
+    {
+      "id": "EG00173-1",
+      "name": "White Road Bike",
+      "year": 2026
+    },
+    {
+      "id": "1674-1",
+      "name": "DUPLO Basic Bucket",
+      "year": 1990
+    },
+    {
+      "id": "395-2",
+      "name": "Build-N-Store Chest",
+      "year": 1990
+    },
+    {
+      "id": "1571-1",
+      "name": "Basic Set",
+      "year": 1988
+    },
+    {
+      "id": "2385-1",
+      "name": "Basic Building Set",
+      "year": 1987
     }
   ]
 }
