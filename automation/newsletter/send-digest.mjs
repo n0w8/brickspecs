@@ -178,6 +178,26 @@ async function brevoPost(pathname, body, apiKey) {
   return text ? JSON.parse(text) : {};
 }
 
+async function brevoGet(pathname, apiKey) {
+  const res = await fetch(`https://api.brevo.com${pathname}`, {
+    headers: { "api-key": apiKey, accept: "application/json" },
+  });
+  const text = await res.text();
+  if (!res.ok) {
+    throw new Error(`Brevo ${pathname}: HTTP ${res.status} - ${text.slice(0, 300)}`);
+  }
+  return text ? JSON.parse(text) : {};
+}
+
+// Hat die Liste ueberhaupt Empfaenger? Brevo lehnt eine Kampagne an eine leere Liste mit HTTP 400 ab
+// ("There are no contacts associated with the given list"). Das ist kein Fehler, sondern der Normalfall,
+// solange sich noch niemand angemeldet hat - frueher ist der Lauf daran gestorben und GitHub hat jeden
+// Tag eine Fehlermail verschickt.
+async function listeHatEmpfaenger(listId, apiKey) {
+  const daten = await brevoGet(`/v3/contacts/lists/${listId}/contacts?limit=1`, apiKey);
+  return Number(daten.count) > 0;
+}
+
 // ---------------------------------------------------------------------------
 // Hauptlauf
 // ---------------------------------------------------------------------------
@@ -228,6 +248,14 @@ async function main() {
   }
   if (!senderEmail) {
     throw new Error("BREVO_SENDER_EMAIL fehlt.");
+  }
+
+  if (!(await listeHatEmpfaenger(listId, apiKey))) {
+    console.log(
+      `[digest] Liste ${listId} hat noch keine Empfaenger - nichts versendet. ` +
+        `Der Stand bleibt stehen, der naechste Lauf mit Abonnenten schickt die gesammelten Eintraege.`
+    );
+    return;
   }
 
   const campaign = await brevoPost(
