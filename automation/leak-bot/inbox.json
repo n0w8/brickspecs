@@ -27202,5 +27202,47 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-10-03T02:04:46.324Z"
+  },
+  {
+    "id": "85793fda-9d67-4983-967c-21b3946b1c52",
+    "type": "news",
+    "title": "Ein Märchenschloss aus LEGO: Das Schloss Neuschwanstein (21063) im Review!",
+    "body": "Burgen gehen immer! Was für LEGO gilt, galt früher wohl auch in der Wirklichkeit. Eines der bekanntesten Bauwerke Deutschlands ist von LEGO in der Architecture Themenwelt umgesetzt worden: das LEGO 21063 Schloss Neuschwanstein. Wir machen [...] Der Beitrag Ein Märchenschloss aus LEGO: Das Schloss …",
+    "url": "https://www.stonewars.de/reviews/ein-maerchenschloss-aus-lego-das-schloss-neuschwanstein-im-review/",
+    "source": "StoneWars",
+    "set": "21063",
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+21063",
+    "postedAt": "2026-10-03T07:59:11.662Z"
+  },
+  {
+    "id": "8a8f5bbf-32d1-4eff-bd02-3f9b697c2789",
+    "type": "news",
+    "title": "Heult LEGO? Creator 31393 Waldtiere Wolf im Review",
+    "body": "Wolf, Waschbär und Greifvogel: Das LEGO Creator 3-in-1 Set 31393 bringt drei Waldtiere mit - doch nicht alle können überzeugen. Der Beitrag Heult LEGO? Creator 31393 Waldtiere Wolf im Review erschien zuerst auf zusammengebaut .",
+    "url": "https://zusammengebaut.com/heult-lego-creator-31393-waldtiere-wolf-im-review-229977/",
+    "source": "zusammengebaut",
+    "set": "31393",
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+31393",
+    "postedAt": "2026-10-03T07:59:11.662Z"
+  },
+  {
+    "id": "b262b48c-a37c-4e93-88f4-29ce6cfd9f44",
+    "type": "deal",
+    "title": "Grandiose LEGO Angebote bei Amazon: Star Wars, Creator, Technic, City und Co.!",
+    "body": "Große Auswahl an rabattierte LEGO Sets bei Amazon: Top-Angebote auf LEGO Star Wars, Creator, Technic, City, Minecraft, Harry Potter und Co. Der Beitrag Grandiose LEGO Angebote bei Amazon: Star Wars, Creator, Technic, City und Co.! erschien zuerst auf zusammengebaut .",
+    "url": "https://zusammengebaut.com/grandiose-lego-angebote-bei-amazon-star-wars-creator-technic-city-und-co-231163/",
+    "source": "zusammengebaut",
+    "set": null,
+    "shop": "Amazon",
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+Grandiose+Angebote+bei+Amazon",
+    "postedAt": "2026-10-03T07:59:11.662Z"
   }
 ]
