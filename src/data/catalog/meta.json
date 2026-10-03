@@ -1,117 +1,17 @@
 {
-  "fetchedAt": "2026-10-02T10:48:01.977Z",
-  "totalSets": 28439,
+  "fetchedAt": "2026-10-03T10:08:07.799Z",
+  "totalSets": 28441,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "203180001-1",
-      "name": "2 x 2 Brick Backpack - Updated (All Colors)",
-      "year": 2026
+      "id": "71873-1",
+      "name": "Cole vs. Evil Cole Spinner",
+      "year": 2027
     },
     {
-      "id": "203200001-1",
-      "name": "1 x 1 Brick Mini Crossbody Bag (All Colors)",
-      "year": 2026
-    },
-    {
-      "id": "203220001-1",
-      "name": "1 x 1 Brick Tote Bag (All Colors)",
-      "year": 2026
-    },
-    {
-      "id": "203230001-1",
-      "name": "1 x 1 Brick Crossbody Bag (All Colors)",
-      "year": 2026
-    },
-    {
-      "id": "854335-1",
-      "name": "Mateo's Z-Blob Sword",
-      "year": 2026
-    },
-    {
-      "id": "854336-1",
-      "name": "Izzie's Sword",
-      "year": 2026
-    },
-    {
-      "id": "854337-1",
-      "name": "Dragonian Warrior Axe",
-      "year": 2026
-    },
-    {
-      "id": "854338-1",
-      "name": "Lloyd's Sword with Sheath",
-      "year": 2026
-    },
-    {
-      "id": "L0002286-1",
-      "name": "Hobgoblin",
-      "year": 2026
-    },
-    {
-      "id": "L0002325-1",
-      "name": "Batman with Wings",
-      "year": 2026
-    },
-    {
-      "id": "GRADUATEOWL-1",
-      "name": "Graduate Owl",
-      "year": 2025
-    },
-    {
-      "id": "6399467-1",
-      "name": "Chengdu, China Brand Store Opening Associate",
-      "year": 2022
-    },
-    {
-      "id": "6336733-1",
-      "name": "Will",
-      "year": 2020
-    },
-    {
-      "id": "6336734-1",
-      "name": "Willer",
-      "year": 2020
-    },
-    {
-      "id": "C3PO-1",
-      "name": "C-3PO",
-      "year": 2020
-    },
-    {
-      "id": "6283497-1",
-      "name": "Mr Mystique",
-      "year": 2019
-    },
-    {
-      "id": "6283498-1",
-      "name": "Kamille",
-      "year": 2019
-    },
-    {
-      "id": "6381647-1",
-      "name": "Billy Bilka",
-      "year": 2019
-    },
-    {
-      "id": "BLUE-2",
-      "name": "Blue",
-      "year": 2019
-    },
-    {
-      "id": "HEDWIG-1",
-      "name": "Hedwig",
-      "year": 2019
-    },
-    {
-      "id": "1177-2",
-      "name": "Universal Joints / Connectors",
-      "year": 1977
-    },
-    {
-      "id": "050-1",
-      "name": "Basic Building Set in Cardboard",
-      "year": 1965
+      "id": "71875-1",
+      "name": "Lloyd vs. Ras Spinner Battle",
+      "year": 2027
     }
   ]
 }
