@@ -1,17 +1,6 @@
 {
-  "fetchedAt": "2026-10-03T10:08:07.799Z",
+  "fetchedAt": "2026-10-04T10:48:39.897Z",
   "totalSets": 28441,
   "totalThemes": 496,
-  "newSetsLastRun": [
-    {
-      "id": "71873-1",
-      "name": "Cole vs. Evil Cole Spinner",
-      "year": 2027
-    },
-    {
-      "id": "71875-1",
-      "name": "Lloyd vs. Ras Spinner Battle",
-      "year": 2027
-    }
-  ]
+  "newSetsLastRun": []
 }
