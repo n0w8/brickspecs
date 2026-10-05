@@ -1,5 +1,62 @@
 {
-  "fetchedAt": "2026-10-04T10:48:40.751Z",
-  "totalFigs": 17262,
-  "newFigsLastRun": []
+  "fetchedAt": "2026-10-05T11:56:18.505Z",
+  "totalFigs": 17276,
+  "newFigsLastRun": [
+    {
+      "id": "fig-018192",
+      "name": "Scott Summers / Cyclops"
+    },
+    {
+      "id": "fig-018193",
+      "name": "The Thing / Benjamin Grimm, Shorts"
+    },
+    {
+      "id": "fig-018195",
+      "name": "Captain America, Sam Wilson, Dual-Molded Legs, Neck Bracket"
+    },
+    {
+      "id": "fig-018196",
+      "name": "Dr. Doom, Cape, Neck Armor"
+    },
+    {
+      "id": "fig-018197",
+      "name": "Reed Richards / Mr. Fantastic, Long Legs"
+    },
+    {
+      "id": "fig-018199",
+      "name": "Thor, Rubbed Cape"
+    },
+    {
+      "id": "fig-018200",
+      "name": "Magneto, Rubber Cape"
+    },
+    {
+      "id": "fig-018201",
+      "name": "Kurt Wagner / Nightcrawler"
+    },
+    {
+      "id": "fig-018202",
+      "name": "Raven Darkhölme / Mystique"
+    },
+    {
+      "id": "fig-018203",
+      "name": "Alexei Shostakov / Red Guardian"
+    },
+    {
+      "id": "fig-018204",
+      "name": "Robert Reynolds / Sentry"
+    },
+    {
+      "id": "fig-018205",
+      "name": "Yelena Belova / Black Widow"
+    },
+    {
+      "id": "fig-018206",
+      "name": "Bucky Barnes / Winter Soldier"
+    },
+    {
+      "id": "fig-018207",
+      "name": "Jonathan Storm / Human Torch"
+    }
+  ]
 }
