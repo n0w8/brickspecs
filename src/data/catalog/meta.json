@@ -1,6 +1,47 @@
 {
-  "fetchedAt": "2026-10-05T11:56:17.781Z",
-  "totalSets": 28441,
+  "fetchedAt": "2026-10-06T11:36:15.695Z",
+  "totalSets": 28449,
   "totalThemes": 496,
-  "newSetsLastRun": []
+  "newSetsLastRun": [
+    {
+      "id": "67008-1",
+      "name": "Batman Returns Batmobile & Duck",
+      "year": 2027
+    },
+    {
+      "id": "67009-1",
+      "name": "Arkham Batman Batmobile",
+      "year": 2027
+    },
+    {
+      "id": "67012-1",
+      "name": "The Joker Wall Art Comic Cover",
+      "year": 2027
+    },
+    {
+      "id": "202092602-1",
+      "name": "Ninjago Kai 2 x 2 Brick Backpack",
+      "year": 2026
+    },
+    {
+      "id": "203190001-1",
+      "name": "1 x 1 Brick Dual-Use Backpack (All Colors)",
+      "year": 2026
+    },
+    {
+      "id": "203210001-1",
+      "name": "Brick Waist Bag (All Colors)",
+      "year": 2026
+    },
+    {
+      "id": "5011178-1",
+      "name": "Botanicals Coloring Book",
+      "year": 2026
+    },
+    {
+      "id": "BOOKS-1",
+      "name": "Books",
+      "year": 2025
+    }
+  ]
 }
