@@ -28518,5 +28518,33 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-10-06T16:45:11.786Z"
+  },
+  {
+    "id": "67ca311e-4dc8-47f3-bd95-024eefd2e748",
+    "type": "deal",
+    "title": "I love these LEGO sets – and now they’re on sale at Amazon",
+    "body": "I own them, I love them, and now they’re cheaper",
+    "url": "https://www.brickfanatics.com/i-love-these-lego-sets-now-theyre-on-sale-amazon",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": "Amazon",
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+love+these+sets+and",
+    "postedAt": "2026-10-06T21:15:38.614Z"
+  },
+  {
+    "id": "016e61b1-8a5d-4b08-8e80-a765472a0f12",
+    "type": "news",
+    "title": "Seven DC comic covers that would make great LEGO Art sets",
+    "body": "Every Justice League founder deserves a LEGO cover",
+    "url": "https://www.brickfanatics.com/seven-dc-comic-covers-would-make-great-lego-sets",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-10-06T21:15:38.614Z"
   }
 ]
