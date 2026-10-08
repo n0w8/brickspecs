@@ -1,6 +1,72 @@
 {
-  "fetchedAt": "2026-10-07T11:25:45.224Z",
-  "totalSets": 28449,
+  "fetchedAt": "2026-10-08T11:41:20.857Z",
+  "totalSets": 28462,
   "totalThemes": 496,
-  "newSetsLastRun": []
+  "newSetsLastRun": [
+    {
+      "id": "5010653-1",
+      "name": "London Pen - Red",
+      "year": 2026
+    },
+    {
+      "id": "5010654-1",
+      "name": "London Pen - Navy",
+      "year": 2026
+    },
+    {
+      "id": "5010670-1",
+      "name": "London Bag Charm - Heart",
+      "year": 2026
+    },
+    {
+      "id": "5010729-1",
+      "name": "The LEGO House Billund Bag Charm - Heart",
+      "year": 2026
+    },
+    {
+      "id": "6591191-1",
+      "name": "London Magnet 3 Pack",
+      "year": 2026
+    },
+    {
+      "id": "6644886-1",
+      "name": "Ghost Street",
+      "year": 2026
+    },
+    {
+      "id": "6644896-1",
+      "name": "Magenta Flower Candle",
+      "year": 2026
+    },
+    {
+      "id": "6695501-1",
+      "name": "Giftbox",
+      "year": 2026
+    },
+    {
+      "id": "WEBGOALCHALLENGE-1",
+      "name": "Web Goal Challenge",
+      "year": 2026
+    },
+    {
+      "id": "5009238-1",
+      "name": "London Royal Guard Plush",
+      "year": 2025
+    },
+    {
+      "id": "GUANGZHOU-3",
+      "name": "The LEGO Store (Guangzhou) - Tile",
+      "year": 2021
+    },
+    {
+      "id": "HANGZHOU-1",
+      "name": "The Lego Store (Hangzhou) 1 Year Anniversary",
+      "year": 2021
+    },
+    {
+      "id": "HANGZHOU-2",
+      "name": "LEGO Store Grand Opening Exclusive Set, Hangzhou, China",
+      "year": 2020
+    }
+  ]
 }
