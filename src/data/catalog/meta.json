@@ -1,6 +1,22 @@
 {
-  "fetchedAt": "2026-10-09T11:34:43.088Z",
-  "totalSets": 28462,
+  "fetchedAt": "2026-10-10T10:52:39.237Z",
+  "totalSets": 28464,
   "totalThemes": 496,
-  "newSetsLastRun": []
+  "newSetsLastRun": [
+    {
+      "id": "67006-1",
+      "name": "The Marvel Skyline",
+      "year": 2027
+    },
+    {
+      "id": "40909-1",
+      "name": "Restaurants of the World: Italy",
+      "year": 2026
+    },
+    {
+      "id": "6644847-1",
+      "name": "Web Goal Challenge",
+      "year": 2026
+    }
+  ]
 }
