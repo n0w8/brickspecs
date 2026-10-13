@@ -1,6 +1,147 @@
 {
-  "fetchedAt": "2026-10-12T12:34:56.254Z",
-  "totalSets": 28492,
+  "fetchedAt": "2026-10-13T12:20:31.941Z",
+  "totalSets": 28520,
   "totalThemes": 496,
-  "newSetsLastRun": []
+  "newSetsLastRun": [
+    {
+      "id": "5011185-1",
+      "name": "Herschel Heritage Tote - Monogram Black",
+      "year": 2027
+    },
+    {
+      "id": "5011186-1",
+      "name": "Herschel Retreat Small Backpack - Botanical Floral Black",
+      "year": 2027
+    },
+    {
+      "id": "5011188-1",
+      "name": "Herschel Retreat Tote - Botanical Floral Black",
+      "year": 2027
+    },
+    {
+      "id": "5011189-1",
+      "name": "Herschel Retreat Tote - Botanical Floral Lavender",
+      "year": 2027
+    },
+    {
+      "id": "5011191-1",
+      "name": "Herschel Heritage Youth Backpack - Monogram Multicolor",
+      "year": 2027
+    },
+    {
+      "id": "5011192-1",
+      "name": "Herschel Heritage Youth Backpack - Color Block",
+      "year": 2027
+    },
+    {
+      "id": "5011193-1",
+      "name": "Herschel Heritage Backpack - Monogram Black",
+      "year": 2027
+    },
+    {
+      "id": "5011194-1",
+      "name": "Herschel Heritage Kids Backpack - Monogram Purple",
+      "year": 2027
+    },
+    {
+      "id": "5011195-1",
+      "name": "Herschel Heritage Kids Backpack - Monogram Multicolor",
+      "year": 2027
+    },
+    {
+      "id": "5011196-1",
+      "name": "Herschel Heritage Kids Backpack - Monogram Color Block",
+      "year": 2027
+    },
+    {
+      "id": "5011198-1",
+      "name": "Herschel Novel Duffle - Monogram Black",
+      "year": 2027
+    },
+    {
+      "id": "5011199-1",
+      "name": "Herschel Chapter Travel Kit - Monogram Black",
+      "year": 2027
+    },
+    {
+      "id": "5011200-1",
+      "name": "Herschel Chapter Travel Kit - Botanical Floral Black",
+      "year": 2027
+    },
+    {
+      "id": "5011201-1",
+      "name": "Herschel Chapter Travel Kit - Botanical Floral Lavender",
+      "year": 2027
+    },
+    {
+      "id": "5011203-1",
+      "name": "Pop Quiz Lunch Box Little Herschel - Monogram Purple",
+      "year": 2027
+    },
+    {
+      "id": "5011204-1",
+      "name": "Pop Quiz Lunch Box Little Herschel - Monogram Multicolor",
+      "year": 2027
+    },
+    {
+      "id": "5011205-1",
+      "name": "Pop Quiz Lunch Box Little Herschel - Monogram Color Block",
+      "year": 2027
+    },
+    {
+      "id": "51271-1",
+      "name": "Oversized Classic Puzzle",
+      "year": 2026
+    },
+    {
+      "id": "51272-1",
+      "name": "Oversized Botanicals Puzzle",
+      "year": 2026
+    },
+    {
+      "id": "51273-1",
+      "name": "Oversized City Puzzle",
+      "year": 2026
+    },
+    {
+      "id": "51274-1",
+      "name": "Oversized Icons Kingfisher Puzzle",
+      "year": 2026
+    },
+    {
+      "id": "51276-1",
+      "name": "Minifigures Puzzle",
+      "year": 2026
+    },
+    {
+      "id": "51277-1",
+      "name": "Minifigures Puzzle",
+      "year": 2026
+    },
+    {
+      "id": "51278-1",
+      "name": "Minifigures Shaped Collage 1 Puzzle",
+      "year": 2026
+    },
+    {
+      "id": "51279-1",
+      "name": "Minifigures Shaped Collage 2 Puzzle",
+      "year": 2026
+    },
+    {
+      "id": "TRADINGCARD-18",
+      "name": "Minecraft Trading Cards Series 3: On Fire",
+      "year": 2026
+    },
+    {
+      "id": "VIPCARD-1",
+      "name": "VIP Card",
+      "year": 2022
+    },
+    {
+      "id": "VIPCARD-2",
+      "name": "VIP Card (2018)",
+      "year": 2018
+    }
+  ]
 }
