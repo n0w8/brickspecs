@@ -1,5 +1,18 @@
 {
-  "fetchedAt": "2026-10-13T12:20:32.786Z",
-  "totalFigs": 17290,
-  "newFigsLastRun": []
+  "fetchedAt": "2026-10-14T09:50:26.127Z",
+  "totalFigs": 17293,
+  "newFigsLastRun": [
+    {
+      "id": "fig-018222",
+      "name": "Pizzaria Waiter, White Torso, Warm Pink Legs"
+    },
+    {
+      "id": "fig-018223",
+      "name": "Woman, Light Bluish Grey/Bright Green Wetsuit, Black Hair"
+    },
+    {
+      "id": "fig-018224",
+      "name": "Kid Adventurer, Dark Brown Suit, Hat"
+    }
+  ]
 }
