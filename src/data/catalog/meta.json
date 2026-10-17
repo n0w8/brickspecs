@@ -1,27 +1,17 @@
 {
-  "fetchedAt": "2026-10-16T09:23:51.152Z",
-  "totalSets": 28541,
+  "fetchedAt": "2026-10-17T08:55:52.884Z",
+  "totalSets": 28543,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "5011164-1",
-      "name": "Fig Beetle Garden",
+      "id": "11388-1",
+      "name": "Venetian Neighborhood",
       "year": 2026
     },
     {
-      "id": "51366-1",
-      "name": "Minifigures 100-Piece Blind Puzzle Set 6-Pack",
+      "id": "40898-1",
+      "name": "Venetian Water Taxi",
       "year": 2026
-    },
-    {
-      "id": "L0002208-1",
-      "name": "Arin",
-      "year": 2026
-    },
-    {
-      "id": "22-2",
-      "name": "Italy Value-Pack",
-      "year": 1995
     }
   ]
 }
