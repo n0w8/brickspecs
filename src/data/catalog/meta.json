@@ -1,26 +1,46 @@
 {
-  "fetchedAt": "2026-10-18T09:13:59.956Z",
+  "fetchedAt": "2026-10-19T10:23:53.429Z",
   "totalSets": 28544,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "5011187-1",
-      "name": "Herschel Retreat Small Backpack - Botanical Floral Lavender",
+      "id": "2D001164-1",
+      "name": "Police Buggy",
       "year": 2026
     },
     {
-      "id": "5011190-1",
-      "name": "Herschel Heritage Youth Backpack - Monogram Purple",
+      "id": "2D001182-1",
+      "name": "Construction Worker with Wheel Loader",
       "year": 2026
     },
     {
-      "id": "5011202-1",
-      "name": "Herschel Anchor 14\" Sleeve - Monogram Black",
+      "id": "2D001183-1",
+      "name": "Kai with Motorcycle",
       "year": 2026
     },
     {
-      "id": "IM2114076-1",
-      "name": "Nike x LEGO Collection Gathered Hair Ties (2 Pack)",
+      "id": "2D001184-1",
+      "name": "Lloyd with Mech",
+      "year": 2026
+    },
+    {
+      "id": "2D001185-1",
+      "name": "Horse",
+      "year": 2026
+    },
+    {
+      "id": "2D001186-1",
+      "name": "Valeria with Puppy",
+      "year": 2026
+    },
+    {
+      "id": "2D001187-1",
+      "name": "Cockatoo",
+      "year": 2026
+    },
+    {
+      "id": "2D001188-1",
+      "name": "Car",
       "year": 2026
     }
   ]
