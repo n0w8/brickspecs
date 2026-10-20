@@ -1,47 +1,17 @@
 {
-  "fetchedAt": "2026-10-19T10:23:53.429Z",
-  "totalSets": 28544,
+  "fetchedAt": "2026-10-20T09:43:13.874Z",
+  "totalSets": 28546,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "2D001164-1",
-      "name": "Police Buggy",
+      "id": "6670124-1",
+      "name": "Giraffe Surprise",
       "year": 2026
     },
     {
-      "id": "2D001182-1",
-      "name": "Construction Worker with Wheel Loader",
-      "year": 2026
-    },
-    {
-      "id": "2D001183-1",
-      "name": "Kai with Motorcycle",
-      "year": 2026
-    },
-    {
-      "id": "2D001184-1",
-      "name": "Lloyd with Mech",
-      "year": 2026
-    },
-    {
-      "id": "2D001185-1",
-      "name": "Horse",
-      "year": 2026
-    },
-    {
-      "id": "2D001186-1",
-      "name": "Valeria with Puppy",
-      "year": 2026
-    },
-    {
-      "id": "2D001187-1",
-      "name": "Cockatoo",
-      "year": 2026
-    },
-    {
-      "id": "2D001188-1",
-      "name": "Car",
-      "year": 2026
+      "id": "6608666-1",
+      "name": "Giraffe Playtime",
+      "year": 2025
     }
   ]
 }
