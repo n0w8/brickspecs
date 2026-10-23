@@ -1,12 +1,6 @@
 {
-  "fetchedAt": "2026-10-22T09:44:14.461Z",
+  "fetchedAt": "2026-10-23T09:40:22.892Z",
   "totalSets": 28547,
   "totalThemes": 496,
-  "newSetsLastRun": [
-    {
-      "id": "L0002253-1",
-      "name": "Parrot Handler with Skeleton, Skeleton Spawner and Dungeon",
-      "year": 2026
-    }
-  ]
+  "newSetsLastRun": []
 }
