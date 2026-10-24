@@ -33712,5 +33712,33 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-10-24T17:33:40.815Z"
+  },
+  {
+    "id": "fc077616-2f15-4013-ba45-34ffed8a6fc4",
+    "type": "news",
+    "title": "A potted history of every LEGO Venice set ever made",
+    "body": "One of the most iconic cities in the world has only been getting bigger and bigger sets",
+    "url": "https://www.brickfanatics.com/a-potted-history-every-lego-venice-set-ever-made",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-10-24T19:43:22.274Z"
+  },
+  {
+    "id": "627b1e8a-d590-455c-9817-a6dbf3dfe808",
+    "type": "news",
+    "title": "Nearly half off LEGO Botanicals, Disney and Star Wars at Amazon",
+    "body": "Grab a stunning LEGO Botanicals model for nearly half price right now",
+    "url": "https://www.brickfanatics.com/half-off-lego-botanicals-disney-star-wars-amazon",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": "Amazon",
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+Nearly+half+off+Botanicals",
+    "postedAt": "2026-10-24T19:43:22.274Z"
   }
 ]
