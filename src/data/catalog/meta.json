@@ -1,6 +1,37 @@
 {
-  "fetchedAt": "2026-10-23T09:40:22.892Z",
-  "totalSets": 28547,
+  "fetchedAt": "2026-10-24T09:12:45.903Z",
+  "totalSets": 28553,
   "totalThemes": 496,
-  "newSetsLastRun": []
+  "newSetsLastRun": [
+    {
+      "id": "40889-1",
+      "name": "Build, Paint and Play!",
+      "year": 2026
+    },
+    {
+      "id": "CBD5601-1",
+      "name": "Marvel: Build or Draw",
+      "year": 2026
+    },
+    {
+      "id": "CBD6601-1",
+      "name": "Build or Draw",
+      "year": 2026
+    },
+    {
+      "id": "GBB5701-1",
+      "name": "Marvel: Battle Box",
+      "year": 2026
+    },
+    {
+      "id": "GBL6301-1",
+      "name": "Star Wars: Celebrate the Season",
+      "year": 2026
+    },
+    {
+      "id": "LNH5701-1",
+      "name": "Marvel: Assemble the Avengers",
+      "year": 2026
+    }
+  ]
 }
