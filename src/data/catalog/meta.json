@@ -1,12 +1,6 @@
 {
-  "fetchedAt": "2026-10-26T10:38:47.861Z",
+  "fetchedAt": "2026-10-27T10:07:36.025Z",
   "totalSets": 28554,
   "totalThemes": 496,
-  "newSetsLastRun": [
-    {
-      "id": "6575864-1",
-      "name": "Stitch M&T",
-      "year": 2026
-    }
-  ]
+  "newSetsLastRun": []
 }
