@@ -1,6 +1,17 @@
 {
-  "fetchedAt": "2026-10-27T10:07:36.025Z",
+  "fetchedAt": "2026-10-28T10:53:49.304Z",
   "totalSets": 28554,
   "totalThemes": 496,
-  "newSetsLastRun": []
+  "newSetsLastRun": [
+    {
+      "id": "5010365-1",
+      "name": "2027 Wall Calendar",
+      "year": 2026
+    },
+    {
+      "id": "5010366-1",
+      "name": "2027 Minifigure a Day Calendar",
+      "year": 2026
+    }
+  ]
 }
