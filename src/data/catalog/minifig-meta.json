@@ -1,114 +1,14 @@
 {
-  "fetchedAt": "2026-10-28T10:53:49.942Z",
-  "totalFigs": 17341,
+  "fetchedAt": "2026-10-29T11:11:13.872Z",
+  "totalFigs": 17343,
   "newFigsLastRun": [
     {
-      "id": "fig-018246",
-      "name": "Pirate, Woman, Reddish Brown Torso, Dark Blue Legs, Black Tricon"
+      "id": "fig-018274",
+      "name": "Cole"
     },
     {
-      "id": "fig-018247",
-      "name": "Prisoner, White Shirt, Black Legs, Dark Orange Hair"
-    },
-    {
-      "id": "fig-018248",
-      "name": "Coconut Cape Soldier, Armor, Dark Bluish Grey Sideburns"
-    },
-    {
-      "id": "fig-018249",
-      "name": "Coconut Cape Soldier, Armor, Black Hair"
-    },
-    {
-      "id": "fig-018250",
-      "name": "Coconut Cape Soldier, Armor, Reddish Brown Beard, Plume"
-    },
-    {
-      "id": "fig-018251",
-      "name": "Coconut Cape Soldier, Armor, Smirk"
-    },
-    {
-      "id": "fig-018252",
-      "name": "Coconut Cape Soldier, Armor, Moustache, Plume"
-    },
-    {
-      "id": "fig-018253",
-      "name": "Important Guy, Medium Lavender Torso"
-    },
-    {
-      "id": "fig-018254",
-      "name": "Lady, White Torso, Lavender Dress"
-    },
-    {
-      "id": "fig-018255",
-      "name": "Scientist, White Labcoat, Sand Blue Legs, Black Hair"
-    },
-    {
-      "id": "fig-018256",
-      "name": "Scientist, White Labcoat, Dark Blue Legs, Light Bluish Grey Hair"
-    },
-    {
-      "id": "fig-018257",
-      "name": "Cyclist, Yellowish Green Torso, Sand Green Legs, Backpack"
-    },
-    {
-      "id": "fig-018258",
-      "name": "Teacher, Grey Suit"
-    },
-    {
-      "id": "fig-018259",
-      "name": "Janitor, Bright Light Blue Shirt, Blue Legs, Dark Blue Cap"
-    },
-    {
-      "id": "fig-018260",
-      "name": "Unknown Role, Olive Green Torso, Nougat Legs, Tan Hair"
-    },
-    {
-      "id": "fig-018261",
-      "name": "Unknown Role, Tan Coat, Black Beret"
-    },
-    {
-      "id": "fig-018262",
-      "name": "Unknown Role, Light Bluish Grey Sweater, Dark Turquoise Legs, Reddish Brown Hair"
-    },
-    {
-      "id": "fig-018263",
-      "name": "Student, Dark Turquoise Torso, Dark Green Legs, Dark Brown Hair, Scarf"
-    },
-    {
-      "id": "fig-018264",
-      "name": "Student, Dark Orange Torso, Dark Blue Legs, Beanie, Headphones"
-    },
-    {
-      "id": "fig-018265",
-      "name": "Unknown Role, Tan Sweater, Olive Green Legs, Dark Orange Hair"
-    },
-    {
-      "id": "fig-018266",
-      "name": "Unknown Role, Dark Red Torso, Dark Tan Legs, Dark Brown Hair"
-    },
-    {
-      "id": "fig-018267",
-      "name": "Unknown Role, Black Suit, Dark Brown Hair"
-    },
-    {
-      "id": "fig-018268",
-      "name": "Artist, Reddish Brown Apron, Black Hair"
-    },
-    {
-      "id": "fig-018269",
-      "name": "Doctor, White Labcoat, Bright Light Blue Legs, Bright Light Yellow Hair"
-    },
-    {
-      "id": "fig-018270",
-      "name": "Teacher, Bright Light Blue Sweater, Sand Blue Legs, Black Hair"
-    },
-    {
-      "id": "fig-018271",
-      "name": "Teacher, Dark Blue Jacket, Dark Brown Legs, Light Bluish Grey Hair"
-    },
-    {
-      "id": "fig-018272",
-      "name": "Botanist, Medium Nougat Apron, Black Hair"
+      "id": "fig-018275",
+      "name": "Woman, Dark Pink Hoodie, Tan Legs, Red Helmet"
     }
   ]
 }
