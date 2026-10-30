@@ -35462,5 +35462,33 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-10-30T18:12:02.932Z"
+  },
+  {
+    "id": "952e3b64-bddc-4eeb-ad6c-1b2f62fc1e36",
+    "type": "news",
+    "title": "The LEGO Group now has its first Head of Celebrity Talent",
+    "body": "A logical move for the company given recent partnerships and sets",
+    "url": "https://www.brickfanatics.com/lego-now-has-its-first-head-of-celebrity-talent",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-10-30T22:16:45.079Z"
+  },
+  {
+    "id": "b1c33cbd-4df5-42ee-90e1-54530e106858",
+    "type": "news",
+    "title": "Win LEGO Star Wars 2003 Cloud City with Retired Sets",
+    "body": "Opportunities like this don't come around often",
+    "url": "https://www.brickfanatics.com/win-lego-star-wars-2003-cloud-city-retired-sets",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-10-30T22:16:45.079Z"
   }
 ]
