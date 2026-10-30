@@ -1,14 +1,5 @@
 {
-  "fetchedAt": "2026-10-29T11:11:13.872Z",
+  "fetchedAt": "2026-10-30T11:05:59.115Z",
   "totalFigs": 17343,
-  "newFigsLastRun": [
-    {
-      "id": "fig-018274",
-      "name": "Cole"
-    },
-    {
-      "id": "fig-018275",
-      "name": "Woman, Dark Pink Hoodie, Tan Legs, Red Helmet"
-    }
-  ]
+  "newFigsLastRun": []
 }

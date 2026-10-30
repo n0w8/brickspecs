@@ -1,37 +1,6 @@
 {
-  "fetchedAt": "2026-10-29T11:11:13.216Z",
+  "fetchedAt": "2026-10-30T11:05:58.465Z",
   "totalSets": 28560,
   "totalThemes": 496,
-  "newSetsLastRun": [
-    {
-      "id": "42709-1",
-      "name": "Pet Care & Play Center",
-      "year": 2027
-    },
-    {
-      "id": "42718-1",
-      "name": "Friendship Party Bus",
-      "year": 2027
-    },
-    {
-      "id": "42719-1",
-      "name": "Heartlake City Shopping Mall",
-      "year": 2027
-    },
-    {
-      "id": "67005-1",
-      "name": "Marvel What if...? Doctor Strange Supreme",
-      "year": 2027
-    },
-    {
-      "id": "6678772-1",
-      "name": "Letter to Santa",
-      "year": 2026
-    },
-    {
-      "id": "6680477-1",
-      "name": "Soap Box Racer",
-      "year": 2026
-    }
-  ]
+  "newSetsLastRun": []
 }
