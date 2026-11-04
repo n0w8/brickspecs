@@ -1,27 +1,17 @@
 {
-  "fetchedAt": "2026-11-03T12:29:52.102Z",
-  "totalSets": 28565,
+  "fetchedAt": "2026-11-04T12:40:37.988Z",
+  "totalSets": 28567,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "11227-1",
-      "name": "Gabby's Dollhouse and Doozie's Doghouse",
-      "year": 2027
+      "id": "21375-1",
+      "name": "Godzilla",
+      "year": 2026
     },
     {
-      "id": "42254-1",
-      "name": "Solar System Planets in Orbit",
-      "year": 2027
-    },
-    {
-      "id": "Build-a-Mini-2027",
-      "name": "2027 Build-A-Minifigure Station Exclusive Parts",
-      "year": 2027
-    },
-    {
-      "id": "DATABASE-2027",
-      "name": "2027 - Unused Parts Database Set",
-      "year": 2027
+      "id": "40888-1",
+      "name": "Godzilla Logo & Footprint",
+      "year": 2026
     }
   ]
 }
