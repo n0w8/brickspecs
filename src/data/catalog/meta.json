@@ -1,17 +1,6 @@
 {
-  "fetchedAt": "2026-11-04T12:40:37.988Z",
+  "fetchedAt": "2026-11-05T12:51:05.968Z",
   "totalSets": 28567,
   "totalThemes": 496,
-  "newSetsLastRun": [
-    {
-      "id": "21375-1",
-      "name": "Godzilla",
-      "year": 2026
-    },
-    {
-      "id": "40888-1",
-      "name": "Godzilla Logo & Footprint",
-      "year": 2026
-    }
-  ]
+  "newSetsLastRun": []
 }
