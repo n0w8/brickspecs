@@ -1,5 +1,10 @@
 {
-  "fetchedAt": "2026-11-07T11:24:10.011Z",
-  "totalFigs": 17363,
-  "newFigsLastRun": []
+  "fetchedAt": "2026-11-08T11:36:48.589Z",
+  "totalFigs": 17364,
+  "newFigsLastRun": [
+    {
+      "id": "fig-018296",
+      "name": "Miner, Armor"
+    }
+  ]
 }
