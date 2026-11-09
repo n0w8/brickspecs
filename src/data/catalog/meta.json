@@ -1,6 +1,22 @@
 {
-  "fetchedAt": "2026-11-08T11:36:47.740Z",
+  "fetchedAt": "2026-11-09T13:28:55.775Z",
   "totalSets": 28587,
   "totalThemes": 496,
-  "newSetsLastRun": []
+  "newSetsLastRun": [
+    {
+      "id": "5010912-1",
+      "name": "R2-D2 Holiday Sweater Key Light",
+      "year": 2026
+    },
+    {
+      "id": "5010916-1",
+      "name": "Cuddle Team Leader Bag Tag",
+      "year": 2026
+    },
+    {
+      "id": "5010920-1",
+      "name": "AirTag Holder 1 x 1 Round (All Colors)",
+      "year": 2026
+    }
+  ]
 }
