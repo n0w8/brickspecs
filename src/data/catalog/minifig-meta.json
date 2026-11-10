@@ -1,5 +1,10 @@
 {
-  "fetchedAt": "2026-11-09T13:28:56.319Z",
-  "totalFigs": 17364,
-  "newFigsLastRun": []
+  "fetchedAt": "2026-11-10T13:07:52.924Z",
+  "totalFigs": 17365,
+  "newFigsLastRun": [
+    {
+      "id": "fig-018297",
+      "name": "Pilot, Black Jacket, Dark Tan Legs, Dark Blue Helmet"
+    }
+  ]
 }
