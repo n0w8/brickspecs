@@ -1,6 +1,52 @@
 {
-  "fetchedAt": "2026-11-11T12:17:22.567Z",
-  "totalSets": 28588,
+  "fetchedAt": "2026-11-12T13:27:25.184Z",
+  "totalSets": 28597,
   "totalThemes": 496,
-  "newSetsLastRun": []
+  "newSetsLastRun": [
+    {
+      "id": "115300-1",
+      "name": "Gold 2 x 4 Plate Key Chain",
+      "year": 2026
+    },
+    {
+      "id": "5010668-1",
+      "name": "London Retro Tote Bag",
+      "year": 2026
+    },
+    {
+      "id": "6651644-1",
+      "name": "Winnie The Pooh 100 Years",
+      "year": 2026
+    },
+    {
+      "id": "6670923-1",
+      "name": "I [Heart] LEGO Store Town Center Tile",
+      "year": 2026
+    },
+    {
+      "id": "6675835-1",
+      "name": "I [Heart] LEGO Store Norwich Tile",
+      "year": 2026
+    },
+    {
+      "id": "6675836-1",
+      "name": "I [Heart] LEGO Store Lakeside Tile",
+      "year": 2026
+    },
+    {
+      "id": "BARRA-1",
+      "name": "I [Heart] LEGO Store Barra Shopping Tile",
+      "year": 2024
+    },
+    {
+      "id": "COOLSPRINGS-1",
+      "name": "I [Heart] LEGO Store Coolsprings Galleria Tile",
+      "year": 2023
+    },
+    {
+      "id": "6382642-1",
+      "name": "I [Heart] LEGO Store 5th Avenue Tile",
+      "year": 2021
+    }
+  ]
 }
