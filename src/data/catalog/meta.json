@@ -1,52 +1,47 @@
 {
-  "fetchedAt": "2026-11-12T13:27:25.184Z",
-  "totalSets": 28597,
+  "fetchedAt": "2026-11-13T12:43:09.258Z",
+  "totalSets": 28605,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "115300-1",
-      "name": "Gold 2 x 4 Plate Key Chain",
+      "id": "75466-1",
+      "name": "Darth Vader 2 in 1 Wall Art",
+      "year": 2027
+    },
+    {
+      "id": "75467-1",
+      "name": "A New Hope Movie Poster",
+      "year": 2027
+    },
+    {
+      "id": "75470-1",
+      "name": "Mustafar Duel",
+      "year": 2027
+    },
+    {
+      "id": "75478-1",
+      "name": "Rebel Y-Wing Starfighter",
+      "year": 2027
+    },
+    {
+      "id": "75480-1",
+      "name": "Duel on Bespin",
+      "year": 2027
+    },
+    {
+      "id": "75482-1",
+      "name": "Up-Scaled Luke Skywalker Minifigure",
+      "year": 2027
+    },
+    {
+      "id": "75495-1",
+      "name": "Stormtrooper (Concept Art) Helmet",
+      "year": 2027
+    },
+    {
+      "id": "L0002255-1",
+      "name": "Famous Steve + Sneaky Creeper + Curious Pig",
       "year": 2026
-    },
-    {
-      "id": "5010668-1",
-      "name": "London Retro Tote Bag",
-      "year": 2026
-    },
-    {
-      "id": "6651644-1",
-      "name": "Winnie The Pooh 100 Years",
-      "year": 2026
-    },
-    {
-      "id": "6670923-1",
-      "name": "I [Heart] LEGO Store Town Center Tile",
-      "year": 2026
-    },
-    {
-      "id": "6675835-1",
-      "name": "I [Heart] LEGO Store Norwich Tile",
-      "year": 2026
-    },
-    {
-      "id": "6675836-1",
-      "name": "I [Heart] LEGO Store Lakeside Tile",
-      "year": 2026
-    },
-    {
-      "id": "BARRA-1",
-      "name": "I [Heart] LEGO Store Barra Shopping Tile",
-      "year": 2024
-    },
-    {
-      "id": "COOLSPRINGS-1",
-      "name": "I [Heart] LEGO Store Coolsprings Galleria Tile",
-      "year": 2023
-    },
-    {
-      "id": "6382642-1",
-      "name": "I [Heart] LEGO Store 5th Avenue Tile",
-      "year": 2021
     }
   ]
 }

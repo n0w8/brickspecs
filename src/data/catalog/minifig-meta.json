@@ -1,5 +1,10 @@
 {
-  "fetchedAt": "2026-11-12T13:27:25.895Z",
-  "totalFigs": 17365,
-  "newFigsLastRun": []
+  "fetchedAt": "2026-11-13T12:43:10.027Z",
+  "totalFigs": 17366,
+  "newFigsLastRun": [
+    {
+      "id": "fig-018298",
+      "name": "Doctor Strange, Plastic Cape, High Medallion, Plain Hair"
+    }
+  ]
 }
