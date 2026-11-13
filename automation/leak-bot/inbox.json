@@ -39662,5 +39662,19 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-11-12T20:32:05.773Z"
+  },
+  {
+    "id": "49159904-4c6e-48c9-b5c6-902d70dc623c",
+    "type": "news",
+    "title": "BrickLink back online",
+    "body": "A week after BrickLink was taken offline, the website is back and a more detailed statement has been issued, confirming that some BrickLink members' usernames and IP addresses were accessed, along with a 'very small number' of email addresses, but no passwords or financial information. Affected …",
+    "url": "https://brickset.com/article/136115",
+    "source": "Brickset",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-11-13T01:25:19.445Z"
   }
 ]
