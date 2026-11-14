@@ -1,47 +1,6 @@
 {
-  "fetchedAt": "2026-11-13T12:43:09.258Z",
+  "fetchedAt": "2026-11-14T11:51:45.657Z",
   "totalSets": 28605,
   "totalThemes": 496,
-  "newSetsLastRun": [
-    {
-      "id": "75466-1",
-      "name": "Darth Vader 2 in 1 Wall Art",
-      "year": 2027
-    },
-    {
-      "id": "75467-1",
-      "name": "A New Hope Movie Poster",
-      "year": 2027
-    },
-    {
-      "id": "75470-1",
-      "name": "Mustafar Duel",
-      "year": 2027
-    },
-    {
-      "id": "75478-1",
-      "name": "Rebel Y-Wing Starfighter",
-      "year": 2027
-    },
-    {
-      "id": "75480-1",
-      "name": "Duel on Bespin",
-      "year": 2027
-    },
-    {
-      "id": "75482-1",
-      "name": "Up-Scaled Luke Skywalker Minifigure",
-      "year": 2027
-    },
-    {
-      "id": "75495-1",
-      "name": "Stormtrooper (Concept Art) Helmet",
-      "year": 2027
-    },
-    {
-      "id": "L0002255-1",
-      "name": "Famous Steve + Sneaky Creeper + Curious Pig",
-      "year": 2026
-    }
-  ]
+  "newSetsLastRun": []
 }
