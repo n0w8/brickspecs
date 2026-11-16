@@ -1,6 +1,47 @@
 {
-  "fetchedAt": "2026-11-15T12:22:31.962Z",
-  "totalSets": 28605,
+  "fetchedAt": "2026-11-16T13:14:31.505Z",
+  "totalSets": 28613,
   "totalThemes": 496,
-  "newSetsLastRun": []
+  "newSetsLastRun": [
+    {
+      "id": "10019745-1",
+      "name": "Eyeball Jibbitz",
+      "year": 2026
+    },
+    {
+      "id": "10019746-1",
+      "name": "Purple Holder Jibbitz",
+      "year": 2026
+    },
+    {
+      "id": "10019750-1",
+      "name": "Big Lightning Bolt Jibbitz",
+      "year": 2026
+    },
+    {
+      "id": "6670939-1",
+      "name": "Macy's Parade 100 Santa Soars",
+      "year": 2026
+    },
+    {
+      "id": "UGLYSWEATER-1",
+      "name": "Ugly Sweater",
+      "year": 2026
+    },
+    {
+      "id": "1276802156-8",
+      "name": "Batman Watch",
+      "year": 2019
+    },
+    {
+      "id": "ELF-1",
+      "name": "Mirkwood Elf - Desolation of Smaug Promotional",
+      "year": 2013
+    },
+    {
+      "id": "199384-1",
+      "name": "Lion Knight polybag",
+      "year": 1984
+    }
+  ]
 }

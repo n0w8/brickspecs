@@ -1,5 +1,10 @@
 {
-  "fetchedAt": "2026-11-15T12:22:32.845Z",
-  "totalFigs": 17366,
-  "newFigsLastRun": []
+  "fetchedAt": "2026-11-16T13:14:32.473Z",
+  "totalFigs": 17367,
+  "newFigsLastRun": [
+    {
+      "id": "fig-018299",
+      "name": "Elf, Green Torso, Bright Green Hat"
+    }
+  ]
 }
