@@ -1,5 +1,10 @@
 {
-  "fetchedAt": "2026-11-17T13:58:49.992Z",
-  "totalFigs": 17367,
-  "newFigsLastRun": []
+  "fetchedAt": "2026-11-18T13:34:12.690Z",
+  "totalFigs": 17368,
+  "newFigsLastRun": [
+    {
+      "id": "fig-018300",
+      "name": "Blacktron Droid, Corrupted Support Robot"
+    }
+  ]
 }
