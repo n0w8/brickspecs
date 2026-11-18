@@ -41384,5 +41384,47 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-11-18T17:58:19.424Z"
+  },
+  {
+    "id": "81b32b4a-996b-4755-aad6-7d9cd5eb9a2d",
+    "type": "deal",
+    "title": "LEGO Black Friday Angebote bei Amazon mit bis zu 20% Rabatt auf exklusive Sets und 42% auf reguläre Sets",
+    "body": "Die Black Friday Woche bei Amazon ist gestartet und mit ihr sind zahlreiche LEGO Angebote an den Start gegangen! Die Aktionen sind insgesamt etwas solider als zum Start der Aktion im letzten Jahr, überraschen aber [...] Der Beitrag LEGO Black Friday Angebote bei Amazon mit bis zu 20% Rabatt auf …",
+    "url": "https://www.stonewars.de/angebote/lego-angebote-amazon-black-friday-woche-2026/",
+    "source": "StoneWars",
+    "set": null,
+    "shop": "Amazon",
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+Black+Friday+Angebote+bei",
+    "postedAt": "2026-11-18T23:55:46.486Z"
+  },
+  {
+    "id": "97f660b2-b278-481e-9980-ae53d621bc2a",
+    "type": "news",
+    "title": "ALDI Nord: Fünf Retro Bau-Sets von Toylino",
+    "body": "Es gibt schon wieder Klemmbaustein-Sets von der Eigenmarke Toylino bei ALDI Nord. Ab dem 23. November 2026 sind in den Filialen des Discounters fünf Retro Bau-Sets für jeweils 12,99 Euro im Angebot. Das kleinste Set mit 388 Teilen ist ein Schallplattenspieler mit Rack, weiter geht es mit einer …",
+    "url": "https://www.promobricks.de/aldi-nord-retro-bau-sets-toylino/",
+    "source": "Promobricks",
+    "set": null,
+    "shop": null,
+    "priceEUR": 12.99,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-11-18T23:55:46.486Z"
+  },
+  {
+    "id": "78666710-3d57-441f-8702-d48b98943593",
+    "type": "deal",
+    "title": "Save 25% on LEGO Star Wars Hutt Palace Sentry Droid Showdown",
+    "body": "Droid discount detected",
+    "url": "https://www.brickfanatics.com/save-25-percent-on-lego-star-wars-hutt-palace-sentry-droid-showdown",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-11-18T23:55:46.486Z"
   }
 ]
