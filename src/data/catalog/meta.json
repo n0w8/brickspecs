@@ -1,6 +1,82 @@
 {
-  "fetchedAt": "2026-11-19T14:00:56.292Z",
-  "totalSets": 28657,
+  "fetchedAt": "2026-11-20T13:43:51.320Z",
+  "totalSets": 28670,
   "totalThemes": 496,
-  "newSetsLastRun": []
+  "newSetsLastRun": [
+    {
+      "id": "77267-1",
+      "name": "SPEED CHAMPIONS 77267",
+      "year": 2027
+    },
+    {
+      "id": "77268-1",
+      "name": "Oracle Red Bull Racing RB22 F1 Race Car",
+      "year": 2027
+    },
+    {
+      "id": "77269-1",
+      "name": "SPEED CHAMPIONS 77269",
+      "year": 2027
+    },
+    {
+      "id": "77270-1",
+      "name": "Mercedes-AMG PETRONAS W17 F1 Race Car",
+      "year": 2027
+    },
+    {
+      "id": "77271-1",
+      "name": "Aston Martin Aramco AMR26 F1 Race Car",
+      "year": 2027
+    },
+    {
+      "id": "77272-1",
+      "name": "Atlassian Williams FW48 F1 Race Car",
+      "year": 2027
+    },
+    {
+      "id": "77273-1",
+      "name": "Visa Cash App RB VCARB 03 F1 Race Car",
+      "year": 2027
+    },
+    {
+      "id": "77274-1",
+      "name": "BWT Alpine A526 F1 Race Car",
+      "year": 2027
+    },
+    {
+      "id": "77275-1",
+      "name": "TGR Haas VF-26 F1 Race Car",
+      "year": 2027
+    },
+    {
+      "id": "77276-1",
+      "name": "Audi Revolut R26 F1 Race Car",
+      "year": 2027
+    },
+    {
+      "id": "77277-1",
+      "name": "Cadillac MAC-26 F1 Race Car",
+      "year": 2027
+    },
+    {
+      "id": "5011071-1",
+      "name": "Gingerbread House",
+      "year": 2026
+    },
+    {
+      "id": "6644855-1",
+      "name": "The North-Pole Squad",
+      "year": 2026
+    },
+    {
+      "id": "6671145-1",
+      "name": "Mini Santa's Workshop",
+      "year": 2026
+    },
+    {
+      "id": "Beijin-1",
+      "name": "Beijing Tile with Red Dragon Minifig on Card",
+      "year": 2019
+    }
+  ]
 }
