@@ -1,80 +1,60 @@
 {
-  "fetchedAt": "2026-11-20T13:43:51.320Z",
-  "totalSets": 28670,
+  "fetchedAt": "2026-11-21T13:08:57.535Z",
+  "totalSets": 28678,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "77267-1",
-      "name": "SPEED CHAMPIONS 77267",
+      "id": "9780241845882-1",
+      "name": "DK Super Readers Level 2: City: Speed Quest",
       "year": 2027
     },
     {
-      "id": "77268-1",
-      "name": "Oracle Red Bull Racing RB22 F1 Race Car",
-      "year": 2027
-    },
-    {
-      "id": "77269-1",
-      "name": "SPEED CHAMPIONS 77269",
-      "year": 2027
-    },
-    {
-      "id": "77270-1",
-      "name": "Mercedes-AMG PETRONAS W17 F1 Race Car",
-      "year": 2027
-    },
-    {
-      "id": "77271-1",
-      "name": "Aston Martin Aramco AMR26 F1 Race Car",
-      "year": 2027
-    },
-    {
-      "id": "77272-1",
-      "name": "Atlassian Williams FW48 F1 Race Car",
-      "year": 2027
-    },
-    {
-      "id": "77273-1",
-      "name": "Visa Cash App RB VCARB 03 F1 Race Car",
-      "year": 2027
-    },
-    {
-      "id": "77274-1",
-      "name": "BWT Alpine A526 F1 Race Car",
-      "year": 2027
-    },
-    {
-      "id": "77275-1",
-      "name": "TGR Haas VF-26 F1 Race Car",
-      "year": 2027
-    },
-    {
-      "id": "77276-1",
-      "name": "Audi Revolut R26 F1 Race Car",
-      "year": 2027
-    },
-    {
-      "id": "77277-1",
-      "name": "Cadillac MAC-26 F1 Race Car",
-      "year": 2027
-    },
-    {
-      "id": "5011071-1",
-      "name": "Gingerbread House",
+      "id": "9798217311316-1",
+      "name": "Marvel: Read. Build. Create. (2026 Edition)",
       "year": 2026
     },
     {
-      "id": "6644855-1",
-      "name": "The North-Pole Squad",
+      "id": "9798217311347-1",
+      "name": "Minecraft: Read. Build. Create.",
       "year": 2026
     },
     {
-      "id": "6671145-1",
-      "name": "Mini Santa's Workshop",
+      "id": "9798217311354-1",
+      "name": "Ninjago: Read. Build. Create. (2026 Edition)",
       "year": 2026
     },
     {
-      "id": "Beijin-1",
+      "id": "9798217311361-1",
+      "name": "Harry Potter: Read. Build. Create. (2026 Edition)",
+      "year": 2026
+    },
+    {
+      "id": "L0002258-1",
+      "name": "Hero and Snow Golem",
+      "year": 2026
+    },
+    {
+      "id": "9788325348397-1",
+      "name": "Harry Potter: Time to Play! (Neville Longbottom Edition)",
+      "year": 2025
+    },
+    {
+      "id": "9788325348441-1",
+      "name": "City: Time to Play (Astronaut Spacewalk)",
+      "year": 2025
+    },
+    {
+      "id": "9780593958940-1",
+      "name": "Ninjago: Read. Build. Create.",
+      "year": 2024
+    },
+    {
+      "id": "9780593958957-1",
+      "name": "Marvel: Read. Build. Create",
+      "year": 2024
+    },
+    {
+      "id": "BEIJING-2",
       "name": "Beijing Tile with Red Dragon Minifig on Card",
       "year": 2019
     }
