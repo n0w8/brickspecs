@@ -1,62 +1,6 @@
 {
-  "fetchedAt": "2026-11-21T13:08:57.535Z",
+  "fetchedAt": "2026-11-22T12:56:09.462Z",
   "totalSets": 28678,
   "totalThemes": 496,
-  "newSetsLastRun": [
-    {
-      "id": "9780241845882-1",
-      "name": "DK Super Readers Level 2: City: Speed Quest",
-      "year": 2027
-    },
-    {
-      "id": "9798217311316-1",
-      "name": "Marvel: Read. Build. Create. (2026 Edition)",
-      "year": 2026
-    },
-    {
-      "id": "9798217311347-1",
-      "name": "Minecraft: Read. Build. Create.",
-      "year": 2026
-    },
-    {
-      "id": "9798217311354-1",
-      "name": "Ninjago: Read. Build. Create. (2026 Edition)",
-      "year": 2026
-    },
-    {
-      "id": "9798217311361-1",
-      "name": "Harry Potter: Read. Build. Create. (2026 Edition)",
-      "year": 2026
-    },
-    {
-      "id": "L0002258-1",
-      "name": "Hero and Snow Golem",
-      "year": 2026
-    },
-    {
-      "id": "9788325348397-1",
-      "name": "Harry Potter: Time to Play! (Neville Longbottom Edition)",
-      "year": 2025
-    },
-    {
-      "id": "9788325348441-1",
-      "name": "City: Time to Play (Astronaut Spacewalk)",
-      "year": 2025
-    },
-    {
-      "id": "9780593958940-1",
-      "name": "Ninjago: Read. Build. Create.",
-      "year": 2024
-    },
-    {
-      "id": "9780593958957-1",
-      "name": "Marvel: Read. Build. Create",
-      "year": 2024
-    },
-    {
-      "id": "BEIJING-2",
-      "name": "Beijing Tile with Red Dragon Minifig on Card",
-      "year": 2019
-    }
-  ]
+  "newSetsLastRun": []
 }
