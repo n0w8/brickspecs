@@ -1,6 +1,47 @@
 {
-  "fetchedAt": "2026-11-22T12:56:09.462Z",
-  "totalSets": 28678,
+  "fetchedAt": "2026-11-23T15:31:25.848Z",
+  "totalSets": 28686,
   "totalThemes": 496,
-  "newSetsLastRun": []
+  "newSetsLastRun": [
+    {
+      "id": "9780241788868-1",
+      "name": "City: Build Your Own Adventure",
+      "year": 2027
+    },
+    {
+      "id": "9781837252855-1",
+      "name": "Star Wars: Celebrate the Galaxy: 50 Years of Star Wars History Reimagined in LEGO Form",
+      "year": 2027
+    },
+    {
+      "id": "6677492-1",
+      "name": "I [Heart] LEGO Store Lyon Tile",
+      "year": 2026
+    },
+    {
+      "id": "6702754-1",
+      "name": "Santa Sticker (Czech Stores)",
+      "year": 2026
+    },
+    {
+      "id": "9788325348380-1",
+      "name": "Ninjago: Dragons Rising: Time to Play",
+      "year": 2025
+    },
+    {
+      "id": "9788325348403-1",
+      "name": "DC Comics Super Heroes: Time to Play",
+      "year": 2025
+    },
+    {
+      "id": "9788325348410-1",
+      "name": "Friends: Time to Play",
+      "year": 2025
+    },
+    {
+      "id": "9788325348434-1",
+      "name": "DREAMZzz: Time to Play",
+      "year": 2025
+    }
+  ]
 }
