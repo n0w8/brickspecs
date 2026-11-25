@@ -1,27 +1,6 @@
 {
-  "fetchedAt": "2026-11-24T15:25:39.958Z",
+  "fetchedAt": "2026-11-25T15:09:57.974Z",
   "totalSets": 28690,
   "totalThemes": 496,
-  "newSetsLastRun": [
-    {
-      "id": "6677056-1",
-      "name": "Gryffindor",
-      "year": 2026
-    },
-    {
-      "id": "6677056-2",
-      "name": "Hufflepuff",
-      "year": 2026
-    },
-    {
-      "id": "6677056-3",
-      "name": "Ravenclaw",
-      "year": 2026
-    },
-    {
-      "id": "6677056-4",
-      "name": "Slytherin",
-      "year": 2026
-    }
-  ]
+  "newSetsLastRun": []
 }
