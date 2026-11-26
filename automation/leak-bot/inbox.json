@@ -43736,5 +43736,33 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-11-25T19:59:33.028Z"
+  },
+  {
+    "id": "07e89df7-a520-4a15-a76f-c2cfe73d6b2b",
+    "type": "news",
+    "title": "BrickLink: Technische Modernisierung wird wichtiger",
+    "body": "Der LEGO-Marktplatz BrickLink ist seit Dienstagabend aus dem Wartungsmodus zurückgekehrt, das Angebot sowohl für Käufer als auch Verkäufer wieder verfügbar. Nach dem zweiten Ausfall der Plattform ist die Kritik in der Community natürlich groß. Laut einer E-Mail an alle registrierten Nutzer von …",
+    "url": "https://www.promobricks.de/bricklink-modernisierung/",
+    "source": "Promobricks",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-11-26T02:41:58.944Z"
+  },
+  {
+    "id": "2e61fbd1-d627-49da-97da-b28d8af0c4bf",
+    "type": "deal",
+    "title": "Berry Week statt Black Week: Das sind die Deals bei BRYX",
+    "body": "Beim Berliner Klemmbaustein-Start-Up BRYX findet aktuell die Berry Week statt. Vom 23. bis zum 30. November 2026 gibt es auf alle Bausets vom Fußball-Stadion bis zum Mosaik im hauseigenen Online-Shop ab 99 Euro einen Rabatt von zehn Prozent. Auf ausgewählte Modell gibt es in dem Aktions-Zeitraum …",
+    "url": "https://www.promobricks.de/berry-week-deals-bryx/",
+    "source": "Promobricks",
+    "set": null,
+    "shop": null,
+    "priceEUR": 99,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-11-26T02:41:58.944Z"
   }
 ]
