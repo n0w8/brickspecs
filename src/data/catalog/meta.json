@@ -1,17 +1,42 @@
 {
-  "fetchedAt": "2026-11-26T14:36:16.548Z",
-  "totalSets": 28692,
+  "fetchedAt": "2026-11-27T14:30:10.973Z",
+  "totalSets": 28699,
   "totalThemes": 496,
   "newSetsLastRun": [
     {
-      "id": "67023-1",
-      "name": "Marvel Rivals: Jeff the Land Shark",
+      "id": "40992-1",
+      "name": "Harry, Draco & Hagrid Figures",
       "year": 2027
     },
     {
-      "id": "5011174-1",
-      "name": "Christmas Craft Set",
-      "year": 2026
+      "id": "42717-1",
+      "name": "Family Dollhouse",
+      "year": 2027
+    },
+    {
+      "id": "76481-1",
+      "name": "Privet Drive",
+      "year": 2027
+    },
+    {
+      "id": "76482-1",
+      "name": "Gryffindor Common Room",
+      "year": 2027
+    },
+    {
+      "id": "76487-1",
+      "name": "Hogwarts Express & Platform 9¾",
+      "year": 2027
+    },
+    {
+      "id": "77084-1",
+      "name": "P-1000",
+      "year": 2027
+    },
+    {
+      "id": "77088-1",
+      "name": "Guaco's Tacos",
+      "year": 2027
     }
   ]
 }
