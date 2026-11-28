@@ -44422,5 +44422,61 @@
     "rrpEUR": null,
     "buyUrl": null,
     "postedAt": "2026-11-27T20:42:18.234Z"
+  },
+  {
+    "id": "33cca161-d0dd-4994-89ee-a1ee41ec67c8",
+    "type": "news",
+    "title": "LEGO Pick a Brick adds exclusive printed parts from One Piece, Star Wars, X-Files",
+    "body": "This is going to be an expensive month...",
+    "url": "https://www.brickfanatics.com/lego-pick-a-brick-december-2026-new-additions",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-11-28T02:57:31.510Z"
+  },
+  {
+    "id": "e38741bc-cdb8-4181-bf9b-fc68390ed0cc",
+    "type": "deal",
+    "title": "Last chance for 10309 Succulents — 30% off while LEGO.com stays sold out",
+    "body": "A sold out LEGO Botanicals build is now 30% off at one US retailer before it's gone for good.",
+    "url": "https://www.brickfanatics.com/last-chance-10309-succulents-30-off-lego-com-sold",
+    "source": "Brick Fanatics",
+    "set": "10309",
+    "shop": "LEGO Shop",
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": "https://www.amazon.de/s?k=LEGO+10309",
+    "postedAt": "2026-11-28T02:57:31.510Z"
+  },
+  {
+    "id": "71a3702f-f6ab-40ba-9b8d-788c917ee43c",
+    "type": "deal",
+    "title": "LEGO Game Boy drops to 41% off — third new low price this month at Very with code",
+    "body": "A new low (price) for the LEGO Game Boy",
+    "url": "https://www.brickfanatics.com/lego-game-boy-drops-to-41-off-at-very-record-low",
+    "source": "Brick Fanatics",
+    "set": null,
+    "shop": null,
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-11-28T02:57:31.510Z"
+  },
+  {
+    "id": "88bc41fa-c0cc-497f-b9b9-ab589b00b547",
+    "type": "news",
+    "title": "BFCM weekend offers continue",
+    "body": "The Black Friday/Cyber Monday extravaganza at LEGO.com continues today. To recap, 21375 Godzilla is now available with its exclusive gift-with-purchase, 40888 Godzilla Logo & Footprint. 40914 Retro Jukebox and 40918 Winter Snow Globe have returned with the same purchase thresholds as last weekend: …",
+    "url": "https://brickset.com/article/136638",
+    "source": "Brickset",
+    "set": null,
+    "shop": "LEGO Shop",
+    "priceEUR": null,
+    "rrpEUR": null,
+    "buyUrl": null,
+    "postedAt": "2026-11-28T02:57:31.510Z"
   }
 ]
